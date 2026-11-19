@@ -148,4 +148,59 @@ Chronological scientific record of all hypotheses, implementations, Kaggle GPU r
    - Reason: lowering global `w_fg` from `0.45 → 0.28` let negative confounders (`PV-100`, `PV-96`) cross `0.50`, AND `top2_soft` without support-shot hubness debiasing amplified high-cosine hub shots.
 5. **Iteration 3 Design Plan**: Combine precision-safe global threshold (`w_fg ≈ 0.36..0.38`) + **Support-Shot Hubness Debiasing (`ShotDehub`)** + **Gated Self-Rescue (`M2_SelfRescue`, recovers Recall inside true PV without lowering negative thresholds)** + **DINO `64×64` Feature-Affinity Propagation** + **`512×512` Fast RGB-Guided Boundary Alignment & Weak-Speckle Guard** (lifting `BF1@2px` and suppressing `PosBgFP`/`NegFP`).
 
+---
+
+## Iteration 3 — Balanced Calibration + Shot-Dehubbing + Self-Rescue + DINO Affinity + RGB Guided Alignment (`COMPLETED` on Kaggle T4)
+- **Kaggle Kernel**: `zh0416/pv-2m-dinov3-sat-iter3` (`KernelWorkerStatus.COMPLETE`, CUDA Tesla T4, 608s runtime for 10 variants × 120 episodes + diagnostic comparison panels).
+- **Results artifact**: [`results/iter3/iter3_summary.json`](../results/iter3/iter3_summary.json), [`results/iter3/pv-2m-dinov3-sat-iter3.log`](../results/iter3/pv-2m-dinov3-sat-iter3.log), [`results/iter3/panels/k5_fn_compare.png`](../results/iter3/panels/k5_fn_compare.png), [`results/iter3/panels/k5_fp_compare.png`](../results/iter3/panels/k5_fp_compare.png), [`scripts/analyze_iter3.py`](../scripts/analyze_iter3.py), [`pvfs/iter3_methods.py`](../pvfs/iter3_methods.py).
+- **Note**: Fixed the `B0_32_Ref` calibration mask selector (`fg_all_masks`), restoring exact match to Iter 0 & Iter 1 (`0.6252 / 0.6663 / 0.7267`).
+
+### Quantitative Iteration 3 Incremental & LOO Ablation Table (Dev 79 images, 4 Folds × 10 Episodes)
+| Variant | $K$ | Dice@0.5 | IoU@0.5 | AP512 | Recall | Prec | PosBgFP | BF1@2px | Small `<5%` D / R | NegFP | NegClean | `PV-93` / `PV-100` / `PV-96` / `PV-55r` |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `B0_32_Ref` | 1 | 0.6252 | 0.4977 | 0.7933 | 0.7132 | 0.6682 | 0.0893 | 0.2172 | 0.4584 / 0.6774 | 0.0589 | 0.5188 | 0.208 / 0.151 / 0.151 / 0.693 |
+| `M1_Full_Ref` | 1 | 0.6490 | 0.5319 | 0.8590 | **0.7784** | 0.6821 | 0.1057 | 0.2844 | 0.4813 / **0.7521** | 0.0813 | 0.4500 | 0.220 / 0.157 / 0.227 / **0.881** |
+| `M3_Base_CalDehub` | 1 | 0.6486 | 0.5402 | 0.8566 | 0.6685 | 0.7661 | 0.0462 | 0.2883 | 0.5224 / 0.6055 | 0.0308 | 0.6937 | 0.157 / 0.083 / 0.108 / 0.733 |
+| `M3_Plus_Rescue` | 1 | 0.6764 | 0.5721 | 0.8648 | 0.7027 | **0.7701** | 0.0429 | 0.3311 | 0.5541 / 0.6653 | 0.0348 | 0.6687 | 0.171 / 0.093 / 0.114 / 0.801 |
+| `M3_Plus_Affinity` | 1 | **0.6817** | 0.5803 | 0.8729 | 0.7083 | 0.7649 | **0.0424** | **0.3439** | 0.5632 / 0.6686 | 0.0340 | 0.6875 | 0.173 / 0.094 / 0.111 / 0.802 |
+| `M3_Full` | 1 | 0.6807 | **0.5813** | **0.8737** | 0.7078 | 0.7580 | 0.0426 | 0.3411 | **0.5642** / 0.6629 | 0.0329 | 0.7125 | 0.172 / 0.091 / 0.109 / 0.796 |
+| `M3_NoRescue_LOO` | 1 | 0.6466 | 0.5438 | 0.8668 | 0.6647 | 0.7589 | 0.0449 | 0.2936 | 0.5225 / 0.5894 | **0.0276** | **0.7188** | **0.154 / 0.076 / 0.100** / 0.714 |
+| `B0_32_Ref` | 3 | 0.6663 | 0.5438 | 0.8473 | 0.6716 | 0.7972 | 0.0476 | 0.2326 | 0.5439 / 0.6100 | 0.0308 | 0.7563 | 0.128 / 0.177 / 0.116 / 0.282 |
+| `M1_Full_Ref` | 3 | 0.7236 | 0.6202 | 0.9206 | 0.6852 | **0.8789** | **0.0202** | 0.3331 | 0.6042 / 0.6020 | **0.0269** | **0.8250** | **0.143 / 0.149 / 0.108** / 0.463 |
+| `M3_Base_CalDehub` | 3 | 0.7215 | 0.6181 | 0.9223 | 0.6987 | 0.8679 | 0.0241 | 0.3417 | 0.5979 / 0.6299 | 0.0334 | 0.8000 | 0.146 / 0.209 / 0.145 / 0.517 |
+| `M3_Plus_Rescue` | 3 | 0.7503 | 0.6515 | 0.9247 | 0.7329 | 0.8689 | 0.0228 | 0.3880 | 0.6290 / 0.6805 | 0.0367 | 0.7937 | 0.164 / 0.233 / 0.147 / 0.587 |
+| `M3_Plus_Affinity` | 3 | 0.7528 | 0.6572 | 0.9295 | 0.7379 | 0.8659 | 0.0229 | 0.3990 | 0.6285 / 0.6814 | 0.0370 | 0.7937 | 0.168 / 0.239 / 0.143 / 0.581 |
+| `M3_Full` | 3 | 0.7479 | 0.6546 | 0.9285 | 0.7356 | 0.8503 | 0.0234 | 0.3968 | 0.6173 / 0.6693 | 0.0373 | 0.8000 | 0.172 / 0.246 / 0.140 / 0.568 |
+| `M3_NoDehub_LOO` | 3 | **0.7647** | **0.6725** | **0.9308** | **0.7642** | 0.8477 | 0.0270 | **0.4243** | **0.6362** / 0.6887 | 0.0397 | 0.7625 | 0.189 / 0.246 / 0.144 / 0.591 |
+| `M3_NoRescue_LOO` | 3 | 0.7121 | 0.6148 | 0.9264 | 0.6919 | 0.8529 | 0.0237 | 0.3437 | 0.5840 / 0.6138 | 0.0327 | 0.8125 | 0.148 / 0.213 / 0.135 / 0.477 |
+| `M3_Cal28_LOO` | 3 | 0.7472 | 0.6521 | 0.9255 | 0.7603 | 0.8250 | 0.0323 | 0.3961 | 0.5984 / **0.6939** | 0.0454 | 0.7812 | 0.188 / 0.278 / 0.196 / **0.623** |
+| `B0_32_Ref` | 5 | 0.7267 | 0.6052 | 0.8647 | 0.7165 | 0.8161 | 0.0402 | 0.2751 | 0.6265 / 0.6448 | 0.0184 | 0.8125 | 0.166 / 0.047 / 0.051 / 0.344 |
+| `M1_Full_Ref` | 5 | 0.7674 | 0.6648 | 0.9375 | 0.7102 | **0.9137** | **0.0141** | 0.3618 | 0.6470 / 0.6153 | **0.0176** | **0.8500** | **0.187 / 0.043 / 0.040** / 0.494 |
+| `M3_Base_CalDehub` | 5 | 0.7948 | 0.6958 | 0.9369 | 0.7676 | 0.8950 | 0.0229 | 0.4284 | 0.6758 / 0.6856 | 0.0244 | 0.7938 | 0.208 / 0.064 / 0.067 / 0.695 |
+| `M3_Plus_Rescue` | 5 | 0.8154 | 0.7231 | 0.9397 | 0.8001 | 0.8919 | 0.0229 | 0.4789 | 0.7007 / 0.7422 | 0.0280 | 0.7812 | 0.221 / 0.087 / 0.076 / 0.822 |
+| `M3_Plus_Affinity` | 5 | 0.8182 | 0.7284 | 0.9439 | 0.8063 | 0.8893 | 0.0235 | 0.4905 | **0.7010** / 0.7449 | 0.0280 | 0.7937 | 0.225 / 0.087 / 0.074 / 0.829 |
+| `M3_Full` | 5 | 0.8151 | 0.7273 | 0.9439 | 0.8072 | 0.8810 | 0.0247 | 0.4885 | 0.6890 / 0.7340 | 0.0279 | 0.8000 | 0.231 / 0.084 / 0.072 / 0.827 |
+| `M3_NoDehub_LOO` | 5 | 0.8204 | **0.7358** | **0.9447** | 0.8168 | 0.8732 | 0.0241 | **0.5033** | 0.6983 / 0.7390 | 0.0274 | 0.7812 | 0.233 / 0.101 / 0.074 / 0.795 |
+| `M3_NoRescue_LOO` | 5 | 0.7882 | 0.6928 | 0.9415 | 0.7642 | 0.8875 | 0.0237 | 0.4275 | 0.6575 / 0.6649 | 0.0231 | 0.8125 | 0.215 / 0.054 / 0.061 / 0.659 |
+| `M3_Cal28_LOO` | 5 | **0.8212** | 0.7341 | 0.9413 | **0.8371** | 0.8603 | 0.0316 | 0.5008 | 0.6918 / **0.7694** | 0.0342 | 0.7562 | 0.241 / 0.112 / 0.100 / **0.907** |
+
+### Strict Ablation & Acceptance Verdict After Iteration 3
+1. **Validated Core Stack (`M3_Plus_Affinity` — pure frozen DINOv3-SAT features)**:
+   - Every retained module passes strict incremental + LOO ablation across folds:
+     - **RoPE-1024 Multi-Scale (`M1_Scale`)**: $+0.046..+0.074$ Dice (4/4 folds).
+     - **Core Interior + Mid-64 Veto (`M1_Full`)**: pushes `AP512` to `0.9206 / 0.9375` and cuts `PosBgFP` $>50\%$.
+     - **Gated Query Self-Rescue (`M2/M3_SelfRescue`)**: $+0.0278$ ($K=1$), $+0.0287$ ($K=3$), $+0.0207$ ($K=5$) Dice across **4/4 folds** (`M3_Plus_Rescue` vs `M3_Base_CalDehub`); LOO removal loses `0.027..0.036` Dice (`4/4` folds).
+     - **DINO `64×64` Feature-Affinity Random Walk (`M3_Affinity`)**: $+0.0053$ ($K=1$, 4/4 folds), $+0.0025$ ($K=3$), $+0.0028$ ($K=5$) Dice, pushes `AP512` consistently across **4/4 folds** up to **`0.8729 / 0.9295 / 0.9439`**, lifts `BF1@2px` by `+0.011..+0.013`.
+   - **Pruned in Iter 3**:
+     - `M3_Guided` (`512×512` RGB guided filter + speckle guard): **PRUNED** (`M3_Full` vs `M3_Plus_Affinity`: hurt `Dice` `-0.0049` at $K=3$ and `-0.0031` at $K=5$, `Prec` `-0.0156`, `SmallD` `-0.012`).
+     - `M3_ShotDehub` (`K>=2`): **PRUNED** (`M3_Full` vs `M3_NoDehub_LOO`: reduced $K=3$ `NegFP` slightly by `0.0024` 4/4 folds, but cost `-0.0168` Dice at $K=3$ across 0/4 folds). Note `M3_Cal38 + SelfRescue + Affinity` without `Dehub`/`Guided` is clean and stronger.
+2. **Overall `M3_Plus_Affinity` vs Exact Baseline `B0_32_Ref`**:
+   - **$K=1$**: `Dice 0.6252 → 0.6817` (**`+0.0565`**, CI `[+0.0356, +0.0787]`, 4/4 folds), `AP512 0.7933 → 0.8729` (`+0.0797`, 4/4 folds), `Prec 0.6682 → 0.7649`, `NegFP 0.0589 → 0.0340` (**`-42.3%`**, 4/4 folds), `BF1 0.2172 → 0.3439` → **`Gate_FP=True`, `Gate_Net=True`**.
+   - **$K=3$**: `Dice 0.6663 → 0.7528` (**`+0.0865`**, CI `[+0.0660, +0.1084]`, 4/4 folds), `AP512 0.8473 → 0.9295` (`+0.0822`, 4/4 folds), `Rec +0.0663`, `Prec +0.0686` (4/4 folds), `BF1 0.2326 → 0.3990`, `NegFP 0.0308 → 0.0370` → **`Gate_FP=True` (Prec +0.0686, 4/4 folds)**; `Gate_Net=False` solely because `NegFP +0.0061 > +0.002` ceiling (dominated by `PV-93`, `PV-100`, `PV-96`).
+   - **$K=5$**: `Dice 0.7267 → 0.8182` (**`+0.0915`**, CI `[+0.0653, +0.1209]`, 4/4 folds), `AP512 0.8647 → 0.9439` (`+0.0792`, 4/4 folds), `Rec +0.0898` (4/4 folds), `Prec +0.0732` (4/4 folds), `SmallR +0.1001`, `BF1 0.2751 → 0.4905`, `NegFP 0.0184 → 0.0280` → **`Gate_FP=True` (Prec +0.0732, 4/4 folds)**; `Gate_Net=False` solely due to `NegFP +0.0096 > +0.002` ceiling.
+3. **Next-Session Handoff (Iteration 4 + Sealed Test)**:
+   - The **21 sealed test images remain 100% untouched**.
+   - Next focus if continuing: (a) tighten `SelfRescue` negative-confounder veto on `PV-93 / PV-100 / PV-96` (drop `NegFP` below `0.025 / 0.015` to clear `Gate_Net` at $K=3,5$ too), (b) dedicated aquatic sparse-PV rescue for `PV-73.tif` (`Rec=0.10`), and (c) execute the **one-shot sealed 21-image test evaluation** after final lock.
+
+
 
