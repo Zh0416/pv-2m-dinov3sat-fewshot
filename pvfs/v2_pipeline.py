@@ -196,8 +196,9 @@ def train_fold_scfb_decoder(
         cand_pos = [qid for qid in pos_all if site_of[qid] not in sup_site_set]
         if not cand_pos:
             cand_pos = [qid for qid in pos_all if qid not in set(sup_ids)]
-        q_pos = rng.sample(cand_pos, min(2, len(cand_pos)))
-        q_neg = rng.sample(neg_ids, min(2, len(neg_ids))) if neg_ids else []
+        use_neg = bool(neg_ids) and (step % 2 == 0)
+        q_pos = rng.sample(cand_pos, min(3 if use_neg else 4, len(cand_pos)))
+        q_neg = rng.sample(neg_ids, 1) if use_neg else []
         q_ids = q_pos + q_neg
 
         with torch.inference_mode():

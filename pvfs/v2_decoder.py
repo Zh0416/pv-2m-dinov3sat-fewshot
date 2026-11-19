@@ -165,7 +165,7 @@ def scfb_episodic_loss(logits: torch.Tensor, targets: torch.Tensor) -> torch.Ten
         tp = (probs * yp).sum(dim=(1, 2, 3))
         fp = (probs * (1.0 - yp)).sum(dim=(1, 2, 3))
         fn = ((1.0 - probs) * yp).sum(dim=(1, 2, 3))
-        tversky = 1.0 - (tp + 1e-4) / (tp + 0.42 * fp + 0.58 * fn + 1e-4)
+        tversky = 1.0 - (tp + 1e-4) / (tp + 0.35 * fp + 0.65 * fn + 1e-4)
 
         dil = F.max_pool2d(yp, kernel_size=5, stride=1, padding=2)
         ero = -F.max_pool2d(-yp, kernel_size=5, stride=1, padding=2)
@@ -182,7 +182,7 @@ def scfb_episodic_loss(logits: torch.Tensor, targets: torch.Tensor) -> torch.Ten
         neg_bce = F.binary_cross_entropy_with_logits(ln, yn, reduction="none")
         k_hard = max(64, ln.shape[1] // 100)  # top-1% hardest FP pixels on pure-negative scenes
         hard_bce = neg_bce.topk(k_hard, dim=1).values.mean()
-        neg_loss = 0.35 * neg_bce.mean() + 0.75 * hard_bce
+        neg_loss = 0.20 * neg_bce.mean() + 0.40 * hard_bce
         loss = loss + neg_loss * (float((~pos_img).sum().item()) / b_total)
 
     return loss
