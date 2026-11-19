@@ -1,0 +1,23 @@
+[{"stream_name":"stderr","time":1.978880545,"data":"Cloning into '/tmp/pv-2m-dinov3sat-fewshot'...\n"}
+,{"stream_name":"stderr","time":29.423115011,"data":"Cloning into '/tmp/dinov3-source'...\n"}
+,{"stream_name":"stderr","time":30.804913387,"data":"HEAD is now at 6876159 Remove unused LinearW24 (2:4 sparsity layer) (#352)\n"}
+,{"stream_name":"stdout","time":39.949801482,"data":"Downloading: \"file:///kaggle/input/datasets/zh0416/dinov3-sat-geovit-l-14-336/dinov3_vitl16_pretrain_sat493m-eadcf0ff.pth\" to /root/.cache/torch/hub/checkpoints/dinov3_vitl16_pretrain_sat493m-eadcf0ff.pth\n"}
+,{"stream_name":"stderr","time":40.625071465,"data":"\r  0%|          | 0.00/1.13G [00:00\u003c?, ?B/s]\r 17%|█▋        | 197M/1.13G [00:00\u003c00:00, 2.06GB/s]\r 34%|███▍      | 394M/1.13G [00:00\u003c00:00, 2.06GB/s]\r 51%|█████     | 592M/1.13G [00:00\u003c00:00, 2.07GB/s]\r 68%|██████▊   | 790M/1.13G [00:00\u003c00:00, 2.07GB/s]\r 85%|████████▌ | 988M/1.13G [00:00\u003c00:00, 2.07GB/s]\r100%|██████████| 1.13G/1.13G [00:00\u003c00:00, 2.07GB/s]\n"}
+,{"stream_name":"stdout","time":64.817694969,"data":"[Iter0] Cached/loaded DINOv3-SAT features 20/79\n"}
+,{"stream_name":"stdout","time":75.467606405,"data":"[Iter0] Cached/loaded DINOv3-SAT features 40/79\n"}
+,{"stream_name":"stdout","time":86.153751558,"data":"[Iter0] Cached/loaded DINOv3-SAT features 60/79\n"}
+,{"stream_name":"stdout","time":96.215265377,"data":"[Iter0] Cached/loaded DINOv3-SAT features 79/79\n"}
+,{"stream_name":"stdout","time":119.579850027,"data":"[Iter0] B0_PosOnly K=1: Dice=0.3580 Recall=0.2800 Prec=0.7770 AP512=0.7850 NegFP=0.0029\n"}
+,{"stream_name":"stdout","time":144.873338652,"data":"[Iter0] B0_PosOnly K=3: Dice=0.6273 Recall=0.6862 Prec=0.7111 AP512=0.8034 NegFP=0.0376\n"}
+,{"stream_name":"stdout","time":170.086813297,"data":"[Iter0] B0_PosOnly K=5: Dice=0.6781 Recall=0.7114 Prec=0.7356 AP512=0.8239 NegFP=0.0231\n"}
+,{"stream_name":"stdout","time":196.958568909,"data":"[Iter0] B0_Contrast K=1: Dice=0.6252 Recall=0.7133 Prec=0.6682 AP512=0.7933 NegFP=0.0589\n"}
+,{"stream_name":"stdout","time":224.078063012,"data":"[Iter0] B0_Contrast K=3: Dice=0.6663 Recall=0.6715 Prec=0.7973 AP512=0.8473 NegFP=0.0308\n"}
+,{"stream_name":"stdout","time":251.546301535,"data":"[Iter0] B0_Contrast K=5: Dice=0.7267 Recall=0.7165 Prec=0.8161 AP512=0.8647 NegFP=0.0184\n"}
+,{"stream_name":"stdout","time":256.480469271,"data":"Iter0 complete! Device: cuda\n"}
+,{"stream_name":"stderr","time":270.738334775,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":270.738369815,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":271.204845251,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":271.20487593,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":272.153347513,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":273.572111657,"data":"[NbConvertApp] Writing 279131 bytes to __results__.html\n"}
+]

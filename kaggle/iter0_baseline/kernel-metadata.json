@@ -1,5 +1,5 @@
 {
-  "id": "zh0416/pv-2m-dinov3sat-iter0-baseline",
+  "id": "zh0416/pv-2m-dinov3-sat-iter0-baseline",
   "title": "PV 2m DINOv3-SAT Iter0 Baseline",
   "code_file": "run_kaggle_iter0.py",
   "language": "python",
