@@ -99,7 +99,11 @@ class SCFBDecoder(nn.Module):
         up_512 = F.interpolate(d1, size=x.shape[-2:], mode="bilinear", align_corners=False)
         fine = self.fine_proj(x_fine)
         delta = self.head_512(torch.cat((up_512, fine), dim=1))
-        return x[:, 0:1] + self.res_scale * delta
+        # Positive residual only opens near plausible semantic support (prevents open-water hallucinations);
+        # negative suppression remains active everywhere to clean isolated confounders.
+        sem_anchor = torch.sigmoid((x[:, 0:1] + 2.0) / 0.80)
+        bounded_delta = F.relu(delta) * sem_anchor - F.relu(-delta)
+        return x[:, 0:1] + self.res_scale * bounded_delta
 
 
 def compute_support_rgb_stats(
@@ -182,7 +186,7 @@ def scfb_episodic_loss(logits: torch.Tensor, targets: torch.Tensor) -> torch.Ten
         neg_bce = F.binary_cross_entropy_with_logits(ln, yn, reduction="none")
         k_hard = max(64, ln.shape[1] // 100)  # top-1% hardest FP pixels on pure-negative scenes
         hard_bce = neg_bce.topk(k_hard, dim=1).values.mean()
-        neg_loss = 0.20 * neg_bce.mean() + 0.40 * hard_bce
+        neg_loss = 0.25 * neg_bce.mean() + 0.50 * hard_bce
         loss = loss + neg_loss * (float((~pos_img).sum().item()) / b_total)
 
     return loss
