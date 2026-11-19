@@ -31,13 +31,21 @@ class _DSConvBlock(nn.Module):
 
 
 class SCFBDecoder(nn.Module):
-    """Lightweight Support-Conditioned Frequency-Boundary Residual Decoder (~42K params)."""
+    """Disentangled Support-Conditioned Frequency-Boundary Residual Decoder (~38K params).
+
+    Design:
+      - Semantic Context Stream (channels 0..5, 7 = sem_6 + color_contrast) runs 512->64->512
+        to clean semantic blobs without overfitting coarse FFT band ratios on dense farms.
+      - Fine Frequency-Boundary Stream (channels 0, 6, 8..16 = z_sem + z_freq + luma_hp + freq_512)
+        operates strictly at 512x512 resolution to snap edges & suppress non-periodic speckles.
+    """
 
     def __init__(self, in_ch: int = 17) -> None:
         super().__init__()
-        # Multi-scale context path: 512 -> 256 -> 128 -> 64
+        ctx_ch = 7   # sem_6 (0..5) + color_contrast (7)
+        fine_ch = 11  # z_sem (0) + z_freq (6) + luma_hp (8) + freq_512 (9..16)
         self.stem = nn.Sequential(
-            nn.Conv2d(in_ch, 24, kernel_size=3, stride=2, padding=1, bias=False),
+            nn.Conv2d(ctx_ch, 24, kernel_size=3, stride=2, padding=1, bias=False),
             nn.GroupNorm(4, 24),
             nn.SiLU(inplace=True),
             _DSConvBlock(24, 24),
@@ -63,12 +71,12 @@ class SCFBDecoder(nn.Module):
             nn.SiLU(inplace=True),
             _DSConvBlock(24, 24),
         )
-        # Full-resolution 512x512 boundary refinement head with signed local luma & frequency cues
+        # Full-resolution 512x512 frequency + signed luma boundary head
         self.fine_proj = nn.Sequential(
-            nn.Conv2d(in_ch, 20, kernel_size=3, padding=1, bias=False),
+            nn.Conv2d(fine_ch, 20, kernel_size=3, padding=1, bias=False),
             nn.GroupNorm(4, 20),
             nn.SiLU(inplace=True),
-            _DSConvBlock(20, 20),
+            _DSConvBlock(20, 20, dilation=2),
         )
         self.head_512 = nn.Sequential(
             _DSConvBlock(24 + 20, 24),
@@ -76,17 +84,20 @@ class SCFBDecoder(nn.Module):
         )
         nn.init.zeros_(self.head_512[-1].weight)
         nn.init.zeros_(self.head_512[-1].bias)
-        self.res_scale = nn.Parameter(torch.tensor(0.75))
+        self.res_scale = nn.Parameter(torch.tensor(0.80))
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        e1 = self.stem(x)   # [B, 24, 256, 256]
-        e2 = self.enc2(e1)  # [B, 32, 128, 128]
-        e3 = self.enc3(e2)  # [B, 48, 64, 64]
+        x_ctx = torch.cat((x[:, :6], x[:, 7:8]), dim=1)  # 7 ch: semantic + support color contrast
+        x_fine = torch.cat((x[:, 0:1], x[:, 6:7], x[:, 8:]), dim=1)  # 11 ch: z_sem + z_freq + luma_hp + freq_512
+
+        e1 = self.stem(x_ctx)  # [B, 24, 256, 256]
+        e2 = self.enc2(e1)     # [B, 32, 128, 128]
+        e3 = self.enc3(e2)     # [B, 48, 64, 64]
 
         d2 = self.dec2(torch.cat((F.interpolate(e3, size=e2.shape[-2:], mode="bilinear", align_corners=False), e2), dim=1))
         d1 = self.dec1(torch.cat((F.interpolate(d2, size=e1.shape[-2:], mode="bilinear", align_corners=False), e1), dim=1))
         up_512 = F.interpolate(d1, size=x.shape[-2:], mode="bilinear", align_corners=False)
-        fine = self.fine_proj(x)
+        fine = self.fine_proj(x_fine)
         delta = self.head_512(torch.cat((up_512, fine), dim=1))
         return x[:, 0:1] + self.res_scale * delta
 
@@ -100,7 +111,7 @@ def compute_support_rgb_stats(
     """Compute domain-relative RGB foreground/background centroids strictly from support images."""
     fg_pix, bg_pix = [], []
     for sid in support_ids:
-        rgb_t = rgb_by_id[sid].to(device).float()  # [3, 512, 512] in [0, 1]
+        rgb_t = rgb_by_id[sid].to(device).float()
         m = torch.from_numpy(mask_by_id[sid] > 0).to(device)
         if m.any():
             fg_pix.append(rgb_t[:, m].mean(dim=1))
@@ -130,7 +141,6 @@ def build_decoder_input_512(
     d_bg = ((rgb_f - bg_rgb_mean[:, None, None]) ** 2).sum(dim=0).sqrt()
     color_contrast = ((d_bg - d_fg) / 0.25).clamp(-2.5, 2.5)[None]  # [1, 512, 512]
 
-    # Signed local high-pass luminance (gives crisp sub-pixel inside-vs-outside panel polarity)
     luma = (0.299 * rgb_f[0] + 0.587 * rgb_f[1] + 0.114 * rgb_f[2])[None, None]
     luma_mean = F.avg_pool2d(luma, kernel_size=31, stride=1, padding=15, count_include_pad=False)
     luma_hp = ((luma - luma_mean) / (luma.std().clamp_min(0.05))).clamp(-3.0, 3.0)[0]  # [1, 512, 512]
@@ -143,8 +153,7 @@ def build_decoder_input_512(
 
 
 def scfb_episodic_loss(logits: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
-    """Recall-preserving Tversky + Strong Edge-Weighted BCE + Balanced Top-K Negative Suppression."""
-    # targets: [B, 1, H, W] float in {0, 1}
+    """Recall-preserving Tversky + Strong Edge-Weighted BCE + Top-1% Hard-Negative Suppression."""
     pos_img = (targets.sum(dim=(1, 2, 3)) > 0.5)
     loss = logits.new_tensor(0.0)
     b_total = max(1, logits.shape[0])
@@ -156,10 +165,8 @@ def scfb_episodic_loss(logits: torch.Tensor, targets: torch.Tensor) -> torch.Ten
         tp = (probs * yp).sum(dim=(1, 2, 3))
         fp = (probs * (1.0 - yp)).sum(dim=(1, 2, 3))
         fn = ((1.0 - probs) * yp).sum(dim=(1, 2, 3))
-        # Alpha=0.40, Beta=0.60 protects recall on small/hard PV arrays
-        tversky = 1.0 - (tp + 1e-4) / (tp + 0.40 * fp + 0.60 * fn + 1e-4)
+        tversky = 1.0 - (tp + 1e-4) / (tp + 0.42 * fp + 0.58 * fn + 1e-4)
 
-        # Highlight 3px morphological edge band around PV ground truth strongly for BF1@2px
         dil = F.max_pool2d(yp, kernel_size=5, stride=1, padding=2)
         ero = -F.max_pool2d(-yp, kernel_size=5, stride=1, padding=2)
         edge_band = (dil - ero).clamp(0.0, 1.0)
@@ -173,10 +180,9 @@ def scfb_episodic_loss(logits: torch.Tensor, targets: torch.Tensor) -> torch.Ten
         ln = logits[~pos_img].reshape((~pos_img).sum().item(), -1)
         yn = torch.zeros_like(ln)
         neg_bce = F.binary_cross_entropy_with_logits(ln, yn, reduction="none")
-        # Mine top-2% hardest pixels on pure negative scenes rather than shifting global bias
-        k_hard = max(64, ln.shape[1] // 50)
+        k_hard = max(64, ln.shape[1] // 100)  # top-1% hardest FP pixels on pure-negative scenes
         hard_bce = neg_bce.topk(k_hard, dim=1).values.mean()
-        neg_loss = 0.25 * neg_bce.mean() + 0.55 * hard_bce
+        neg_loss = 0.35 * neg_bce.mean() + 0.75 * hard_bce
         loss = loss + neg_loss * (float((~pos_img).sum().item()) / b_total)
 
     return loss

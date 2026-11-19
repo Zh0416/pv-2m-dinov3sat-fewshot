@@ -23,11 +23,11 @@ from .v2_decoder import SCFBDecoder, build_decoder_input_512, compute_support_rg
 V2_SEMANTIC_CFG = Iter5Config(
     name="V2_MSCP_Core",
     shot_mode="balanced_70_30",
-    w_fg_calib=0.43,
+    w_fg_calib=0.44,
     use_self_rescue=True,
-    seed_prob_thr=0.71,
-    min_seeds=5,
-    seed_mid_margin=0.015,
+    seed_prob_thr=0.72,
+    min_seeds=6,
+    seed_mid_margin=0.02,
     qsc_weight=0.45,
     use_affinity=True,
 )
@@ -196,8 +196,8 @@ def train_fold_scfb_decoder(
         cand_pos = [qid for qid in pos_all if site_of[qid] not in sup_site_set]
         if not cand_pos:
             cand_pos = [qid for qid in pos_all if qid not in set(sup_ids)]
-        q_pos = rng.sample(cand_pos, min(3, len(cand_pos)))
-        q_neg = rng.sample(neg_ids, min(1, len(neg_ids))) if neg_ids else []
+        q_pos = rng.sample(cand_pos, min(2, len(cand_pos)))
+        q_neg = rng.sample(neg_ids, min(2, len(neg_ids))) if neg_ids else []
         q_ids = q_pos + q_neg
 
         with torch.inference_mode():

@@ -47,12 +47,12 @@
   - 模块一语义先验金字塔（6 通道）：`z_sem`、`s_64`、`s_32_up`、`s_mid`、`s_pos_64`、`s_neg_64`（保留完整语义连续梯度，避免硬阈值误伤边界正样本）；
   - 支持集归一化颜色对比 + 有符号局部高通亮度通道（2 通道）：相对支持集前景/背景原型的颜色距离对比 + 有符号高频亮度差 `(L - avg31(L))/std(L)`（为 $512\times 512$ 头部提供光伏板内外明暗极性边界）；
   - 模块二显式频域-结构金字塔（9 通道：`z_freq` + $8$ 路 $512\times 512$ FFT/Gabor/结构相干图）。
-- **轻量残差结构（~48K 参数）**：
-  $$L_{512} = Z_{\text{sem}, 512} + \alpha_{\text{res}} \cdot \text{Decoder}_\theta\!\big(\text{Sem}_{64\uparrow 512},\ \text{Freq}_{512},\ \text{Contrast}_{512}\big)$$
-  内部采用 `512 -> 256 -> 128 -> 64` 深度可分离卷积下采样聚合上下文与消除孤立误检斑点，再经**频域边沿门控跳跃连接**上采样回 `512×512` 预测精细像素掩膜。
+- **解耦双流轻量残差结构（约 38K 参数）**：
+  $$L_{512} = Z_{\text{sem}, 512} + \alpha_{\text{res}} \cdot \text{Head}_{512}\!\big(\text{CtxNet}(\text{Sem}_{64\uparrow 512},\ \text{ColorContrast}_{512}),\ \text{FineFreqNet}(Z_{\text{sem}},\ Z_{\text{freq}},\ L_{\text{hp}},\ \text{Freq}_{512})\big)$$
+  语义上下文分支（`512 -> 256 -> 128 -> 64`）仅接收语义先验与颜色对比以防止低频傅里叶纹理在 $64\times 64$ 瓶颈过拟合困难样本（如 `PV-55`）；全分辨率频域边界分支直接在 $512\times 512$ 上融合显式 FFT/Gabor/结构张量相干与有符号高通亮度边界，精细贴合光伏边沿并清扫孤立误检斑点。
 - **零泄露分段元训练准则**：
   - 在 `PV-100scence` 4 折交叉验证中：第 $f$ 折的解码器**严格仅在其余 3 折训练集中随机抽取 $K\in\{1,3,5\}$-shot Episode 进行元训练**（验证折 $f$、21 张封印测试集、以及外部 `PV-512-MERGED-185` 全程 100% 不可见）；
-  - 损失函数 = $\mathcal{L}_{\text{Dice}} + \mathcal{L}_{\text{BCE}} + 1.5\cdot\mathcal{L}_{\text{Edge-BCE}} + 1.2\cdot\mathcal{L}_{\text{NegEmpty}}$（针对纯负样本训练 Episode 强制抑制整图任何 $>0$ 的响应以专治红色误检；针对真值 Sobel 边界加权 BCE 以专治边缘糊化）。
+  - 损失函数 = 保护小目标召回的 Tversky Loss + 边界 3px 带强加权 BCE（$1 + 6 \cdot \text{EdgeBand}$）+ 负样本全图与 Top-1% 难例抑制损失（`2 Pos + 2 Neg` 均衡采样）。
 
 ---
 
