@@ -68,11 +68,15 @@ class V2ModulesTests(unittest.TestCase):
         logits0 = dec(x)
         loss0 = scfb_episodic_loss(logits0, y)
         loss0.backward()
+        head_grad = max(float(p.grad.abs().max()) for p in dec.head_512.parameters() if p.grad is not None)
+        fine_grad = max(float(p.grad.abs().max()) for p in dec.fine_proj.parameters() if p.grad is not None)
+        self.assertGreater(head_grad, 1e-6)
+        self.assertGreater(fine_grad, 1e-6)
         opt.step()
         opt.zero_grad()
         loss1 = scfb_episodic_loss(dec(x), y)
         self.assertTrue(torch.isfinite(loss1))
-        self.assertLess(float(loss1.item()), float(loss0.item()) + 0.05)
+        self.assertLess(float(loss1.item()), float(loss0.item()))
 
         # End-to-end run across all 5 V2_VARIANTS
         c = 64

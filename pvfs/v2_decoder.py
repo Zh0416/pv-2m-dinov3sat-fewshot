@@ -82,7 +82,7 @@ class SCFBDecoder(nn.Module):
             _DSConvBlock(24 + 20, 24),
             nn.Conv2d(24, 1, kernel_size=1),
         )
-        nn.init.zeros_(self.head_512[-1].weight)
+        nn.init.normal_(self.head_512[-1].weight, std=1e-3)
         nn.init.zeros_(self.head_512[-1].bias)
         self.res_scale = nn.Parameter(torch.tensor(0.80))
 
@@ -100,10 +100,10 @@ class SCFBDecoder(nn.Module):
         fine = self.fine_proj(x_fine)
         delta = self.head_512(torch.cat((up_512, fine), dim=1))
         # Positive residual only opens near plausible semantic support (prevents open-water hallucinations);
-        # negative suppression remains active everywhere to clean isolated confounders.
+        # negative suppression remains active everywhere. Using `delta * gate` avoids ReLU(0) zero-grad at init.
         sem_anchor = torch.sigmoid((x[:, 0:1] + 2.0) / 0.80)
-        bounded_delta = F.relu(delta) * sem_anchor - F.relu(-delta)
-        return x[:, 0:1] + self.res_scale * bounded_delta
+        gate = torch.where(delta >= 0.0, sem_anchor, torch.ones_like(delta))
+        return x[:, 0:1] + self.res_scale * (delta * gate)
 
 
 def compute_support_rgb_stats(
