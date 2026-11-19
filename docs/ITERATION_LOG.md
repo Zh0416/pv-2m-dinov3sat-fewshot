@@ -234,6 +234,49 @@ Chronological scientific record of all hypotheses, implementations, Kaggle GPU r
 3. **PRUNE `M4_Whiten` (Background-Nullspace Shrinkage k-NN)**: At $K=3,5$, `M4_Whiten` reduced `NegFP` on 4/4 folds (`0.0393 → 0.0358` on `PV-93/96`, raising `Small<5%` Dice at $K=3$ to `0.6547`), **but** at $K=1$ 2-fold spatial OOF calibration on a single support image overfit and jumped `NegFP` (`0.0340 → 0.0616`), and at $K=5$ cost `-0.0071` Dice (`0/4` folds). Strictly pruned under `Gate-Ablation`.
 4. **Actionable Diagnosis for Iteration 5**: `M3_Pruned_Ref` already dominates every metric except `NegFP` at $K=3,5$ (`0.0393` vs `B0 0.0308`; `0.0273` vs `B0 0.0184`), whereas `M1_Full` achieved `NegFP = 0.0269 / 0.0176` (`Gate_Net=True` at $K=3,5$). The difference is purely `(1)` cross-shot aggregation (`top2_soft` vs balanced consensus), `(2)` global calibration (`w_fg = 0.38` vs `0.43..0.45`), and `(3)` `SelfRescue` triggering on weak `0.66` greenhouse seeds (`PV-100`). Iteration 5 tests **Precision-Balanced Multi-Shot Consensus + Mid-Verified Tight-Seed SelfRescue** to clear **`Gate_FP`, `Gate_FN`, and `Gate_Net` simultaneously across $K=1,3,5$**.
 
+---
+
+## Iteration 5 — Balanced Multi-Shot Consensus + Mid-Verified Tight-Seed Self-Rescue (`COMPLETED` on Kaggle T4)
+- **Kaggle Kernel**: `zh0416/pv-2m-dinov3-sat-iter5` (`KernelWorkerStatus.COMPLETE`, CUDA Tesla T4).
+- **Results artifact**: [`results/iter5/iter5_summary.json`](../results/iter5/iter5_summary.json), [`results/iter5/pv-2m-dinov3-sat-iter5.log`](../results/iter5/pv-2m-dinov3-sat-iter5.log), [`results/iter5/panels/k5_fn_compare.png`](../results/iter5/panels/k5_fn_compare.png), [`results/iter5/panels/k5_fp_compare.png`](../results/iter5/panels/k5_fp_compare.png), [`scripts/analyze_iter5.py`](../scripts/analyze_iter5.py), [`pvfs/iter5_methods.py`](../pvfs/iter5_methods.py).
+
+### Quantitative Iteration 5 Ablation Table (Dev 79 images, 4 Folds × 10 Episodes)
+| Variant | $K$ | Dice@0.5 | IoU@0.5 | AP512 | Recall | Prec | PosBgFP | BF1@2px | Small `<5%` D / R | NegFP | NegClean | Gates (`FP / FN / Net`) vs `B0_32_Ref` |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `B0_32_Ref` | 1 | 0.6252 | 0.4977 | 0.7933 | 0.7132 | 0.6682 | 0.0893 | 0.2172 | 0.4584 / 0.6774 | 0.0589 | 0.5188 | — |
+| `M1_Full_Ref` | 1 | 0.6490 | 0.5319 | 0.8590 | **0.7784** | 0.6821 | 0.1057 | 0.2844 | 0.4813 / **0.7521** | 0.0813 | 0.4500 | `False / False / False` |
+| `M5_BalCal` | 1 | 0.6534 | 0.5484 | 0.8659 | 0.6727 | 0.7642 | 0.0451 | 0.3015 | 0.5313 / 0.6068 | **0.0293** | **0.7000** | `False / False / True` (`-50.2%` NegFP) |
+| `M5_Tight_NoAff_LOO` | 1 | 0.6722 | 0.5685 | 0.8634 | 0.6945 | **0.7740** | 0.0422 | 0.3273 | 0.5483 / 0.6464 | 0.0328 | 0.6813 | LOO baseline without `M3_Affinity` |
+| `M5_TightRescue` | 1 | 0.6771 | 0.5767 | 0.8714 | 0.6998 | 0.7695 | 0.0416 | 0.3396 | **0.5564** / 0.6488 | 0.0318 | 0.6813 | **`True / False / True`** |
+| `M5_AdaptiveRescue` | 1 | 0.6795 | 0.5795 | 0.8715 | 0.7032 | 0.7686 | **0.0412** | **0.3439** | 0.5560 / 0.6531 | 0.0329 | 0.6813 | **`True / False / True`** |
+| `M3_Pruned_Ref` | 1 | **0.6817** | **0.5803** | **0.8729** | 0.7083 | 0.7649 | 0.0424 | **0.3439** | 0.5632 / 0.6686 | 0.0340 | 0.6875 | **`True / False / True`** |
+| `B0_32_Ref` | 3 | 0.6663 | 0.5438 | 0.8473 | 0.6716 | 0.7972 | 0.0476 | 0.2326 | 0.5439 / 0.6100 | 0.0308 | 0.7563 | — |
+| `M1_Full_Ref` | 3 | 0.7236 | 0.6202 | 0.9206 | 0.6852 | **0.8789** | **0.0202** | 0.3331 | 0.6042 / 0.6020 | **0.0269** | **0.8250** | `True / False / True` |
+| `M5_BalCal` | 3 | 0.7263 | 0.6261 | 0.9245 | 0.7045 | 0.8604 | 0.0248 | 0.3578 | 0.6057 / 0.6204 | 0.0310 | 0.8000 | **`True / True / True`** (ALL 3 PASS!) |
+| `M5_Tight_NoAff_LOO` | 3 | 0.7520 | 0.6542 | 0.9228 | 0.7328 | 0.8730 | 0.0232 | 0.3930 | 0.6336 / 0.6627 | 0.0344 | 0.7937 | LOO baseline without `M3_Affinity` |
+| `M5_TightRescue` | 3 | 0.7552 | 0.6605 | 0.9277 | 0.7385 | 0.8624 | 0.0233 | 0.4058 | 0.6360 / 0.6650 | 0.0347 | 0.7937 | `True / False / False` (`+0.0038` NegFP) |
+| `M5_AdaptiveRescue` | 3 | 0.7582 | 0.6636 | 0.9273 | 0.7445 | 0.8597 | 0.0239 | 0.4100 | 0.6371 / 0.6742 | 0.0360 | 0.7937 | `True / False / False` (`+0.0052` NegFP) |
+| `M3_Pruned_Ref` | 3 | **0.7681** | **0.6739** | **0.9321** | **0.7649** | 0.8571 | 0.0263 | **0.4252** | **0.6450 / 0.6993** | 0.0393 | 0.7625 | `True / False / False` (`+0.0084` NegFP) |
+| `B0_32_Ref` | 5 | 0.7267 | 0.6052 | 0.8647 | 0.7165 | 0.8161 | 0.0402 | 0.2751 | 0.6265 / 0.6448 | **0.0184** | 0.8125 | — |
+| `M1_Full_Ref` | 5 | 0.7674 | 0.6648 | 0.9375 | 0.7102 | **0.9137** | **0.0141** | 0.3618 | 0.6470 / 0.6153 | 0.0176 | **0.8500** | `True / False / True` |
+| `M5_BalCal` | 5 | 0.7848 | 0.6883 | 0.9416 | 0.7433 | 0.9051 | 0.0171 | 0.4126 | 0.6646 / 0.6479 | 0.0198 | 0.8312 | **`True / True / True`** (ALL 3 PASS!) |
+| `M5_Tight_NoAff_LOO` | 5 | 0.8068 | 0.7143 | 0.9410 | 0.7728 | 0.9024 | 0.0169 | 0.4605 | 0.7009 / 0.7065 | 0.0219 | 0.8125 | LOO baseline without `M3_Affinity` |
+| `M5_TightRescue` | 5 | 0.8097 | 0.7204 | **0.9455** | 0.7796 | 0.9029 | 0.0174 | 0.4745 | 0.7025 / 0.7106 | 0.0219 | 0.8312 | `True / False / False` (`+0.0036` NegFP) |
+| `M5_AdaptiveRescue` | 5 | 0.8125 | 0.7238 | 0.9453 | 0.7852 | 0.9006 | 0.0179 | 0.4800 | 0.7044 / 0.7174 | 0.0228 | 0.8250 | `True / False / False` (`+0.0044` NegFP) |
+| `M3_Pruned_Ref` | 5 | **0.8230** | **0.7360** | 0.9450 | **0.8146** | 0.8863 | 0.0229 | **0.5051** | **0.7106 / 0.7488** | 0.0273 | 0.7812 | `True / False / False` (`+0.0089` NegFP) |
+
+### Iteration 5 Scientific Verdicts & Final Dev Lock (`M5_BalCal` Primary Gate Winner + `M3_Pruned_Ref` High-Recall Mode)
+1. **`M5_BalCal` clears `Gate_Net = True` across ALL $K \in \{1, 3, 5\}$ AND clears all three gates (`Gate_FP=True, Gate_FN=True, Gate_Net=True`) simultaneously at $K=3, 5$**:
+   - Combines `M1_Scale` (`0.75*deep_64 + 0.25*deep_32`) + `Core>=0.85` (`K>=2`) + `mid_64` veto + `balanced_70_30` + `w_fg=0.44` calibration + `M3_Affinity` ($5\times 5$ DINO random walk), strictly without self-rescue expansion.
+   - vs `B0_32_Ref`: `ΔDice = +0.0283 / +0.0600 / +0.0580` (`4/4` folds), `ΔAP512 = +0.0726 / +0.0772 / +0.0769` (`4/4` folds), `ΔBF1 = +0.0843 / +0.1251 / +0.1375`, `PosBgFP` reduced `-49.5% / -47.9% / -57.5%`, `NegFP = 0.0293 / 0.0310 / 0.0198` (`-50.2%` at $K=1$, within `<= +0.0014` at $K=3,5$).
+2. **`M3_Affinity` confirmed by LOO across all 3 shot counts**: `M5_TightRescue` strictly beats `M5_Tight_NoAff_LOO` on Dice (`+0.0049 / +0.0032 / +0.0029`), `AP512` (`+0.0080 / +0.0049 / +0.0045` on `4/4` folds), `BF1` (`+0.0123 / +0.0128 / +0.0140`), and `SmallR` (`+0.0024 / +0.0023 / +0.0040`).
+3. **Why Self-Rescue (`M5_TightRescue` / `M3_Pruned_Ref`) sits on an explicit Recall-FP Pareto frontier**:
+   - Adding query-conditioned Self-Contrast Rescue jumps `Dice` by `+0.024..+0.029` (`4/4` folds) up to **`0.8097`** (`M5_TightRescue`) / **`0.8230`** (`M3_Pruned_Ref`), **and** lifts Small-array Recall by `+0.042..+0.084`, **but** on silver/grey agricultural greenhouses (`PV-93`, `PV-100`, `PV-96`) where $>6$ rooftop tokens exceed `p_base >= 0.72` AND also pass `mid_64` similarity, intra-image affinity/contrast expands the partial FP cluster (`NegFP +0.0022..+0.0037` above `M5_BalCal`), missing `B0`'s tight `NegFP +0.002` ceiling at $K=3,5$ by `0.0015..0.0019` (`M5_TightRescue`).
+4. **Dev Lock Decision (Zero Further Tuning)**:
+   - We freeze the exact method family on dev before touching the sealed test set:
+     - **Primary Gate-Compliant Method**: **`M5_BalCal`** (`Gate_Net=True` for $K=1,3,5$; `Gate_FP & Gate_FN & Gate_Net=True` for $K=3,5$).
+     - **High-Recall / Peak-Dice Variant**: **`M5_TightRescue`** & **`M3_Pruned_Ref`** (`Dice=0.8097 / 0.8230` at $K=5$), evaluated alongside `B0_32_Ref` and `M1_Full_Ref` in a **single one-shot run on the 21 sealed test images**.
+
 
 
 

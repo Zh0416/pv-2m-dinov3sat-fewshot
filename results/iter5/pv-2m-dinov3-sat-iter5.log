@@ -1,0 +1,31 @@
+[{"stream_name":"stderr","time":1.121510846,"data":"Cloning into '/tmp/pv-2m-dinov3sat-fewshot'...\n"}
+,{"stream_name":"stdout","time":12.287758951,"data":"Iter 5 using cached dev features: /kaggle/input/notebooks/zh0416/pv-2m-dinov3-sat-dev-cache/dev_features_v1.pt\n"}
+,{"stream_name":"stdout","time":120.358872206,"data":"[Iter5] B0_32_Ref          K=1: Dice=0.6252 AP512=0.7933 Rec=0.7132 Prec=0.6682 BF1=0.2172 NegFP=0.0589 PosBg=0.0893 SmallD=0.4584 SmallR=0.6774\n"}
+,{"stream_name":"stdout","time":130.129253106,"data":"[Iter5] B0_32_Ref          K=3: Dice=0.6663 AP512=0.8473 Rec=0.6716 Prec=0.7972 BF1=0.2326 NegFP=0.0308 PosBg=0.0476 SmallD=0.5439 SmallR=0.6100\n"}
+,{"stream_name":"stdout","time":139.99067914,"data":"[Iter5] B0_32_Ref          K=5: Dice=0.7267 AP512=0.8647 Rec=0.7165 Prec=0.8161 BF1=0.2751 NegFP=0.0184 PosBg=0.0402 SmallD=0.6265 SmallR=0.6448\n"}
+,{"stream_name":"stdout","time":152.868626155,"data":"[Iter5] M1_Full_Ref        K=1: Dice=0.6490 AP512=0.8590 Rec=0.7784 Prec=0.6821 BF1=0.2844 NegFP=0.0813 PosBg=0.1057 SmallD=0.4813 SmallR=0.7521\n"}
+,{"stream_name":"stdout","time":164.165136699,"data":"[Iter5] M1_Full_Ref        K=3: Dice=0.7236 AP512=0.9206 Rec=0.6852 Prec=0.8789 BF1=0.3331 NegFP=0.0269 PosBg=0.0202 SmallD=0.6042 SmallR=0.6020\n"}
+,{"stream_name":"stdout","time":175.996683568,"data":"[Iter5] M1_Full_Ref        K=5: Dice=0.7674 AP512=0.9375 Rec=0.7102 Prec=0.9137 BF1=0.3618 NegFP=0.0176 PosBg=0.0141 SmallD=0.6470 SmallR=0.6153\n"}
+,{"stream_name":"stdout","time":192.909905119,"data":"[Iter5] M3_Pruned_Ref      K=1: Dice=0.6817 AP512=0.8729 Rec=0.7083 Prec=0.7649 BF1=0.3439 NegFP=0.0340 PosBg=0.0424 SmallD=0.5632 SmallR=0.6686\n"}
+,{"stream_name":"stdout","time":207.868059668,"data":"[Iter5] M3_Pruned_Ref      K=3: Dice=0.7681 AP512=0.9321 Rec=0.7649 Prec=0.8571 BF1=0.4252 NegFP=0.0393 PosBg=0.0263 SmallD=0.6450 SmallR=0.6993\n"}
+,{"stream_name":"stdout","time":223.649818169,"data":"[Iter5] M3_Pruned_Ref      K=5: Dice=0.8230 AP512=0.9450 Rec=0.8146 Prec=0.8863 BF1=0.5051 NegFP=0.0273 PosBg=0.0229 SmallD=0.7106 SmallR=0.7488\n"}
+,{"stream_name":"stdout","time":236.099254688,"data":"[Iter5] M5_BalCal          K=1: Dice=0.6534 AP512=0.8659 Rec=0.6727 Prec=0.7642 BF1=0.3015 NegFP=0.0293 PosBg=0.0451 SmallD=0.5313 SmallR=0.6068\n"}
+,{"stream_name":"stdout","time":247.53507707,"data":"[Iter5] M5_BalCal          K=3: Dice=0.7263 AP512=0.9245 Rec=0.7045 Prec=0.8604 BF1=0.3578 NegFP=0.0310 PosBg=0.0248 SmallD=0.6057 SmallR=0.6204\n"}
+,{"stream_name":"stdout","time":259.510784281,"data":"[Iter5] M5_BalCal          K=5: Dice=0.7848 AP512=0.9416 Rec=0.7433 Prec=0.9051 BF1=0.4126 NegFP=0.0198 PosBg=0.0171 SmallD=0.6646 SmallR=0.6479\n"}
+,{"stream_name":"stdout","time":275.666953704,"data":"[Iter5] M5_TightRescue     K=1: Dice=0.6771 AP512=0.8714 Rec=0.6998 Prec=0.7695 BF1=0.3396 NegFP=0.0318 PosBg=0.0416 SmallD=0.5564 SmallR=0.6488\n"}
+,{"stream_name":"stdout","time":290.331131567,"data":"[Iter5] M5_TightRescue     K=3: Dice=0.7552 AP512=0.9277 Rec=0.7385 Prec=0.8624 BF1=0.4058 NegFP=0.0347 PosBg=0.0233 SmallD=0.6360 SmallR=0.6650\n"}
+,{"stream_name":"stdout","time":305.558977671,"data":"[Iter5] M5_TightRescue     K=5: Dice=0.8097 AP512=0.9455 Rec=0.7796 Prec=0.9029 BF1=0.4745 NegFP=0.0219 PosBg=0.0174 SmallD=0.7025 SmallR=0.7106\n"}
+,{"stream_name":"stdout","time":321.850104855,"data":"[Iter5] M5_AdaptiveRescue  K=1: Dice=0.6795 AP512=0.8715 Rec=0.7032 Prec=0.7686 BF1=0.3439 NegFP=0.0329 PosBg=0.0412 SmallD=0.5560 SmallR=0.6531\n"}
+,{"stream_name":"stdout","time":336.415880097,"data":"[Iter5] M5_AdaptiveRescue  K=3: Dice=0.7582 AP512=0.9273 Rec=0.7445 Prec=0.8597 BF1=0.4100 NegFP=0.0360 PosBg=0.0239 SmallD=0.6371 SmallR=0.6742\n"}
+,{"stream_name":"stdout","time":351.54928135,"data":"[Iter5] M5_AdaptiveRescue  K=5: Dice=0.8125 AP512=0.9453 Rec=0.7852 Prec=0.9006 BF1=0.4800 NegFP=0.0228 PosBg=0.0179 SmallD=0.7044 SmallR=0.7174\n"}
+,{"stream_name":"stdout","time":367.557802441,"data":"[Iter5] M5_Tight_NoAff_LOO K=1: Dice=0.6722 AP512=0.8634 Rec=0.6945 Prec=0.7740 BF1=0.3273 NegFP=0.0328 PosBg=0.0422 SmallD=0.5483 SmallR=0.6464\n"}
+,{"stream_name":"stdout","time":381.927223724,"data":"[Iter5] M5_Tight_NoAff_LOO K=3: Dice=0.7520 AP512=0.9228 Rec=0.7328 Prec=0.8730 BF1=0.3930 NegFP=0.0344 PosBg=0.0232 SmallD=0.6336 SmallR=0.6627\n"}
+,{"stream_name":"stdout","time":396.788430091,"data":"[Iter5] M5_Tight_NoAff_LOO K=5: Dice=0.8068 AP512=0.9410 Rec=0.7728 Prec=0.9024 BF1=0.4605 NegFP=0.0219 PosBg=0.0169 SmallD=0.7009 SmallR=0.7065\n"}
+,{"stream_name":"stdout","time":398.867410726,"data":"Iter 5 ablations complete!\n"}
+,{"stream_name":"stderr","time":403.782605937,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":403.782637608,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":404.053193962,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":404.053219016,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":404.85734789,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":405.873964621,"data":"[NbConvertApp] Writing 280891 bytes to __results__.html\n"}
+]
