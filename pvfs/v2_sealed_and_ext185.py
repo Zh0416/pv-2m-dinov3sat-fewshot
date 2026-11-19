@@ -179,13 +179,7 @@ def run_v2_episode_ensemble(
         xb = torch.stack(
             [
                 build_decoder_input_512(
-                    torch.cat(
-                        (
-                            (apply_ofg_neg_gate_and_rescue(mscp[qid]["sem_6"][0], zf_map[qid])[None] if not variant.disable_freq else mscp[qid]["sem_6"][0:1]),
-                            mscp[qid]["sem_6"][1:],
-                        ),
-                        dim=0,
-                    ),
+                    mscp[qid]["sem_6"],
                     zf_map[qid],
                     rgb_by_id[qid].to(device),
                     freq512_by_id[qid].to(device),

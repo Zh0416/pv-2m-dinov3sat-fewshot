@@ -206,12 +206,9 @@ def train_fold_scfb_decoder(
             fg_rgb, bg_rgb = compute_support_rgb_stats(rgb_by_id, mask_by_id, sup_ids, device)
             xs, ys = [], []
             for qid in q_ids:
-                sem6 = mscp[qid]["sem_6"].clone()
-                if not disable_freq:
-                    sem6[0] = apply_ofg_neg_gate_and_rescue(sem6[0], zf_map[qid])
                 xs.append(
                     build_decoder_input_512(
-                        sem6,
+                        mscp[qid]["sem_6"],
                         zf_map[qid],
                         rgb_by_id[qid].to(device),
                         freq512_by_id[qid].to(device),
@@ -280,13 +277,7 @@ def run_v2_episode(
         xb = torch.stack(
             [
                 build_decoder_input_512(
-                    torch.cat(
-                        (
-                            (apply_ofg_neg_gate_and_rescue(mscp[qid]["sem_6"][0], zf_map[qid])[None] if not variant.disable_freq else mscp[qid]["sem_6"][0:1]),
-                            mscp[qid]["sem_6"][1:],
-                        ),
-                        dim=0,
-                    ),
+                    mscp[qid]["sem_6"],
                     zf_map[qid],
                     rgb_by_id[qid].to(device),
                     freq512_by_id[qid].to(device),
