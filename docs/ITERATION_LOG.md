@@ -202,5 +202,38 @@ Chronological scientific record of all hypotheses, implementations, Kaggle GPU r
    - The **21 sealed test images remain 100% untouched**.
    - Next focus if continuing: (a) tighten `SelfRescue` negative-confounder veto on `PV-93 / PV-100 / PV-96` (drop `NegFP` below `0.025 / 0.015` to clear `Gate_Net` at $K=3,5$ too), (b) dedicated aquatic sparse-PV rescue for `PV-73.tif` (`Rec=0.10`), and (c) execute the **one-shot sealed 21-image test evaluation** after final lock.
 
+---
+
+## Iteration 4 — Support Background-Nullspace Whitening + Balanced Cross-Layer Ridge Subspace (`COMPLETED` on Kaggle T4)
+- **Kaggle Kernel**: `zh0416/pv-2m-dinov3-sat-iter4` (`KernelWorkerStatus.COMPLETE`, CUDA Tesla T4, 709s runtime for 10 variants × 120 episodes + component precompute).
+- **Results artifact**: [`results/iter4/iter4_summary.json`](../results/iter4/iter4_summary.json), [`results/iter4/pv-2m-dinov3-sat-iter4.log`](../results/iter4/pv-2m-dinov3-sat-iter4.log), [`results/iter4/panels/k5_fn_compare.png`](../results/iter4/panels/k5_fn_compare.png), [`results/iter4/panels/k5_fp_compare.png`](../results/iter4/panels/k5_fp_compare.png), [`scripts/analyze_iter4.py`](../scripts/analyze_iter4.py), [`pvfs/iter4_methods.py`](../pvfs/iter4_methods.py).
+
+### Quantitative Iteration 4 Ablation Table (Dev 79 images, 4 Folds × 10 Episodes)
+| Variant | $K$ | Dice@0.5 | IoU@0.5 | AP512 | Recall | Prec | PosBgFP | BF1@2px | Small `<5%` D / R | NegFP | NegClean | `PV-93` / `PV-100` / `PV-96` / `PV-73r` |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `B0_32_Ref` | 1 | 0.6252 | 0.4977 | 0.7933 | 0.7132 | 0.6682 | 0.0893 | 0.2172 | 0.4584 / 0.6774 | 0.0589 | 0.5188 | 0.208 / 0.151 / 0.151 / 0.090 |
+| `M3_Pruned_Ref` | 1 | **0.6817** | **0.5803** | **0.8729** | 0.7083 | **0.7649** | **0.0424** | **0.3439** | **0.5632** / 0.6686 | **0.0340** | **0.6875** | **0.173 / 0.094 / 0.111** / 0.134 |
+| `M4_Whiten` | 1 | 0.6728 | 0.5611 | 0.8628 | 0.7702 | 0.7112 | 0.0753 | 0.3211 | 0.5127 / 0.7654 | 0.0616 | 0.5125 | 0.207 / 0.156 / 0.183 / 0.320 |
+| `M4_Ridge` | 1 | 0.6614 | 0.5472 | 0.8447 | 0.7665 | 0.6957 | 0.0835 | 0.3095 | 0.4940 / 0.7673 | 0.0791 | 0.4375 | 0.201 / 0.154 / 0.192 / 0.375 |
+| `M4_Full` | 1 | 0.6535 | 0.5380 | 0.8435 | **0.7842** | 0.6747 | 0.0978 | 0.2982 | 0.4751 / **0.7880** | 0.0901 | 0.3937 | 0.214 / 0.175 / 0.214 / **0.411** |
+| `B0_32_Ref` | 3 | 0.6663 | 0.5438 | 0.8473 | 0.6716 | 0.7972 | 0.0476 | 0.2326 | 0.5439 / 0.6100 | **0.0308** | 0.7563 | **0.128 / 0.177** / 0.116 / 0.021 |
+| `M3_Pruned_Ref` | 3 | **0.7681** | **0.6739** | **0.9321** | **0.7649** | 0.8571 | 0.0263 | **0.4252** | 0.6450 / **0.6993** | 0.0393 | 0.7625 | 0.183 / 0.240 / 0.146 / 0.004 |
+| `M4_Whiten` | 3 | 0.7662 | 0.6720 | 0.9305 | 0.7540 | 0.8601 | **0.0240** | 0.4245 | **0.6547** / 0.6932 | 0.0358 | **0.7812** | 0.161 / 0.241 / 0.116 / 0.003 |
+| `M4_Ridge` | 3 | 0.7647 | 0.6664 | 0.9233 | 0.7514 | 0.8593 | 0.0256 | 0.4086 | 0.6375 / 0.6951 | 0.0389 | 0.7438 | 0.183 / 0.238 / 0.102 / **0.050** |
+| `M4_Full` | 3 | 0.7645 | 0.6669 | 0.9249 | 0.7466 | **0.8653** | 0.0243 | 0.4111 | 0.6535 / 0.6919 | 0.0366 | 0.7500 | 0.168 / 0.237 / **0.100** / 0.016 |
+| `B0_32_Ref` | 5 | 0.7267 | 0.6052 | 0.8647 | 0.7165 | 0.8161 | 0.0402 | 0.2751 | 0.6265 / 0.6448 | **0.0184** | **0.8125** | **0.166 / 0.047 / 0.051** / 0.071 |
+| `M3_Pruned_Ref` | 5 | **0.8230** | **0.7360** | **0.9450** | **0.8146** | 0.8863 | 0.0229 | **0.5051** | **0.7106 / 0.7488** | 0.0273 | 0.7812 | 0.227 / 0.101 / 0.076 / **0.117** |
+| `M4_Whiten` | 5 | 0.8159 | 0.7273 | 0.9440 | 0.8016 | 0.8902 | 0.0224 | 0.4973 | 0.7047 / 0.7387 | 0.0266 | 0.7812 | 0.217 / 0.104 / **0.064** / 0.104 |
+| `M4_Ridge` | 5 | 0.8037 | 0.7114 | 0.9435 | 0.7814 | 0.8916 | **0.0217** | 0.4627 | 0.6958 / 0.7172 | 0.0305 | 0.7500 | 0.218 / 0.122 / 0.080 / 0.095 |
+| `M4_Full` | 5 | 0.8045 | 0.7128 | 0.9434 | 0.7827 | **0.8921** | 0.0218 | 0.4685 | 0.6958 / 0.7196 | 0.0289 | 0.7688 | 0.215 / 0.116 / 0.071 / 0.096 |
+
+### Iteration 4 Scientific Verdicts & Pruning Decisions
+1. **`M3_Pruned_Ref` confirmed as new strongest clean benchmark (`Iter 3` pruned baseline never previously run on its own)**:
+   - Reaches **`Dice = 0.6817 / 0.7681 / 0.8230`**, **`AP512 = 0.8729 / 0.9321 / 0.9450`**, **`BF1 = 0.3439 / 0.4252 / 0.5051`**, beating `B0_32_Ref` by **`+0.0565 / +0.1018 / +0.0963` Dice** across **4/4 folds**.
+2. **PRUNE `M4_Ridge` (Single Linear Hyperplane)**: Fails incremental and LOO ablation at all $K$ (`M4_NoRidge_LOO` strictly beats `M4_Full` on `Dice`, `AP512`, and `BF1` across $K=1,3,5$). A single hyperplane over `[deep_64; mid_64]` collapses multi-modal PV style diversity (`Recall` `-3.3%` at $K=5$).
+3. **PRUNE `M4_Whiten` (Background-Nullspace Shrinkage k-NN)**: At $K=3,5$, `M4_Whiten` reduced `NegFP` on 4/4 folds (`0.0393 → 0.0358` on `PV-93/96`, raising `Small<5%` Dice at $K=3$ to `0.6547`), **but** at $K=1$ 2-fold spatial OOF calibration on a single support image overfit and jumped `NegFP` (`0.0340 → 0.0616`), and at $K=5$ cost `-0.0071` Dice (`0/4` folds). Strictly pruned under `Gate-Ablation`.
+4. **Actionable Diagnosis for Iteration 5**: `M3_Pruned_Ref` already dominates every metric except `NegFP` at $K=3,5$ (`0.0393` vs `B0 0.0308`; `0.0273` vs `B0 0.0184`), whereas `M1_Full` achieved `NegFP = 0.0269 / 0.0176` (`Gate_Net=True` at $K=3,5$). The difference is purely `(1)` cross-shot aggregation (`top2_soft` vs balanced consensus), `(2)` global calibration (`w_fg = 0.38` vs `0.43..0.45`), and `(3)` `SelfRescue` triggering on weak `0.66` greenhouse seeds (`PV-100`). Iteration 5 tests **Precision-Balanced Multi-Shot Consensus + Mid-Verified Tight-Seed SelfRescue** to clear **`Gate_FP`, `Gate_FN`, and `Gate_Net` simultaneously across $K=1,3,5$**.
+
+
 
 

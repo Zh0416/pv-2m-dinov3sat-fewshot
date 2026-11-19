@@ -1,0 +1,41 @@
+[{"stream_name":"stderr","time":0.935678403,"data":"Cloning into '/tmp/pv-2m-dinov3sat-fewshot'...\n"}
+,{"stream_name":"stdout","time":11.139836615,"data":"Iter 4 using cached dev features: /kaggle/input/notebooks/zh0416/pv-2m-dinov3-sat-dev-cache/dev_features_v1.pt\n"}
+,{"stream_name":"stdout","time":265.236028715,"data":"Precomputed Whitening + Ridge maps for 120 episodes.\n"}
+,{"stream_name":"stdout","time":275.80939976,"data":"[Iter4] B0_32_Ref        K=1: Dice=0.6252 AP512=0.7933 Rec=0.7132 Prec=0.6682 BF1=0.2172 NegFP=0.0589 PosBg=0.0893 SmallD=0.4584 SmallR=0.6774\n"}
+,{"stream_name":"stdout","time":285.396305929,"data":"[Iter4] B0_32_Ref        K=3: Dice=0.6663 AP512=0.8473 Rec=0.6716 Prec=0.7972 BF1=0.2326 NegFP=0.0308 PosBg=0.0476 SmallD=0.5439 SmallR=0.6100\n"}
+,{"stream_name":"stdout","time":295.052697011,"data":"[Iter4] B0_32_Ref        K=5: Dice=0.7267 AP512=0.8647 Rec=0.7165 Prec=0.8161 BF1=0.2751 NegFP=0.0184 PosBg=0.0402 SmallD=0.6265 SmallR=0.6448\n"}
+,{"stream_name":"stdout","time":307.724122942,"data":"[Iter4] M1_Full_Ref      K=1: Dice=0.6490 AP512=0.8590 Rec=0.7784 Prec=0.6821 BF1=0.2844 NegFP=0.0813 PosBg=0.1057 SmallD=0.4813 SmallR=0.7521\n"}
+,{"stream_name":"stdout","time":318.828078624,"data":"[Iter4] M1_Full_Ref      K=3: Dice=0.7236 AP512=0.9206 Rec=0.6852 Prec=0.8789 BF1=0.3331 NegFP=0.0269 PosBg=0.0202 SmallD=0.6042 SmallR=0.6020\n"}
+,{"stream_name":"stdout","time":330.349504904,"data":"[Iter4] M1_Full_Ref      K=5: Dice=0.7674 AP512=0.9375 Rec=0.7102 Prec=0.9137 BF1=0.3618 NegFP=0.0176 PosBg=0.0141 SmallD=0.6470 SmallR=0.6153\n"}
+,{"stream_name":"stdout","time":347.020848784,"data":"[Iter4] M3_Pruned_Ref    K=1: Dice=0.6817 AP512=0.8729 Rec=0.7083 Prec=0.7649 BF1=0.3439 NegFP=0.0340 PosBg=0.0424 SmallD=0.5632 SmallR=0.6686\n"}
+,{"stream_name":"stdout","time":362.121983537,"data":"[Iter4] M3_Pruned_Ref    K=3: Dice=0.7681 AP512=0.9321 Rec=0.7649 Prec=0.8571 BF1=0.4252 NegFP=0.0393 PosBg=0.0263 SmallD=0.6450 SmallR=0.6993\n"}
+,{"stream_name":"stdout","time":377.699379638,"data":"[Iter4] M3_Pruned_Ref    K=5: Dice=0.8230 AP512=0.9450 Rec=0.8146 Prec=0.8863 BF1=0.5051 NegFP=0.0273 PosBg=0.0229 SmallD=0.7106 SmallR=0.7488\n"}
+,{"stream_name":"stdout","time":395.095428966,"data":"[Iter4] M4_Whiten        K=1: Dice=0.6728 AP512=0.8628 Rec=0.7702 Prec=0.7112 BF1=0.3211 NegFP=0.0616 PosBg=0.0753 SmallD=0.5127 SmallR=0.7654\n"}
+,{"stream_name":"stdout","time":409.952848739,"data":"[Iter4] M4_Whiten        K=3: Dice=0.7662 AP512=0.9305 Rec=0.7540 Prec=0.8601 BF1=0.4245 NegFP=0.0358 PosBg=0.0240 SmallD=0.6547 SmallR=0.6932\n"}
+,{"stream_name":"stdout","time":425.27249934,"data":"[Iter4] M4_Whiten        K=5: Dice=0.8159 AP512=0.9440 Rec=0.8016 Prec=0.8902 BF1=0.4973 NegFP=0.0266 PosBg=0.0224 SmallD=0.7047 SmallR=0.7387\n"}
+,{"stream_name":"stdout","time":442.620818412,"data":"[Iter4] M4_Ridge         K=1: Dice=0.6614 AP512=0.8447 Rec=0.7665 Prec=0.6957 BF1=0.3095 NegFP=0.0791 PosBg=0.0835 SmallD=0.4940 SmallR=0.7673\n"}
+,{"stream_name":"stdout","time":457.534928785,"data":"[Iter4] M4_Ridge         K=3: Dice=0.7647 AP512=0.9233 Rec=0.7514 Prec=0.8593 BF1=0.4086 NegFP=0.0389 PosBg=0.0256 SmallD=0.6375 SmallR=0.6951\n"}
+,{"stream_name":"stdout","time":472.918381439,"data":"[Iter4] M4_Ridge         K=5: Dice=0.8037 AP512=0.9435 Rec=0.7814 Prec=0.8916 BF1=0.4627 NegFP=0.0305 PosBg=0.0217 SmallD=0.6958 SmallR=0.7172\n"}
+,{"stream_name":"stdout","time":490.383145281,"data":"[Iter4] M4_Full          K=1: Dice=0.6535 AP512=0.8435 Rec=0.7842 Prec=0.6747 BF1=0.2982 NegFP=0.0901 PosBg=0.0978 SmallD=0.4751 SmallR=0.7880\n"}
+,{"stream_name":"stdout","time":505.369435516,"data":"[Iter4] M4_Full          K=3: Dice=0.7645 AP512=0.9249 Rec=0.7466 Prec=0.8653 BF1=0.4111 NegFP=0.0366 PosBg=0.0243 SmallD=0.6535 SmallR=0.6919\n"}
+,{"stream_name":"stdout","time":520.78238098,"data":"[Iter4] M4_Full          K=5: Dice=0.8045 AP512=0.9434 Rec=0.7827 Prec=0.8921 BF1=0.4685 NegFP=0.0289 PosBg=0.0218 SmallD=0.6958 SmallR=0.7196\n"}
+,{"stream_name":"stdout","time":538.264438456,"data":"[Iter4] M4_NoWhiten_LOO  K=1: Dice=0.6664 AP512=0.8499 Rec=0.7602 Prec=0.7094 BF1=0.3161 NegFP=0.0712 PosBg=0.0762 SmallD=0.5040 SmallR=0.7570\n"}
+,{"stream_name":"stdout","time":553.423560144,"data":"[Iter4] M4_NoWhiten_LOO  K=3: Dice=0.7666 AP512=0.9248 Rec=0.7544 Prec=0.8605 BF1=0.4130 NegFP=0.0388 PosBg=0.0255 SmallD=0.6409 SmallR=0.6975\n"}
+,{"stream_name":"stdout","time":569.011969323,"data":"[Iter4] M4_NoWhiten_LOO  K=5: Dice=0.8065 AP512=0.9442 Rec=0.7859 Prec=0.8925 BF1=0.4692 NegFP=0.0299 PosBg=0.0218 SmallD=0.6985 SmallR=0.7217\n"}
+,{"stream_name":"stdout","time":586.287146808,"data":"[Iter4] M4_NoRidge_LOO   K=1: Dice=0.6769 AP512=0.8671 Rec=0.7620 Prec=0.7257 BF1=0.3287 NegFP=0.0557 PosBg=0.0684 SmallD=0.5211 SmallR=0.7527\n"}
+,{"stream_name":"stdout","time":601.109216427,"data":"[Iter4] M4_NoRidge_LOO   K=3: Dice=0.7666 AP512=0.9310 Rec=0.7560 Prec=0.8596 BF1=0.4254 NegFP=0.0363 PosBg=0.0243 SmallD=0.6536 SmallR=0.6939\n"}
+,{"stream_name":"stdout","time":616.481000473,"data":"[Iter4] M4_NoRidge_LOO   K=5: Dice=0.8169 AP512=0.9441 Rec=0.8035 Prec=0.8897 BF1=0.4986 NegFP=0.0266 PosBg=0.0225 SmallD=0.7051 SmallR=0.7393\n"}
+,{"stream_name":"stdout","time":629.435827825,"data":"[Iter4] M4_NoRescue_LOO  K=1: Dice=0.6410 AP512=0.8447 Rec=0.7713 Prec=0.6718 BF1=0.2824 NegFP=0.0856 PosBg=0.1031 SmallD=0.4705 SmallR=0.7617\n"}
+,{"stream_name":"stdout","time":641.168622712,"data":"[Iter4] M4_NoRescue_LOO  K=3: Dice=0.7479 AP512=0.9231 Rec=0.7246 Prec=0.8661 BF1=0.3806 NegFP=0.0337 PosBg=0.0246 SmallD=0.6282 SmallR=0.6507\n"}
+,{"stream_name":"stdout","time":653.268047625,"data":"[Iter4] M4_NoRescue_LOO  K=5: Dice=0.7911 AP512=0.9416 Rec=0.7620 Prec=0.8950 BF1=0.4358 NegFP=0.0267 PosBg=0.0215 SmallD=0.6760 SmallR=0.6787\n"}
+,{"stream_name":"stdout","time":670.77622906,"data":"[Iter4] M4_NoAff_LOO     K=1: Dice=0.6484 AP512=0.8389 Rec=0.7807 Prec=0.6701 BF1=0.2873 NegFP=0.0915 PosBg=0.0989 SmallD=0.4669 SmallR=0.7844\n"}
+,{"stream_name":"stdout","time":685.592127218,"data":"[Iter4] M4_NoAff_LOO     K=3: Dice=0.7605 AP512=0.9197 Rec=0.7404 Prec=0.8670 BF1=0.3962 NegFP=0.0365 PosBg=0.0241 SmallD=0.6466 SmallR=0.6877\n"}
+,{"stream_name":"stdout","time":700.784653335,"data":"[Iter4] M4_NoAff_LOO     K=5: Dice=0.8023 AP512=0.9384 Rec=0.7765 Prec=0.8965 BF1=0.4551 NegFP=0.0290 PosBg=0.0212 SmallD=0.6945 SmallR=0.7152\n"}
+,{"stream_name":"stdout","time":702.861198335,"data":"Iter 4 ablations complete!\n"}
+,{"stream_name":"stderr","time":707.362283064,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":707.36231108,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":707.580730074,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":707.580754856,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":708.334483122,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":709.231046585,"data":"[NbConvertApp] Writing 280891 bytes to __results__.html\n"}
+]
