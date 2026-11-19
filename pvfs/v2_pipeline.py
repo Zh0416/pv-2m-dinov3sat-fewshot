@@ -431,6 +431,10 @@ def run_v2_dev_ablations(
         output_dir / "v2_fold_decoders.pt",
     )
 
+    ep_by_k: dict[str, list[dict]] = defaultdict(list)
+    for ep in episodes_lock["episodes"]:
+        ep_by_k[str(int(ep["k"]))].append(ep)
+
     methods_summary: dict[str, dict] = {v.name: {} for v in V2_VARIANTS}
     panel_probs: dict[str, dict[str, np.ndarray]] = {}
     panel_names = ("Ref_M5_BalCal", "V2_FreqOnly_NoDecoder", "V2_Full_WithDecoder")
@@ -440,7 +444,7 @@ def run_v2_dev_ablations(
         for k_str in ("1", "3", "5"):
             ep_results = []
             prob_accum: dict[str, np.ndarray] = defaultdict(lambda: np.zeros((512, 512), dtype=np.float32))
-            for ep in episodes_lock["episodes_by_k"][k_str]:
+            for ep in ep_by_k[k_str]:
                 f = int(ep["fold"])
                 dec = fold_decoders[var.name][f] if var.kind == "decoder" else None
                 p512_map, s32_map = run_v2_episode(

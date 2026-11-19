@@ -1,5 +1,5 @@
 {
-  "id": "zh0416/pv-2m-dinov3-sat-v2-dev",
+  "id": "zh0416/pv-2m-dinov3-sat-v2-dev-ablations",
   "title": "PV 2m DINOv3-SAT V2 Dev Ablations",
   "code_file": "run_kaggle_v2_dev.py",
   "language": "python",

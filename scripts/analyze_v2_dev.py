@@ -43,7 +43,7 @@ def main() -> None:
                 f"(f={c['dice']['positive_folds']}/4) | "
                 f"dAP512={c['ap_512']['mean_delta']:+.4f} (f={c['ap_512']['positive_folds']}/4) | "
                 f"dRec={c['recall']['mean_delta']:+.4f} dPrec={c['precision']['mean_delta']:+.4f} | "
-                f"dSmallR={c['small_lt5pct_recall_delta']:+.4f} dBF1={c['boundary_f1']['mean_delta']:+.4f} (f={c['boundary_f1']['positive_folds']}/4) | "
+                f"dSmallR={c['small_lt5pct_recall_delta']:+.4f} dBF1={c['boundary_f1']['mean_delta']:+.4f} CI{[round(x, 4) for x in c['boundary_f1']['ci95']]} | "
                 f"dNegFP={c['neg_fp']['mean_delta']:+.4f} (f={c['neg_fp']['improved_folds']}/4, rel={c['neg_fp']['relative_reduction']:+.1%}) | "
                 f"Gates[FP={g['Gate_FP']} FN={g['Gate_FN']} Net={g['Gate_Net']}]"
             )
