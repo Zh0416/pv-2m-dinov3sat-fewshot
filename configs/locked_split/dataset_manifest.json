@@ -1,0 +1,2011 @@
+{
+  "exact_duplicate_images": [],
+  "image_dir": "/kaggle/input/datasets/zh0416/pv-100scence/PV-多场景/images",
+  "images": [
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.17588129501787,
+        21.953183453247945,
+        112.18508992811141,
+        21.962392086341474
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-01.tif",
+      "image_sha256": "37b53e36e98d89d0543e27134e7394d607507b97996149c7d6d940b5b303f651",
+      "label_sha256": "fb31da2cb7c1b9335a489584a024af9dee3049895792a7218825dc44f2422c43",
+      "meters_per_pixel": [
+        1.8577820450939433,
+        1.9915414364816846
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.11257553100585938
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.40609712235612,
+        21.934766187060887,
+        112.41530575544965,
+        21.943974820154416
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-02.tif",
+      "image_sha256": "e94d71e081b9282c5a9198349394a0c51f69b7bd3f04fc5839ce3638846b741f",
+      "label_sha256": "cc5c1fbb19586dc0d5eef8f1f33450281b12b984168df6a6db09c54b9ac19a2d",
+      "meters_per_pixel": [
+        1.8580213220430581,
+        1.991536975174825
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.23225784301757812
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.17588129501787,
+        21.92555755396736,
+        112.18508992811141,
+        21.934766187060887
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-03.tif",
+      "image_sha256": "09771858bb0383837c43371129073e69c68fed386d5c145ec7f338c34b6596f5",
+      "label_sha256": "32dba4eed6c0bb696ed0ce433629ed8f59e1b2be1717c19f732fcb6b803ac026",
+      "meters_per_pixel": [
+        1.8581408887408213,
+        1.991534745648552
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.03104400634765625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.46134892091729,
+        21.92555755396736,
+        112.47055755401082,
+        21.934766187060887
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-04.tif",
+      "image_sha256": "562969987c064a102cfc23dbe6d7d23b83e9662172374866314962dc52218854",
+      "label_sha256": "9b868c7c53389d30f7108028aaa119e86a9b71b5a0cc00116b8d907cf7684f37",
+      "meters_per_pixel": [
+        1.8581408887408213,
+        1.991534745648552
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.21271514892578125
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.47055755401082,
+        21.92555755396736,
+        112.47976618710436,
+        21.934766187060887
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-05.tif",
+      "image_sha256": "53bb166a0f0b314543bec624d8ad23d6ca6416e6c045614bab385d37c6cbf294",
+      "label_sha256": "207a48b820ab8a7faa8d0d6dd86561da3c0171fb7af799e269fd3b92ef7d9f45",
+      "meters_per_pixel": [
+        1.8581408887408213,
+        1.991534745648552
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.4010162353515625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.20350719429847,
+        21.89793165468677,
+        112.212715827392,
+        21.907140287780297
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-06.tif",
+      "image_sha256": "e8a614a0326a1d15385591afcdf574fd0a92f192a0911335a26b8e31018ca7d2",
+      "label_sha256": "6a2218f5407357b59b6a1fe28307ecba11cd1ab8b8871fd120bd9fc44f18a4f8",
+      "meters_per_pixel": [
+        1.8584993016916966,
+        1.991528061560637
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.21434783935546875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.41530575544964,
+        21.89793165468677,
+        112.42451438854317,
+        21.907140287780297
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-07.tif",
+      "image_sha256": "17fee44220aec1ce7e228650cf0123e0416bab398dc6ea8b058aa581835254cb",
+      "label_sha256": "361532f5e5d1664b0fe273ba83ae297f56e5d4daf7daafb7af68ca6777f7408e",
+      "meters_per_pixel": [
+        1.8584993016916966,
+        1.991528061560637
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.07283401489257812
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.41530575544964,
+        21.88872302159324,
+        112.42451438854317,
+        21.89793165468677
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-08.tif",
+      "image_sha256": "c38589f4a7a342ebd6aea7541e2e01d6468eedb0944fbfef6850ecaf4b5aaf66",
+      "label_sha256": "8bd811e8891fc8621fadbe434c188db6942c24a11b71ce09b04fa0cd7c3e4b03",
+      "meters_per_pixel": [
+        1.8586186769514024,
+        1.991525835033611
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.19960403442382812
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.42451438854317,
+        21.87951438849971,
+        112.43372302163671,
+        21.88872302159324
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-09.tif",
+      "image_sha256": "6c4a4657162f267d5a0e3dd2e1908e20d1eb36fa1b194729cc73f2dc843fe4b4",
+      "label_sha256": "43c14e811f53379f7e54683895b5d35eaaafa27d2a01185a862227a170ad2bfe",
+      "meters_per_pixel": [
+        1.8587380043442605,
+        1.9915236092558863
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.3444023132324219
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.21271582739199,
+        21.85188848921912,
+        112.22192446048552,
+        21.86109712231265
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-10.tif",
+      "image_sha256": "3ba4d9cc7cb7be27962dbefb1512e4496d77056a03bf76f204d296d1ed067293",
+      "label_sha256": "5488cda9848b7ec8fe46f23f3f7ce4adc5079fb80b8977290a45547e95c7ccdd",
+      "meters_per_pixel": [
+        1.859095699292455,
+        1.9915169364303527
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.15395355224609375
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.42451438854317,
+        21.833471223032063,
+        112.43372302163671,
+        21.842679856125592
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-11.tif",
+      "image_sha256": "b164cdc1e211c657da6cb3176cd9983ef0dd56623f95ced6a552749102169a84",
+      "label_sha256": "868aec1e6dc0592a590d01925269a54fae6498746d861b4aaaca710afb4e20b3",
+      "meters_per_pixel": [
+        1.859333923203318,
+        1.9915124916377935
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.248291015625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.48897482019788,
+        21.796636690657945,
+        112.49818345329142,
+        21.805845323751473
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-12.tif",
+      "image_sha256": "0d37e5c47f3c82326dd4f1f0f439f0272cd93ebd85763503e9f34be155b620ea",
+      "label_sha256": "0f9ccc9a3a65b7b1e9b8be7937ba888411dc9897db3b7a363d1a0f9a53dc8d46",
+      "meters_per_pixel": [
+        1.859809796388707,
+        1.9915036110779192
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.018405914306640625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.4981834532914,
+        21.787428057564412,
+        112.50739208638494,
+        21.79663669065794
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-13.tif",
+      "image_sha256": "5743c6125eb49b4455aea3cbc001df6fa0db3eeb927f9255cf0e54159b7f0f6d",
+      "label_sha256": "6a50737015e9a33a9f0a3a89a847633fb303c57d8ac0e1ed3b2533050c7bdd50",
+      "meters_per_pixel": [
+        1.8599286449521066,
+        1.9915013928201402
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.5273017883300781
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.51660071947848,
+        21.778219424470883,
+        112.52580935257201,
+        21.787428057564412
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-14.tif",
+      "image_sha256": "dab7ef00f12d168702aeaf099c891a85e6e70a37f53dd04933adcc02db8e6fbe",
+      "label_sha256": "5cae0288b8f8535344436f58778eeb7f65a72505f8f9d5619d007bb54e712dd8",
+      "meters_per_pixel": [
+        1.860047445616488,
+        1.9914991753159388
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.5812873840332031
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.54422661875905,
+        21.759802158283826,
+        112.55343525185259,
+        21.769010791377355
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-15.tif",
+      "image_sha256": "ca99229a37ab84659cf1d8077d8791854862d7848dc4b2f90e4250699eb60ce4",
+      "label_sha256": "d267c55dc84b6f77ad21abb869946c43e6219a697ad0a4984995e09bc1816b20",
+      "meters_per_pixel": [
+        1.8602849032365254,
+        1.991494742566491
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.5468559265136719
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.55343525185259,
+        21.759802158283826,
+        112.56264388494613,
+        21.769010791377355
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-16.tif",
+      "image_sha256": "e3f560a1c66384a6dc846ba38d95ef830e58b029121bb9910f42ace8300eea7a",
+      "label_sha256": "201293a3a96e752edc4afcfccf379039df2a29e12b437e625f13a01c9200eeb3",
+      "meters_per_pixel": [
+        1.8602849032365254,
+        1.991494742566491
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.20277023315429688
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        115.354388489264,
+        23.073435251809638,
+        115.36359712235753,
+        23.082643884903167
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-17.tif",
+      "image_sha256": "2b6d44e3947dbcb88abd8f4bb610a3f616e9e7080e4c583536d0d4a9f004d249",
+      "label_sha256": "f96894e7527c898885f6001ad65d07a3dd15f1aff51db7a838cbc1a902dee577",
+      "meters_per_pixel": [
+        1.8428687707771765,
+        1.9918183662997688
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.033176422119140625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        115.40043165473165,
+        22.99055755396787,
+        115.40964028782518,
+        22.9997661870614
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-18.tif",
+      "image_sha256": "2dbb0d4c1202318ebccfbe584bd6ae7fec01dcdc94bbbb2f091a4e95fd906d29",
+      "label_sha256": "e2a7546a03098b8e3b93e407bd297268a7e297b324ed5e8c04a23e411e5e4496",
+      "meters_per_pixel": [
+        1.8439962108862542,
+        1.9917975080143482
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.12047958374023438
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        115.50172661876047,
+        22.96293165468728,
+        115.51093525185401,
+        22.97214028778081
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-19.tif",
+      "image_sha256": "1a487090f828079e0bc17b8c936a73f72584724600080bb3e8893fad87c662e1",
+      "label_sha256": "2efb77becdd3a84c634cf409bb9d8dc65a46d0f4617cfe3904e03208099d5125",
+      "meters_per_pixel": [
+        1.8443711692315297,
+        1.9917905682586468
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.06686019897460938
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        116.05424460437224,
+        22.96293165468728,
+        116.06345323746578,
+        22.97214028778081
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-20.tif",
+      "image_sha256": "30ac627b26d59185bafdd14aa3d7fb9c61998f72bf565e7d33039adadd6dd5df",
+      "label_sha256": "83e8ee3a33e0bfbcd03100358a7dbb8cc4e348aba2925e9e210d070d6290f223",
+      "meters_per_pixel": [
+        1.8443711692315297,
+        1.9917905682586468
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.24082565307617188
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        116.00820143890459,
+        22.93530575540669,
+        116.01741007199813,
+        22.94451438850022
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-21.tif",
+      "image_sha256": "b7d6c26d930f5632ffd396245e6f52c96d612fbc655758f4ea1878eabb39f5e4",
+      "label_sha256": "da0f30dbd9f3cda0e4eea9db872e2854c8f58fbd8cc59739f012e66e2296e1d1",
+      "meters_per_pixel": [
+        1.8447456999262262,
+        1.9917836350184641
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.16358184814453125
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        115.74115107919224,
+        22.926097122313163,
+        115.75035971228577,
+        22.93530575540669
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-22.tif",
+      "image_sha256": "cadba4615eee2cde623ecd4e24bd262d0e71196ef3044673d8fa050361571703",
+      "label_sha256": "2ce8a5302cb2bc431ff8e15906f48f8c43ccfc72bfdab48c7e14e7d5f650c68b",
+      "meters_per_pixel": [
+        1.8448704484433347,
+        1.99178132538765
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.1598052978515625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        116.04503597127872,
+        22.926097122313163,
+        116.05424460437226,
+        22.93530575540669
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-23.tif",
+      "image_sha256": "ba80c99983963c8e8c86a5ac717e869445f74a5b0450eaa200bc0556e77c2fb3",
+      "label_sha256": "f9298e725aef640638fe3a98a928d70ca28986683b8ece825a192880dd8f27f1",
+      "meters_per_pixel": [
+        1.8448704484433347,
+        1.99178132538765
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.12410354614257812
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        115.49251798566694,
+        22.916888489219634,
+        115.50172661876047,
+        22.926097122313163
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-24.tif",
+      "image_sha256": "6468eea342c12b02fdbbfeb5b4c05543cb3049992cd721e5347ca836e584b834",
+      "label_sha256": "6b372bd251a2a7e9904c5174994d45ca86b60a9e2e5262e60d0c51c46547a7df",
+      "meters_per_pixel": [
+        1.8449951494314365,
+        1.991779016481022
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.006305694580078125
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        115.49251798566694,
+        22.907679856126105,
+        115.50172661876047,
+        22.916888489219634
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-25.tif",
+      "image_sha256": "bd37bc6dea06337b04b395fd7faaa10d8b99c270d189375e567b1caff96c05d5",
+      "label_sha256": "d217a4b8bc9919f46e6f6f0847fa7bebcdebee13f4ed3efe43a7135e4bc0cf81",
+      "meters_per_pixel": [
+        1.8451198028874634,
+        1.9917767083007172
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.184539794921875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        115.23467625904811,
+        22.861636690658457,
+        115.24388489214165,
+        22.870845323751986
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-26.tif",
+      "image_sha256": "d299f54ed27d940f3ddbad47a74af500d22a0e819990a539e61e185e3fb9cd53",
+      "label_sha256": "61b5eb34fcc6d945cd0314d0bd46627a548ebb950f46510be33e8728781abe2f",
+      "meters_per_pixel": [
+        1.8457423570792768,
+        1.991765178275428
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.00403594970703125
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        115.47410071947988,
+        22.852428057564925,
+        115.48330935257341,
+        22.861636690658454
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-27.tif",
+      "image_sha256": "c28b1350f12c8f1f8c3d8707da4620552ff76d49322839ecf44a6818656091bf",
+      "label_sha256": "508bc41b1879c6082f7c874e206db735384ced8d790f0666e205809e1129f290",
+      "meters_per_pixel": [
+        1.8458667252785463,
+        1.991762874449194
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.3048744201660156
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        115.80561151084694,
+        22.77875899281669,
+        115.81482014394048,
+        22.78796762591022
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-28.tif",
+      "image_sha256": "da3c40701b5e8d654fc07896897302498b5a196039d30a3fc07a5571a5aa3587",
+      "label_sha256": "815027cbf74896e76077b26aab10b784f973cdc33379dce39081f62a16364d3c",
+      "meters_per_pixel": [
+        1.8468599586900611,
+        1.9917444700151528
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.01880645751953125
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.55791372866398,
+        21.715125243561058,
+        109.56698177871705,
+        21.724281661720724
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-29.tif",
+      "image_sha256": "71188cd3aa54bb7a6cb42921e715f737be8159c193b2a06f8d499bb8716d10cd",
+      "label_sha256": "36dba54c5a008842b60708c17a71e0e48745f1890c0d7259969db8a268e8c2a3",
+      "meters_per_pixel": [
+        1.8324517575451094,
+        1.9801918524205635
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.126190185546875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.50350542834556,
+        21.696812407241723,
+        109.51257347839864,
+        21.70596882540139
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-30.tif",
+      "image_sha256": "c6987a7e630abcdd694398a974d330ca2adf8f4a7d05d818c98460ab2da209ae",
+      "label_sha256": "05b21668d17c05df4feb9a43e2e8bfbf0e77c632c7d1c17552d7e9454947791f",
+      "meters_per_pixel": [
+        1.832683621518445,
+        1.9801874800146022
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.18163681030273438
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.50350542834556,
+        21.486214789569377,
+        109.51257347839864,
+        21.495371207729043
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-31.tif",
+      "image_sha256": "adf6b9efe228a68567d0b8351f9ee24214fc1514f53eac17c8a89c5b926a6c11",
+      "label_sha256": "37700ff1837ade91db6d6fcd53ff27694e1ec2bf6fb48298e63b223496ab5750",
+      "meters_per_pixel": [
+        1.8353366361542174,
+        1.9801374112870302
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.0926361083984375
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        107.25582733818098,
+        22.127140287780406,
+        107.26503597127451,
+        22.136348920873935
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-32.tif",
+      "image_sha256": "f6633d650be9ad537c932345c4badef8fbb299220e13a73612d786670b0633da",
+      "label_sha256": "944ca0622d7efba53b50f08d4265fdc7dfa011d8e67f927d1cbb1e71fc5acced",
+      "meters_per_pixel": [
+        1.8555125618487518,
+        1.9915837224683948
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.12158966064453125
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        107.82676258997982,
+        21.97980215828393,
+        107.83597122307336,
+        21.98901079137746
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-33.tif",
+      "image_sha256": "32a48e2dcd0afc89115e1ad3e7a53c8979688ebc6bfb40c2337930cb93e8d905",
+      "label_sha256": "008f42315b0c51c4b5ba5bb0f0ccd19c834de9c40de51d23c49c65ff71dc1806",
+      "meters_per_pixel": [
+        1.8574358769339245,
+        1.991547889755395
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.018161773681640625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        107.80834532379275,
+        21.970593525190402,
+        107.81755395688629,
+        21.97980215828393
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-34.tif",
+      "image_sha256": "827cd4a45eff2695018f35d63bce78dd32f88f89cdb2095a2f62dd868983d6cb",
+      "label_sha256": "56813a2d1d25454649df3944f5fc9e054ccf204fb2e8b22e81a0d8e0ec627c46",
+      "meters_per_pixel": [
+        1.8575556776307725,
+        1.9915456565656455
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.10040664672851562
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        107.81755395688629,
+        21.648291366916865,
+        107.82676258997982,
+        21.657500000010394
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-35.tif",
+      "image_sha256": "328b5b48cea03c3f1a56d702ae53149f193aa2860b5819e770fe2610cda5d009",
+      "label_sha256": "1297242c57cdde26c44b59db7a442e38c9d453542e90a0bd1c2329dd887ef0e8",
+      "meters_per_pixel": [
+        1.8617185414245712,
+        1.9914679681200207
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.08713531494140625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        108.05697841731805,
+        21.648291366916865,
+        108.06618705041159,
+        21.657500000010394
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-36.tif",
+      "image_sha256": "8dec27c61527c4804eae3fcfbafafd32fecdce23c1a50de1981ae875c1429932",
+      "label_sha256": "72e5fd77bb67d3e5ee8938e6ccc1c748701469cdc093a692282535751c346393",
+      "meters_per_pixel": [
+        1.8617185414245712,
+        1.9914679681200207
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.0531158447265625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        108.54470188005389,
+        21.91272128722278,
+        108.55678017393303,
+        21.924067576849044
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-37.tif",
+      "image_sha256": "0d767df65bbe3646d97b72dcd51bd92eca8666f79631527da4f0e302fc2b5d21",
+      "label_sha256": "882a091f2b2768503eafe56c2ee093d4a8baf98b4a2da9954313e563c7d9a911",
+      "meters_per_pixel": [
+        2.4373884921607525,
+        2.453838423337531
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.08018112182617188
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        108.52054529229561,
+        21.89002870797025,
+        108.53262358617475,
+        21.901374997596513
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-38.tif",
+      "image_sha256": "71c4ab8bc7c36026cf6d0ff5827e39a718f4b268ab0ec90e3d56dd85ac2d3ed5",
+      "label_sha256": "f6d8dea2c03605743b56c2b7266b4c28debb11a9502f5361555ba0f6a1e5e704",
+      "meters_per_pixel": [
+        2.4377744908210386,
+        2.4538316606330266
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.137847900390625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        108.48431041065818,
+        21.867336128717717,
+        108.49638870453732,
+        21.87868241834398
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-39.tif",
+      "image_sha256": "20ae0c151dfeb37079d1725f87b5d7a8f38f0a2598a5267942ff34e67eed8867",
+      "label_sha256": "eb263b43ad35d5abbc199a656afe188c59d137ba30c4315c8208661fa6a12b93",
+      "meters_per_pixel": [
+        2.438160108226134,
+        2.4538249035447945
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.14855575561523438
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        108.47223211677904,
+        21.833297259838922,
+        108.48431041065818,
+        21.844643549465186
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-40.tif",
+      "image_sha256": "ba704c2ef5d7892a983f164d8e6452a3faa258f08276badf38e047f3f028efa9",
+      "label_sha256": "5fc30c12d518d4141ba772e616f6d3c1c63542249877bf132524ce29c9dec962",
+      "meters_per_pixel": [
+        2.438737819354504,
+        2.4538147784525064
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.033355712890625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        108.82250263927416,
+        21.77656581170759,
+        108.8345809331533,
+        21.787912101333855
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-41.tif",
+      "image_sha256": "73de67b0cb76ec97f2113342545268d16171fd994f887b8d2582674f153c97a0",
+      "label_sha256": "701abf1fce00dff29e540d6f92dbfe84dcacd25d88d9cce6109bb4386c7f2f41",
+      "meters_per_pixel": [
+        2.439698764145238,
+        2.4537979314399796
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.2407684326171875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        108.79834605151588,
+        21.708488073949997,
+        108.81042434539502,
+        21.71983436357626
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-42.tif",
+      "image_sha256": "0700757a1fda931746ebdbd961fbb01667aa62a1aa6a9338d73aaf503297b89f",
+      "label_sha256": "7eef3fbda43a366e48aff22268d4a0f0f78b00dec594f9ff8ff80d5cd48a82ef",
+      "meters_per_pixel": [
+        2.440848750092764,
+        2.453777761536764
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.2625846862792969
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        108.53262358617475,
+        21.640410336192407,
+        108.54470188005389,
+        21.65175662581867
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-43.tif",
+      "image_sha256": "84c86653a55c59d2f71f6f750766a675fd58a5772b0855a391cff76280b1b1dd",
+      "label_sha256": "37525cbe6dbfd64d01ad55a44696643e0d9b0dbd6e5cb98ba7a0996d695cba48",
+      "meters_per_pixel": [
+        2.4419953006176986,
+        2.4537576424815395
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.18436431884765625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        108.78626775763674,
+        21.62906404656614,
+        108.79834605151588,
+        21.640410336192403
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-44.tif",
+      "image_sha256": "04dc4ab3ec26889712e717c0311effd9e21b78b76f428d90b2211b51be44907b",
+      "label_sha256": "fcfb60edff34775913e2662757658db34a62904b38c01790266fd0d5ed7e0e59",
+      "meters_per_pixel": [
+        2.4421860582643253,
+        2.453754294258193
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.11370849609375
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        111.1870701446872,
+        21.789928626142228,
+        111.19913595155599,
+        21.801266866951956
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-45.tif",
+      "image_sha256": "26dd396c4dd22da1bc4eb5319bffa7562d12029bc05380daebcb1979ca0d68da",
+      "label_sha256": "ea61bffb283eef65834389c34b2ebacb8520f8eaf8672e263439f45cee2a831f",
+      "meters_per_pixel": [
+        2.4369506792623854,
+        2.452061220431826
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.0388946533203125
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.88542497296751,
+        21.755913903713044,
+        110.8974907798363,
+        21.76725214452277
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-46.tif",
+      "image_sha256": "d7a219c2377299de9b37fcb94f2c5f319f545e2b6529a108b81b7dc095f70608",
+      "label_sha256": "88fa3831a7c29427befc5e107df5dc91926d28b0f74738983d276252646e7f56",
+      "meters_per_pixel": [
+        2.4375254355556586,
+        2.4520511384673203
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.048557281494140625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.87335916609872,
+        21.744575662903316,
+        110.88542497296751,
+        21.755913903713044
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-47.tif",
+      "image_sha256": "c0c67ee9efbd0aad6174090f06b530f09bc5423366fc621d08bac740fcca1ded",
+      "label_sha256": "aa399f7cecbfa9a7648431f048c32b0870640738fcabe103513ccb92093902a3",
+      "meters_per_pixel": [
+        2.4377168306666968,
+        2.452047780625207
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.0475921630859375
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.88542497296751,
+        21.744575662903316,
+        110.8974907798363,
+        21.755913903713044
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-48.tif",
+      "image_sha256": "14af87ca060860e4db8270a5818399f0d3f3f3454c1f3df438b6e82042a11657",
+      "label_sha256": "2f6977956e122e00c1815bbb3452b3026d77946c343adec900d9dbdc3dd8326b",
+      "meters_per_pixel": [
+        2.4377168306666968,
+        2.452047780625207
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.4098167419433594
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.77683271114843,
+        21.71056094047413,
+        110.78889851801722,
+        21.72189918128386
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-49.tif",
+      "image_sha256": "b17bcc37e8e1e86d2d1ec3f335c32a1a43bb5af1a9f5351ea7a717cc90f60508",
+      "label_sha256": "25b0d582d3a15ee39db87a91b5bc5fa17541cfa66623341a90af6c107de7966f",
+      "meters_per_pixel": [
+        2.438290444939902,
+        2.4520377155511484
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.031841278076171875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        111.47664950953809,
+        21.676546218044948,
+        111.48871531640688,
+        21.687884458854676
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-50.tif",
+      "image_sha256": "2bfeee09063aca1edfb43c7f88d27b1f31787202898dfd4a53879057c6536ea0",
+      "label_sha256": "8dbe63f1e4700319b68af557e02466555e852be5ea90162ceccc74a25cead543",
+      "meters_per_pixel": [
+        2.438863202473801,
+        2.452027663158743
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.2601776123046875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        111.47664950953809,
+        21.66520797723522,
+        111.48871531640688,
+        21.676546218044948
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-51.tif",
+      "image_sha256": "05fe2b7f11aef09d2e07aaefde875ce3b9021c821f73a776685720e74e1199ac",
+      "label_sha256": "1634846001765a316a92d705a1fe234ca8bf97fe71383b3829396af82db5006a",
+      "meters_per_pixel": [
+        2.439053931232079,
+        2.452024315183972
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.11594390869140625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.81303013175479,
+        21.574502050757395,
+        110.82509593862358,
+        21.585840291567123
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-52.tif",
+      "image_sha256": "8c6ca7b9b8dcb88fbb8e2ff81afdf647c1e1a2b241c23d2f8ba8b817442b3477",
+      "label_sha256": "af6147d972b8f0a586b6fa2e0b6c157b1beba80fd7b37769a42c9c621a63c63b",
+      "meters_per_pixel": [
+        2.4405763327221877,
+        2.4519975822312534
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.1073760986328125
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.81303013175479,
+        21.563163809947667,
+        110.82509593862358,
+        21.574502050757395
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-53.tif",
+      "image_sha256": "2b19ee5f0beb26ea9b6fae13c105f9526340ec2138e2b9c0f64a9b89d290bfd2",
+      "label_sha256": "0a7a17440f8c2901622c3ac3a5a687e7d9cf8c6b3da07100821048e90a8366de",
+      "meters_per_pixel": [
+        2.440766204230182,
+        2.4519942469745275
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.2568092346191406
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.6937294239553,
+        20.998820408564576,
+        109.70572739054045,
+        21.010155828099016
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-54.tif",
+      "image_sha256": "56df485d5b0a494a663fc3568d4f3a5dadbf3d0d5d32e6d0aa93703948b88d12",
+      "label_sha256": "9a0a69ff9f604955d24a8c8007f3b5f2207601f9f6d994b2309afabec2228cdb",
+      "meters_per_pixel": [
+        2.4363205185825283,
+        2.451219954419366
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.14756393432617188
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.26963182004198,
+        20.794782856944686,
+        110.28162978662712,
+        20.806118276479125
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-55.tif",
+      "image_sha256": "5a2f4439b53a434784a6f6f6104795c3d909761362547ebcfdf1e17673e058cc",
+      "label_sha256": "db6e9cf964cd0fbce26149131339189fe2debf390f30b73851da3e6e33d48a46",
+      "meters_per_pixel": [
+        2.439616864510321,
+        2.4511614755870443
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.12829208374023438
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.47359725198935,
+        20.62475156392811,
+        110.48559521857449,
+        20.63608698346255
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-56.tif",
+      "image_sha256": "a81a3cb9739c936ef86cdec93c8ea515f4da18b00f2d8da68cc268482228190f",
+      "label_sha256": "6d72f90b8c678b03a6b7864ab5da4a3784e6ff86f729fa9b97e26777a7bdfd80",
+      "meters_per_pixel": [
+        2.4423402665401936,
+        2.451113101771182
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.12914276123046875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.47359725198935,
+        20.61341614439367,
+        110.48559521857449,
+        20.62475156392811
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-57.tif",
+      "image_sha256": "57291ed5d3b1473259ac1ec1ade4130bd9a2ae319fb52ed82c403a706e29fa08",
+      "label_sha256": "3379027f5bfcdfe7105b8642ae6d695b5205bf59dd32b5496acffd1d0ca84ec5",
+      "meters_per_pixel": [
+        2.4425210647560496,
+        2.451109888485322
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.09068679809570312
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.19764402053114,
+        20.522732788118166,
+        110.20964198711629,
+        20.534068207652606
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-58.tif",
+      "image_sha256": "4dcdffb995947e214343b8227b7b94d2b2b795d156fd12180fd409d396d71c1e",
+      "label_sha256": "ea7ef8428a745fe25626842f1b7b86a88382a316beff1d675cc9bb5ff1fd3393",
+      "meters_per_pixel": [
+        2.443964019908112,
+        2.451084234686451
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.08715438842773438
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.10166028785004,
+        20.511397368583726,
+        110.11365825443518,
+        20.522732788118166
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-59.tif",
+      "image_sha256": "ad014b4aa610b7c988cab15718ba5c51826d889ef0843221c111f605bac55e60",
+      "label_sha256": "2f3aae79428968867bf122726a727833c2e076b3953ec6887309d6356f619db6",
+      "meters_per_pixel": [
+        2.4441439603797166,
+        2.4510810345302105
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.0433197021484375
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.13765418760545,
+        20.511397368583726,
+        110.14965215419059,
+        20.522732788118166
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-60.tif",
+      "image_sha256": "56f3bbf5399774eb06da656352a89e1ab9391c6d4d8a301e7b2593bb60269738",
+      "label_sha256": "5921c523e9c433b0b345e739e5c35692d248b88326618cec20636ac7be648984",
+      "meters_per_pixel": [
+        2.4441439603797166,
+        2.4510810345302105
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.09527969360351562
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.12565622102032,
+        20.48872652951485,
+        110.13765418760546,
+        20.50006194904929
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-61.tif",
+      "image_sha256": "dc38ccf92f6a7b3200f436e23a13dbd0fd9d513ae5436cc89b1b15e822604c07",
+      "label_sha256": "3b8f54e905bba297cb82d4bc7e265532f7e4b2c2bcfdb41c81e339b7e4c235c2",
+      "meters_per_pixel": [
+        2.4445035553010372,
+        2.45107463860561
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.04265594482421875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.34161961955282,
+        20.47739110998041,
+        110.35361758613796,
+        20.48872652951485
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-62.tif",
+      "image_sha256": "f4c9ef8dec8ed54ca285b62a834b98995eca05f364170d91d2bafa29dd9ece00",
+      "label_sha256": "19b0177195ab815db1871cb2ff02616b7e6e86c69a9797b8328be4f2d253209a",
+      "meters_per_pixel": [
+        2.4446832097373887,
+        2.4510714428361937
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.04485321044921875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.43760335223394,
+        20.47739110998041,
+        110.44960131881908,
+        20.48872652951485
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-63.tif",
+      "image_sha256": "a47491105e0a73a0265d33ec404c12a41bba59d0e1216a91db5ed51b968a86e4",
+      "label_sha256": "c0fc4ae5028e5ed4a409b3f580a437caed840bffa070c0cc874b195b59d03dd2",
+      "meters_per_pixel": [
+        2.4446832097373887,
+        2.4510714428361937
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.09893035888671875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.34161961955282,
+        20.454720270911533,
+        110.35361758613796,
+        20.466055690445973
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-64.tif",
+      "image_sha256": "07a6a73e09bc662efde62c6e382f0c0f4de1dc514468c3c330cdc73dd42fe6c5",
+      "label_sha256": "faaea7086d106dab07c9f05c2dc2b97fbd30feeb7142b6dba3a0f7b530c96244",
+      "meters_per_pixel": [
+        2.4450422325280905,
+        2.4510650556887708
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.12323760986328125
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.99367858858379,
+        20.443384851377097,
+        110.00567655516893,
+        20.454720270911537
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-65.tif",
+      "image_sha256": "06653bae06e59c61186760bd79afe9f13100a63f4384784063a708d13e02b09e",
+      "label_sha256": "bfa3fa19c48b4997a33c6b102c763a0fd6a21b6fea74ce52b844a333c440e513",
+      "meters_per_pixel": [
+        2.4452216008691,
+        2.4510618643097097
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.21611785888671875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.28162978662712,
+        20.443384851377097,
+        110.29362775321226,
+        20.454720270911537
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-66.tif",
+      "image_sha256": "05b937d5ef7a355370637e1409222eb9f1a49d370ab330d285e8f0ec5f2bd7bd",
+      "label_sha256": "a7042373f0dfcd884613e2fe425cb9949686e1a78a49d2ddf3d8c81fb1ba9ce7",
+      "meters_per_pixel": [
+        2.4452216008691,
+        2.4510618643097097
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.027896881103515625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.0896623212649,
+        20.398043173239344,
+        110.10166028785004,
+        20.409378592773784
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-67.tif",
+      "image_sha256": "c83fd99004e5f53aeface5e71582f233dc3810ac322afd12f921eb5cea493b0c",
+      "label_sha256": "58e431bc8d471930295bbec849392fe7ea9d261a810e55e490796c1f8fdbf737",
+      "meters_per_pixel": [
+        2.445938120382024,
+        2.45104911344272
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.290740966796875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.94568672224322,
+        20.28468897789496,
+        109.95768468882837,
+        20.2960243974294
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-68.tif",
+      "image_sha256": "2eb4d6a4178e64eb9ac30e824a4603e4221995036158a8e1399cc0fc01ce2615",
+      "label_sha256": "f4db1f474a262118b69f99b89976f14699e6a0ac773f12c2dbdd491100f13026",
+      "meters_per_pixel": [
+        2.4477227398795938,
+        2.4510173389976755
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.49417877197265625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.06566638809461,
+        20.262018138826082,
+        110.07766435467975,
+        20.273353558360522
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-69.tif",
+      "image_sha256": "c65c073c0ea5853a04cc5b0097cc1acc19008144793fff9006f2fbb37d51346e",
+      "label_sha256": "da9868230d3f231539e8f1a334efd788535aa5859adf1409ccfe4c32404b0900",
+      "meters_per_pixel": [
+        2.4480785183343436,
+        2.4510110017483533
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.10756683349609375
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.7853796183209,
+        21.50646489323912,
+        109.7974470460071,
+        21.517802686355022
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-70.tif",
+      "image_sha256": "36a896c04f32032a742d3b9f358165566c497273aff7e8357d5077f32377596e",
+      "label_sha256": "f569ae72a47da134e6ec114500ba182de138b3cd03c8ca54399f8be7d2b567c2",
+      "meters_per_pixel": [
+        2.4420422639177652,
+        2.451880772555123
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.44670867919921875
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.0508630274172,
+        21.359073582732368,
+        110.06293045510338,
+        21.37041137584827
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-71.tif",
+      "image_sha256": "8e6aacc3c1f9ba7eef0080c0f447494ddceb72b258279e01de00692a83a763fe",
+      "label_sha256": "f126c4c6a91d3a98f3456606c6c58e6e59b490a80500f0d46620185d5fa77a2a",
+      "meters_per_pixel": [
+        2.4444959544458054,
+        2.4518376390388266
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.17550277709960938
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.31254666695449,
+        21.722480243293504,
+        109.32461580307476,
+        21.733817562238016
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-72.tif",
+      "image_sha256": "e0c953f3ffbb28fdad1dddf44d657e198be66bad5f0a52e5b17710f3b93d8d63",
+      "label_sha256": "3f89b5664e42c20057c17e7db4061d00b44537265c815cf1a9a6cb187341ce32",
+      "meters_per_pixel": [
+        2.438762275181937,
+        2.4518418756563793
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.04257965087890625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.75910470340443,
+        21.552420459125823,
+        109.7711738395247,
+        21.563757778070336
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-73.tif",
+      "image_sha256": "1b504557f9e87421a2f7959e1692f270309a434bc909dd0caf9364c3298e742b",
+      "label_sha256": "64a720c9646c0c520518133a5d5ed1605a70f03d47e4aef22a32326ab2d73ab2",
+      "meters_per_pixel": [
+        2.4416195502009432,
+        2.4517917266843474
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.18868255615234375
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.84358865624631,
+        21.461721907569725,
+        109.85565779236659,
+        21.473059226514238
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-74.tif",
+      "image_sha256": "09ea35f36fadf50382bd09061216455be2abdd09a55450f7839fe907e3d4042a",
+      "label_sha256": "6fb714f489a82ca0ed0604e4afd0f01cdead5af0c915a731eb86f0b40fb90a31",
+      "meters_per_pixel": [
+        2.44313466386462,
+        2.4517651107406193
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.003082275390625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        118.91970385989319,
+        37.61470392683141,
+        118.9286472713623,
+        37.62373324752968
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-75.tif",
+      "image_sha256": "3de85d3380788cdb4488f445f9a94bd44a1c4b18f7b30c3260bc0abb6c3e7e7e",
+      "label_sha256": "71ecbc2f73c120702c0bc52a074a1807655be9e2de243cb92c5df34e0a816709",
+      "meters_per_pixel": [
+        1.5421212889070746,
+        1.9573395220777612
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.6764411926269531
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        118.85709997960944,
+        37.54246936124528,
+        118.86604339107855,
+        37.55149868194355
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-76.tif",
+      "image_sha256": "9a9c35d59d8b1dfea0d0fb5b3631dca7df0268a08441fc298f98af9c74d45100",
+      "label_sha256": "c22ffaf4dd58885cb68f2c16c27f0d9d2378dc2d9038be308b773fac8c5daedf",
+      "meters_per_pixel": [
+        1.543612025234037,
+        1.9573155088993857
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.3714752197265625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        120.67908273387087,
+        27.671834532387383,
+        120.6882913669644,
+        27.68104316548091
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-77.tif",
+      "image_sha256": "b0f7e0f409a4a77334c275ed2c59626d7a2ac346745d2e968ede6a861e5924d9",
+      "label_sha256": "7652ef63e7d96b4278b3c33602ab9e022c6c2476d0166c4c525e24ae14bef230",
+      "meters_per_pixel": [
+        1.774354392189953,
+        1.9930621099735646
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.09291458129882812
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        119.3582123806656,
+        34.60497012043277,
+        119.37180725142585,
+        34.616449157639856
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-78.tif",
+      "image_sha256": "fb3cfb72440ffbb282ae919fa3de68df05a74c6886d3b57056a5af7e14ed0333",
+      "label_sha256": "2b6f35e56994ba18d3a12251368e5651136db28bfd214e4a81744c1c9b7f90ba",
+      "meters_per_pixel": [
+        2.435351217637989,
+        2.4871276673111598
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.10882568359375
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        121.68478234790987,
+        29.004459919182953,
+        121.69762543963871,
+        29.01587484614697
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-79.tif",
+      "image_sha256": "e2d77fe88fb17b44897f86d5c43d83695f4932bbba373f5a69c4877be288a45b",
+      "label_sha256": "57d6506bc5a402b4fbd52117c379182c639d554fa980c803f7fede315e8934cf",
+      "meters_per_pixel": [
+        2.44393428165393,
+        2.4710626430629072
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.16593551635742188
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        120.92238129476594,
+        32.7975431654139,
+        120.93205035951412,
+        32.80721223016209
+      ],
+      "crs": "EPSG:4326",
+      "id": "正样本/PV-80.tif",
+      "image_sha256": "b1cce43d7352e207ec704c5194b2b0daddf7ed4ed9c674a479847445e6599092",
+      "label_sha256": "795cf3cadaf043943c42bcd785aa573d8a1077aa9e4c52d445bcf01a0f6bcc31",
+      "meters_per_pixel": [
+        1.7687778208318572,
+        2.0943524075851467
+      ],
+      "positive": true,
+      "source_scene": null,
+      "target_fraction": 0.23569488525390625
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        121.09642446023328,
+        32.48813309347196,
+        121.10609352498146,
+        32.497802158220146
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-100.tif",
+      "image_sha256": "2783b953bee03d7deb20b8769ae9d240bb8a9f696ccb5621424f13e9540c127d",
+      "label_sha256": "aa60eccfa802b56b1da0bc7a3840d8946ed404671bd93c0fb1c3d0734e579a80",
+      "meters_per_pixel": [
+        1.7748790717658824,
+        2.094249033914436
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.54422661875905,
+        21.962392086341477,
+        112.55343525185259,
+        21.971600719435006
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-81.tif",
+      "image_sha256": "bd921e2457e5b394d4b96285eaf454c42a544dbe2c4fe25bb6df01aa2fa24f24",
+      "label_sha256": "5d594a11b2913d24c8041d6b708a3925929e25e2b742e791afb0529a1ba515cc",
+      "meters_per_pixel": [
+        1.857662334848468,
+        1.9915436682572953
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.51660071947848,
+        21.907140287780297,
+        112.52580935257201,
+        21.916348920873826
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-82.tif",
+      "image_sha256": "214466c1ea619f0ec04cfaee593d0b39aeab21255e3e50ac21c4ae7dbac688de",
+      "label_sha256": "bf68081402cec34603ecb400053cd902424829d37fba61b0b832f8494af78e53",
+      "meters_per_pixel": [
+        1.8583798785680752,
+        1.9915302888396609
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        111.92724820149257,
+        21.87951438849971,
+        111.93645683458611,
+        21.88872302159324
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-83.tif",
+      "image_sha256": "174b5d3fbf2a1f31f4290472cb620bc04250033116535d336fe4d77e0206751a",
+      "label_sha256": "c4b2ba666fca2880afb660964053b4228b5293d494718d7158513091c057e279",
+      "meters_per_pixel": [
+        1.8587380043442605,
+        1.9915236092558863
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        112.53501798566553,
+        21.82426258993853,
+        112.54422661875907,
+        21.83347122303206
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-84.tif",
+      "image_sha256": "319f9ae8d6e8c07ee59a75c41f1d57cf571b016166959a73621c61cc149c7172",
+      "label_sha256": "ef198e0932275b532cfcfb955f3e6328de063957fbd2d2f4b04ac9a0385f83c2",
+      "meters_per_pixel": [
+        1.8594529633335923,
+        1.9915102703685181
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        115.18863309358046,
+        23.110269784183753,
+        115.197841726674,
+        23.119478417277282
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-85.tif",
+      "image_sha256": "9566e0b4b9c38689dcb6d73e2264a4c7da69629480082418e75ac3a651b061d5",
+      "label_sha256": "353e5382ff694bf5851df5e93727ac1db34152da899e8f4416e2c2b249083074",
+      "meters_per_pixel": [
+        1.8423664516761618,
+        1.9918276554057963
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        115.89769784178225,
+        22.907679856126105,
+        115.90690647487578,
+        22.916888489219634
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-86.tif",
+      "image_sha256": "4ec05ae20b987f65c1749080a70c30364d8cb6423651a7ba1063ef0916ada5d2",
+      "label_sha256": "5af39d7d3ff0a21e33533c22737da0f157283b27b9e8c8cd01324de52e8506ea",
+      "meters_per_pixel": [
+        1.8451198028874634,
+        1.9917767083007172
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        108.39976235350419,
+        21.81060468058639,
+        108.41184064738333,
+        21.821950970212654
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-87.tif",
+      "image_sha256": "dab1962cc80f2f7213c3e7231387797f8844c6f5ec0173cb5608ab9e34eab20d",
+      "label_sha256": "f183ccac0741b6ceccb0c7caad59d4e018b29ffaa32608f16213c823df8d641c",
+      "meters_per_pixel": [
+        2.4391224833701344,
+        2.4538080354213045
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        107.94078718609677,
+        21.52694743992975,
+        107.95286547997591,
+        21.538293729556013
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-88.tif",
+      "image_sha256": "b68d2e3138b978d4e47ffa3864cef2467bbe659dea32cfc830252cd01ca617cc",
+      "label_sha256": "6dcffe35841262e3056c573088960eb2b32908c06b4b18f2197e41e49a819fb7",
+      "meters_per_pixel": [
+        2.4438985797098085,
+        2.4537242240205686
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.87335916609872,
+        21.903311034239508,
+        110.88542497296751,
+        21.914649275049236
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-89.tif",
+      "image_sha256": "bee810ab7ec0840f8bd45c550897f56e4eff6ce07be20d2e03fc3f98aed7c0bb",
+      "label_sha256": "fcc6aa74fbdf3d89609e0236db72e2e6bca044fa69321dd72ac439df38f9527b",
+      "meters_per_pixel": [
+        2.4350286417157956,
+        2.452094918274835
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        111.38012305458778,
+        21.517810846708755,
+        111.39218886145657,
+        21.529149087518483
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-90.tif",
+      "image_sha256": "c860948482bd1c0df10f7e3c88c02fa448a240190711a664eafca66514d2c106",
+      "label_sha256": "c4a4fe410de77b0ec8f2461b6a31dd86a8ca13bc82ddc0272ebed5b4eac25275",
+      "meters_per_pixel": [
+        2.441524737337378,
+        2.4519809201209433
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.80171112322155,
+        21.146180862512278,
+        109.8137090898067,
+        21.157516282046718
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-91.tif",
+      "image_sha256": "7463c5333d8f7938599e48eadbdde1b1fe16837986c6b0151ba019445648af93",
+      "label_sha256": "1ec1751dfcb59bba031c0f1bc4230fee4d26c04cb49e5d29d6b7c57b3bc0d1cb",
+      "meters_per_pixel": [
+        2.433920669932235,
+        2.4512624794943867
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.48559521857449,
+        20.998820408564576,
+        110.49759318515963,
+        21.010155828099016
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-92.tif",
+      "image_sha256": "1f26c2b9604be3595a4328b0c3eeeb948ab1921f295a0846c4289791f987ff84",
+      "label_sha256": "9f60a4d5640dcf453d3b3338e75d619eac8edfda80454087d5f52f86db87a09c",
+      "meters_per_pixel": [
+        2.4363205185825283,
+        2.451219954419366
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.13765418760545,
+        20.89680163275463,
+        110.14965215419059,
+        20.90813705228907
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-93.tif",
+      "image_sha256": "a23924d411a60876fd72893a412961f94261262499519d3f530a9247b86b5322",
+      "label_sha256": "09a536c298f5fb267d52a41f189834e1086dd3f6f248a7f6fda8284ae9946dc2",
+      "meters_per_pixel": [
+        2.4379725434600408,
+        2.4511906564938197
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.23363792028657,
+        20.828789115548002,
+        110.24563588687171,
+        20.840124535082442
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-94.tif",
+      "image_sha256": "ba8100d6517547dd7c33686323dd9d4ad93732a203ba0de7279945913850c6f5",
+      "label_sha256": "cc7abfd23ced4d90ccda4e822519e942ffb952c2f8239f63e4c894de0f73e3fb",
+      "meters_per_pixel": [
+        2.4390696137805015,
+        2.4511711895320576
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.2801441534549,
+        21.61984282439816,
+        110.29221158114109,
+        21.63118061751406
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-95.tif",
+      "image_sha256": "7f53bafdeb547046f1cb69770d8b493fec353ae8db18bc22dfd228267a93211b",
+      "label_sha256": "1999c65fd8b859bb512bcdd42c40e98510d80dc2ff49b150742d08a25e4b8044",
+      "meters_per_pixel": [
+        2.4401438463721257,
+        2.4519141153567463
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        110.49735785180641,
+        21.064290961718864,
+        110.5094252794926,
+        21.075628754834767
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-96.tif",
+      "image_sha256": "5883d04a7fd6ba4af52922db620abb6ac3eae07bf07d5a49fc48bb55d49bf20c",
+      "label_sha256": "2dd97ddf16b5ad92652b24f62a5a8159e98b7280420edae19f297461530b2837",
+      "meters_per_pixel": [
+        2.4493549436339315,
+        2.451752095614318
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        109.24013185023287,
+        21.745154881182525,
+        109.25220098635315,
+        21.756492200127038
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-97.tif",
+      "image_sha256": "4abb40c75b63a4cd93e1656ac7039fa2ea3630690c2caf53569649903f604acd",
+      "label_sha256": "0801d284133b7a4591fec5b60db736e319231b8f82e1cc399e1720a8597091bf",
+      "meters_per_pixel": [
+        2.438379686314604,
+        2.4518485861677046
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        118.71400539610373,
+        37.587615964736614,
+        118.72294880757283,
+        37.59664528543488
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-98.tif",
+      "image_sha256": "8d60291a06366b7db2dc14f259b65305b1cbcd47bce4c1c5a7219ff4876934b2",
+      "label_sha256": "d43b78259dcfe093223a8abf27dec73f6d532c2b546a4c7036c08cebc1b4da67",
+      "meters_per_pixel": [
+        1.542680603329236,
+        1.9573305151989238
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    },
+    {
+      "acquisition_date": null,
+      "bounds": [
+        118.85520216253661,
+        34.51313782277604,
+        118.86879703329686,
+        34.52461685998313
+      ],
+      "crs": "EPSG:4326",
+      "id": "负样本/PV-99.tif",
+      "image_sha256": "4a11ca94b0dd2ddc417c55dc136212864d1d18fc5f3bba983a37f7efaa741ca1",
+      "label_sha256": "ae23498a7ecf8bc8e72e667348f4e9757254634e440f41da67e129bcae3e0b58",
+      "meters_per_pixel": [
+        2.438029639335007,
+        2.4870901843940767
+      ],
+      "positive": false,
+      "source_scene": null,
+      "target_fraction": 0.0
+    }
+  ],
+  "label_dir": "/kaggle/input/datasets/zh0416/pv-100scence/PV-多场景/labels",
+  "manual_qc_confirmed": true,
+  "manual_qc_sha256": "cddb7baae80ed4ce620990ef54e24415f2790060018b94be6e8f58f89db2974f",
+  "matching_thumbnail_fingerprints": [],
+  "schema": "pvstudy-manifest-v1"
+}

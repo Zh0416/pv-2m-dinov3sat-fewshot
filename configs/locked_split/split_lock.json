@@ -1,0 +1,627 @@
+{
+  "assignment": {
+    "正样本/PV-01.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-01.tif"
+    },
+    "正样本/PV-02.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-02.tif"
+    },
+    "正样本/PV-03.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-01.tif"
+    },
+    "正样本/PV-04.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-02.tif"
+    },
+    "正样本/PV-05.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-02.tif"
+    },
+    "正样本/PV-06.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-01.tif"
+    },
+    "正样本/PV-07.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-02.tif"
+    },
+    "正样本/PV-08.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-02.tif"
+    },
+    "正样本/PV-09.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-02.tif"
+    },
+    "正样本/PV-10.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-01.tif"
+    },
+    "正样本/PV-11.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-02.tif"
+    },
+    "正样本/PV-12.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-12.tif"
+    },
+    "正样本/PV-13.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-12.tif"
+    },
+    "正样本/PV-14.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-12.tif"
+    },
+    "正样本/PV-15.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-12.tif"
+    },
+    "正样本/PV-16.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-12.tif"
+    },
+    "正样本/PV-17.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-17.tif"
+    },
+    "正样本/PV-18.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-18.tif"
+    },
+    "正样本/PV-19.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-19.tif"
+    },
+    "正样本/PV-20.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-20.tif"
+    },
+    "正样本/PV-21.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-20.tif"
+    },
+    "正样本/PV-22.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-22.tif"
+    },
+    "正样本/PV-23.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-20.tif"
+    },
+    "正样本/PV-24.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-19.tif"
+    },
+    "正样本/PV-25.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-19.tif"
+    },
+    "正样本/PV-26.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-26.tif"
+    },
+    "正样本/PV-27.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-27.tif"
+    },
+    "正样本/PV-28.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-28.tif"
+    },
+    "正样本/PV-29.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-29.tif"
+    },
+    "正样本/PV-30.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-29.tif"
+    },
+    "正样本/PV-31.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-31.tif"
+    },
+    "正样本/PV-32.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-32.tif"
+    },
+    "正样本/PV-33.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-33.tif"
+    },
+    "正样本/PV-34.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-33.tif"
+    },
+    "正样本/PV-35.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-35.tif"
+    },
+    "正样本/PV-36.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-36.tif"
+    },
+    "正样本/PV-37.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-37.tif"
+    },
+    "正样本/PV-38.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-37.tif"
+    },
+    "正样本/PV-39.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-37.tif"
+    },
+    "正样本/PV-40.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-37.tif"
+    },
+    "正样本/PV-41.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-41.tif"
+    },
+    "正样本/PV-42.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-42.tif"
+    },
+    "正样本/PV-43.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-43.tif"
+    },
+    "正样本/PV-44.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-44.tif"
+    },
+    "正样本/PV-45.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-45.tif"
+    },
+    "正样本/PV-46.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-46.tif"
+    },
+    "正样本/PV-47.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-46.tif"
+    },
+    "正样本/PV-48.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-46.tif"
+    },
+    "正样本/PV-49.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-49.tif"
+    },
+    "正样本/PV-50.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-50.tif"
+    },
+    "正样本/PV-51.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-50.tif"
+    },
+    "正样本/PV-52.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-52.tif"
+    },
+    "正样本/PV-53.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-52.tif"
+    },
+    "正样本/PV-54.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-54.tif"
+    },
+    "正样本/PV-55.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-55.tif"
+    },
+    "正样本/PV-56.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-56.tif"
+    },
+    "正样本/PV-57.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-56.tif"
+    },
+    "正样本/PV-58.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-58.tif"
+    },
+    "正样本/PV-59.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-59.tif"
+    },
+    "正样本/PV-60.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-59.tif"
+    },
+    "正样本/PV-61.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-59.tif"
+    },
+    "正样本/PV-62.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-62.tif"
+    },
+    "正样本/PV-63.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-63.tif"
+    },
+    "正样本/PV-64.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-62.tif"
+    },
+    "正样本/PV-65.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-65.tif"
+    },
+    "正样本/PV-66.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-66.tif"
+    },
+    "正样本/PV-67.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-67.tif"
+    },
+    "正样本/PV-68.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-68.tif"
+    },
+    "正样本/PV-69.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-69.tif"
+    },
+    "正样本/PV-70.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-70.tif"
+    },
+    "正样本/PV-71.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-71.tif"
+    },
+    "正样本/PV-72.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-72.tif"
+    },
+    "正样本/PV-73.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-70.tif"
+    },
+    "正样本/PV-74.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-74.tif"
+    },
+    "正样本/PV-75.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-75.tif"
+    },
+    "正样本/PV-76.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-76.tif"
+    },
+    "正样本/PV-77.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-77.tif"
+    },
+    "正样本/PV-78.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "正样本/PV-78.tif"
+    },
+    "正样本/PV-79.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "正样本/PV-79.tif"
+    },
+    "正样本/PV-80.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-80.tif"
+    },
+    "负样本/PV-100.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "负样本/PV-100.tif"
+    },
+    "负样本/PV-81.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "负样本/PV-81.tif"
+    },
+    "负样本/PV-82.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "正样本/PV-02.tif"
+    },
+    "负样本/PV-83.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "负样本/PV-83.tif"
+    },
+    "负样本/PV-84.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "正样本/PV-12.tif"
+    },
+    "负样本/PV-85.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "负样本/PV-85.tif"
+    },
+    "负样本/PV-86.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "负样本/PV-86.tif"
+    },
+    "负样本/PV-87.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "负样本/PV-87.tif"
+    },
+    "负样本/PV-88.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "负样本/PV-88.tif"
+    },
+    "负样本/PV-89.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "负样本/PV-89.tif"
+    },
+    "负样本/PV-90.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "负样本/PV-90.tif"
+    },
+    "负样本/PV-91.tif": {
+      "fold": 0,
+      "partition": "dev",
+      "site": "负样本/PV-91.tif"
+    },
+    "负样本/PV-92.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "负样本/PV-92.tif"
+    },
+    "负样本/PV-93.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "负样本/PV-93.tif"
+    },
+    "负样本/PV-94.tif": {
+      "fold": 2,
+      "partition": "dev",
+      "site": "正样本/PV-55.tif"
+    },
+    "负样本/PV-95.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "负样本/PV-95.tif"
+    },
+    "负样本/PV-96.tif": {
+      "fold": 1,
+      "partition": "dev",
+      "site": "负样本/PV-96.tif"
+    },
+    "负样本/PV-97.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "负样本/PV-97.tif"
+    },
+    "负样本/PV-98.tif": {
+      "fold": null,
+      "partition": "test",
+      "site": "负样本/PV-98.tif"
+    },
+    "负样本/PV-99.tif": {
+      "fold": 3,
+      "partition": "dev",
+      "site": "负样本/PV-99.tif"
+    }
+  },
+  "counts": {
+    "folds": {
+      "0": 20,
+      "1": 19,
+      "2": 20,
+      "3": 20
+    },
+    "site_count": 66,
+    "test": 21,
+    "test_negative": 4,
+    "test_positive": 17,
+    "test_sites": 19,
+    "total": 100
+  },
+  "distance_km": 5,
+  "fold_seed": 20261117,
+  "qc_sha256": "cddb7baae80ed4ce620990ef54e24415f2790060018b94be6e8f58f89db2974f",
+  "schema": "pvstudy-split-v1",
+  "split_script_sha256": "6de6974cceed3675e4f793629b808e9283b0eb7982c2232c7fc9ee06110b468c",
+  "status": "locked_after_manual_qc",
+  "ten_km_site_ids": {
+    "正样本/PV-01.tif": "正样本/PV-01.tif",
+    "正样本/PV-02.tif": "正样本/PV-02.tif",
+    "正样本/PV-03.tif": "正样本/PV-01.tif",
+    "正样本/PV-04.tif": "正样本/PV-02.tif",
+    "正样本/PV-05.tif": "正样本/PV-02.tif",
+    "正样本/PV-06.tif": "正样本/PV-01.tif",
+    "正样本/PV-07.tif": "正样本/PV-02.tif",
+    "正样本/PV-08.tif": "正样本/PV-02.tif",
+    "正样本/PV-09.tif": "正样本/PV-02.tif",
+    "正样本/PV-10.tif": "正样本/PV-01.tif",
+    "正样本/PV-11.tif": "正样本/PV-02.tif",
+    "正样本/PV-12.tif": "正样本/PV-02.tif",
+    "正样本/PV-13.tif": "正样本/PV-02.tif",
+    "正样本/PV-14.tif": "正样本/PV-02.tif",
+    "正样本/PV-15.tif": "正样本/PV-02.tif",
+    "正样本/PV-16.tif": "正样本/PV-02.tif",
+    "正样本/PV-17.tif": "正样本/PV-17.tif",
+    "正样本/PV-18.tif": "正样本/PV-17.tif",
+    "正样本/PV-19.tif": "正样本/PV-17.tif",
+    "正样本/PV-20.tif": "正样本/PV-20.tif",
+    "正样本/PV-21.tif": "正样本/PV-20.tif",
+    "正样本/PV-22.tif": "正样本/PV-22.tif",
+    "正样本/PV-23.tif": "正样本/PV-20.tif",
+    "正样本/PV-24.tif": "正样本/PV-17.tif",
+    "正样本/PV-25.tif": "正样本/PV-17.tif",
+    "正样本/PV-26.tif": "正样本/PV-26.tif",
+    "正样本/PV-27.tif": "正样本/PV-17.tif",
+    "正样本/PV-28.tif": "正样本/PV-28.tif",
+    "正样本/PV-29.tif": "正样本/PV-29.tif",
+    "正样本/PV-30.tif": "正样本/PV-29.tif",
+    "正样本/PV-31.tif": "正样本/PV-31.tif",
+    "正样本/PV-32.tif": "正样本/PV-32.tif",
+    "正样本/PV-33.tif": "正样本/PV-33.tif",
+    "正样本/PV-34.tif": "正样本/PV-33.tif",
+    "正样本/PV-35.tif": "正样本/PV-35.tif",
+    "正样本/PV-36.tif": "正样本/PV-36.tif",
+    "正样本/PV-37.tif": "正样本/PV-37.tif",
+    "正样本/PV-38.tif": "正样本/PV-37.tif",
+    "正样本/PV-39.tif": "正样本/PV-37.tif",
+    "正样本/PV-40.tif": "正样本/PV-37.tif",
+    "正样本/PV-41.tif": "正样本/PV-41.tif",
+    "正样本/PV-42.tif": "正样本/PV-41.tif",
+    "正样本/PV-43.tif": "正样本/PV-43.tif",
+    "正样本/PV-44.tif": "正样本/PV-41.tif",
+    "正样本/PV-45.tif": "正样本/PV-45.tif",
+    "正样本/PV-46.tif": "正样本/PV-46.tif",
+    "正样本/PV-47.tif": "正样本/PV-46.tif",
+    "正样本/PV-48.tif": "正样本/PV-46.tif",
+    "正样本/PV-49.tif": "正样本/PV-46.tif",
+    "正样本/PV-50.tif": "正样本/PV-50.tif",
+    "正样本/PV-51.tif": "正样本/PV-50.tif",
+    "正样本/PV-52.tif": "正样本/PV-52.tif",
+    "正样本/PV-53.tif": "正样本/PV-52.tif",
+    "正样本/PV-54.tif": "正样本/PV-54.tif",
+    "正样本/PV-55.tif": "正样本/PV-55.tif",
+    "正样本/PV-56.tif": "正样本/PV-56.tif",
+    "正样本/PV-57.tif": "正样本/PV-56.tif",
+    "正样本/PV-58.tif": "正样本/PV-58.tif",
+    "正样本/PV-59.tif": "正样本/PV-58.tif",
+    "正样本/PV-60.tif": "正样本/PV-58.tif",
+    "正样本/PV-61.tif": "正样本/PV-58.tif",
+    "正样本/PV-62.tif": "正样本/PV-62.tif",
+    "正样本/PV-63.tif": "正样本/PV-62.tif",
+    "正样本/PV-64.tif": "正样本/PV-62.tif",
+    "正样本/PV-65.tif": "正样本/PV-58.tif",
+    "正样本/PV-66.tif": "正样本/PV-62.tif",
+    "正样本/PV-67.tif": "正样本/PV-58.tif",
+    "正样本/PV-68.tif": "正样本/PV-68.tif",
+    "正样本/PV-69.tif": "正样本/PV-69.tif",
+    "正样本/PV-70.tif": "正样本/PV-70.tif",
+    "正样本/PV-71.tif": "正样本/PV-71.tif",
+    "正样本/PV-72.tif": "正样本/PV-72.tif",
+    "正样本/PV-73.tif": "正样本/PV-70.tif",
+    "正样本/PV-74.tif": "正样本/PV-70.tif",
+    "正样本/PV-75.tif": "正样本/PV-75.tif",
+    "正样本/PV-76.tif": "正样本/PV-75.tif",
+    "正样本/PV-77.tif": "正样本/PV-77.tif",
+    "正样本/PV-78.tif": "正样本/PV-78.tif",
+    "正样本/PV-79.tif": "正样本/PV-79.tif",
+    "正样本/PV-80.tif": "正样本/PV-80.tif",
+    "负样本/PV-100.tif": "负样本/PV-100.tif",
+    "负样本/PV-81.tif": "正样本/PV-02.tif",
+    "负样本/PV-82.tif": "正样本/PV-02.tif",
+    "负样本/PV-83.tif": "负样本/PV-83.tif",
+    "负样本/PV-84.tif": "正样本/PV-02.tif",
+    "负样本/PV-85.tif": "负样本/PV-85.tif",
+    "负样本/PV-86.tif": "负样本/PV-86.tif",
+    "负样本/PV-87.tif": "正样本/PV-37.tif",
+    "负样本/PV-88.tif": "负样本/PV-88.tif",
+    "负样本/PV-89.tif": "负样本/PV-89.tif",
+    "负样本/PV-90.tif": "负样本/PV-90.tif",
+    "负样本/PV-91.tif": "负样本/PV-91.tif",
+    "负样本/PV-92.tif": "负样本/PV-92.tif",
+    "负样本/PV-93.tif": "负样本/PV-93.tif",
+    "负样本/PV-94.tif": "正样本/PV-55.tif",
+    "负样本/PV-95.tif": "负样本/PV-95.tif",
+    "负样本/PV-96.tif": "负样本/PV-92.tif",
+    "负样本/PV-97.tif": "正样本/PV-72.tif",
+    "负样本/PV-98.tif": "负样本/PV-98.tif",
+    "负样本/PV-99.tif": "负样本/PV-99.tif"
+  },
+  "test_seed": 20261116
+}

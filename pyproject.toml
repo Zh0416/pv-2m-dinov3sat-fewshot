@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pv-2m-dinov3sat-fewshot"
+version = "0.1.0"
+description = "Iterative few-shot (1/3/5-shot) PV segmentation with pure frozen DINOv3-SAT on 2m imagery, focusing on false-negative and false-positive mitigation."
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.23",
+    "scipy>=1.9",
+    "rasterio>=1.3",
+    "Pillow>=9.0",
+    "torch>=2.1",
+]
+
+[tool.setuptools.packages.find]
+include = ["pvfs*"]

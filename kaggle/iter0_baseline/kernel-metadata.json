@@ -1,0 +1,18 @@
+{
+  "id": "zh0416/pv-2m-dinov3sat-iter0-baseline",
+  "title": "PV 2m DINOv3-SAT Iter0 Baseline",
+  "code_file": "run_kaggle_iter0.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["gpu"],
+  "dataset_sources": [
+    "zh0416/pv-100scence",
+    "zh0416/dinov3-sat-geovit-l-14-336"
+  ],
+  "kernel_sources": [],
+  "competition_sources": []
+}

@@ -1,0 +1,4552 @@
+{
+  "schema": "pvfs-episodes-v1",
+  "ks": [
+    1,
+    3,
+    5
+  ],
+  "folds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "episodes_per_fold": 10,
+  "base_seed": 20261119,
+  "total_episodes": 120,
+  "episodes": [
+    {
+      "k": 1,
+      "fold": 0,
+      "episode": 0,
+      "seed": 20262119,
+      "support_ids": [
+        "正样本/PV-41.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-41.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 0,
+      "episode": 1,
+      "seed": 20262120,
+      "support_ids": [
+        "正样本/PV-55.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-55.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 0,
+      "episode": 2,
+      "seed": 20262121,
+      "support_ids": [
+        "正样本/PV-73.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-70.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 0,
+      "episode": 3,
+      "seed": 20262122,
+      "support_ids": [
+        "正样本/PV-31.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-31.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 0,
+      "episode": 4,
+      "seed": 20262123,
+      "support_ids": [
+        "正样本/PV-62.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 0,
+      "episode": 5,
+      "seed": 20262124,
+      "support_ids": [
+        "正样本/PV-37.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-37.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 0,
+      "episode": 6,
+      "seed": 20262125,
+      "support_ids": [
+        "正样本/PV-37.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-37.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 0,
+      "episode": 7,
+      "seed": 20262126,
+      "support_ids": [
+        "正样本/PV-58.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-58.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 0,
+      "episode": 8,
+      "seed": 20262127,
+      "support_ids": [
+        "正样本/PV-58.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-58.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 0,
+      "episode": 9,
+      "seed": 20262128,
+      "support_ids": [
+        "正样本/PV-41.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-41.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 1,
+      "episode": 0,
+      "seed": 20262219,
+      "support_ids": [
+        "正样本/PV-24.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-19.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 1,
+      "episode": 1,
+      "seed": 20262220,
+      "support_ids": [
+        "正样本/PV-17.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-17.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 1,
+      "episode": 2,
+      "seed": 20262221,
+      "support_ids": [
+        "正样本/PV-62.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 1,
+      "episode": 3,
+      "seed": 20262222,
+      "support_ids": [
+        "正样本/PV-80.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-80.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 1,
+      "episode": 4,
+      "seed": 20262223,
+      "support_ids": [
+        "正样本/PV-55.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-55.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 1,
+      "episode": 5,
+      "seed": 20262224,
+      "support_ids": [
+        "正样本/PV-12.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-12.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 1,
+      "episode": 6,
+      "seed": 20262225,
+      "support_ids": [
+        "正样本/PV-56.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-56.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 1,
+      "episode": 7,
+      "seed": 20262226,
+      "support_ids": [
+        "正样本/PV-72.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-72.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 1,
+      "episode": 8,
+      "seed": 20262227,
+      "support_ids": [
+        "正样本/PV-31.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-31.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 1,
+      "episode": 9,
+      "seed": 20262228,
+      "support_ids": [
+        "正样本/PV-49.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-49.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 2,
+      "episode": 0,
+      "seed": 20262319,
+      "support_ids": [
+        "正样本/PV-43.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-43.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 2,
+      "episode": 1,
+      "seed": 20262320,
+      "support_ids": [
+        "正样本/PV-65.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-65.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 2,
+      "episode": 2,
+      "seed": 20262321,
+      "support_ids": [
+        "正样本/PV-62.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 2,
+      "episode": 3,
+      "seed": 20262322,
+      "support_ids": [
+        "正样本/PV-44.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-44.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 2,
+      "episode": 4,
+      "seed": 20262323,
+      "support_ids": [
+        "正样本/PV-65.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-65.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 2,
+      "episode": 5,
+      "seed": 20262324,
+      "support_ids": [
+        "正样本/PV-17.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-17.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 2,
+      "episode": 6,
+      "seed": 20262325,
+      "support_ids": [
+        "正样本/PV-27.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-27.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 2,
+      "episode": 7,
+      "seed": 20262326,
+      "support_ids": [
+        "正样本/PV-26.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-26.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 2,
+      "episode": 8,
+      "seed": 20262327,
+      "support_ids": [
+        "正样本/PV-43.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-43.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 2,
+      "episode": 9,
+      "seed": 20262328,
+      "support_ids": [
+        "正样本/PV-62.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 3,
+      "episode": 0,
+      "seed": 20262419,
+      "support_ids": [
+        "正样本/PV-24.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-19.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 3,
+      "episode": 1,
+      "seed": 20262420,
+      "support_ids": [
+        "正样本/PV-32.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-32.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 3,
+      "episode": 2,
+      "seed": 20262421,
+      "support_ids": [
+        "正样本/PV-46.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-46.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 3,
+      "episode": 3,
+      "seed": 20262422,
+      "support_ids": [
+        "正样本/PV-27.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-27.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 3,
+      "episode": 4,
+      "seed": 20262423,
+      "support_ids": [
+        "正样本/PV-41.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-41.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 3,
+      "episode": 5,
+      "seed": 20262424,
+      "support_ids": [
+        "正样本/PV-49.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-49.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 3,
+      "episode": 6,
+      "seed": 20262425,
+      "support_ids": [
+        "正样本/PV-19.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-19.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 3,
+      "episode": 7,
+      "seed": 20262426,
+      "support_ids": [
+        "正样本/PV-45.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-45.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 3,
+      "episode": 8,
+      "seed": 20262427,
+      "support_ids": [
+        "正样本/PV-12.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-12.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 1,
+      "fold": 3,
+      "episode": 9,
+      "seed": 20262428,
+      "support_ids": [
+        "正样本/PV-68.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-68.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 0,
+      "episode": 0,
+      "seed": 20264119,
+      "support_ids": [
+        "正样本/PV-58.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-20.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-58.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-20.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 0,
+      "episode": 1,
+      "seed": 20264120,
+      "support_ids": [
+        "正样本/PV-75.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-56.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-75.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-56.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 0,
+      "episode": 2,
+      "seed": 20264121,
+      "support_ids": [
+        "正样本/PV-64.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-71.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-71.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 0,
+      "episode": 3,
+      "seed": 20264122,
+      "support_ids": [
+        "正样本/PV-80.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-65.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-80.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-65.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 0,
+      "episode": 4,
+      "seed": 20264123,
+      "support_ids": [
+        "正样本/PV-58.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-25.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-58.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-19.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 0,
+      "episode": 5,
+      "seed": 20264124,
+      "support_ids": [
+        "正样本/PV-80.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-55.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-80.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-55.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 0,
+      "episode": 6,
+      "seed": 20264125,
+      "support_ids": [
+        "正样本/PV-41.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-71.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-41.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-71.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 0,
+      "episode": 7,
+      "seed": 20264126,
+      "support_ids": [
+        "正样本/PV-03.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-31.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-01.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-31.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 0,
+      "episode": 8,
+      "seed": 20264127,
+      "support_ids": [
+        "正样本/PV-56.tif",
+        "正样本/PV-78.tif",
+        "正样本/PV-19.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-56.tif",
+        "正样本/PV-78.tif",
+        "正样本/PV-19.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 0,
+      "episode": 9,
+      "seed": 20264128,
+      "support_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-68.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-01.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-68.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 1,
+      "episode": 0,
+      "seed": 20264219,
+      "support_ids": [
+        "正样本/PV-17.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-80.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-17.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-80.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 1,
+      "episode": 1,
+      "seed": 20264220,
+      "support_ids": [
+        "正样本/PV-06.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-45.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-01.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-45.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 1,
+      "episode": 2,
+      "seed": 20264221,
+      "support_ids": [
+        "正样本/PV-43.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-15.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-43.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-12.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 1,
+      "episode": 3,
+      "seed": 20264222,
+      "support_ids": [
+        "正样本/PV-49.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-55.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-49.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-55.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 1,
+      "episode": 4,
+      "seed": 20264223,
+      "support_ids": [
+        "正样本/PV-73.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-43.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-70.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-43.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 1,
+      "episode": 5,
+      "seed": 20264224,
+      "support_ids": [
+        "正样本/PV-75.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-17.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-75.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-17.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 1,
+      "episode": 6,
+      "seed": 20264225,
+      "support_ids": [
+        "正样本/PV-52.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-55.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-52.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-55.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 1,
+      "episode": 7,
+      "seed": 20264226,
+      "support_ids": [
+        "正样本/PV-45.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-53.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-45.tif",
+        "正样本/PV-02.tif",
+        "正样本/PV-52.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 1,
+      "episode": 8,
+      "seed": 20264227,
+      "support_ids": [
+        "正样本/PV-47.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-17.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-46.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-17.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 1,
+      "episode": 9,
+      "seed": 20264228,
+      "support_ids": [
+        "正样本/PV-54.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-68.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-54.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-68.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 2,
+      "episode": 0,
+      "seed": 20264319,
+      "support_ids": [
+        "正样本/PV-78.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-43.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-78.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-43.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 2,
+      "episode": 1,
+      "seed": 20264320,
+      "support_ids": [
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-71.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-71.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 2,
+      "episode": 2,
+      "seed": 20264321,
+      "support_ids": [
+        "正样本/PV-44.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-75.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-44.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-75.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 2,
+      "episode": 3,
+      "seed": 20264322,
+      "support_ids": [
+        "正样本/PV-15.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-27.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-12.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-27.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 2,
+      "episode": 4,
+      "seed": 20264323,
+      "support_ids": [
+        "正样本/PV-62.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-71.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-71.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 2,
+      "episode": 5,
+      "seed": 20264324,
+      "support_ids": [
+        "正样本/PV-78.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-17.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-78.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-17.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 2,
+      "episode": 6,
+      "seed": 20264325,
+      "support_ids": [
+        "正样本/PV-62.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-23.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-20.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 2,
+      "episode": 7,
+      "seed": 20264326,
+      "support_ids": [
+        "正样本/PV-44.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-75.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-44.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-75.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 2,
+      "episode": 8,
+      "seed": 20264327,
+      "support_ids": [
+        "正样本/PV-16.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-12.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 2,
+      "episode": 9,
+      "seed": 20264328,
+      "support_ids": [
+        "正样本/PV-58.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-26.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-58.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-26.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 3,
+      "episode": 0,
+      "seed": 20264419,
+      "support_ids": [
+        "正样本/PV-78.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-55.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-78.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-55.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 3,
+      "episode": 1,
+      "seed": 20264420,
+      "support_ids": [
+        "正样本/PV-26.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-32.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-26.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-32.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 3,
+      "episode": 2,
+      "seed": 20264421,
+      "support_ids": [
+        "正样本/PV-32.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-49.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-32.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-49.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 3,
+      "episode": 3,
+      "seed": 20264422,
+      "support_ids": [
+        "正样本/PV-70.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-71.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-70.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-71.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 3,
+      "episode": 4,
+      "seed": 20264423,
+      "support_ids": [
+        "正样本/PV-45.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-42.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-45.tif",
+        "正样本/PV-01.tif",
+        "正样本/PV-42.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 3,
+      "episode": 5,
+      "seed": 20264424,
+      "support_ids": [
+        "正样本/PV-42.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-27.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-42.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-27.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 3,
+      "episode": 6,
+      "seed": 20264425,
+      "support_ids": [
+        "正样本/PV-68.tif",
+        "正样本/PV-20.tif",
+        "正样本/PV-19.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-68.tif",
+        "正样本/PV-20.tif",
+        "正样本/PV-19.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 3,
+      "episode": 7,
+      "seed": 20264426,
+      "support_ids": [
+        "正样本/PV-52.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-78.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-52.tif",
+        "正样本/PV-01.tif",
+        "正样本/PV-78.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 3,
+      "episode": 8,
+      "seed": 20264427,
+      "support_ids": [
+        "正样本/PV-55.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-49.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-55.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-49.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 3,
+      "fold": 3,
+      "episode": 9,
+      "seed": 20264428,
+      "support_ids": [
+        "正样本/PV-37.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-73.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-37.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-70.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 0,
+      "episode": 0,
+      "seed": 20266119,
+      "support_ids": [
+        "正样本/PV-62.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-02.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-44.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-02.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-44.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 0,
+      "episode": 1,
+      "seed": 20266120,
+      "support_ids": [
+        "正样本/PV-49.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-65.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-49.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-20.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-65.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 0,
+      "episode": 2,
+      "seed": 20266121,
+      "support_ids": [
+        "正样本/PV-65.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-75.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-65.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-75.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 0,
+      "episode": 3,
+      "seed": 20266122,
+      "support_ids": [
+        "正样本/PV-61.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-01.tif",
+        "正样本/PV-65.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-59.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-01.tif",
+        "正样本/PV-65.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 0,
+      "episode": 4,
+      "seed": 20266123,
+      "support_ids": [
+        "正样本/PV-56.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-78.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-58.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-56.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-78.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-58.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 0,
+      "episode": 5,
+      "seed": 20266124,
+      "support_ids": [
+        "正样本/PV-58.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-31.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-58.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-02.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-31.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 0,
+      "episode": 6,
+      "seed": 20266125,
+      "support_ids": [
+        "正样本/PV-31.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-68.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-31.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-68.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 0,
+      "episode": 7,
+      "seed": 20266126,
+      "support_ids": [
+        "正样本/PV-31.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-78.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-31.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-01.tif",
+        "正样本/PV-78.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 0,
+      "episode": 8,
+      "seed": 20266127,
+      "support_ids": [
+        "正样本/PV-80.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-71.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-80.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-71.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 0,
+      "episode": 9,
+      "seed": 20266128,
+      "support_ids": [
+        "正样本/PV-64.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-37.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-37.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-12.tif",
+        "正样本/PV-13.tif",
+        "正样本/PV-14.tif",
+        "正样本/PV-15.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-48.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "负样本/PV-83.tif",
+        "负样本/PV-84.tif",
+        "负样本/PV-89.tif",
+        "负样本/PV-91.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 1,
+      "episode": 0,
+      "seed": 20266219,
+      "support_ids": [
+        "正样本/PV-06.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-55.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-01.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-02.tif",
+        "正样本/PV-55.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 1,
+      "episode": 1,
+      "seed": 20266220,
+      "support_ids": [
+        "正样本/PV-43.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-72.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-43.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-72.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 1,
+      "episode": 2,
+      "seed": 20266221,
+      "support_ids": [
+        "正样本/PV-70.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-44.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-70.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-44.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 1,
+      "episode": 3,
+      "seed": 20266222,
+      "support_ids": [
+        "正样本/PV-62.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-42.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-02.tif",
+        "正样本/PV-42.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 1,
+      "episode": 4,
+      "seed": 20266223,
+      "support_ids": [
+        "正样本/PV-29.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-42.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-29.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-42.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 1,
+      "episode": 5,
+      "seed": 20266224,
+      "support_ids": [
+        "正样本/PV-17.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-06.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-17.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-01.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 1,
+      "episode": 6,
+      "seed": 20266225,
+      "support_ids": [
+        "正样本/PV-80.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-73.tif",
+        "正样本/PV-10.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-80.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-01.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 1,
+      "episode": 7,
+      "seed": 20266226,
+      "support_ids": [
+        "正样本/PV-52.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-70.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-52.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-70.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 1,
+      "episode": 8,
+      "seed": 20266227,
+      "support_ids": [
+        "正样本/PV-26.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-16.tif",
+        "正样本/PV-19.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-26.tif",
+        "正样本/PV-80.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-12.tif",
+        "正样本/PV-19.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 1,
+      "episode": 9,
+      "seed": 20266228,
+      "support_ids": [
+        "正样本/PV-52.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-54.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-52.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-54.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-20.tif",
+        "正样本/PV-21.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-38.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-40.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-60.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-65.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-78.tif",
+        "负样本/PV-100.tif",
+        "负样本/PV-81.tif",
+        "负样本/PV-87.tif",
+        "负样本/PV-96.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 2,
+      "episode": 0,
+      "seed": 20266319,
+      "support_ids": [
+        "正样本/PV-30.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-23.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-72.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-29.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-20.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-72.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 2,
+      "episode": 1,
+      "seed": 20266320,
+      "support_ids": [
+        "正样本/PV-59.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-65.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-59.tif",
+        "正样本/PV-02.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-65.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 2,
+      "episode": 2,
+      "seed": 20266321,
+      "support_ids": [
+        "正样本/PV-32.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-78.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-32.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-78.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 2,
+      "episode": 3,
+      "seed": 20266322,
+      "support_ids": [
+        "正样本/PV-64.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-39.tif",
+        "正样本/PV-65.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif",
+        "正样本/PV-02.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-37.tif",
+        "正样本/PV-65.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 2,
+      "episode": 4,
+      "seed": 20266323,
+      "support_ids": [
+        "正样本/PV-71.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-09.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-71.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-02.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 2,
+      "episode": 5,
+      "seed": 20266324,
+      "support_ids": [
+        "正样本/PV-04.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-59.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-02.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-59.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 2,
+      "episode": 6,
+      "seed": 20266325,
+      "support_ids": [
+        "正样本/PV-65.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-42.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-65.tif",
+        "正样本/PV-02.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-26.tif",
+        "正样本/PV-42.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 2,
+      "episode": 7,
+      "seed": 20266326,
+      "support_ids": [
+        "正样本/PV-64.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-07.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-62.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-02.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 2,
+      "episode": 8,
+      "seed": 20266327,
+      "support_ids": [
+        "正样本/PV-23.tif",
+        "正样本/PV-47.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-31.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-20.tif",
+        "正样本/PV-46.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-31.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 2,
+      "episode": 9,
+      "seed": 20266328,
+      "support_ids": [
+        "正样本/PV-65.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-17.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-65.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-54.tif",
+        "正样本/PV-17.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-01.tif",
+        "正样本/PV-03.tif",
+        "正样本/PV-06.tif",
+        "正样本/PV-10.tif",
+        "正样本/PV-19.tif",
+        "正样本/PV-24.tif",
+        "正样本/PV-25.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-49.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-73.tif",
+        "负样本/PV-85.tif",
+        "负样本/PV-92.tif",
+        "负样本/PV-93.tif",
+        "负样本/PV-94.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 3,
+      "episode": 0,
+      "seed": 20266419,
+      "support_ids": [
+        "正样本/PV-55.tif",
+        "正样本/PV-78.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-71.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-55.tif",
+        "正样本/PV-78.tif",
+        "正样本/PV-41.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-71.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 3,
+      "episode": 1,
+      "seed": 20266420,
+      "support_ids": [
+        "正样本/PV-60.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-45.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-59.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-45.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 3,
+      "episode": 2,
+      "seed": 20266421,
+      "support_ids": [
+        "正样本/PV-42.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-42.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-55.tif",
+        "正样本/PV-68.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 3,
+      "episode": 3,
+      "seed": 20266422,
+      "support_ids": [
+        "正样本/PV-72.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-68.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-72.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-68.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 3,
+      "episode": 4,
+      "seed": 20266423,
+      "support_ids": [
+        "正样本/PV-52.tif",
+        "正样本/PV-20.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-25.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-52.tif",
+        "正样本/PV-20.tif",
+        "正样本/PV-58.tif",
+        "正样本/PV-45.tif",
+        "正样本/PV-19.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 3,
+      "episode": 5,
+      "seed": 20266424,
+      "support_ids": [
+        "正样本/PV-42.tif",
+        "正样本/PV-61.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-30.tif",
+        "正样本/PV-19.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-42.tif",
+        "正样本/PV-59.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-29.tif",
+        "正样本/PV-19.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 3,
+      "episode": 6,
+      "seed": 20266425,
+      "support_ids": [
+        "正样本/PV-78.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-54.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-78.tif",
+        "正样本/PV-27.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-70.tif",
+        "正样本/PV-54.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 3,
+      "episode": 7,
+      "seed": 20266426,
+      "support_ids": [
+        "正样本/PV-49.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-72.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-49.tif",
+        "正样本/PV-71.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-42.tif",
+        "正样本/PV-72.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 3,
+      "episode": 8,
+      "seed": 20266427,
+      "support_ids": [
+        "正样本/PV-30.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-71.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-29.tif",
+        "正样本/PV-32.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-43.tif",
+        "正样本/PV-71.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    },
+    {
+      "k": 5,
+      "fold": 3,
+      "episode": 9,
+      "seed": 20266428,
+      "support_ids": [
+        "正样本/PV-32.tif",
+        "正样本/PV-53.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-71.tif"
+      ],
+      "support_sites": [
+        "正样本/PV-32.tif",
+        "正样本/PV-52.tif",
+        "正样本/PV-72.tif",
+        "正样本/PV-68.tif",
+        "正样本/PV-71.tif"
+      ],
+      "query_ids": [
+        "正样本/PV-02.tif",
+        "正样本/PV-04.tif",
+        "正样本/PV-05.tif",
+        "正样本/PV-07.tif",
+        "正样本/PV-08.tif",
+        "正样本/PV-09.tif",
+        "正样本/PV-11.tif",
+        "正样本/PV-17.tif",
+        "正样本/PV-31.tif",
+        "正样本/PV-44.tif",
+        "正样本/PV-56.tif",
+        "正样本/PV-57.tif",
+        "正样本/PV-62.tif",
+        "正样本/PV-64.tif",
+        "正样本/PV-75.tif",
+        "正样本/PV-80.tif",
+        "负样本/PV-82.tif",
+        "负样本/PV-86.tif",
+        "负样本/PV-97.tif",
+        "负样本/PV-99.tif"
+      ]
+    }
+  ],
+  "manifest_sha256": "c3e07a4e1f32bb709d7cd03f6c92b43c4c8eeed1a5b52be7ab34765b224fa7b0",
+  "split_sha256": "0f22b734bd353ca54379017218362d884f55d5e41c60f5ef7258e040ff411dd1",
+  "episodes_sha256": "66cff09c0c29ef984bd2d5759a141d5fdfa4db32252e925e7f2774bf2d40e09a"
+}
