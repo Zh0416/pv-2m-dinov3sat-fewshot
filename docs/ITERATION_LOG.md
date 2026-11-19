@@ -93,3 +93,59 @@ Chronological scientific record of all hypotheses, implementations, Kaggle GPU r
    - **Genuine FN**: `PV-73.tif` (pond PV, heat map already highlights target structure faintly above surrounding water, `Rec=0.007–0.094`), `PV-55.tif` (adjacent identical PV ponds missed around bright-red detected PV cores!), `PV-10.tif`, `PV-30.tif`, `PV-03.tif`, `PV-26.tif`.
    - **Genuine FP**: `PV-93.tif` (`NegFP=0.143–0.217`, `NegClean=0.0–0.1`, pale translucent greenhouse complex), `PV-100.tif` (dark framed greenhouse), `PV-96.tif` (port complex), `PV-80.tif` (`PosBgFP=0.180`, adjacent narrow aquaculture greenhouses), `PV-12.tif` (`PosBgFP` pond sheen).
 
+---
+
+## Probe 2 — Fast Pairwise Cache Engine & Multi-Layer Confounder Physics (`COMPLETED` on Kaggle T4)
+- **Kaggle Kernel**: `zh0416/pv-2m-dinov3-sat-probe2` (`KernelWorkerStatus.COMPLETE`, CUDA Tesla T4, 310s runtime).
+- **Artifact**: [`pvfs/fast_bank.py`](../pvfs/fast_bank.py) (verified `<2e-3` equivalent vs direct scoring), [`pvfs/probe2.py`](../pvfs/probe2.py), [`results/probe2/probe2_summary.json`](../results/probe2/probe2_summary.json), [`results/probe2/pv-2m-dinov3-sat-probe2.log`](../results/probe2/pv-2m-dinov3-sat-probe2.log).
+- **Critical Diagnostic Discoveries**:
+  1. Anchoring `K>=2` calibration on `fg_all (purity>=0.50)` + `top2_soft` pooling (`CalFix_Top2_25_75`) pushed $K=5$ Dice to `0.8124` (`BF1=0.4743`, `Rec=0.8417`) and $K=3$ to `0.7412` (`AP512=0.9226`), **but** lowering the global threshold globally also pushed `NegFP` from `0.0176 → 0.0360` ($K=5$) and `0.0269 → 0.0518` ($K=3$).
+  2. Multi-layer `K=3` physics showed why naive `s_neg` scaling fails: pond PV `PV-73` has `s_neg > s_pos` (`0.681 > 0.556` in `deep_64`) due to pond-water matching support `bg_bank`, whereas 5/6 missed PV farms (`PV-55, PV-49, PV-03, PV-10, PV-30`) already contain strong local high-res seeds (`q99 = 0.383–0.431`, prominence `q99 - q50 = +0.204..+0.333`) whose remaining modules are missed simply by intra-farm style variation.
+  3. Across `deep_32 → deep_64`, genuine PV increased in raw $S^+$ (`+0.020..+0.083`), whereas pale greenhouse `PV-93` decreased slightly (`0.701 → 0.691`); `PV-100` and `PV-96` had near-zero `mid_64` margin (`sp-sn = +0.008` and `+0.001`) and negative `early_32` margin (`-0.024`, `-0.019`).
+
+---
+
+## Iteration 2 — Shot/Calibration Fix + Scale-Sharpening + Layer Competition + Gated Self-Rescue (`COMPLETED` on Kaggle T4)
+- **Kaggle Kernel**: `zh0416/pv-2m-dinov3-sat-iter2` (`KernelWorkerStatus.COMPLETE`, CUDA Tesla T4, 439s runtime for 8 variants × 120 episodes).
+- **Results artifact**: [`results/iter2/iter2_summary.json`](../results/iter2/iter2_summary.json), [`results/iter2/pv-2m-dinov3-sat-iter2.log`](../results/iter2/pv-2m-dinov3-sat-iter2.log), [`scripts/analyze_iter2.py`](../scripts/analyze_iter2.py), [`pvfs/iter2_methods.py`](../pvfs/iter2_methods.py).
+- **Note on `B0_32_Ref` in Iter 2**: Line 411 of `iter2_methods.py` calibrated `B0_32_Ref` (`calib_v2=False, kge2_use_core=False`) on `fg_core_masks` (`0.85`) instead of `fg_all_masks` (`0.50`), making `Iter 2 B0_32_Ref` stricter (`0.6551 / 0.6965`) at $K=3,5$; `M1_Full_Ref` matched Iter 1 `M1_Full` to `0.0001` (`0.7236 / 0.7674`), and all `M2_*` variants (`calib_v2=True`) used `fg_all_masks` as designed. Below we compare against both `M1_Full_Ref` and exact `Iter 1 B0_32_Ref` (`0.6251 / 0.6663 / 0.7267`).
+
+### Quantitative Iteration 2 Ablation Table (Dev 79 images, 4 Folds × 10 Episodes)
+| Variant | $K$ | Dice@0.5 | IoU@0.5 | AP512 | Recall | Prec | PosBgFP | BF1@2px | Small `<5%` D / R | NegFP | NegClean | `PV-93` / `PV-100` / `PV-96` / `PV-55rec` |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `M1_Full_Ref` | 1 | 0.6490 | 0.5319 | 0.8590 | **0.7784** | 0.6821 | 0.1057 | 0.2844 | 0.4813 / **0.7521** | 0.0813 | 0.4500 | 0.220 / 0.157 / 0.227 / **0.881** |
+| `M2_ShotCal` | 1 | 0.6498 | 0.5414 | 0.8566 | 0.6752 | 0.7621 | 0.0485 | 0.2879 | 0.5211 / 0.6127 | 0.0318 | **0.6937** | 0.162 / 0.084 / 0.111 / 0.740 |
+| `M2_ScaleSharp` | 1 | 0.6400 | 0.5302 | 0.8520 | 0.6446 | 0.7714 | **0.0407** | 0.2854 | 0.5231 / 0.5847 | **0.0286** | **0.6937** | **0.140** / **0.080** / **0.103** / 0.709 |
+| `M2_LayerComp` | 1 | 0.6562 | 0.5452 | 0.8472 | 0.6939 | 0.7459 | 0.0550 | 0.2987 | 0.5135 / 0.6320 | 0.0402 | 0.6062 | 0.169 / 0.102 / 0.139 / 0.768 |
+| `M2_Full` | 1 | 0.6774 | 0.5701 | 0.8527 | 0.7202 | 0.7507 | 0.0513 | **0.3336** | 0.5357 / 0.6796 | 0.0438 | 0.5938 | 0.179 / 0.110 / 0.142 / 0.820 |
+| `M2_NoLayer_LOO` | 1 | 0.6655 | 0.5590 | **0.8589** | 0.6750 | **0.7756** | **0.0381** | 0.3233 | **0.5498** / 0.6323 | 0.0318 | 0.6875 | 0.152 / 0.089 / 0.108 / 0.776 |
+| `M2_NoScale_LOO` | 1 | **0.6823** | **0.5757** | 0.8581 | 0.7470 | 0.7428 | 0.0597 | 0.3303 | 0.5356 / 0.7149 | 0.0477 | 0.5812 | 0.198 / 0.118 / 0.152 / 0.836 |
+| `M1_Full_Ref` | 3 | 0.7236 | 0.6202 | 0.9206 | 0.6852 | **0.8789** | **0.0202** | 0.3331 | 0.6042 / 0.6020 | **0.0269** | **0.8250** | **0.143 / 0.149 / 0.108** / 0.463 |
+| `M2_ShotCal` | 3 | 0.7353 | 0.6322 | 0.9234 | 0.7593 | 0.8251 | 0.0400 | 0.3715 | 0.5867 / 0.6847 | 0.0451 | 0.7375 | 0.177 / 0.255 / 0.208 / 0.577 |
+| `M2_ScaleSharp` | 3 | 0.7366 | 0.6326 | 0.9188 | 0.7503 | 0.8333 | 0.0363 | 0.3807 | 0.5917 / 0.6750 | 0.0429 | 0.7438 | 0.165 / 0.240 / 0.202 / 0.583 |
+| `M2_LayerComp` | 3 | 0.7348 | 0.6318 | 0.9172 | 0.7476 | 0.8347 | 0.0366 | 0.3759 | 0.5893 / 0.6715 | 0.0430 | 0.7438 | 0.179 / 0.236 / 0.190 / 0.564 |
+| `M2_Full` | 3 | 0.7573 | 0.6580 | 0.9205 | 0.7720 | 0.8405 | 0.0342 | 0.4130 | 0.6162 / 0.7118 | 0.0456 | 0.7500 | 0.191 / 0.251 / 0.194 / 0.639 |
+| `M2_NoLayer_LOO` | 3 | **0.7602** | **0.6604** | 0.9221 | 0.7756 | 0.8396 | 0.0336 | **0.4180** | **0.6177** / 0.7144 | 0.0458 | 0.7438 | 0.179 / 0.255 / 0.206 / 0.659 |
+| `M2_NoScale_LOO` | 3 | 0.7571 | 0.6583 | **0.9245** | **0.7798** | 0.8348 | 0.0370 | 0.4057 | 0.6132 / **0.7220** | 0.0475 | 0.7563 | 0.206 / 0.262 / 0.196 / **0.673** |
+| `M1_Full_Ref` | 5 | 0.7674 | 0.6648 | 0.9375 | 0.7102 | **0.9137** | **0.0141** | 0.3618 | 0.6470 / 0.6153 | **0.0176** | **0.8500** | **0.187 / 0.043 / 0.040** / 0.494 |
+| `M2_ShotCal` | 5 | 0.8108 | 0.7157 | 0.9365 | 0.8192 | 0.8601 | 0.0318 | 0.4666 | 0.6874 / 0.7359 | 0.0314 | 0.7500 | 0.228 / 0.108 / 0.110 / 0.777 |
+| `M2_ScaleSharp` | 5 | 0.8070 | 0.7105 | 0.9333 | 0.8068 | 0.8716 | 0.0291 | 0.4715 | 0.6837 / 0.7246 | 0.0306 | 0.7500 | 0.216 / 0.108 / 0.108 / 0.765 |
+| `M2_LayerComp` | 5 | 0.8066 | 0.7106 | 0.9341 | 0.8059 | 0.8692 | 0.0290 | 0.4653 | 0.6830 / 0.7238 | 0.0308 | 0.7563 | 0.226 / 0.110 / 0.101 / 0.746 |
+| `M2_Full` | 5 | 0.8210 | 0.7299 | 0.9362 | 0.8265 | 0.8703 | 0.0278 | 0.5001 | 0.7044 / 0.7663 | 0.0326 | 0.7438 | 0.233 / 0.124 / 0.101 / 0.837 |
+| `M2_NoLayer_LOO` | 5 | 0.8207 | 0.7294 | 0.9353 | 0.8268 | 0.8729 | 0.0279 | **0.5048** | 0.7035 / 0.7661 | 0.0326 | 0.7438 | 0.226 / 0.121 / 0.108 / **0.863** |
+| `M2_NoScale_LOO` | 5 | **0.8244** | **0.7347** | **0.9389** | **0.8373** | 0.8626 | 0.0300 | 0.4945 | **0.7069 / 0.7766** | 0.0330 | 0.7438 | 0.240 / 0.123 / 0.102 / 0.853 |
+
+### Ablation Verdicts & Explicit Pruning for Iteration 3
+1. **KEEP `M2_SelfRescue` (`M2_Full` vs `M2_LayerComp` — UNANIMOUS 4/4-Fold Winner on FN & Dice)**:
+   - $K=1$: $\Delta\text{Dice}=+0.0212$ `[0.0159, 0.0265]` (4/4 folds), $\Delta\text{Rec}=+0.0263$, $\Delta\text{Prec}=+0.0047$, $\Delta\text{SmallR}=+0.0476$, $\Delta\text{BF1}=+0.0349$.
+   - $K=3$: $\Delta\text{Dice}=+0.0224$ `[0.0161, 0.0292]` (4/4 folds), $\Delta\text{AP}_{512}=+0.0033$ (4/4 folds), $\Delta\text{SmallR}=+0.0402$, $\Delta\text{BF1}=+0.0371$, **`Gate_FN=True`**.
+   - $K=5$: $\Delta\text{Dice}=+0.0145$ `[0.0097, 0.0197]` (4/4 folds), $\Delta\text{AP}_{512}=+0.0021$ (4/4 folds), $\Delta\text{SmallR}=+0.0425$, $\Delta\text{BF1}=+0.0348$, **`Gate_FN=True`**.
+   - Rescues sparse/adjacent missed farms: e.g. `PV-55` Recall jumped `0.494 → 0.863` ($K=5$), `PV-49` `0.490 → 0.702`, `PV-10` `0.345 → 0.632`, `PV-30` `0.260 → 0.576`.
+2. **PRUNE `M2_LayerComp` (`alpha_bg_mid=0.65` + `early_32` damp)**: Fails LOO (`M2_Full` vs `M2_NoLayer_LOO`): hurt $K=1$ `AP512` (`-0.0062`, 0/4 folds) and exploded `NegFP` (`0.0318 → 0.0438`, `-37.8%`), zero benefit at $K=3,5$.
+3. **PRUNE `M2_ScaleSharp` penalty (`-0.35*relu(s32-s64)`)**: Fails LOO (`M2_Full` vs `M2_NoScale_LOO`): although it trimmed `NegFP` on $K=1$ (`-0.0040`), it hurt `AP512` (`0/4` folds on $K=5$) and `Dice` (`-0.0049` on $K=1$, `-0.0034` on $K=5$, `0/4` folds). Keep clean multi-scale fusion `0.75*s64 + 0.25*s32` instead.
+4. **ONLY Remaining Blocker Keeping `Gate_FP` / `Gate_Net` False at $K=3,5$**:
+   - In `M2_NoLayer_LOO` / `M2_NoScale_LOO`, `Dice` already jumped `+0.091..+0.098` and `AP512` `+0.074..+0.077` over `Iter 1 B0_32_Ref`, while `NegFP` sat at `0.0458` ($K=3$) / `0.0326` ($K=5$) vs `M1_Full` `0.0269 / 0.0176` (`87%` of all negative FPs come from `PV-93`, `PV-100`, `PV-96`).
+   - Reason: lowering global `w_fg` from `0.45 → 0.28` let negative confounders (`PV-100`, `PV-96`) cross `0.50`, AND `top2_soft` without support-shot hubness debiasing amplified high-cosine hub shots.
+5. **Iteration 3 Design Plan**: Combine precision-safe global threshold (`w_fg ≈ 0.36..0.38`) + **Support-Shot Hubness Debiasing (`ShotDehub`)** + **Gated Self-Rescue (`M2_SelfRescue`, recovers Recall inside true PV without lowering negative thresholds)** + **DINO `64×64` Feature-Affinity Propagation** + **`512×512` Fast RGB-Guided Boundary Alignment & Weak-Speckle Guard** (lifting `BF1@2px` and suppressing `PosBgFP`/`NegFP`).
+
+
