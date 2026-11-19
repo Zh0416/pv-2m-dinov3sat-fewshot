@@ -57,11 +57,11 @@ class V2ModulesTests(unittest.TestCase):
 
     def test_scfb_decoder_param_budget_loss_and_v2_variants(self) -> None:
         torch.manual_seed(2026)
-        dec = SCFBDecoder(in_ch=16)
+        dec = SCFBDecoder(in_ch=17)
         n_params = sum(p.numel() for p in dec.parameters())
         self.assertLess(n_params, 60000)
 
-        x = torch.randn(2, 16, 512, 512)
+        x = torch.randn(2, 17, 512, 512)
         y = torch.zeros(2, 1, 512, 512)
         y[0, 0, 128:256, 128:256] = 1.0  # idx 0 pos, idx 1 empty neg
         opt = torch.optim.AdamW(dec.parameters(), lr=1e-2)

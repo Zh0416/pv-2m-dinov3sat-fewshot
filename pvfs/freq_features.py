@@ -216,26 +216,28 @@ def apply_ofg_neg_gate_and_rescue(
     z_freq_64: torch.Tensor,
     *,
     w_freq_rescue: float = 0.35,
-    scene_gate_thr: float = 1.05,
-    scene_gate_temp: float = 0.35,
+    w_freq_veto: float = 0.45,
+    scene_gate_thr: float = 0.90,
+    scene_gate_temp: float = 0.32,
 ) -> torch.Tensor:
-    """Apply Module 2 training-free spectral-semantic verification & negative-scene attenuation."""
+    """Apply Module 2 conjunction spectral-semantic verification & negative-scene attenuation."""
     z_s = z_sem_64.reshape(-1)
     z_f = z_freq_64.reshape(-1)
 
-    # Rescue borderline periodic PV regions while checking image-level spectral-semantic consensus
-    rescue = w_freq_rescue * z_f * torch.sigmoid((z_s + 0.65) / 0.55)
-    z_comb = z_s + rescue
+    # Asymmetric local update: boost only where both semantic and periodic frequency agree; veto where freq disagrees
+    pos_rescue = w_freq_rescue * F.relu(z_f - 0.10) * torch.sigmoid((z_s + 0.65) / 0.45)
+    neg_veto = w_freq_veto * F.relu(-z_f - 0.15)
+    z_comb = z_s + pos_rescue - neg_veto
 
-    # Evaluate image-level consensus on the top-12 peak tokens (detects tiny <0.5% PV while checking cluster consistency)
+    # Dual-domain conjunction check on top-12 peak tokens (protects tiny <0.5% PV while rejecting low-freq greenhouses)
     top_idx = z_s.topk(min(12, z_s.numel())).indices
     sem_peak = float(z_s[top_idx[: min(8, top_idx.numel())]].mean().item())
-    freq_cons = float(z_f[top_idx].mean().clamp(-1.0, 1.5).item())
-    evidence = sem_peak + 0.55 * freq_cons
+    freq_cons = float(z_f[top_idx].mean().clamp(-1.5, 1.5).item())
 
-    # Only attenuate when image shows weak joint evidence (spares strong compact small PV!)
-    gate = math.exp(0.0) / (1.0 + math.exp(-(evidence - scene_gate_thr) / max(1e-4, scene_gate_temp)))
-    if evidence < scene_gate_thr + 0.45:
+    sem_gate = 1.0 / (1.0 + math.exp(-(sem_peak - scene_gate_thr) / max(1e-4, scene_gate_temp)))
+    freq_gate = 1.0 / (1.0 + math.exp(-(freq_cons - (-0.05)) / 0.25))
+    joint_gate = sem_gate * (0.35 + 0.65 * freq_gate)
+    if joint_gate < 0.85:
         pos_mask = z_comb > 0.0
-        z_comb = torch.where(pos_mask, z_comb * gate - (1.0 - gate) * 1.25, z_comb)
+        z_comb = torch.where(pos_mask, z_comb * joint_gate - (1.0 - joint_gate) * 1.15, z_comb)
     return z_comb.reshape(z_sem_64.shape)

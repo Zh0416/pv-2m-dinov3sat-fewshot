@@ -23,11 +23,11 @@ from .v2_decoder import SCFBDecoder, build_decoder_input_512, compute_support_rg
 V2_SEMANTIC_CFG = Iter5Config(
     name="V2_MSCP_Core",
     shot_mode="balanced_70_30",
-    w_fg_calib=0.42,
+    w_fg_calib=0.43,
     use_self_rescue=True,
-    seed_prob_thr=0.70,
+    seed_prob_thr=0.71,
     min_seeds=5,
-    seed_mid_margin=0.01,
+    seed_mid_margin=0.015,
     qsc_weight=0.45,
     use_affinity=True,
 )
@@ -179,7 +179,7 @@ def train_fold_scfb_decoder(
     pos_all = [r["id"] for r in train_records if r["positive"]]
     site_of = {r["id"]: r["site"] for r in train_records}
 
-    model = SCFBDecoder(in_ch=16).to(device)
+    model = SCFBDecoder(in_ch=17).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=9e-4, weight_decay=1e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=steps, eta_min=8e-5)
     use_amp = device.type == "cuda"
@@ -206,9 +206,12 @@ def train_fold_scfb_decoder(
             fg_rgb, bg_rgb = compute_support_rgb_stats(rgb_by_id, mask_by_id, sup_ids, device)
             xs, ys = [], []
             for qid in q_ids:
+                sem6 = mscp[qid]["sem_6"].clone()
+                if not disable_freq:
+                    sem6[0] = apply_ofg_neg_gate_and_rescue(sem6[0], zf_map[qid])
                 xs.append(
                     build_decoder_input_512(
-                        mscp[qid]["sem_6"],
+                        sem6,
                         zf_map[qid],
                         rgb_by_id[qid].to(device),
                         freq512_by_id[qid].to(device),
@@ -277,7 +280,13 @@ def run_v2_episode(
         xb = torch.stack(
             [
                 build_decoder_input_512(
-                    mscp[qid]["sem_6"],
+                    torch.cat(
+                        (
+                            (apply_ofg_neg_gate_and_rescue(mscp[qid]["sem_6"][0], zf_map[qid])[None] if not variant.disable_freq else mscp[qid]["sem_6"][0:1]),
+                            mscp[qid]["sem_6"][1:],
+                        ),
+                        dim=0,
+                    ),
                     zf_map[qid],
                     rgb_by_id[qid].to(device),
                     freq512_by_id[qid].to(device),

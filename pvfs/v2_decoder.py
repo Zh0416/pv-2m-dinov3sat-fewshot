@@ -31,9 +31,9 @@ class _DSConvBlock(nn.Module):
 
 
 class SCFBDecoder(nn.Module):
-    """Lightweight Support-Conditioned Frequency-Boundary Residual Decoder (~35K params)."""
+    """Lightweight Support-Conditioned Frequency-Boundary Residual Decoder (~42K params)."""
 
-    def __init__(self, in_ch: int = 16) -> None:
+    def __init__(self, in_ch: int = 17) -> None:
         super().__init__()
         # Multi-scale context path: 512 -> 256 -> 128 -> 64
         self.stem = nn.Sequential(
@@ -63,19 +63,20 @@ class SCFBDecoder(nn.Module):
             nn.SiLU(inplace=True),
             _DSConvBlock(24, 24),
         )
-        # Full-resolution 512x512 boundary refinement head fused with fine frequency/edge cues
+        # Full-resolution 512x512 boundary refinement head with signed local luma & frequency cues
         self.fine_proj = nn.Sequential(
-            nn.Conv2d(in_ch, 16, kernel_size=3, padding=1, bias=False),
-            nn.GroupNorm(4, 16),
+            nn.Conv2d(in_ch, 20, kernel_size=3, padding=1, bias=False),
+            nn.GroupNorm(4, 20),
             nn.SiLU(inplace=True),
+            _DSConvBlock(20, 20),
         )
         self.head_512 = nn.Sequential(
-            _DSConvBlock(24 + 16, 24),
+            _DSConvBlock(24 + 20, 24),
             nn.Conv2d(24, 1, kernel_size=1),
         )
         nn.init.zeros_(self.head_512[-1].weight)
         nn.init.zeros_(self.head_512[-1].bias)
-        self.res_scale = nn.Parameter(torch.tensor(0.50))
+        self.res_scale = nn.Parameter(torch.tensor(0.75))
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         e1 = self.stem(x)   # [B, 24, 256, 256]
@@ -120,7 +121,7 @@ def build_decoder_input_512(
     *,
     disable_freq: bool = False,
 ) -> torch.Tensor:
-    """Assemble 16-channel domain-invariant [16, 512, 512] tensor on GPU."""
+    """Assemble 17-channel domain-invariant [17, 512, 512] tensor on GPU."""
     sem_512 = F.interpolate(sem_6_64[None], size=(512, 512), mode="bilinear", align_corners=False)[0]  # [6, 512, 512]
     zf_512 = F.interpolate(z_freq_64[None, None], size=(512, 512), mode="bilinear", align_corners=False)[0]  # [1, 512, 512]
 
@@ -129,46 +130,53 @@ def build_decoder_input_512(
     d_bg = ((rgb_f - bg_rgb_mean[:, None, None]) ** 2).sum(dim=0).sqrt()
     color_contrast = ((d_bg - d_fg) / 0.25).clamp(-2.5, 2.5)[None]  # [1, 512, 512]
 
+    # Signed local high-pass luminance (gives crisp sub-pixel inside-vs-outside panel polarity)
+    luma = (0.299 * rgb_f[0] + 0.587 * rgb_f[1] + 0.114 * rgb_f[2])[None, None]
+    luma_mean = F.avg_pool2d(luma, kernel_size=31, stride=1, padding=15, count_include_pad=False)
+    luma_hp = ((luma - luma_mean) / (luma.std().clamp_min(0.05))).clamp(-3.0, 3.0)[0]  # [1, 512, 512]
+
     f_512 = freq_512.float()
     if disable_freq:
         zf_512 = torch.zeros_like(zf_512)
         f_512 = torch.zeros_like(f_512)
-    return torch.cat((sem_512, zf_512, color_contrast, f_512), dim=0)  # [16, 512, 512]
+    return torch.cat((sem_512, zf_512, color_contrast, luma_hp, f_512), dim=0)  # [17, 512, 512]
 
 
 def scfb_episodic_loss(logits: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
-    """Joint Dice + Edge-Weighted BCE + Strong Empty-Negative FP Suppression Loss."""
+    """Recall-preserving Tversky + Strong Edge-Weighted BCE + Balanced Top-K Negative Suppression."""
     # targets: [B, 1, H, W] float in {0, 1}
     pos_img = (targets.sum(dim=(1, 2, 3)) > 0.5)
     loss = logits.new_tensor(0.0)
-    terms = 0
+    b_total = max(1, logits.shape[0])
 
     if pos_img.any():
         lp = logits[pos_img]
         yp = targets[pos_img]
         probs = torch.sigmoid(lp)
-        inter = (probs * yp).sum(dim=(1, 2, 3))
-        union = probs.sum(dim=(1, 2, 3)) + yp.sum(dim=(1, 2, 3)) + 1e-4
-        dice_loss = (1.0 - (2.0 * inter + 1e-4) / union).mean()
+        tp = (probs * yp).sum(dim=(1, 2, 3))
+        fp = (probs * (1.0 - yp)).sum(dim=(1, 2, 3))
+        fn = ((1.0 - probs) * yp).sum(dim=(1, 2, 3))
+        # Alpha=0.40, Beta=0.60 protects recall on small/hard PV arrays
+        tversky = 1.0 - (tp + 1e-4) / (tp + 0.40 * fp + 0.60 * fn + 1e-4)
 
-        # Highlight 3px morphological edge band around PV ground truth
+        # Highlight 3px morphological edge band around PV ground truth strongly for BF1@2px
         dil = F.max_pool2d(yp, kernel_size=5, stride=1, padding=2)
         ero = -F.max_pool2d(-yp, kernel_size=5, stride=1, padding=2)
         edge_band = (dil - ero).clamp(0.0, 1.0)
-        weights = 1.0 + 3.0 * edge_band
+        weights = 1.0 + 6.0 * edge_band
         bce = F.binary_cross_entropy_with_logits(lp, yp, reduction="none")
-        edge_bce = (bce * weights).mean()
-        loss = loss + 0.55 * dice_loss + 0.85 * edge_bce
-        terms += 1
+        edge_bce = (bce * weights).sum(dim=(1, 2, 3)) / weights.sum(dim=(1, 2, 3))
+        pos_loss = (0.60 * tversky + 0.90 * edge_bce).mean()
+        loss = loss + pos_loss * (float(pos_img.sum().item()) / b_total)
 
     if (~pos_img).any():
-        ln = logits[~pos_img]
+        ln = logits[~pos_img].reshape((~pos_img).sum().item(), -1)
         yn = torch.zeros_like(ln)
-        probs_n = torch.sigmoid(ln)
-        # Penalize both pixel BCE and peak false-positive mass on negative images
-        neg_bce = F.binary_cross_entropy_with_logits(ln, yn)
-        neg_peak = (probs_n ** 2).mean() + 0.35 * probs_n.amax(dim=(1, 2, 3)).mean()
-        loss = loss + 1.25 * neg_bce + 0.80 * neg_peak
-        terms += 1
+        neg_bce = F.binary_cross_entropy_with_logits(ln, yn, reduction="none")
+        # Mine top-2% hardest pixels on pure negative scenes rather than shifting global bias
+        k_hard = max(64, ln.shape[1] // 50)
+        hard_bce = neg_bce.topk(k_hard, dim=1).values.mean()
+        neg_loss = 0.25 * neg_bce.mean() + 0.55 * hard_bce
+        loss = loss + neg_loss * (float((~pos_img).sum().item()) / b_total)
 
-    return loss / max(1, terms)
+    return loss

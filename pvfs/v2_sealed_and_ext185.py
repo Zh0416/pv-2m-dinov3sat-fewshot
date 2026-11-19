@@ -179,7 +179,13 @@ def run_v2_episode_ensemble(
         xb = torch.stack(
             [
                 build_decoder_input_512(
-                    mscp[qid]["sem_6"],
+                    torch.cat(
+                        (
+                            (apply_ofg_neg_gate_and_rescue(mscp[qid]["sem_6"][0], zf_map[qid])[None] if not variant.disable_freq else mscp[qid]["sem_6"][0:1]),
+                            mscp[qid]["sem_6"][1:],
+                        ),
+                        dim=0,
+                    ),
                     zf_map[qid],
                     rgb_by_id[qid].to(device),
                     freq512_by_id[qid].to(device),
@@ -369,7 +375,7 @@ def run_v2_sealed_and_ext185(
     for vname in ("V2_Full_WithDecoder", "V2_Decoder_NoFreq_LOO"):
         models = []
         for f in range(4):
-            m = SCFBDecoder(in_ch=16).to(run_device)
+            m = SCFBDecoder(in_ch=17).to(run_device)
             m.load_state_dict(dec_ckpt[vname][f])
             m.eval()
             models.append(m)

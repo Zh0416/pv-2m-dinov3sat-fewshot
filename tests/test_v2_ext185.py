@@ -82,7 +82,7 @@ class V2SealedAndExt185Tests(unittest.TestCase):
                 k: build_pairwise_topk_cache(toks[k], masks, all_ids, pos_ids, grid_hw=(64 if "64" in k else 32))
                 for k in ("deep_32", "mid_64", "deep_64")
             }
-            dec_ens = [SCFBDecoder(in_ch=16).eval(), SCFBDecoder(in_ch=16).eval()]
+            dec_ens = [SCFBDecoder(in_ch=17).eval(), SCFBDecoder(in_ch=17).eval()]
             q_ids = [r["id"] for r in recs[1:]]
             q_items = [{**r, "mask": masks[r["id"]], "y32": area_target_32(masks[r["id"]])} for r in recs[1:]]
             full_var = next(v for v in V2_VARIANTS if v.name == "V2_Full_WithDecoder")
