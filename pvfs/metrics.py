@@ -48,15 +48,23 @@ def average_precision(y: np.ndarray, score: np.ndarray) -> float:
     return float(np.sum(precision * recall_step))
 
 
-def boundary_f1(truth: np.ndarray, pred: np.ndarray) -> float:
+def boundary_f1(
+    truth: np.ndarray,
+    pred: np.ndarray,
+    *,
+    t_b: np.ndarray | None = None,
+    t_dil: np.ndarray | None = None,
+) -> float:
     """Boundary contour F1 with 2-pixel (4m at 2m GSD) tolerance."""
-    t_b = truth ^ binary_erosion(truth, structure=BOX_3, border_value=1)
+    if t_b is None:
+        t_b = truth ^ binary_erosion(truth, structure=BOX_3, border_value=1)
     p_b = pred ^ binary_erosion(pred, structure=BOX_3, border_value=1)
     if not t_b.any() and not p_b.any():
         return 1.0
     if not t_b.any() or not p_b.any():
         return 0.0
-    t_dil = binary_dilation(t_b, structure=DISK_2)
+    if t_dil is None:
+        t_dil = binary_dilation(t_b, structure=DISK_2)
     p_dil = binary_dilation(p_b, structure=DISK_2)
     prec = float(np.logical_and(p_b, t_dil).sum() / p_b.sum())
     rec = float(np.logical_and(t_b, p_dil).sum() / t_b.sum())
@@ -69,21 +77,25 @@ def evaluate_single_image_512(
     threshold: float = 0.5,
     *,
     compute_boundary: bool = True,
+    t_b: np.ndarray | None = None,
+    t_dil: np.ndarray | None = None,
 ) -> dict:
     truth = mask > 0
     pred = prob_512 >= threshold
-    tp = int(np.logical_and(truth, pred).sum())
-    fp = int(np.logical_and(~truth, pred).sum())
-    fn = int(np.logical_and(truth, ~pred).sum())
-    tn = int(np.logical_and(~truth, ~pred).sum())
+    gt_sum = int(truth.sum())
+    pred_sum = int(pred.sum())
 
-    if truth.any():
-        dice = (2.0 * tp / (2 * tp + fp + fn)) if (2 * tp + fp + fn) > 0 else 1.0
-        iou = (tp / (tp + fp + fn)) if (tp + fp + fn) > 0 else 1.0
-        recall = tp / (tp + fn) if (tp + fn) > 0 else 1.0
-        precision = tp / (tp + fp) if (tp + fp) > 0 else (1.0 if fn == 0 else 0.0)
+    if gt_sum > 0:
+        tp = int(np.logical_and(truth, pred).sum())
+        fp = pred_sum - tp
+        fn = gt_sum - tp
+        tn = truth.size - gt_sum - fp
+        dice = (2.0 * tp / (gt_sum + pred_sum)) if (gt_sum + pred_sum) > 0 else 1.0
+        iou = (tp / (gt_sum + fp)) if (gt_sum + fp) > 0 else 1.0
+        recall = tp / gt_sum
+        precision = tp / pred_sum if pred_sum > 0 else 0.0
         bg_fp = fp / (fp + tn) if (fp + tn) > 0 else 0.0
-        bf1 = boundary_f1(truth, pred) if compute_boundary else 0.0
+        bf1 = boundary_f1(truth, pred, t_b=t_b, t_dil=t_dil) if compute_boundary else 0.0
         return {
             "positive": True,
             "dice": float(dice),
@@ -131,7 +143,17 @@ def evaluate_episode(
             raise ValueError(f"Unexpected prediction shape for {qid}")
         if not np.isfinite(p512).all() or not np.isfinite(s32).all():
             raise ValueError(f"Non-finite prediction for {qid}")
-        im_m = evaluate_single_image_512(rec["mask"], p512, threshold=threshold)
+        if rec["positive"] and "_gt_b" not in rec:
+            truth = rec["mask"] > 0
+            rec["_gt_b"] = truth ^ binary_erosion(truth, structure=BOX_3, border_value=1)
+            rec["_gt_dil"] = binary_dilation(rec["_gt_b"], structure=DISK_2)
+        im_m = evaluate_single_image_512(
+            rec["mask"],
+            p512,
+            threshold=threshold,
+            t_b=rec.get("_gt_b"),
+            t_dil=rec.get("_gt_dil"),
+        )
         im_m["id"] = qid
         im_m["site"] = rec["site"]
         im_m["fold"] = rec["fold"]
