@@ -37,3 +37,59 @@ Chronological scientific record of all hypotheses, implementations, Kaggle GPU r
    - **FN-1 (Sparse/Floating/Domain-Shifted PV Farms)**: `正样本/PV-73.tif` (`area=18.87%`) has **`Recall=0.090` ($K=1$), `0.021` ($K=3$), `0.071` ($K=5$)**! `正样本/PV-55.tif` (`12.83%`) has `Recall=0.282–0.344`. Both are sparse/bright-edged pond PV whose local sub-patches partially match (`max` hotspots exist) while the bulk falls below global support similarity.
    - **FN-2 (Small/Narrow/Hilly PV Diluted at `32m` Stride)**: `tiny_lt1pct` (`n=2`) gets only `Dice=0.170–0.324`; `small_lt5pct` (`n=14`) gets `Dice=0.458–0.627` (`PV-49`: `rec=0.24–0.36`, `PV-03`: `rec=0.24–0.46`, `PV-26`: `rec=0.35–0.38`). Narrow rows (`4–10 px`) are diluted inside `16×16` patches.
    - **FN-3 (Support Calibration Bias)**: At $K=3$, `OracleRaw` reaches `imgDice=0.7172` (`imgRec=0.8158`) vs deployed `B0_Contrast` `Dice=0.6663` (`Recall=0.6715`) because median `fg_loo` is dominated by large interior PV blocks.
+
+---
+
+## Dev Feature Cache & Multi-Layer/RoPE-1024 Probe (`COMPLETED` on Kaggle T4)
+- **Kaggle Kernel**: `zh0416/pv-2m-dinov3-sat-dev-cache` (`KernelWorkerStatus.COMPLETE`, CUDA Tesla T4, 578s runtime, `79` dev images ONLY; `21` sealed test images untouched).
+- **Artifact**: `/kaggle/working/dev_features_v1.pt` (`1.852 GiB`, normalized fp16 `early_32 [8..11]`, `mid_32 [12..15]`, `semi_32 [16..19]`, `deep_32 [20..23]`, `mid_64 [12..15 @1024]`, `deep_64 [20..23 @1024]`), [`results/cache_probe/layer_scale_probe.json`](../results/cache_probe/layer_scale_probe.json), [`results/cache_probe/pv-2m-dinov3-sat-dev-cache.log`](../results/cache_probe/pv-2m-dinov3-sat-dev-cache.log).
+- **Key Probe Findings**:
+  - `deep_64` (`1024×1024` native RoPE, `16 m/token`) strongly outperforms `deep_32` (`512×512`): $K=1$ Dice `0.6251 → 0.6588`, AP512 `0.7933 → 0.8553`; $K=3$ Dice `0.6663 → 0.7426 (+0.0763)`, AP512 `0.8473 → 0.8944`, BF1 `0.2327 → 0.3717`; $K=5$ Dice `0.7267 → 0.7692`, AP512 `0.8647 → 0.9034`, BF1 `0.2751 → 0.4077`.
+  - `mid_64` (`blocks 12..15 @1024`) alone has lower recall (`0.315–0.661`), **but cuts `PV-80.tif` adjacent aquaculture-greenhouse `PosBgFP` by 66% at $K=5$ (`0.230 → 0.078`) and `PV-21.tif` by 61% (`0.076 → 0.030`)**, confirming intermediate blocks preserve rib/material contrast lost in `20..23`.
+  - However, `PV-93.tif` still produces `NegFP=0.142` in `deep_64` and `0.190` in `mid_64` ($K=5$), and `PV-73.tif` pond PV still sits at `Rec=0.038–0.177`.
+
+---
+
+## Iteration 1 — Multi-Scale RoPE Fusion + Interior Core Balanced Bank + Mid-Layer Material Veto (`COMPLETED` on Kaggle T4)
+- **Kaggle Kernel**: `zh0416/pv-2m-dinov3-sat-iter1` (`KernelWorkerStatus.COMPLETE`, CUDA Tesla T4, 1015s runtime).
+- **Results artifact**: [`results/iter1/iter1_summary.json`](../results/iter1/iter1_summary.json), [`results/iter1/pv-2m-dinov3-sat-iter1.log`](../results/iter1/pv-2m-dinov3-sat-iter1.log), [`scripts/analyze_iter1.py`](../scripts/analyze_iter1.py), [`pvfs/iter1_methods.py`](../pvfs/iter1_methods.py).
+- **Ablation Variants**:
+  - `B0_32_Ref`: `512×512` `deep_32`, purity `≥0.50`, pooled bank.
+  - `M1_Scale`: `0.70*deep_64 + 0.30*deep_32` dual-RoPE score fusion.
+  - `M1_Scale_Core`: `+ core_purity≥0.85` interior PV tokens + balanced per-shot pooling (`0.7*max + 0.3*mean` for $K \ge 2$).
+  - `M1_Scale_Core_Calib`: `+ Calib_v1` (mean per-shot fg median + bg $q_{95}$ for $K\ge2$; bg $q_{95}+0.075$ for $K=1$).
+  - `M1_Full`: `+ mid_64` support-background asymmetric veto ($\lambda_{\text{mid}}=0.35$, $\beta_{\text{veto}}=0.40$).
+  - `M1_NoCore_LOO`: `M1_Full` without interior-core & balanced pooling (strict leave-one-module-out check).
+
+### Quantitative Iteration 1 Ablation Table (Dev 79 images, 4 Folds × 10 Episodes)
+| Variant | $K$ | Dice@0.5 | IoU@0.5 | AP512 | Recall | Prec | PosBgFP | BF1@2px | Small `<5%` D / R | NegFP | NegClean | `PV-93` / `PV-80bg` / `PV-73rec` |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `B0_32_Ref` | 1 | 0.6251 | 0.4977 | 0.7933 | 0.7132 | 0.6682 | 0.0893 | 0.2172 | 0.4583 / 0.6774 | 0.0589 | 0.5188 | 0.208 / 0.286 / 0.090 |
+| `M1_Scale` | 1 | **0.6710** | **0.5572** | **0.8613** | 0.7529 | 0.7188 | 0.0790 | **0.2981** | **0.5223 / 0.7169** | 0.0560 | 0.5813 | 0.183 / 0.297 / 0.170 |
+| `M1_Scale_Core` | 1 | 0.6480 | 0.5276 | 0.8591 | **0.8400** | 0.6237 | 0.1486 | 0.2790 | 0.4516 / 0.8269 | 0.1224 | 0.3625 | 0.242 / 0.411 / 0.451 |
+| `M1_Scale_Core_Calib` | 1 | 0.6518 | 0.5351 | 0.8628 | 0.7742 | 0.6922 | 0.1027 | 0.2905 | 0.4836 / 0.7571 | 0.0807 | 0.4875 | 0.206 / 0.322 / 0.376 |
+| `M1_Full` | 1 | 0.6505 | 0.5337 | 0.8594 | 0.7743 | 0.6876 | 0.1021 | 0.2862 | 0.4852 / 0.7473 | 0.0781 | 0.4625 | 0.217 / 0.308 / 0.421 |
+| `M1_NoCore_LOO` | 1 | 0.6492 | 0.5410 | 0.8568 | 0.6706 | **0.7636** | **0.0467** | 0.2875 | 0.5222 / 0.6072 | **0.0306** | **0.6937** | **0.160 / 0.186** / 0.117 |
+| `B0_32_Ref` | 3 | 0.6663 | 0.5438 | 0.8473 | 0.6715 | 0.7973 | 0.0476 | 0.2327 | 0.5438 / 0.6099 | 0.0308 | 0.7563 | 0.128 / 0.205 / 0.021 |
+| `M1_Scale` | 3 | 0.7403 | 0.6331 | 0.9006 | **0.7546** | 0.8187 | 0.0430 | 0.3566 | 0.6052 / 0.6687 | 0.0367 | 0.7688 | 0.152 / 0.234 / 0.032 |
+| `M1_Scale_Core` | 3 | **0.7561** | **0.6510** | 0.9156 | 0.7318 | 0.8651 | 0.0260 | **0.3653** | **0.6206 / 0.6526** | 0.0335 | 0.7937 | 0.159 / 0.229 / 0.017 |
+| `M1_Scale_Core_Calib` | 3 | 0.7117 | 0.6101 | 0.9170 | 0.6731 | 0.8607 | 0.0203 | 0.3300 | 0.5924 / 0.5949 | **0.0267** | 0.8187 | **0.119** / 0.205 / 0.002 |
+| `M1_Full` | 3 | 0.7235 | 0.6202 | **0.9206** | 0.6852 | **0.8789** | **0.0202** | 0.3331 | 0.6041 / 0.6020 | 0.0269 | **0.8250** | 0.143 / **0.182** / 0.007 |
+| `M1_NoCore_LOO` | 3 | 0.7106 | 0.6047 | 0.9028 | 0.7129 | 0.8341 | 0.0361 | 0.3278 | 0.5909 / 0.6261 | 0.0314 | 0.8125 | 0.136 / 0.211 / 0.003 |
+| `B0_32_Ref` | 5 | 0.7267 | 0.6052 | 0.8647 | 0.7165 | 0.8161 | 0.0402 | 0.2751 | 0.6265 / 0.6447 | 0.0184 | 0.8125 | 0.166 / 0.261 / 0.071 |
+| `M1_Scale` | 5 | **0.7773** | **0.6770** | 0.9121 | **0.7737** | 0.8437 | 0.0317 | **0.4100** | **0.6643 / 0.6846** | 0.0210 | 0.8125 | 0.166 / 0.254 / 0.098 |
+| `M1_Scale_Core` | 5 | 0.7739 | 0.6729 | 0.9286 | 0.7289 | 0.8992 | 0.0187 | 0.3843 | 0.6484 / 0.6363 | 0.0197 | 0.8313 | 0.173 / 0.240 / 0.089 |
+| `M1_Scale_Core_Calib` | 5 | 0.7606 | 0.6562 | 0.9300 | 0.7045 | 0.8972 | 0.0165 | 0.3516 | 0.6369 / 0.6070 | 0.0183 | 0.8438 | 0.171 / 0.233 / 0.089 |
+| `M1_Full` | 5 | 0.7674 | 0.6648 | **0.9375** | 0.7102 | **0.9137** | **0.0141** | 0.3618 | 0.6470 / 0.6153 | 0.0176 | **0.8500** | 0.187 / **0.180** / 0.094 |
+| `M1_NoCore_LOO` | 5 | 0.7699 | 0.6685 | 0.9168 | 0.7451 | 0.8697 | 0.0240 | 0.3902 | 0.6549 / 0.6464 | **0.0170** | 0.8312 | 0.181 / 0.187 / 0.100 |
+
+### Paired Acceptance Gate Verdicts & Critical Diagnostic Takeaways
+1. **`M1_Scale` vs `B0_32_Ref` PASSES robustly**: `K=1` passes `Gate_FP=True, Gate_FN=True, Gate_Net=True` ($\Delta\text{Dice}=+0.0459$ `[0.0310, 0.0637]`, 4/4 folds; $\Delta\text{AP}_{512}=+0.0680$, 4/4 folds); `K=3` gains $\Delta\text{Dice}=+0.0740$ `[0.0522, 0.0971]`, $\Delta\text{AP}_{512}=+0.0533$ (4/4 folds); `K=5` gains $\Delta\text{Dice}=+0.0507$ `[0.0239, 0.0725]`, $\Delta\text{AP}_{512}=+0.0474$ (4/4 folds).
+2. **`Core` + `mid_64` Veto achieve massive ranking & precision gains**: Adding `Core` + `mid_64` pushes **`AP512` to `0.9206` ($K=3$) and `0.9375` ($K=5$)** (both **+0.073 over `B0_32_Ref`, 4/4 folds**!), raises `Precision` to **`0.8789` / `0.9137`**, and cuts `PosBgFP` by **>55%** (`0.0476→0.0202`, `0.0402→0.0141`). `M1_Full` beats `M1_NoCore_LOO` by `+0.0178` / `+0.0207` `AP512` across 4/4 folds (`K=3,5`) and beats `M1_Scale_Core_Calib` on both `Dice` and `AP512` (`K=3,5`).
+3. **Why `Dice@0.5` dipped in `M1_Scale_Core_Calib` and `M1_Full` (PRUNED CALIBRATION BUG)**:
+   - On $K \ge 2$, `Calib_v1` (`bias = 0.45*mu_fg + 0.55*mu_bg`) anchored 45% to **interior core (`purity>=0.85`) LOO medians**, which sit far above real boundary/sparse PV scores (`PV-45` had `Prec=1.000, Rec=0.405`; `PV-49` `Prec=0.994, Rec=0.385`; `PV-70` `Prec=0.898, Rec=0.402`), throwing away `+10..+20%` Recall even while `AP512` kept climbing (`0.9375`).
+   - On $K=1$, `core_purity=0.85` lowered support `ex-bg` quantiles (`s_pos` became tighter to pure cores) without scaling `margin_1` or anchoring on `ex-fg`, causing `NegFP=0.0781` while `M1_NoCore_LOO` (`purity=0.50`) achieved `NegFP=0.0306` (`Prec=0.7636`).
+4. **Remaining Genuine Failure Modes Targeted for Iteration 2 (confirmed visually via `results/iter0/panels/*.png` + `Iter 1` error taxonomy)**:
+   - **Genuine FN**: `PV-73.tif` (pond PV, heat map already highlights target structure faintly above surrounding water, `Rec=0.007–0.094`), `PV-55.tif` (adjacent identical PV ponds missed around bright-red detected PV cores!), `PV-10.tif`, `PV-30.tif`, `PV-03.tif`, `PV-26.tif`.
+   - **Genuine FP**: `PV-93.tif` (`NegFP=0.143–0.217`, `NegClean=0.0–0.1`, pale translucent greenhouse complex), `PV-100.tif` (dark framed greenhouse), `PV-96.tif` (port complex), `PV-80.tif` (`PosBgFP=0.180`, adjacent narrow aquaculture greenhouses), `PV-12.tif` (`PosBgFP` pond sheen).
+
