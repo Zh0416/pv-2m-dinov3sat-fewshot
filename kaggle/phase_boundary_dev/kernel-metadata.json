@@ -1,14 +1,14 @@
 {
-  "id": "zh0416/pv-2m-dinov3-sat-iter5",
-  "title": "PV 2m DINOv3-SAT Iter5",
+  "id": "zh0416/pv-2m-dinov3-sat-phase-boundary-dev",
+  "title": "PV 2m DINOv3-SAT Phase Boundary Dev",
   "code_file": "run_kaggle_phase_boundary.py",
   "language": "python",
   "kernel_type": "script",
   "is_private": true,
-  "enable_gpu": false,
+  "enable_gpu": true,
   "enable_tpu": false,
   "enable_internet": true,
-  "keywords": [],
+  "keywords": ["gpu"],
   "dataset_sources": [
     "zh0416/pv-100scence"
   ],

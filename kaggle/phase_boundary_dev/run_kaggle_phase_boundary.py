@@ -6,6 +6,7 @@ import subprocess
 import sys
 
 REPO_URL = "https://github.com/Zh0416/pv-2m-dinov3sat-fewshot.git"
+REPO_BRANCH = "phase-boundary-dev"
 REPO_DIR = Path("/tmp/pv-2m-dinov3sat-fewshot")
 OUT_DIR = Path("/kaggle/working")
 
@@ -31,10 +32,10 @@ def find_cache_pt() -> Path:
 def main() -> None:
     ensure_pkg("rasterio", "rasterio")
     if (REPO_DIR / ".git").is_dir():
-        subprocess.run(["git", "-C", str(REPO_DIR), "fetch", "origin", "main"], check=True)
-        subprocess.run(["git", "-C", str(REPO_DIR), "reset", "--hard", "origin/main"], check=True)
+        subprocess.run(["git", "-C", str(REPO_DIR), "fetch", "origin", REPO_BRANCH], check=True)
+        subprocess.run(["git", "-C", str(REPO_DIR), "reset", "--hard", f"origin/{REPO_BRANCH}"], check=True)
     else:
-        subprocess.run(["git", "clone", "--depth", "1", REPO_URL, str(REPO_DIR)], check=True)
+        subprocess.run(["git", "clone", "--depth", "1", "-b", REPO_BRANCH, REPO_URL, str(REPO_DIR)], check=True)
 
     rev = subprocess.check_output(["git", "-C", str(REPO_DIR), "rev-parse", "HEAD"], text=True).strip()
     print(f"Running Phase Boundary Dev Evaluation at commit: {rev}", flush=True)
