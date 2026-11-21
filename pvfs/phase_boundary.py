@@ -237,6 +237,8 @@ def compute_luma_and_detrended_residual(
     """
     arr = np.asarray(rgb, dtype=np.float32)
     if arr.ndim == 3:
+        if arr.shape[0] == 3 and arr.shape[-1] != 3:
+            arr = np.transpose(arr, (1, 2, 0))
         if arr.max() > 1.5:
             arr = arr / 255.0
         luma = (0.299 * arr[..., 0] + 0.587 * arr[..., 1] + 0.114 * arr[..., 2]).astype(np.float32)

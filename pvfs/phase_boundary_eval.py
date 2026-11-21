@@ -12,7 +12,7 @@ from PIL import Image, ImageDraw
 from scipy.ndimage import binary_dilation, binary_erosion, label as nd_label
 import torch
 
-from .data import area_target_32, load_dev_records, read_rgb_image, read_verified_mask, resolve_data_dirs
+from .data import area_target_32, load_dev_records, read_verified_mask, read_verified_rgb, resolve_data_dirs
 from .episodes import load_and_verify_episodes
 from .fast_bank import build_pairwise_topk_cache
 from .io import write_json
@@ -612,7 +612,7 @@ def run_phase_boundary_dev_evaluation(
     for row in dev_records:
         rid = row["id"]
         mask = read_verified_mask(lbl_dir, row)
-        rgb = read_rgb_image(img_dir, row)
+        rgb = np.transpose(read_verified_rgb(img_dir, row), (1, 2, 0))
         records_by_id[rid] = {**row, "mask": mask, "y32": area_target_32(mask)}
         mask_by_id[rid] = mask
         rgb_by_id[rid] = rgb

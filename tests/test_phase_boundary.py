@@ -282,6 +282,12 @@ class TestPhaseBoundaryRefinement(unittest.TestCase):
             {"sup1": p_loo, "sup2": p_loo},
             cfg=self.cfg,
         )
+        # Verify eval module imports cleanly and CHW/HWC inputs yield identical residuals
+        from pvfs.phase_boundary_eval import run_phase_boundary_dev_evaluation  # noqa: F401
+        _, _, res_hwc = compute_luma_and_detrended_residual(rgb_sup, self.cfg)
+        _, _, res_chw = compute_luma_and_detrended_residual(np.transpose(rgb_sup, (2, 0, 1)), self.cfg)
+        np.testing.assert_allclose(res_hwc, res_chw, atol=1e-6)
+
         self.assertTrue(calib.allow_outward)
         self.assertIsNotNone(calib.p_floor)
 
