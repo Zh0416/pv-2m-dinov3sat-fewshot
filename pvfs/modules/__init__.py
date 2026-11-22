@@ -8,6 +8,7 @@ from .contracts import (
     SemanticQueryOutput,
     ThreeModuleEpisodeOutput,
 )
+from .hard_negative import HardNegConfig, build_support_bg_subbank
 from .pipeline import (
     ThreeModulePipeline,
     get_b0_32_config,

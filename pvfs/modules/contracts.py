@@ -18,6 +18,9 @@ class SemanticCalibration:
     mid_veto_ref: float | None  # t_mid
     bias: float
     temp: float
+    hard_neg_active: bool = False
+    hard_neg_t_h: float | None = None
+    hard_neg_bank: Any = None
     diagnostics: dict[str, Any] = field(default_factory=dict)
 
 

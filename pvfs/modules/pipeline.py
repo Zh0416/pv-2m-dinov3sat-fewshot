@@ -72,8 +72,8 @@ class ThreeModulePipeline:
         boundary_by_id = {}
 
         for qid in query_ids:
-            sem_out = self.semantic.infer_query(caches, qid, support_ids, calib)
             q_tok_64 = tokens_by_key["deep_64"][qid] if (self.cfg.use_64 and "deep_64" in tokens_by_key) else None
+            sem_out = self.semantic.infer_query(caches, qid, support_ids, calib, q_tok_64=q_tok_64)
             rec_out = self.recovery.infer_query(sem_out, calib, q_tok_64=q_tok_64)
             aff_w = aff_by_id[qid] if (aff_by_id is not None and qid in aff_by_id) else None
             rgb_q = rgb_by_id[qid] if (rgb_by_id is not None and qid in rgb_by_id) else None
