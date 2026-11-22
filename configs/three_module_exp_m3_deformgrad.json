@@ -1,0 +1,73 @@
+{
+  "schema": "pv-2m-dinov3sat-exp-m3-deformgrad-locked-v1",
+  "module": "Module_3_TrainingFreeBoundary_DeformableGradientDP",
+  "base_architecture": "R (M3_Pruned_Ref 3-module decomposition)",
+  "locked_before_dev_experiment": true,
+  "upstream_frozen": {
+    "module_1_semantic": "R_baseline_semantic",
+    "module_2_recovery": "R_baseline_self_rescue",
+    "module_3_coarse_input": "P_coarse and M_coarse=(P_coarse>=0.50) shared across all variants"
+  },
+  "deformable_geometry": {
+    "max_shift_r_px": 8,
+    "candidate_shifts": [-8, -6, -4, -3, -2, -1, 0, 1, 2, 3, 4, 6, 8],
+    "control_point_spacing_px": 8,
+    "high_curvature_refine_angle_deg": 35.0,
+    "high_curvature_spacing_px": 6,
+    "corner_policy": "shared_2d_vertex_or_keep_zero_never_split_vertex",
+    "arc_parameterization": "x_i(u; a, b) = x_i^0(u) + ((1-u)*a + u*b) * n_i(u), u in [0, 1]",
+    "shared_endpoint_normal_and_position": true,
+    "zero_shift_exact_preservation": "(a, b) == (0, 0) keeps exact original M_coarse pixels without redrawing",
+    "max_adjacent_slope_diff_px": 4,
+    "min_opposite_shore_clearance_px": 2,
+    "min_inter_component_clearance_px": 2,
+    "topology_constraints": [
+      "no_new_connected_components",
+      "no_deleted_components",
+      "no_new_holes",
+      "no_component_merging",
+      "no_self_intersection",
+      "strict_pm8px_narrow_band_containment"
+    ]
+  },
+  "gradient_scoring_and_dp": {
+    "score_signal": "normalized_Scharr_gradient_magnitude_on_query_RGB_luma",
+    "arc_sampling_weights": "fixed_by_original_arc_length_to_avoid_long_arc_bias",
+    "arc_evidence_formula": "Delta_G_i(a, b) = G_i(a, b) - G_i(0, 0)",
+    "outward_semantic_guard": "mean_{x in A_i^+(a,b)} P_coarse(x) >= p_floor (support LOO q25 clamped [0.20, 0.48]; k=1 conservative forbid outward)",
+    "support_null_threshold": "tau_grad = Q_0.95 of support pure-block null-movement DP gain per unit arc",
+    "dp_solver": "exact_dynamic_programming_over_closed_loop_enumerating_start_state_d1",
+    "tie_breaking": "zero_shift_first_then_smaller_total_abs_shift",
+    "conflict_fallback": "revert_conflicting_arc_or_component_to_exact_M_coarse"
+  },
+  "stage_0_offline_geometry_audit": {
+    "synthetic_cases": ["tilted_edge_3_to_5_deg", "rounded_vs_sharp_corner", "slender_array", "opposite_shore_conflict"],
+    "offline_gt_reachable_reference": "compare M_coarse vs old rigid shift vs new deformable path using identical GT pixel utility U_i(a,b) (not strict BF1 upper bound; GT never enters inference)"
+  },
+  "ablations": [
+    {
+      "name": "M3_Off_R",
+      "description": "Pixel refinement disabled (exact R baseline M_final = M_coarse)"
+    },
+    {
+      "name": "M3_Rigid_Grad",
+      "description": "Old rigid segment translation + same Scharr gradient scoring, semantic guard, and null calibration"
+    },
+    {
+      "name": "M3_Deformable_Grad",
+      "description": "Multi-control-point deformable DP + same Scharr gradient scoring, semantic guard, and null calibration"
+    }
+  ],
+  "acceptance_gates": {
+    "primary_shot": 5,
+    "bf1_2px_min_delta": 0.015,
+    "bf1_2px_ci95_lower_gt": 0.0,
+    "bf1_2px_min_positive_folds": 3,
+    "bf1_1px_delta_gt": 0.0,
+    "guardrails_all_k": {
+      "max_dice_drop": 0.005,
+      "max_small_lt5pct_recall_drop": 0.010,
+      "max_neg_fp_increase": 0.002
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "pv-2m-dinov3sat-exp-m1-hardneg-locked-v1",
+  "module": "Module_1_SemanticLocalization_HardNegReverify",
+  "base_architecture": "R (M3_Pruned_Ref 3-module decomposition)",
+  "locked_before_dev_experiment": true,
+  "downstream_frozen": {
+    "module_2_recovery": "R_baseline_self_rescue",
+    "module_3_boundary": "R_baseline_affinity_only"
+  },
+  "hard_negative_bank_H": {
+    "feature_layer": "deep_64",
+    "bg_purity_exact": 0.0,
+    "fg_purity_for_confusion_scoring": {
+      "k1": 0.50,
+      "kge2": 0.85
+    },
+    "confusion_metric": "top3_cosine_to_other_support_fg_tokens",
+    "k1_ex_neigh_radius_tokens": 2,
+    "k1_min_independent_fg_tokens": 16,
+    "k1_min_bg_tokens": 64,
+    "per_support_max_H_tokens": 32,
+    "per_support_min_confusion_sim": 0.30,
+    "dedup_min_spatial_dist_tokens": 2,
+    "dedup_max_cosine_sim": 0.95,
+    "min_total_H_tokens_to_activate": 12,
+    "independent_cache_key": "hard_neg_H_deep64_v1",
+    "fallback_when_no_reliable_H": "exact_return_S_sem_unchanged"
+  },
+  "reverification_scoring": {
+    "query_margin_formula": "m(q) = F_64(q) - TopMean_3(cos(q, H))",
+    "support_reference_t_H_rule": "k>=2: LOO support pure-FG 20th-quantile of m(s); k=1: ex-neighbor support FG 20th-quantile",
+    "penalty_formula": "S'_sem = S_sem - gamma * clip(relu(t_H - m(q)), 0, max_penalty)",
+    "gamma": 0.35,
+    "max_penalty": 0.25,
+    "recalibrate_bias_temp_with_reverified_support_loo": true
+  },
+  "ablations": [
+    {
+      "name": "M1_Base_R",
+      "description": "No hard-negative reverification (exact R baseline)"
+    },
+    {
+      "name": "M1_Ctrl_EqualBudgetRandomBG",
+      "description": "Equal-budget ordinary pure-background bank B_rand (same per-support cap, dedup, scoring m(q), penalty, and LOO recalibration)"
+    },
+    {
+      "name": "M1_Cand_HardNegH",
+      "description": "Support-confusion-selected hard-negative bank H with exact same budget, scoring, penalty, and LOO recalibration"
+    }
+  ],
+  "evaluation_and_gates": {
+    "deployment_threshold": 0.50,
+    "primary_gate": "ACCEPTANCE_CRITERIA.md Gate-FP on >=2 of K={1,3,5} including K=1 or K=3",
+    "equal_recall_diagnostics": {
+      "report_neg_site_fp_and_pos_bg_fp_at_matched_pos_recall": true,
+      "recall_operating_points_from_baseline_R": true,
+      "reject_if_gain_vanishes_at_equal_recall": true
+    },
+    "unit_and_leakage_checks": [
+      "loo_excludes_heldout_support_H_tokens",
+      "no_reliable_H_returns_exact_S_sem",
+      "support_id_permutation_invariance",
+      "all_episodes_included_even_without_similar_confounder"
+    ]
+  }
+}
