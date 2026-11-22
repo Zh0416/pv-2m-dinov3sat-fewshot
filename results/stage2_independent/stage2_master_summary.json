@@ -1,0 +1,30 @@
+{
+  "schema": "pv-2m-dinov3sat-stage2-independent-suite-v1",
+  "device": "cpu",
+  "cache_build_sec": 4134.4351534590005,
+  "total_elapsed_sec": 15933.516885156001,
+  "verdicts": {
+    "0_equiv_120ep": true,
+    "1_m1_hardneg": {
+      "gate_fp_passed_ks": [],
+      "gate_fp_overall_pass": false,
+      "equal_recall_neg_fp_improved_ks": [],
+      "module_1_accepted": false
+    },
+    "2_m2_cropzoom_stage0": {
+      "stage0_coverage_pass": false,
+      "full_token_gate_fn_ks": []
+    },
+    "3_m3_deformgrad": {
+      "m3_deformable_grad_pass": true,
+      "bf1_2px_delta_5shot": 0.03081348771611868,
+      "bf1_2px_ci95_5shot": [
+        0.007643029108650622,
+        0.0550954018648281
+      ],
+      "bf1_2px_positive_folds_5shot": 4,
+      "bf1_1px_delta_5shot": 0.04141892883623666,
+      "all_k_guardrails_pass": true
+    }
+  }
+}
