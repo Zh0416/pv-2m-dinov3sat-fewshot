@@ -9,6 +9,7 @@ from torch.nn import functional as F
 from ..iter3_methods import compute_dino_affinity_weights, propagate_affinity
 from ..iter5_methods import Iter5Config
 from .contracts import BoundaryQueryOutput, RecoveryQueryOutput
+from .deformable_boundary import DeformableBoundaryConfig, refine_mask_deformable_grad
 
 
 class BoundaryRefinementModule:
@@ -18,7 +19,8 @@ class BoundaryRefinementModule:
       1. Optional 5x5 DINO feature-affinity random walk propagation on the 64x64 grid (eta=0.45, steps=2);
       2. Bilinear upsampling (align_corners=False) to 512x512 -> continuous P_coarse;
       3. Thresholding at 0.50 -> binary M_coarse;
-      4. When pixel-level refinement is disabled, M_final = M_coarse exactly (pixel-identical).
+      4. When pixel-level refinement is disabled, M_final = M_coarse exactly (pixel-identical);
+         when deformable gradient refinement is enabled, refines M_coarse -> M_final using RGB gradients.
     """
 
     def __init__(
@@ -26,11 +28,18 @@ class BoundaryRefinementModule:
         cfg: Iter5Config,
         *,
         threshold: float = 0.50,
-        refiner_cfg: dict[str, Any] | None = None,
+        refiner_cfg: DeformableBoundaryConfig | dict[str, Any] | None = None,
     ) -> None:
         self.cfg = cfg
         self.threshold = float(threshold)
-        self.refiner_cfg = refiner_cfg
+        if isinstance(refiner_cfg, DeformableBoundaryConfig):
+            self.refiner_cfg: DeformableBoundaryConfig | None = refiner_cfg if refiner_cfg.enabled else None
+        elif isinstance(refiner_cfg, dict) and refiner_cfg.get("enabled", False):
+            self.refiner_cfg = DeformableBoundaryConfig(
+                **{k: v for k, v in refiner_cfg.items() if k in DeformableBoundaryConfig.__dataclass_fields__}
+            )
+        else:
+            self.refiner_cfg = None
 
     @torch.inference_mode()
     def infer_query(
@@ -40,6 +49,9 @@ class BoundaryRefinementModule:
         aff_weights: torch.Tensor | None = None,
         q_tok_64: torch.Tensor | None = None,
         rgb_512: np.ndarray | None = None,
+        allow_outward: bool = True,
+        p_floor: float | None = 0.28,
+        tau_grad_per_px: float | None = None,
     ) -> BoundaryQueryOutput:
         """Compute Module ③ outputs (P_coarse, M_coarse, M_final)."""
         cfg = self.cfg
@@ -69,14 +81,31 @@ class BoundaryRefinementModule:
         p_coarse = p512.detach().cpu().numpy().astype(np.float32)
         m_coarse = (p_coarse >= self.threshold).astype(bool)
 
-        refine_enabled = bool(self.refiner_cfg and self.refiner_cfg.get("enabled", False))
-        # When pixel refinement is off (R baseline), M_final is strictly identical to M_coarse
-        m_final = m_coarse.copy()
-        diag: dict[str, Any] = {
-            "affinity_applied": bool(cfg.use_64 and cfg.use_affinity),
-            "pixel_refine_enabled": refine_enabled,
-            "pixel_refine_applied": False,
-        }
+        if self.refiner_cfg is not None and self.refiner_cfg.enabled:
+            tau = float(tau_grad_per_px) if tau_grad_per_px is not None else self.refiner_cfg.fallback_tau_grad_per_px
+            ref = refine_mask_deformable_grad(
+                m_coarse,
+                rgb_512,
+                p_coarse,
+                allow_outward=allow_outward,
+                p_floor=p_floor,
+                tau_grad_per_px=tau,
+                cfg=self.refiner_cfg,
+            )
+            m_final = ref["mask"]
+            diag: dict[str, Any] = {
+                "affinity_applied": bool(cfg.use_64 and cfg.use_affinity),
+                "pixel_refine_enabled": True,
+                "pixel_refine_applied": ref["moved_loops"] > 0,
+                **{k: v for k, v in ref.items() if k != "mask"},
+            }
+        else:
+            m_final = m_coarse.copy()
+            diag = {
+                "affinity_applied": bool(cfg.use_64 and cfg.use_affinity),
+                "pixel_refine_enabled": False,
+                "pixel_refine_applied": False,
+            }
         return BoundaryQueryOutput(
             qid=rec_out.qid,
             p_coarse=p_coarse,
