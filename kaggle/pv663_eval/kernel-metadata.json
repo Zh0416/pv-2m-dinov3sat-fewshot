@@ -1,0 +1,19 @@
+{
+  "id": "zh0416/pv-2m-dinov3-sat-pv663-eval",
+  "title": "PV 2m DINOv3-SAT PV663 1-3-5 Shot Eval",
+  "code_file": "run_kaggle_pv663.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["gpu"],
+  "dataset_sources": [
+    "zh0416/pv-dinov3sat-663-v1",
+    "zh0416/dinov3-sat-geovit-l-14-336"
+  ],
+  "model_sources": [],
+  "kernel_sources": [],
+  "competition_sources": []
+}
