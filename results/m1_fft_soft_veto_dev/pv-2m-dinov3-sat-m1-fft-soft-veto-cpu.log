@@ -1,0 +1,40 @@
+[{"stream_name":"stderr","time":1.145699434,"data":"Cloning into '/tmp/pv-2m-dinov3sat-fewshot'...\n"}
+,{"stream_name":"stdout","time":5.529669059,"data":"Running Module 1 Adaptive FFT Soft-Veto Dev (120 episodes, CPU) at commit: c4be28d8023109d622fa02024b6bf54ea5124ee5\n"}
+,{"stream_name":"stdout","time":20.348167368,"data":"[M1-FFT] Verifying 79 dev images/masks \u0026 precomputing 32x32 Hann FFT spectra...\n"}
+,{"stream_name":"stdout","time":3809.24052277,"data":"[M1-FFT] Smoke checks PASSED (r_equiv=0.00e+00, fallback_vs_NoMid=0.00e+00)\n"}
+,{"stream_name":"stdout","time":4696.907534872,"data":"[M1-FFT K=1] R              : Dice=0.6817 AP512=0.8728 Rec=0.7083 NegFP=0.0341 EqRecNegFP=0.0341\n"}
+,{"stream_name":"stdout","time":4696.907611063,"data":"[M1-FFT K=1] R_NoMidVeto    : Dice=0.6876 AP512=0.8787 Rec=0.7146 NegFP=0.0354 EqRecNegFP=0.0342\n"}
+,{"stream_name":"stdout","time":4696.907616992,"data":"[M1-FFT K=1] R_FFTSoftVeto  : Dice=0.6845 AP512=0.8769 Rec=0.7270 NegFP=0.0410 EqRecNegFP=0.0373\n"}
+,{"stream_name":"stdout","time":5359.083745018,"data":"[M1-FFT K=3] R              : Dice=0.7680 AP512=0.9321 Rec=0.7648 NegFP=0.0393 EqRecNegFP=0.0393\n"}
+,{"stream_name":"stdout","time":5359.083947188,"data":"[M1-FFT K=3] R_NoMidVeto    : Dice=0.7688 AP512=0.9319 Rec=0.7662 NegFP=0.0391 EqRecNegFP=0.0389\n"}
+,{"stream_name":"stdout","time":5359.083954328,"data":"[M1-FFT K=3] R_FFTSoftVeto  : Dice=0.7754 AP512=0.9316 Rec=0.7664 NegFP=0.0344 EqRecNegFP=0.0342\n"}
+,{"stream_name":"stdout","time":6033.504560239,"data":"[M1-FFT K=5] R              : Dice=0.8231 AP512=0.9450 Rec=0.8147 NegFP=0.0273 EqRecNegFP=0.0273\n"}
+,{"stream_name":"stdout","time":6033.504628908,"data":"[M1-FFT K=5] R_NoMidVeto    : Dice=0.8227 AP512=0.9440 Rec=0.8147 NegFP=0.0272 EqRecNegFP=0.0272\n"}
+,{"stream_name":"stdout","time":6033.504636248,"data":"[M1-FFT K=5] R_FFTSoftVeto  : Dice=0.8204 AP512=0.9447 Rec=0.8069 NegFP=0.0250 EqRecNegFP=0.0257\n"}
+,{"stream_name":"stderr","time":6033.801344727,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":6033.803442297,"data":"  File \"/kaggle/src/script.py\", line 58, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":6033.803485207,"data":"    main()\n"}
+,{"stream_name":"stderr","time":6033.803491417,"data":"    ~~~~^^\n"}
+,{"stream_name":"stderr","time":6033.803496707,"data":"  File \"/kaggle/src/script.py\", line 47, in main\n"}
+,{"stream_name":"stderr","time":6033.803501637,"data":"    run_m1_fft_soft_veto_dev_experiment(\n"}
+,{"stream_name":"stderr","time":6033.803506037,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n"}
+,{"stream_name":"stderr","time":6033.803510387,"data":"        split_dir=REPO_DIR / \"configs\" / \"locked_split\",\n"}
+,{"stream_name":"stderr","time":6033.803514167,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":6033.803517697,"data":"    ...\u003c3 lines\u003e...\n"}
+,{"stream_name":"stderr","time":6033.803522357,"data":"        device=\"cpu\",\n"}
+,{"stream_name":"stderr","time":6033.803527067,"data":"        ^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":6033.803531747,"data":"    )\n"}
+,{"stream_name":"stderr","time":6033.803536387,"data":"    ^\n"}
+,{"stream_name":"stderr","time":6033.803541377,"data":"  File \"/tmp/pv-2m-dinov3sat-fewshot/scripts/run_m1_fft_soft_veto_dev.py\", line 440, in run_m1_fft_soft_veto_dev_experiment\n"}
+,{"stream_name":"stderr","time":6033.803546627,"data":"    report_txt = format_m1_fft_soft_veto_report(summary)\n"}
+,{"stream_name":"stderr","time":6033.803551387,"data":"  File \"/tmp/pv-2m-dinov3sat-fewshot/scripts/run_m1_fft_soft_veto_dev.py\", line 95, in format_m1_fft_soft_veto_report\n"}
+,{"stream_name":"stderr","time":6033.803556677,"data":"    f\"dPosBgFP={c['pos_bg_fp']['mean_delta']:+.4f} | dSm\u003c5R={c['small_lt5pct_recall_delta']:+.4f}\"\n"}
+,{"stream_name":"stderr","time":6033.803678247,"data":"                ~^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":6033.803685047,"data":"KeyError: 'pos_bg_fp'\n"}
+,{"stream_name":"stderr","time":6038.94029805,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":6038.94034119,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":6039.347872192,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":6039.347898962,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":6040.267419988,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":6041.736698009,"data":"[NbConvertApp] Writing 282916 bytes to __results__.html\n"}
+]

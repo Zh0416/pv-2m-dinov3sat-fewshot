@@ -86,13 +86,18 @@ def format_m1_fft_soft_veto_report(summary: dict[str, Any]) -> str:
         lines.append(f"\n--- Paired Site Bootstrap Comparisons ({stage_key}) ---")
         for cname, by_k in summary[stage_key]["comparisons"].items():
             lines.append(f"[{cname}]")
+            cand_v, ref_v = cname.split("_vs_", 1)
             for k in ("1", "3", "5"):
                 c = by_k[k]
+                d_bgfp = (
+                    summary[stage_key]["methods"][cand_v][k]["macro"]["pos_bg_fp"]
+                    - summary[stage_key]["methods"][ref_v][k]["macro"]["pos_bg_fp"]
+                )
                 lines.append(
                     f"  K={k}: dDice={c['dice']['mean_delta']:+.4f} CI{[round(x,4) for x in c['dice']['ci95']]} (f={c['dice']['positive_folds']}/4) | "
                     f"dAP512={c['ap_512']['mean_delta']:+.4f} | dRec={c['recall']['mean_delta']:+.4f} | "
-                    f"dNegFP={c['neg_fp']['mean_delta']:+.4f} (f={c['neg_fp']['improved_folds']}/4) | "
-                    f"dPosBgFP={c['pos_bg_fp']['mean_delta']:+.4f} | dSm<5R={c['small_lt5pct_recall_delta']:+.4f}"
+                    f"dNegFP={c['neg_fp']['mean_delta']:+.4f} CI{[round(x,4) for x in c['neg_fp']['ci95']]} (f={c['neg_fp']['improved_folds']}/4) | "
+                    f"dPosBgFP={d_bgfp:+.4f} | dSm<5R={c['small_lt5pct_recall_delta']:+.4f}"
                 )
 
     lines.append("\n================ FFT VETO & SELF-RESCUE DIAGNOSTICS ================")

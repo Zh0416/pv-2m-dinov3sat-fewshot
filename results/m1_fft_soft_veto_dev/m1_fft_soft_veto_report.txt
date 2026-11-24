@@ -1,0 +1,104 @@
+=== MODULE 1: SUPPORT-ADAPTIVE FFT SOFT-VETO DEV REPORT (79 IMAGES / 120 PAIRED EPISODES) ===
+Device=cpu | Elapsed=100.3 min | R_Equiv_MaxDiff=0.00e+00 | InactiveFallback_MaxDiff=0.00e+00
+
+================ FINAL OUTPUT (After Self-Rescue + Affinity) ================
+
+--- R ---
+  K=1: AP512=0.8728 Dice=0.6817 Rec=0.7083 Prec=0.7649 NegFP=0.0341 PosBgFP=0.0424 Sm<5R=0.6686 Tiny<1R=0.5947 | EqRec(R)[NegFP=0.0341, BgFP=0.0424, thr=0.500] | EqRec(NoMid)[NegFP=0.0353, BgFP=0.0443]
+  K=3: AP512=0.9321 Dice=0.7680 Rec=0.7648 Prec=0.8570 NegFP=0.0393 PosBgFP=0.0263 Sm<5R=0.6991 Tiny<1R=0.4534 | EqRec(R)[NegFP=0.0393, BgFP=0.0263, thr=0.500] | EqRec(NoMid)[NegFP=0.0395, BgFP=0.0267]
+  K=5: AP512=0.9450 Dice=0.8231 Rec=0.8147 Prec=0.8863 NegFP=0.0273 PosBgFP=0.0229 Sm<5R=0.7490 Tiny<1R=0.5109 | EqRec(R)[NegFP=0.0273, BgFP=0.0229, thr=0.500] | EqRec(NoMid)[NegFP=0.0273, BgFP=0.0229]
+
+--- R_NoMidVeto ---
+  K=1: AP512=0.8787 Dice=0.6876 Rec=0.7146 Prec=0.7669 NegFP=0.0354 PosBgFP=0.0429 Sm<5R=0.6808 Tiny<1R=0.5971 | EqRec(R)[NegFP=0.0342, BgFP=0.0410, thr=0.511] | EqRec(NoMid)[NegFP=0.0354, BgFP=0.0429]
+  K=3: AP512=0.9319 Dice=0.7688 Rec=0.7662 Prec=0.8521 NegFP=0.0391 PosBgFP=0.0262 Sm<5R=0.7035 Tiny<1R=0.4478 | EqRec(R)[NegFP=0.0389, BgFP=0.0259, thr=0.502] | EqRec(NoMid)[NegFP=0.0391, BgFP=0.0262]
+  K=5: AP512=0.9440 Dice=0.8227 Rec=0.8147 Prec=0.8846 NegFP=0.0272 PosBgFP=0.0234 Sm<5R=0.7495 Tiny<1R=0.5037 | EqRec(R)[NegFP=0.0272, BgFP=0.0234, thr=0.500] | EqRec(NoMid)[NegFP=0.0272, BgFP=0.0234]
+
+--- R_FFTSoftVeto ---
+  K=1: AP512=0.8769 Dice=0.6845 Rec=0.7270 Prec=0.7502 NegFP=0.0410 PosBgFP=0.0481 Sm<5R=0.6963 Tiny<1R=0.6520 | EqRec(R)[NegFP=0.0373, BgFP=0.0420, thr=0.533] | EqRec(NoMid)[NegFP=0.0385, BgFP=0.0440]
+  K=3: AP512=0.9316 Dice=0.7754 Rec=0.7664 Prec=0.8708 NegFP=0.0344 PosBgFP=0.0235 Sm<5R=0.7147 Tiny<1R=0.4812 | EqRec(R)[NegFP=0.0342, BgFP=0.0232, thr=0.503] | EqRec(NoMid)[NegFP=0.0344, BgFP=0.0235]
+  K=5: AP512=0.9447 Dice=0.8204 Rec=0.8069 Prec=0.8915 NegFP=0.0250 PosBgFP=0.0210 Sm<5R=0.7466 Tiny<1R=0.5399 | EqRec(R)[NegFP=0.0257, BgFP=0.0222, thr=0.487] | EqRec(NoMid)[NegFP=0.0257, BgFP=0.0222]
+
+--- Paired Site Bootstrap Comparisons (final) ---
+[R_FFTSoftVeto_vs_R_NoMidVeto]
+  K=1: dDice=-0.0031 CI[-0.0091, 0.0032] (f=2/4) | dAP512=-0.0017 | dRec=+0.0124 | dNegFP=+0.0057 CI[0.0021, 0.01] (f=0/4) | dPosBgFP=+0.0053 | dSm<5R=+0.0155
+  K=3: dDice=+0.0066 CI[0.0005, 0.0127] (f=3/4) | dAP512=-0.0003 | dRec=+0.0002 | dNegFP=-0.0047 CI[-0.0117, 0.0004] (f=3/4) | dPosBgFP=-0.0026 | dSm<5R=+0.0112
+  K=5: dDice=-0.0023 CI[-0.0086, 0.0045] (f=2/4) | dAP512=+0.0007 | dRec=-0.0078 | dNegFP=-0.0022 CI[-0.0062, 0.0007] (f=3/4) | dPosBgFP=-0.0025 | dSm<5R=-0.0029
+[R_FFTSoftVeto_vs_R]
+  K=1: dDice=+0.0028 CI[-0.0051, 0.0111] (f=3/4) | dAP512=+0.0041 | dRec=+0.0188 | dNegFP=+0.0069 CI[0.0029, 0.0119] (f=0/4) | dPosBgFP=+0.0058 | dSm<5R=+0.0277
+  K=3: dDice=+0.0075 CI[0.0013, 0.0137] (f=4/4) | dAP512=-0.0005 | dRec=+0.0016 | dNegFP=-0.0048 CI[-0.0107, -0.0002] (f=3/4) | dPosBgFP=-0.0028 | dSm<5R=+0.0156
+  K=5: dDice=-0.0027 CI[-0.0084, 0.0027] (f=2/4) | dAP512=-0.0003 | dRec=-0.0078 | dNegFP=-0.0023 CI[-0.0058, 0.0002] (f=3/4) | dPosBgFP=-0.0020 | dSm<5R=-0.0024
+[R_NoMidVeto_vs_R]
+  K=1: dDice=+0.0059 CI[0.0024, 0.0094] (f=4/4) | dAP512=+0.0058 | dRec=+0.0063 | dNegFP=+0.0012 CI[-0.0003, 0.003] (f=1/4) | dPosBgFP=+0.0005 | dSm<5R=+0.0122
+  K=3: dDice=+0.0009 CI[-0.0018, 0.0033] (f=3/4) | dAP512=-0.0002 | dRec=+0.0014 | dNegFP=-0.0001 CI[-0.0016, 0.0018] (f=3/4) | dPosBgFP=-0.0002 | dSm<5R=+0.0043
+  K=5: dDice=-0.0004 CI[-0.0027, 0.0017] (f=2/4) | dAP512=-0.0010 | dRec=-0.0000 | dNegFP=-0.0001 CI[-0.0009, 0.0007] (f=2/4) | dPosBgFP=+0.0005 | dSm<5R=+0.0004
+
+================ MODULE 1 OUTPUT (P_sem Upsampled to 512) ================
+
+--- R ---
+  K=1: AP512=0.8566 Dice=0.6486 Rec=0.6686 Prec=0.7661 NegFP=0.0308 PosBgFP=0.0462 Sm<5R=0.6056 Tiny<1R=0.5165 | EqRec(R)[NegFP=0.0308, BgFP=0.0462, thr=0.500] | EqRec(NoMid)[NegFP=0.0316, BgFP=0.0474]
+  K=3: AP512=0.9248 Dice=0.7376 Rec=0.7282 Prec=0.8604 NegFP=0.0349 PosBgFP=0.0279 Sm<5R=0.6478 Tiny<1R=0.4339 | EqRec(R)[NegFP=0.0349, BgFP=0.0279, thr=0.500] | EqRec(NoMid)[NegFP=0.0348, BgFP=0.0278]
+  K=5: AP512=0.9379 Dice=0.8007 Rec=0.7789 Prec=0.8901 NegFP=0.0248 PosBgFP=0.0229 Sm<5R=0.6896 Tiny<1R=0.4892 | EqRec(R)[NegFP=0.0248, BgFP=0.0229, thr=0.500] | EqRec(NoMid)[NegFP=0.0246, BgFP=0.0226]
+
+--- R_NoMidVeto ---
+  K=1: AP512=0.8610 Dice=0.6529 Rec=0.6727 Prec=0.7636 NegFP=0.0318 PosBgFP=0.0467 Sm<5R=0.6156 Tiny<1R=0.5247 | EqRec(R)[NegFP=0.0310, BgFP=0.0456, thr=0.506] | EqRec(NoMid)[NegFP=0.0318, BgFP=0.0467]
+  K=3: AP512=0.9247 Dice=0.7376 Rec=0.7277 Prec=0.8551 NegFP=0.0348 PosBgFP=0.0277 Sm<5R=0.6493 Tiny<1R=0.4286 | EqRec(R)[NegFP=0.0349, BgFP=0.0278, thr=0.499] | EqRec(NoMid)[NegFP=0.0348, BgFP=0.0277]
+  K=5: AP512=0.9368 Dice=0.7998 Rec=0.7772 Prec=0.8910 NegFP=0.0247 PosBgFP=0.0232 Sm<5R=0.6876 Tiny<1R=0.4806 | EqRec(R)[NegFP=0.0249, BgFP=0.0234, thr=0.498] | EqRec(NoMid)[NegFP=0.0247, BgFP=0.0232]
+
+--- R_FFTSoftVeto ---
+  K=1: AP512=0.8596 Dice=0.6510 Rec=0.6887 Prec=0.7446 NegFP=0.0370 PosBgFP=0.0536 Sm<5R=0.6400 Tiny<1R=0.6022 | EqRec(R)[NegFP=0.0329, BgFP=0.0473, thr=0.529] | EqRec(NoMid)[NegFP=0.0337, BgFP=0.0486]
+  K=3: AP512=0.9222 Dice=0.7461 Rec=0.7287 Prec=0.8668 NegFP=0.0302 PosBgFP=0.0250 Sm<5R=0.6604 Tiny<1R=0.4732 | EqRec(R)[NegFP=0.0301, BgFP=0.0249, thr=0.501] | EqRec(NoMid)[NegFP=0.0300, BgFP=0.0248]
+  K=5: AP512=0.9354 Dice=0.7956 Rec=0.7686 Prec=0.8920 NegFP=0.0226 PosBgFP=0.0208 Sm<5R=0.6889 Tiny<1R=0.5241 | EqRec(R)[NegFP=0.0238, BgFP=0.0223, thr=0.487] | EqRec(NoMid)[NegFP=0.0236, BgFP=0.0221]
+
+--- Paired Site Bootstrap Comparisons (module1) ---
+[R_FFTSoftVeto_vs_R_NoMidVeto]
+  K=1: dDice=-0.0019 CI[-0.0089, 0.0057] (f=3/4) | dAP512=-0.0015 | dRec=+0.0160 | dNegFP=+0.0052 CI[0.0023, 0.0087] (f=0/4) | dPosBgFP=+0.0069 | dSm<5R=+0.0243
+  K=3: dDice=+0.0086 CI[0.0023, 0.0144] (f=3/4) | dAP512=-0.0025 | dRec=+0.0010 | dNegFP=-0.0046 CI[-0.0122, 0.0007] (f=3/4) | dPosBgFP=-0.0027 | dSm<5R=+0.0111
+  K=5: dDice=-0.0041 CI[-0.0115, 0.0034] (f=1/4) | dAP512=-0.0014 | dRec=-0.0087 | dNegFP=-0.0021 CI[-0.0061, 0.0008] (f=3/4) | dPosBgFP=-0.0024 | dSm<5R=+0.0014
+[R_FFTSoftVeto_vs_R]
+  K=1: dDice=+0.0025 CI[-0.0054, 0.0109] (f=3/4) | dAP512=+0.0030 | dRec=+0.0201 | dNegFP=+0.0062 CI[0.0026, 0.0108] (f=0/4) | dPosBgFP=+0.0074 | dSm<5R=+0.0344
+  K=3: dDice=+0.0085 CI[0.0026, 0.0143] (f=3/4) | dAP512=-0.0026 | dRec=+0.0005 | dNegFP=-0.0047 CI[-0.0111, 0.0001] (f=3/4) | dPosBgFP=-0.0029 | dSm<5R=+0.0127
+  K=5: dDice=-0.0051 CI[-0.0121, 0.0016] (f=1/4) | dAP512=-0.0025 | dRec=-0.0103 | dNegFP=-0.0022 CI[-0.0057, 0.0005] (f=3/4) | dPosBgFP=-0.0021 | dSm<5R=-0.0007
+[R_NoMidVeto_vs_R]
+  K=1: dDice=+0.0043 CI[0.0015, 0.0075] (f=4/4) | dAP512=+0.0044 | dRec=+0.0041 | dNegFP=+0.0010 CI[-0.0003, 0.0027] (f=1/4) | dPosBgFP=+0.0005 | dSm<5R=+0.0101
+  K=3: dDice=-0.0001 CI[-0.0026, 0.0023] (f=2/4) | dAP512=-0.0001 | dRec=-0.0005 | dNegFP=-0.0001 CI[-0.0013, 0.0015] (f=3/4) | dPosBgFP=-0.0002 | dSm<5R=+0.0015
+  K=5: dDice=-0.0010 CI[-0.0028, 0.0008] (f=0/4) | dAP512=-0.0011 | dRec=-0.0017 | dNegFP=-0.0001 CI[-0.0008, 0.0007] (f=3/4) | dPosBgFP=+0.0003 | dSm<5R=-0.0020
+
+================ FFT VETO & SELF-RESCUE DIAGNOSTICS ================
+  K=1: BandSel=92.5% ActiveEp=82.5% Reasons={'ok': 33, 'insufficient_band_support_windows': 3, 'insufficient_pv_candidates': 4} | PenRate(all=0.2217, cand=0.459, pos_q=0.2287, neg_q=0.1943) MeanPen(penalized)=0.0428 | SelfRescue[R: pos=0.927 neg=0.369 | NoMid: pos=0.913 neg=0.331 | FFT: pos=0.924 neg=0.431]
+  K=3: BandSel=100.0% ActiveEp=100.0% Reasons={'ok': 40} | PenRate(all=0.1545, cand=0.503, pos_q=0.1645, neg_q=0.1150) MeanPen(penalized)=0.0442 | SelfRescue[R: pos=0.933 neg=0.269 | NoMid: pos=0.927 neg=0.244 | FFT: pos=0.948 neg=0.244]
+  K=5: BandSel=100.0% ActiveEp=100.0% Reasons={'ok': 40} | PenRate(all=0.1582, cand=0.540, pos_q=0.1706, neg_q=0.1093) MeanPen(penalized)=0.0434 | SelfRescue[R: pos=0.968 neg=0.212 | NoMid: pos=0.965 neg=0.212 | FFT: pos=0.971 neg=0.200]
+
+================ PER-IMAGE HARD CASE DIAGNOSTICS (FINAL) ================
+
+[K=1]
+  负样本/PV-93.tif     : NegFP [R=0.1733 | NoMid=0.1753 | FFT=0.1724] M1_NegFP [R=0.1573 | NoMid=0.1572 | FFT=0.1579] PenRate=0.2957 CandPenRate=0.626 MeanEbg=+1.610
+  负样本/PV-100.tif    : NegFP [R=0.0940 | NoMid=0.1031 | FFT=0.1077] M1_NegFP [R=0.0831 | NoMid=0.0899 | FFT=0.0958] PenRate=0.2318 CandPenRate=0.405 MeanEbg=+1.579
+  负样本/PV-96.tif     : NegFP [R=0.1108 | NoMid=0.1102 | FFT=0.1158] M1_NegFP [R=0.1081 | NoMid=0.1065 | FFT=0.1145] PenRate=0.3036 CandPenRate=0.414 MeanEbg=+1.120
+  负样本/PV-86.tif     : NegFP [R=0.0052 | NoMid=0.0047 | FFT=0.0072] M1_NegFP [R=0.0056 | NoMid=0.0049 | FFT=0.0068] PenRate=0.3082 CandPenRate=0.574 MeanEbg=+1.866
+  负样本/PV-92.tif     : NegFP [R=0.0130 | NoMid=0.0140 | FFT=0.0189] M1_NegFP [R=0.0108 | NoMid=0.0117 | FFT=0.0144] PenRate=0.3541 CandPenRate=0.751 MeanEbg=+2.748
+  正样本/PV-80.tif     : Dice [R=0.6345 | NoMid=0.6273 | FFT=0.6267] Rec [R=0.7783 | NoMid=0.7799 | FFT=0.7844] BgFP [R=0.1718 | NoMid=0.1813 | FFT=0.1849] PenRate=0.3100
+  正样本/PV-55.tif     : Dice [R=0.7649 | NoMid=0.7624 | FFT=0.7561] Rec [R=0.8018 | NoMid=0.7998 | FFT=0.7891] BgFP [R=0.0297 | NoMid=0.0290 | FFT=0.0287] PenRate=0.3030
+  正样本/PV-49.tif     : Dice [R=0.6206 | NoMid=0.6339 | FFT=0.6045] Rec [R=0.5440 | NoMid=0.5539 | FFT=0.5423] BgFP [R=0.0040 | NoMid=0.0037 | FFT=0.0057] PenRate=0.2072
+  正样本/PV-73.tif     : Dice [R=0.1622 | NoMid=0.1577 | FFT=0.1975] Rec [R=0.1340 | NoMid=0.1271 | FFT=0.1645] BgFP [R=0.0039 | NoMid=0.0038 | FFT=0.0059] PenRate=0.1863
+
+[K=3]
+  负样本/PV-93.tif     : NegFP [R=0.1827 | NoMid=0.1785 | FFT=0.1802] M1_NegFP [R=0.1578 | NoMid=0.1532 | FFT=0.1575] PenRate=0.1943 CandPenRate=0.641 MeanEbg=+1.510
+  负样本/PV-100.tif    : NegFP [R=0.2401 | NoMid=0.2519 | FFT=0.2063] M1_NegFP [R=0.2079 | NoMid=0.2175 | FFT=0.1682] PenRate=0.3652 CandPenRate=0.722 MeanEbg=+2.671
+  负样本/PV-96.tif     : NegFP [R=0.1457 | NoMid=0.1407 | FFT=0.1159] M1_NegFP [R=0.1436 | NoMid=0.1409 | FFT=0.1149] PenRate=0.4424 CandPenRate=0.627 MeanEbg=+1.434
+  负样本/PV-86.tif     : NegFP [R=0.0231 | NoMid=0.0191 | FFT=0.0126] M1_NegFP [R=0.0200 | NoMid=0.0169 | FFT=0.0119] PenRate=0.1514 CandPenRate=0.826 MeanEbg=+2.490
+  负样本/PV-92.tif     : NegFP [R=0.0242 | NoMid=0.0266 | FFT=0.0159] M1_NegFP [R=0.0175 | NoMid=0.0193 | FFT=0.0126] PenRate=0.1615 CandPenRate=0.823 MeanEbg=+2.863
+  正样本/PV-80.tif     : Dice [R=0.6928 | NoMid=0.6865 | FFT=0.7009] Rec [R=0.9015 | NoMid=0.8971 | FFT=0.8738] BgFP [R=0.2306 | NoMid=0.2347 | FFT=0.2016] PenRate=0.3317
+  正样本/PV-55.tif     : Dice [R=0.6239 | NoMid=0.6059 | FFT=0.6066] Rec [R=0.6035 | NoMid=0.5859 | FFT=0.5828] BgFP [R=0.0174 | NoMid=0.0170 | FFT=0.0146] PenRate=0.1893
+  正样本/PV-49.tif     : Dice [R=0.6909 | NoMid=0.6889 | FFT=0.6780] Rec [R=0.5414 | NoMid=0.5424 | FFT=0.5233] BgFP [R=0.0004 | NoMid=0.0007 | FFT=0.0003] PenRate=0.0761
+  正样本/PV-73.tif     : Dice [R=0.0070 | NoMid=0.0064 | FFT=0.0536] Rec [R=0.0035 | NoMid=0.0032 | FFT=0.0337] BgFP [R=0.0000 | NoMid=0.0000 | FFT=0.0000] PenRate=0.0845
+
+[K=5]
+  负样本/PV-93.tif     : NegFP [R=0.2266 | NoMid=0.2253 | FFT=0.2207] M1_NegFP [R=0.2121 | NoMid=0.2088 | FFT=0.2024] PenRate=0.1716 CandPenRate=0.627 MeanEbg=+0.642
+  负样本/PV-100.tif    : NegFP [R=0.1007 | NoMid=0.1052 | FFT=0.0777] M1_NegFP [R=0.0825 | NoMid=0.0874 | FFT=0.0600] PenRate=0.3363 CandPenRate=0.840 MeanEbg=+3.446
+  负样本/PV-96.tif     : NegFP [R=0.0760 | NoMid=0.0723 | FFT=0.0798] M1_NegFP [R=0.0721 | NoMid=0.0703 | FFT=0.0788] PenRate=0.3108 CandPenRate=0.594 MeanEbg=+1.727
+  负样本/PV-86.tif     : NegFP [R=0.0177 | NoMid=0.0153 | FFT=0.0065] M1_NegFP [R=0.0146 | NoMid=0.0133 | FFT=0.0067] PenRate=0.1997 CandPenRate=0.900 MeanEbg=+2.409
+  负样本/PV-92.tif     : NegFP [R=0.0143 | NoMid=0.0154 | FFT=0.0137] M1_NegFP [R=0.0130 | NoMid=0.0138 | FFT=0.0116] PenRate=0.1735 CandPenRate=0.868 MeanEbg=+2.899
+  正样本/PV-80.tif     : Dice [R=0.6808 | NoMid=0.6685 | FFT=0.7132] Rec [R=0.9152 | NoMid=0.9163 | FFT=0.9056] BgFP [R=0.2455 | NoMid=0.2599 | FFT=0.2054] PenRate=0.3801
+  正样本/PV-55.tif     : Dice [R=0.8025 | NoMid=0.7976 | FFT=0.7436] Rec [R=0.7990 | NoMid=0.7894 | FFT=0.7002] BgFP [R=0.0237 | NoMid=0.0233 | FFT=0.0170] PenRate=0.2297
+  正样本/PV-49.tif     : Dice [R=0.7675 | NoMid=0.7662 | FFT=0.7494] Rec [R=0.6513 | NoMid=0.6484 | FFT=0.6205] BgFP [R=0.0014 | NoMid=0.0013 | FFT=0.0011] PenRate=0.0852
+  正样本/PV-73.tif     : Dice [R=0.1328 | NoMid=0.1241 | FFT=0.1110] Rec [R=0.1166 | NoMid=0.1107 | FFT=0.1019] BgFP [R=0.0009 | NoMid=0.0009 | FFT=0.0007] PenRate=0.1857
