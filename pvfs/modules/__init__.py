@@ -8,6 +8,7 @@ from .contracts import (
     SemanticQueryOutput,
     ThreeModuleEpisodeOutput,
 )
+from .fft_soft_veto import FFTSoftVetoConfig, FFTSoftVetoReference, ImageFFTPrecompute
 from .hard_negative import HardNegConfig, build_support_bg_subbank
 from .pipeline import (
     ThreeModulePipeline,

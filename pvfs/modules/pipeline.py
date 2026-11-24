@@ -44,12 +44,13 @@ class ThreeModulePipeline:
         cfg: Iter5Config,
         *,
         hard_neg_cfg: dict[str, Any] | None = None,
+        fft_veto_cfg: Any | None = None,
         crop_zoom_cfg: dict[str, Any] | None = None,
         refiner_cfg: dict[str, Any] | None = None,
         threshold: float = 0.50,
     ) -> None:
         self.cfg = cfg
-        self.semantic = SemanticLocalizationModule(cfg, hard_neg_cfg=hard_neg_cfg)
+        self.semantic = SemanticLocalizationModule(cfg, hard_neg_cfg=hard_neg_cfg, fft_veto_cfg=fft_veto_cfg)
         self.recovery = SmallTargetRecoveryModule(cfg, crop_zoom_cfg=crop_zoom_cfg)
         self.boundary = BoundaryRefinementModule(cfg, threshold=threshold, refiner_cfg=refiner_cfg)
 
@@ -64,8 +65,11 @@ class ThreeModulePipeline:
         query_ids: list[str],
         *,
         rgb_by_id: dict[str, np.ndarray] | None = None,
+        fft_pre_by_id: dict[str, Any] | None = None,
     ) -> ThreeModuleEpisodeOutput:
-        calib = self.semantic.calibrate_episode(caches, tokens_by_key, mask_by_id, support_ids)
+        calib = self.semantic.calibrate_episode(
+            caches, tokens_by_key, mask_by_id, support_ids, fft_pre_by_id=fft_pre_by_id
+        )
 
         semantic_by_id = {}
         recovery_by_id = {}
@@ -73,7 +77,8 @@ class ThreeModulePipeline:
 
         for qid in query_ids:
             q_tok_64 = tokens_by_key["deep_64"][qid] if (self.cfg.use_64 and "deep_64" in tokens_by_key) else None
-            sem_out = self.semantic.infer_query(caches, qid, support_ids, calib, q_tok_64=q_tok_64)
+            fft_q = fft_pre_by_id[qid] if (fft_pre_by_id is not None and qid in fft_pre_by_id) else None
+            sem_out = self.semantic.infer_query(caches, qid, support_ids, calib, q_tok_64=q_tok_64, fft_pre_q=fft_q)
             rec_out = self.recovery.infer_query(sem_out, calib, q_tok_64=q_tok_64)
             aff_w = aff_by_id[qid] if (aff_by_id is not None and qid in aff_by_id) else None
             rgb_q = rgb_by_id[qid] if (rgb_by_id is not None and qid in rgb_by_id) else None
@@ -105,15 +110,18 @@ def run_three_module_episode(
     cfg: Iter5Config,
     *,
     hard_neg_cfg: dict[str, Any] | None = None,
+    fft_veto_cfg: Any | None = None,
     crop_zoom_cfg: dict[str, Any] | None = None,
     refiner_cfg: dict[str, Any] | None = None,
     rgb_by_id: dict[str, np.ndarray] | None = None,
+    fft_pre_by_id: dict[str, Any] | None = None,
     return_structured: bool = False,
 ) -> tuple[dict[str, np.ndarray], dict[str, np.ndarray]] | ThreeModuleEpisodeOutput:
     """Drop-in behavior-equivalent replacement for run_iter5_episode when all candidate switches are off."""
     pipe = ThreeModulePipeline(
         cfg,
         hard_neg_cfg=hard_neg_cfg,
+        fft_veto_cfg=fft_veto_cfg,
         crop_zoom_cfg=crop_zoom_cfg,
         refiner_cfg=refiner_cfg,
     )
@@ -125,6 +133,7 @@ def run_three_module_episode(
         support_ids,
         query_ids,
         rgb_by_id=rgb_by_id,
+        fft_pre_by_id=fft_pre_by_id,
     )
     if return_structured:
         return out

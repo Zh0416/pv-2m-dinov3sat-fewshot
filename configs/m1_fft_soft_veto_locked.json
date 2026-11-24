@@ -1,0 +1,45 @@
+{
+  "schema": "pv-2m-dinov3sat-m1-fft-soft-veto-locked-v1",
+  "module": "Module_1_SupportAdaptiveFFTSoftVeto",
+  "base_architecture": "R (M3_Pruned_Ref 3-module decomposition, replacing mid-layer Softplus veto only)",
+  "locked_before_dev_experiment": true,
+  "no_fixed_band_fallback": true,
+  "fft_window": {
+    "window_size": 32,
+    "grid_hw": 64,
+    "eval_image_size": 512,
+    "interior_only": true,
+    "energy_quantile": 0.01,
+    "energy_floor_abs": 1e-8
+  },
+  "band_selection": {
+    "pv_cov_min": 0.75,
+    "bg_cov_max": 0.0,
+    "safe_r_min": 4.0,
+    "safe_r_max": 15.5,
+    "band_gain_frac": 0.25,
+    "min_band_width": 3.0
+  },
+  "candidate_calibration": {
+    "q_cand": 0.85,
+    "min_pv_cand": 16,
+    "min_bg_cand": 16,
+    "num_bins": 6,
+    "min_nonempty_bins": 3,
+    "min_bin_total": 5,
+    "min_bin_bg": 3,
+    "add_one_smoothing": true,
+    "adjacent_bin_smoothing": false,
+    "global_auc_gate": false
+  },
+  "penalty": {
+    "tau": 0.40,
+    "gamma": 0.05,
+    "cap": 0.05
+  },
+  "anti_leakage": {
+    "multi_shot_calib_loo": true,
+    "k1_nonoverlap_grid_dist": 4,
+    "fallback_when_full_ref_invalid": "R_NoMidVeto"
+  }
+}

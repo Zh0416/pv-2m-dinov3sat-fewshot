@@ -21,6 +21,8 @@ class SemanticCalibration:
     hard_neg_active: bool = False
     hard_neg_t_h: float | None = None
     hard_neg_bank: Any = None
+    fft_veto_active: bool = False
+    fft_veto_ref: Any = None
     diagnostics: dict[str, Any] = field(default_factory=dict)
 
 

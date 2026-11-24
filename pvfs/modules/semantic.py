@@ -11,6 +11,15 @@ from ..fast_bank import score_from_pairwise, select_fg_bg_indices
 from ..iter3_methods import _ex_neigh_bg_contrast
 from ..iter5_methods import Iter5Config
 from .contracts import SemanticCalibration, SemanticQueryOutput
+from .fft_soft_veto import (
+    FFTSoftVetoConfig,
+    FFTSoftVetoReference,
+    ImageFFTPrecompute,
+    compute_window_mask_coverage,
+    evaluate_fft_soft_veto_map,
+    evaluate_k1_nonoverlap_bg_penalties,
+    fit_fft_soft_veto_reference,
+)
 from .hard_negative import (
     HardNegConfig,
     apply_hard_neg_penalty,
@@ -36,6 +45,7 @@ class SemanticLocalizationModule:
         cfg: Iter5Config,
         *,
         hard_neg_cfg: HardNegConfig | dict[str, Any] | None = None,
+        fft_veto_cfg: FFTSoftVetoConfig | dict[str, Any] | None = None,
     ) -> None:
         self.cfg = cfg
         if isinstance(hard_neg_cfg, HardNegConfig):
@@ -44,7 +54,14 @@ class SemanticLocalizationModule:
             self.hard_neg_cfg = HardNegConfig(**{k: v for k, v in hard_neg_cfg.items() if k in HardNegConfig.__dataclass_fields__})
         else:
             self.hard_neg_cfg = None
+        if isinstance(fft_veto_cfg, FFTSoftVetoConfig):
+            self.fft_veto_cfg: FFTSoftVetoConfig | None = fft_veto_cfg if fft_veto_cfg.enabled else None
+        elif isinstance(fft_veto_cfg, dict) and fft_veto_cfg.get("enabled", False):
+            self.fft_veto_cfg = FFTSoftVetoConfig(**{k: v for k, v in fft_veto_cfg.items() if k in FFTSoftVetoConfig.__dataclass_fields__})
+        else:
+            self.fft_veto_cfg = None
         self._hard_neg_cache: dict[tuple, dict[str, Any]] = {}
+        self._support_cov_cache: dict[str, np.ndarray] = {}
 
     @torch.inference_mode()
     def _estimate_mid_veto_ref(
@@ -147,10 +164,215 @@ class SemanticLocalizationModule:
                 shot_mode=cfg.shot_mode,
                 exclude_pos_idx=exclude_pos_idx,
             )
-            comb = comb + cfg.lambda_mid * sm - cfg.beta_veto * F.softplus((mid_veto_ref - sm) * 10.0) / 10.0
+            if self.fft_veto_cfg is not None:
+                # Replace mid-layer Softplus veto only; retain deep localization + 0.35 * S_mid
+                comb = comb + cfg.lambda_mid * sm
+            else:
+                comb = comb + cfg.lambda_mid * sm - cfg.beta_veto * F.softplus((mid_veto_ref - sm) * 10.0) / 10.0
         if return_f64:
             return comb, sm, f64
         return comb, sm
+
+    @torch.inference_mode()
+    def _compute_deep_score_only(
+        self,
+        caches: dict[str, dict],
+        qid: str,
+        support_ids: list[str],
+        *,
+        use_core: bool,
+        exclude_pos_idx: int | None = None,
+    ) -> torch.Tensor:
+        """Compute S_deep = w_s64 * S_64 + (1 - w_s64) * Up(S_32) flattened [4096]."""
+        cfg = self.cfg
+        s32, _, _ = score_from_pairwise(
+            caches["deep_32"],
+            qid,
+            support_ids,
+            use_core=use_core,
+            shot_mode=cfg.shot_mode,
+            exclude_pos_idx=exclude_pos_idx,
+        )
+        s64, _, _ = score_from_pairwise(
+            caches["deep_64"],
+            qid,
+            support_ids,
+            use_core=use_core,
+            shot_mode=cfg.shot_mode,
+            exclude_pos_idx=exclude_pos_idx,
+        )
+        s32_up = F.interpolate(
+            s32.reshape(1, 1, 32, 32),
+            size=(64, 64),
+            mode="bilinear",
+            align_corners=False,
+        ).reshape(-1)
+        return cfg.w_s64 * s64 + (1.0 - cfg.w_s64) * s32_up
+
+    @torch.inference_mode()
+    def _k1_ex_neigh_deep_map(
+        self,
+        tokens_by_key: dict[str, dict[str, torch.Tensor]],
+        mask_512: np.ndarray,
+        sid0: str,
+        *,
+        core_purity: float,
+    ) -> np.ndarray:
+        """Compute 1-shot spatial-neighbor-excluded S_deep [64, 64] on sid0 for both PV and BG windows."""
+
+        def _grid_ex_contrast(tok: torch.Tensor, grid_hw: int) -> np.ndarray:
+            radius = 2 if grid_hw == 64 else 1
+            fg_c, bg_m, _ = select_fg_bg_indices(mask_512, grid_hw, core_purity)
+            fg_flat = np.flatnonzero(fg_c)
+            bg_flat = np.flatnonzero(bg_m)
+            out = np.full(grid_hw * grid_hw, np.nan, dtype=np.float32)
+            if len(fg_flat) == 0 or len(bg_flat) == 0:
+                return out.reshape(grid_hw, grid_hw)
+
+            dev = tok.device
+            all_idx = torch.arange(grid_hw * grid_hw, device=dev)
+            all_yx = torch.stack((all_idx // grid_hw, all_idx % grid_hw), dim=1)
+            fg_t = torch.from_numpy(fg_flat).to(dev)
+            bg_t = torch.from_numpy(bg_flat).to(dev)
+            fg_yx = torch.stack((fg_t // grid_hw, fg_t % grid_hw), dim=1)
+            bg_yx = torch.stack((bg_t // grid_hw, bg_t % grid_hw), dim=1)
+
+            fg_vecs = tok[fg_t]
+            bg_vecs = tok[bg_t]
+
+            near_f = ((all_yx[:, 0:1] - fg_yx[:, 0:1].T).abs() <= radius) & (
+                (all_yx[:, 1:2] - fg_yx[:, 1:2].T).abs() <= radius
+            )
+            near_b = ((all_yx[:, 0:1] - bg_yx[:, 0:1].T).abs() <= radius) & (
+                (all_yx[:, 1:2] - bg_yx[:, 1:2].T).abs() <= radius
+            )
+            cnt_f = (~near_f).sum(dim=1)
+            cnt_b = (~near_b).sum(dim=1)
+            valid = (cnt_f >= 1) & (cnt_b >= 1)
+            if not valid.any():
+                return out.reshape(grid_hw, grid_hw)
+
+            v_idx = torch.nonzero(valid, as_tuple=False).squeeze(1)
+            q_vecs = tok[v_idx]
+            nf_v = near_f[v_idx]
+            nb_v = near_b[v_idx]
+
+            sim_f = (q_vecs @ fg_vecs.T).clamp(-1.0, 1.0).masked_fill(nf_v, -2.0)
+            m_f = min(3, fg_vecs.shape[0])
+            top_f = sim_f.topk(m_f, dim=1).values
+            valid_f = top_f > -1.5
+            s_pos = (top_f * valid_f).sum(dim=1) / valid_f.sum(dim=1).clamp_min(1).float()
+
+            sim_b = (q_vecs @ bg_vecs.T).clamp(-1.0, 1.0).masked_fill(nb_v, -2.0)
+            m_b = min(3, bg_vecs.shape[0])
+            top_b = sim_b.topk(m_b, dim=1).values
+            valid_b = top_b > -1.5
+            s_neg = (top_b * valid_b).sum(dim=1) / valid_b.sum(dim=1).clamp_min(1).float()
+
+            vals = (s_pos - 0.50 * s_neg).detach().cpu().numpy().astype(np.float32)
+            out[v_idx.detach().cpu().numpy()] = vals
+            return out.reshape(grid_hw, grid_hw)
+
+        c64 = _grid_ex_contrast(tokens_by_key["deep_64"][sid0], 64)
+        c32 = _grid_ex_contrast(tokens_by_key["deep_32"][sid0], 32)
+        c32_fin = np.isfinite(c32)
+        c32_safe = np.where(c32_fin, c32, 0.0).astype(np.float32)
+        c32_up = (
+            F.interpolate(torch.from_numpy(c32_safe)[None, None], size=(64, 64), mode="bilinear", align_corners=False)[0, 0]
+            .numpy()
+            .astype(np.float32)
+        )
+        # Propagate any invalid 32x32 cells cleanly to their 2x2 children at 64x64
+        c32_valid_64 = np.repeat(np.repeat(c32_fin, 2, axis=0), 2, axis=1)
+        s_deep = self.cfg.w_s64 * c64 + (1.0 - self.cfg.w_s64) * c32_up
+        s_deep[~c32_valid_64] = np.nan
+        return s_deep.astype(np.float32)
+
+    @torch.inference_mode()
+    def _prepare_fft_veto_calibration(
+        self,
+        caches: dict[str, dict],
+        tokens_by_key: dict[str, dict[str, torch.Tensor]],
+        mask_by_id: dict[str, np.ndarray],
+        support_ids: list[str],
+        fft_pre_by_id: dict[str, ImageFFTPrecompute] | None,
+        *,
+        use_core: bool,
+        core_purity: float,
+    ) -> dict[str, Any]:
+        """Build full-support adaptive FFT soft-veto reference + strict LOO/non-overlap calibration penalties."""
+        fcfg = self.fft_veto_cfg
+        if fcfg is None or not self.cfg.use_64:
+            return {"active": False, "ref_full": FFTSoftVetoReference(active=False, reason="disabled")}
+        if fft_pre_by_id is None:
+            raise ValueError("fft_pre_by_id is required when fft_veto_cfg is enabled")
+
+        def _get_cov(sid: str) -> np.ndarray:
+            if sid not in self._support_cov_cache:
+                pre = fft_pre_by_id[sid]
+                self._support_cov_cache[sid] = compute_window_mask_coverage(
+                    mask_by_id[sid], pre.rows, pre.cols, pre.interior, window_size=fcfg.window_size
+                )
+            return self._support_cov_cache[sid]
+
+        k = len(support_ids)
+        pre_list = [fft_pre_by_id[sid] for sid in support_ids]
+        cov_list = [_get_cov(sid) for sid in support_ids]
+
+        if k >= 2:
+            s_deep_full_list: list[np.ndarray] = []
+            for idx, sid in enumerate(support_ids):
+                sd = self._compute_deep_score_only(caches, sid, support_ids, use_core=use_core, exclude_pos_idx=idx)
+                s_deep_full_list.append(sd.detach().cpu().numpy().reshape(64, 64).astype(np.float32))
+            ref_full = fit_fft_soft_veto_reference(pre_list, cov_list, s_deep_full_list, fcfg)
+            if not ref_full.active:
+                return {"active": False, "ref_full": ref_full}
+
+            # Strict LOO calibration: when scoring support_ids[idx] for (b, T), exclude support_ids[idx] from band & histogram!
+            loo_deltas: dict[str, np.ndarray] = {}
+            loo_active_count = 0
+            for idx, sid in enumerate(support_ids):
+                other_ids = [s for j, s in enumerate(support_ids) if j != idx]
+                other_pres = [fft_pre_by_id[s] for s in other_ids]
+                other_covs = [_get_cov(s) for s in other_ids]
+                other_s_deeps: list[np.ndarray] = []
+                if len(other_ids) >= 2:
+                    for j, oid in enumerate(other_ids):
+                        sd_o = self._compute_deep_score_only(
+                            caches, oid, other_ids, use_core=use_core, exclude_pos_idx=j
+                        )
+                        other_s_deeps.append(sd_o.detach().cpu().numpy().reshape(64, 64).astype(np.float32))
+                else:
+                    other_s_deeps.append(
+                        self._k1_ex_neigh_deep_map(tokens_by_key, mask_by_id[other_ids[0]], other_ids[0], core_purity=core_purity)
+                    )
+                ref_loo = fit_fft_soft_veto_reference(other_pres, other_covs, other_s_deeps, fcfg)
+                if ref_loo.active:
+                    loo_active_count += 1
+                    loo_deltas[sid] = evaluate_fft_soft_veto_map(pre_list[idx], s_deep_full_list[idx], ref_loo, fcfg)["delta_fft"]
+                else:
+                    loo_deltas[sid] = np.zeros(64 * 64, dtype=np.float32)
+
+            return {
+                "active": True,
+                "ref_full": ref_full,
+                "loo_deltas": loo_deltas,
+                "loo_active_count": loo_active_count,
+            }
+
+        # K == 1
+        sid0 = support_ids[0]
+        s_deep_ex0 = self._k1_ex_neigh_deep_map(tokens_by_key, mask_by_id[sid0], sid0, core_purity=core_purity)
+        ref_full = fit_fft_soft_veto_reference([pre_list[0]], [cov_list[0]], [s_deep_ex0], fcfg)
+        if not ref_full.active:
+            return {"active": False, "ref_full": ref_full}
+        return {
+            "active": True,
+            "ref_full": ref_full,
+            "k1_pre": pre_list[0],
+            "k1_cov": cov_list[0],
+            "k1_s_deep_ex": s_deep_ex0,
+        }
 
     @torch.inference_mode()
     def _prepare_hard_neg_calibration(
@@ -297,8 +519,10 @@ class SemanticLocalizationModule:
         tokens_by_key: dict[str, dict[str, torch.Tensor]],
         mask_by_id: dict[str, np.ndarray],
         support_ids: list[str],
+        *,
+        fft_pre_by_id: dict[str, ImageFFTPrecompute] | None = None,
     ) -> SemanticCalibration:
-        """Fit support-only episode calibration parameters (t_mid, bias, temp) + optional hard-neg bank."""
+        """Fit support-only episode calibration parameters (t_mid, bias, temp) + optional hard-neg / FFT soft-veto."""
         cfg = self.cfg
         k = len(support_ids)
         use_core = cfg.k1_use_core if k == 1 else cfg.kge2_use_core
@@ -327,11 +551,24 @@ class SemanticLocalizationModule:
         t_h = hn_prep.get("t_h") if hn_active else None
         bank_full = hn_prep.get("bank_full") if hn_active else None
 
+        fft_prep = self._prepare_fft_veto_calibration(
+            caches,
+            tokens_by_key,
+            mask_by_id,
+            support_ids,
+            fft_pre_by_id,
+            use_core=use_core,
+            core_purity=core_purity,
+        )
+        fft_active = bool(fft_prep.get("active", False))
+        fft_ref_full: FFTSoftVetoReference = fft_prep["ref_full"]
+
         calib_source = "fallback"
         if k >= 2:
             ref_key = "deep_64" if cfg.use_64 else "deep_32"
             fg_items, bg_list = [], []
             loo_margins = hn_prep.get("loo_margins", {}) if hn_active else {}
+            fft_loo_deltas = fft_prep.get("loo_deltas", {}) if fft_active else {}
             for idx, sid in enumerate(support_ids):
                 comb_s, _ = self.compute_raw_semantic_score(
                     caches,
@@ -343,6 +580,8 @@ class SemanticLocalizationModule:
                 )
                 if hn_active and sid in loo_margins and self.hard_neg_cfg is not None and t_h is not None:
                     comb_s = apply_hard_neg_penalty(comb_s, loo_margins[sid], t_h, self.hard_neg_cfg)
+                if fft_active and sid in fft_loo_deltas:
+                    comb_s = comb_s - torch.from_numpy(fft_loo_deltas[sid]).to(comb_s.device)
                 p_i = caches[ref_key]["id_to_pos"][sid]
                 fg_m = caches[ref_key]["fg_core_masks"][p_i] if use_core_calib else caches[ref_key]["fg_all_masks"][p_i]
                 bg_m = caches[ref_key]["bg_masks"][p_i]
@@ -412,10 +651,22 @@ class SemanticLocalizationModule:
                     c32_at_64 = c32_full[(bg64_t // 64) // 2, (bg64_t % 64) // 2]
                     bg_s = cfg.w_s64 * c64_b + (1.0 - cfg.w_s64) * c32_at_64
                     if cfg.use_mid_veto and cm_b is not None and mid_veto_ref is not None:
-                        bg_s = bg_s + cfg.lambda_mid * cm_b - cfg.beta_veto * F.softplus((mid_veto_ref - cm_b) * 10.0) / 10.0
+                        if self.fft_veto_cfg is not None:
+                            bg_s = bg_s + cfg.lambda_mid * cm_b
+                        else:
+                            bg_s = bg_s + cfg.lambda_mid * cm_b - cfg.beta_veto * F.softplus((mid_veto_ref - cm_b) * 10.0) / 10.0
                     k1_bg_m = hn_prep.get("k1_bg_margin") if hn_active else None
                     if hn_active and k1_bg_m is not None and self.hard_neg_cfg is not None and t_h is not None:
                         bg_s = apply_hard_neg_penalty(bg_s, k1_bg_m, t_h, self.hard_neg_cfg)
+                    if fft_active and self.fft_veto_cfg is not None:
+                        k1_pen = evaluate_k1_nonoverlap_bg_penalties(
+                            fft_prep["k1_pre"],
+                            fft_prep["k1_cov"],
+                            fft_prep["k1_s_deep_ex"],
+                            bg64_flat,
+                            self.fft_veto_cfg,
+                        )
+                        bg_s = bg_s - torch.from_numpy(k1_pen).to(bg_s.device)
                     bias = float(torch.quantile(bg_s, cfg.bg_q_calib).item()) + cfg.k1_margin
                     calib_source = "k1_ex_neigh_64"
                 else:
@@ -434,6 +685,8 @@ class SemanticLocalizationModule:
             hard_neg_active=hn_active,
             hard_neg_t_h=t_h,
             hard_neg_bank=bank_full,
+            fft_veto_active=fft_active,
+            fft_veto_ref=fft_ref_full,
             diagnostics={
                 "mid_veto_source": mid_src,
                 "calib_source": calib_source,
@@ -443,6 +696,21 @@ class SemanticLocalizationModule:
                 "hard_neg_reason": hn_prep.get("reason", "disabled"),
                 "hard_neg_bank_tokens": int(hn_prep.get("bank_total_tokens", 0)),
                 "hard_neg_t_h": t_h,
+                "fft_veto_enabled": self.fft_veto_cfg is not None,
+                "fft_veto_active": fft_active,
+                "fft_veto_reason": fft_ref_full.reason,
+                "fft_veto_band_selected": fft_ref_full.band_selected,
+                "fft_veto_band_low": fft_ref_full.band_low,
+                "fft_veto_band_high": fft_ref_full.band_high,
+                "fft_veto_band_peak_r": fft_ref_full.band_peak_r,
+                "fft_veto_energy_thr": fft_ref_full.energy_thr,
+                "fft_veto_t_cand": fft_ref_full.t_cand,
+                "fft_veto_n_pv_band": fft_ref_full.n_pv_band_windows,
+                "fft_veto_n_bg_band": fft_ref_full.n_bg_band_windows,
+                "fft_veto_n_pv_cand": fft_ref_full.n_pv_cand_windows,
+                "fft_veto_n_bg_cand": fft_ref_full.n_bg_cand_windows,
+                "fft_veto_num_merged_bins": fft_ref_full.num_merged_bins,
+                "fft_veto_num_eligible_bins": fft_ref_full.num_eligible_bins,
             },
         )
 
@@ -455,8 +723,21 @@ class SemanticLocalizationModule:
         calib: SemanticCalibration,
         *,
         q_tok_64: torch.Tensor | None = None,
+        fft_pre_q: ImageFFTPrecompute | None = None,
     ) -> SemanticQueryOutput:
         """Compute Module ① outputs (S_sem, P_sem, S_mid, t_mid) for one query image."""
+        fft_diag: dict[str, Any] = {
+            "fft_veto_applied": False,
+            "cand_tokens": 0,
+            "g_active_tokens": 0,
+            "penalized_tokens": 0,
+            "penalty_rate_all": 0.0,
+            "penalty_rate_cand": 0.0,
+            "mean_penalty_all": 0.0,
+            "mean_penalty_penalized": 0.0,
+            "max_penalty": 0.0,
+            "mean_e_bg_g_active": 0.0,
+        }
         if calib.hard_neg_active and self.hard_neg_cfg is not None and calib.hard_neg_t_h is not None:
             if q_tok_64 is None:
                 raise ValueError("q_tok_64 is required when hard_neg_active is True")
@@ -477,6 +758,36 @@ class SemanticLocalizationModule:
             hn_applied = True
             mean_pen = float((s_sem_raw - s_sem).mean().item())
             max_pen = float((s_sem_raw - s_sem).max().item())
+        elif calib.fft_veto_active and self.fft_veto_cfg is not None and calib.fft_veto_ref is not None:
+            if fft_pre_q is None:
+                raise ValueError("fft_pre_q is required when fft_veto_active is True")
+            s_deep_q = self._compute_deep_score_only(
+                caches,
+                qid,
+                support_ids,
+                use_core=calib.use_core,
+                exclude_pos_idx=None,
+            )
+            s_mid, _, _ = score_from_pairwise(
+                caches["mid_64"],
+                qid,
+                support_ids,
+                use_core=calib.use_core,
+                shot_mode=self.cfg.shot_mode,
+                exclude_pos_idx=None,
+            )
+            fft_out = evaluate_fft_soft_veto_map(
+                fft_pre_q,
+                s_deep_q.detach().cpu().numpy(),
+                calib.fft_veto_ref,
+                self.fft_veto_cfg,
+            )
+            delta_t = torch.from_numpy(fft_out["delta_fft"]).to(s_deep_q.device)
+            s_sem = s_deep_q + self.cfg.lambda_mid * s_mid - delta_t
+            hn_applied = False
+            mean_pen = 0.0
+            max_pen = 0.0
+            fft_diag = {"fft_veto_applied": True, **fft_out["diagnostics"]}
         else:
             s_sem, s_mid = self.compute_raw_semantic_score(
                 caches,
@@ -504,5 +815,6 @@ class SemanticLocalizationModule:
                 "hard_neg_applied": hn_applied,
                 "hard_neg_mean_penalty": mean_pen,
                 "hard_neg_max_penalty": max_pen,
+                **fft_diag,
             },
         )
