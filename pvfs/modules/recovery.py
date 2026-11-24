@@ -5,29 +5,20 @@ from typing import Any
 import torch
 from torch.nn import functional as F
 
-from ..iter5_methods import Iter5Config
-from .contracts import RecoveryQueryOutput, SemanticCalibration, SemanticQueryOutput
+from .contracts import ModelConfig, RecoveryQueryOutput, SemanticCalibration, SemanticQueryOutput
 
 
 class SmallTargetRecoveryModule:
-    """Module ②: Intra-Image False-Negative Recovery (Small / Weak / Shifted PV Arrays).
+    """Module ②: Gated Intra-Image Self-Rescue (Small / Sparse / Domain-Shifted PV Arrays)."""
 
-    Implements the exact behavior-equivalent logic of M3_Pruned_Ref's query self-contrast
-    rescue (_apply_mid_verified_rescue), re-probabilization under Module ①'s (bias, temp),
-    and pre-propagation 32x32 raw score pooling (legacy scores_32 contract).
-    """
-
-    def __init__(self, cfg: Iter5Config, *, crop_zoom_cfg: dict[str, Any] | None = None) -> None:
+    def __init__(self, cfg: ModelConfig) -> None:
         self.cfg = cfg
-        self.crop_zoom_cfg = crop_zoom_cfg
 
     @torch.inference_mode()
-    def _apply_self_rescue_with_diagnostics(
+    def _apply_self_rescue(
         self,
         s_sem: torch.Tensor,
         p_sem: torch.Tensor,
-        s_mid: torch.Tensor | None,
-        t_mid: float | None,
         q_tok_64: torch.Tensor,
     ) -> tuple[torch.Tensor, dict[str, Any]]:
         cfg = self.cfg
@@ -38,7 +29,6 @@ class SmallTargetRecoveryModule:
             "prominence": prominence,
             "n_fg_seeds": 0,
             "n_bg_seeds": 0,
-            "seed_mid_check_enabled": bool(s_mid is not None and t_mid is not None and cfg.seed_mid_margin > -0.5),
             "fallback_reason": "none",
         }
         if prominence < cfg.min_prominence:
@@ -51,11 +41,6 @@ class SmallTargetRecoveryModule:
         if n_fg < cfg.min_seeds:
             diag["fallback_reason"] = "insufficient_fg_seeds"
             return s_sem, diag
-
-        if s_mid is not None and t_mid is not None and cfg.seed_mid_margin > -0.5:
-            if float(s_mid[seed_mask].mean().item()) < (t_mid + cfg.seed_mid_margin):
-                diag["fallback_reason"] = "seed_mid_veto_blocked"
-                return s_sem, diag
 
         bg_mask = p_sem <= 0.30
         n_bg = int(bg_mask.sum().item())
@@ -117,29 +102,19 @@ class SmallTargetRecoveryModule:
         if cfg.use_64 and cfg.use_self_rescue:
             if q_tok_64 is None:
                 raise ValueError("q_tok_64 is required when use_64 and use_self_rescue are True")
-            s_res, diag = self._apply_self_rescue_with_diagnostics(
-                sem_out.s_sem,
-                sem_out.p_sem,
-                sem_out.s_mid,
-                sem_out.t_mid,
-                q_tok_64,
-            )
+            s_res, diag = self._apply_self_rescue(sem_out.s_sem, sem_out.p_sem, q_tok_64)
             p_res = torch.sigmoid((s_res - calib.bias) / calib.temp)
             scores_32 = F.avg_pool2d(s_res.reshape(1, 1, 64, 64), 2, stride=2)[0, 0]
         else:
             s_res = sem_out.s_sem
             p_res = sem_out.p_sem
-            if sem_out.grid_hw == 32:
-                scores_32 = s_res.reshape(32, 32)
-            else:
-                scores_32 = F.avg_pool2d(s_res.reshape(1, 1, 64, 64), 2, stride=2)[0, 0]
+            scores_32 = s_res.reshape(32, 32) if sem_out.grid_hw == 32 else F.avg_pool2d(s_res.reshape(1, 1, 64, 64), 2, stride=2)[0, 0]
             diag = {
                 "self_rescue_enabled": False,
                 "self_rescue_triggered": False,
                 "fallback_reason": "self_rescue_disabled",
             }
 
-        diag["crop_zoom_enabled"] = bool(self.crop_zoom_cfg and self.crop_zoom_cfg.get("enabled", False))
         return RecoveryQueryOutput(
             qid=sem_out.qid,
             grid_hw=sem_out.grid_hw,

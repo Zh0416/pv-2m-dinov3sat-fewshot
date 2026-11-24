@@ -8,21 +8,42 @@ import torch
 
 
 @dataclass(frozen=True)
+class ModelConfig:
+    """Converged training-free 3-module configuration (zero trainable parameters, zero disproven branches)."""
+
+    name: str = "CleanCore"
+    use_64: bool = True
+    shot_mode: str = "top2_soft"
+    k1_use_core: bool = False
+    kge2_use_core: bool = True
+    calib_v2: bool = True
+    w_fg_calib: float = 0.38
+    bg_q_calib: float = 0.95
+    k1_margin: float = 0.075
+    w_s64: float = 0.75
+    use_mid_fusion: bool = True
+    lambda_mid: float = 0.35
+    use_self_rescue: bool = True
+    seed_prob_thr: float = 0.66
+    min_seeds: int = 4
+    min_prominence: float = 0.14
+    qsc_weight: float = 0.40
+    use_affinity: bool = True
+    aff_steps: int = 2
+    aff_eta: float = 0.45
+    aff_tau: float = 0.12
+
+
+@dataclass(frozen=True)
 class SemanticCalibration:
-    """Episode-level support calibration state produced by Module ① (Semantic)."""
+    """Episode-level support calibration state produced by Module ① (Semantic Localization)."""
 
     k_shots: int
     use_core: bool
     core_purity: float
     use_core_calib: bool
-    mid_veto_ref: float | None  # t_mid
     bias: float
     temp: float
-    hard_neg_active: bool = False
-    hard_neg_t_h: float | None = None
-    hard_neg_bank: Any = None
-    fft_veto_active: bool = False
-    fft_veto_ref: Any = None
     diagnostics: dict[str, Any] = field(default_factory=dict)
 
 
@@ -34,8 +55,7 @@ class SemanticQueryOutput:
     grid_hw: int
     s_sem: torch.Tensor  # flattened [grid_hw * grid_hw] raw semantic score
     p_sem: torch.Tensor  # flattened [grid_hw * grid_hw] continuous probability (unthresholded)
-    s_mid: torch.Tensor | None  # flattened [4096] mid_64 contrast score when use_64 & use_mid_veto
-    t_mid: float | None  # episode mid-layer background reference
+    s_mid: torch.Tensor | None  # flattened [4096] mid_64 contrast score when use_64 & use_mid_fusion
     diagnostics: dict[str, Any] = field(default_factory=dict)
 
 
@@ -45,9 +65,9 @@ class RecoveryQueryOutput:
 
     qid: str
     grid_hw: int
-    s_res: torch.Tensor  # flattened [grid_hw * grid_hw] score after residual recovery
+    s_res: torch.Tensor  # flattened [grid_hw * grid_hw] score after Self-Rescue
     p_res: torch.Tensor  # flattened [grid_hw * grid_hw] probability under Module ①'s (bias, temp)
-    scores_32: torch.Tensor  # [32, 32] pre-propagation raw score map (legacy scores_32 contract)
+    scores_32: torch.Tensor  # [32, 32] pre-propagation raw score map
     diagnostics: dict[str, Any] = field(default_factory=dict)
 
 
@@ -75,7 +95,7 @@ class ThreeModuleEpisodeOutput:
     boundary_by_id: dict[str, BoundaryQueryOutput]
 
     def to_legacy_outputs(self) -> tuple[dict[str, np.ndarray], dict[str, np.ndarray]]:
-        """Return (probs_512, scores_32) matching run_iter5_episode's exact legacy protocol."""
+        """Return (probs_512, scores_32) for continuous-probability evaluation."""
         probs_512 = {qid: self.boundary_by_id[qid].p_coarse for qid in self.query_ids}
         scores_32 = {
             qid: self.recovery_by_id[qid].scores_32.detach().cpu().numpy().astype(np.float32)

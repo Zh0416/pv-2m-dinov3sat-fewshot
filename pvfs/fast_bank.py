@@ -166,3 +166,71 @@ def score_from_pairwise(
         s_neg = torch.zeros_like(s_pos)
 
     return s_pos - alpha_bg * s_neg, s_pos, s_neg
+
+
+def to_tokens_norm(feat_map: torch.Tensor, device: str) -> torch.Tensor:
+    """Convert [C, H, W] feature map to L2-normalized [H*W, C] float32 token matrix."""
+    t = feat_map.to(device=device, dtype=torch.float32)
+    t = F.normalize(t, dim=0)
+    return t.flatten(1).T.contiguous()
+
+
+_to_tokens_norm = to_tokens_norm
+
+
+def ex_neigh_bg_contrast(
+    tok: torch.Tensor,
+    mask_512: np.ndarray,
+    grid_hw: int,
+    *,
+    core_purity: float,
+    alpha_bg: float = 0.50,
+    top_m: int = 3,
+) -> torch.Tensor | None:
+    """Compute 1-shot spatial-neighbor-excluded background contrast scores on a single support image."""
+    radius = 2 if grid_hw == 64 else 1
+    min_bg = 64 if grid_hw == 64 else 16
+    fg_c, bg_m, _ = select_fg_bg_indices(mask_512, grid_hw, core_purity)
+    bg_flat = np.flatnonzero(bg_m)
+    if len(bg_flat) < min_bg:
+        return None
+    fg_t = tok[torch.from_numpy(np.flatnonzero(fg_c)).to(tok.device)]
+    bg_idx = torch.from_numpy(bg_flat).to(tok.device)
+    bg_t = tok[bg_idx]
+    yx = torch.stack((bg_idx // grid_hw, bg_idx % grid_hw), dim=1)
+    s_pos = (bg_t @ fg_t.T).clamp(-1.0, 1.0).topk(min(top_m, fg_t.shape[0]), dim=1).values.mean(dim=1)
+    near = ((yx[:, 0:1] - yx[:, 0:1].T).abs() <= radius) & ((yx[:, 1:2] - yx[:, 1:2].T).abs() <= radius)
+    vc = int((~near).sum(dim=1).min().item())
+    if vc < 1:
+        return None
+    s_neg = (bg_t @ bg_t.T).clamp(-1.0, 1.0).masked_fill(near, -2.0).topk(min(top_m, vc), dim=1).values.mean(dim=1)
+    return s_pos - alpha_bg * s_neg
+
+
+_ex_neigh_bg_contrast = ex_neigh_bg_contrast
+
+
+def compute_dino_affinity_weights(q_tok_64: torch.Tensor, tau: float = 0.12) -> torch.Tensor:
+    """Compute normalized 5x5 local DINO cosine affinity weights [4096, 25] on the 64x64 grid."""
+    f_map = q_tok_64.T.reshape(1, -1, 64, 64)
+    f_unf = F.unfold(f_map, kernel_size=5, padding=2).reshape(-1, 25, 4096)
+    cos_sim = (f_map.reshape(-1, 1, 4096) * f_unf).sum(dim=0).T
+
+    coords = torch.arange(-2, 3, device=q_tok_64.device, dtype=torch.float32)
+    dy, dx = torch.meshgrid(coords, coords, indexing="ij")
+    sp_w = torch.exp(-(dy * dy + dx * dx) / (2.0 * 1.5 * 1.5)).reshape(1, 25)
+    valid = f_unf.abs().sum(dim=0).T > 0.0
+    log_w = (cos_sim.clamp(0.0, 1.0) - 1.0) / tau
+    w = torch.exp(log_w) * sp_w * valid.float()
+    return w / w.sum(dim=1, keepdim=True).clamp_min(1e-6)
+
+
+def propagate_affinity(prob_64: torch.Tensor, weights: torch.Tensor, *, steps: int = 2, eta: float = 0.45) -> torch.Tensor:
+    """Run local feature-affinity random-walk smoothing on the 64x64 probability grid."""
+    p = prob_64.reshape(1, 1, 64, 64)
+    for _ in range(steps):
+        p_unf = F.unfold(p, kernel_size=5, padding=2).reshape(25, 4096).T
+        p_nbr = (weights * p_unf).sum(dim=1).reshape(1, 1, 64, 64)
+        p = (1.0 - eta) * p + eta * p_nbr
+    return p.reshape(64, 64).clamp(0.0, 1.0)
+

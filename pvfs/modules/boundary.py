@@ -6,26 +6,17 @@ import numpy as np
 import torch
 from torch.nn import functional as F
 
-from ..iter3_methods import compute_dino_affinity_weights, propagate_affinity
-from ..iter5_methods import Iter5Config
-from .contracts import BoundaryQueryOutput, RecoveryQueryOutput
+from ..fast_bank import compute_dino_affinity_weights, propagate_affinity
+from .contracts import BoundaryQueryOutput, ModelConfig, RecoveryQueryOutput
 from .deformable_boundary import DeformableBoundaryConfig, refine_mask_deformable_grad
 
 
 class BoundaryRefinementModule:
-    """Module ③: Training-Free Contour Output & Optional Pixel-Level Boundary Refinement.
-
-    Baseline behavior (exact equivalent to M3_Pruned_Ref / Iter5Config):
-      1. Optional 5x5 DINO feature-affinity random walk propagation on the 64x64 grid (eta=0.45, steps=2);
-      2. Bilinear upsampling (align_corners=False) to 512x512 -> continuous P_coarse;
-      3. Thresholding at 0.50 -> binary M_coarse;
-      4. When pixel-level refinement is disabled, M_final = M_coarse exactly (pixel-identical);
-         when deformable gradient refinement is enabled, refines M_coarse -> M_final using RGB gradients.
-    """
+    """Module ③: Feature-Affinity Propagation & Optional Deformable Contour Refinement."""
 
     def __init__(
         self,
-        cfg: Iter5Config,
+        cfg: ModelConfig,
         *,
         threshold: float = 0.50,
         refiner_cfg: DeformableBoundaryConfig | dict[str, Any] | None = None,

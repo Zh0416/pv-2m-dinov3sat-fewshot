@@ -8,9 +8,8 @@ import numpy as np
 import torch
 from torch.nn import functional as F
 
-from pvfs.fast_bank import build_pairwise_topk_cache
+from pvfs.fast_bank import _to_tokens_norm, build_pairwise_topk_cache
 from pvfs.io import read_json
-from pvfs.iter3_methods import _to_tokens_norm
 from pvfs.pv663_eval import (
     build_pairwise_topk_cache_streaming,
     run_pv663_evaluation_from_features,

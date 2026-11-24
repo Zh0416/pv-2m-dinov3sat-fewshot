@@ -13,8 +13,94 @@ def _disk_structure(radius: int) -> np.ndarray:
     return (yy * yy + xx * xx) <= radius * radius
 
 
+DISK_1 = _disk_structure(1)
 DISK_2 = _disk_structure(2)
+DISK_8 = _disk_structure(8)
 BOX_3 = np.ones((3, 3), dtype=bool)
+
+
+def boundary_f1_at_radius(
+    truth: np.ndarray,
+    pred: np.ndarray,
+    *,
+    radius: int = 2,
+    t_b: np.ndarray | None = None,
+    t_dil: np.ndarray | None = None,
+) -> float:
+    """Boundary contour F1 at pixel tolerance radius (1px or 2px)."""
+    truth_b = np.asarray(truth, dtype=bool)
+    pred_b = np.asarray(pred, dtype=bool)
+    if t_b is None:
+        t_b = truth_b ^ binary_erosion(truth_b, structure=BOX_3, border_value=1)
+    p_b = pred_b ^ binary_erosion(pred_b, structure=BOX_3, border_value=1)
+    if not t_b.any() and not p_b.any():
+        return 1.0
+    if not t_b.any() or not p_b.any():
+        return 0.0
+    disk = DISK_1 if radius == 1 else (DISK_2 if radius == 2 else _disk_structure(radius))
+    if t_dil is None:
+        t_dil = binary_dilation(t_b, structure=disk)
+    p_dil = binary_dilation(p_b, structure=disk)
+    prec = float(np.logical_and(p_b, t_dil).sum() / p_b.sum())
+    rec = float(np.logical_and(t_b, p_dil).sum() / t_b.sum())
+    return (2.0 * prec * rec / (prec + rec)) if (prec + rec) > 0.0 else 0.0
+
+
+def evaluate_binary_mask_512(
+    mask_gt: np.ndarray,
+    pred_mask: np.ndarray,
+    prob_512_ref: np.ndarray,
+    *,
+    t_b: np.ndarray | None = None,
+    t_dil_1px: np.ndarray | None = None,
+    t_dil_2px: np.ndarray | None = None,
+) -> dict:
+    """Evaluate a binary 512x512 mask with both BF1@1px and BF1@2px."""
+    truth = np.asarray(mask_gt > 0, dtype=bool)
+    pred = np.asarray(pred_mask, dtype=bool)
+    gt_sum = int(truth.sum())
+    pred_sum = int(pred.sum())
+
+    if gt_sum > 0:
+        tp = int(np.logical_and(truth, pred).sum())
+        fp = pred_sum - tp
+        tn = truth.size - gt_sum - fp
+        dice = (2.0 * tp / (gt_sum + pred_sum)) if (gt_sum + pred_sum) > 0 else 1.0
+        iou = (tp / (gt_sum + fp)) if (gt_sum + fp) > 0 else 1.0
+        recall = tp / gt_sum
+        precision = tp / pred_sum if pred_sum > 0 else 0.0
+        bg_fp = fp / (fp + tn) if (fp + tn) > 0 else 0.0
+        bf1_1px = boundary_f1_at_radius(truth, pred, radius=1, t_b=t_b, t_dil=t_dil_1px)
+        bf1_2px = boundary_f1_at_radius(truth, pred, radius=2, t_b=t_b, t_dil=t_dil_2px)
+        return {
+            "positive": True,
+            "dice": float(dice),
+            "iou": float(iou),
+            "recall": float(recall),
+            "precision": float(precision),
+            "pos_bg_fp": float(bg_fp),
+            "bf1_1px": float(bf1_1px),
+            "boundary_f1": float(bf1_2px),
+            "detected": 1.0 if iou >= 0.10 else 0.0,
+            "neg_fp": None,
+            "neg_clean": None,
+            "max_prob": float(prob_512_ref.max()),
+        }
+    neg_fp = float(pred.mean())
+    return {
+        "positive": False,
+        "dice": None,
+        "iou": None,
+        "recall": None,
+        "precision": None,
+        "pos_bg_fp": None,
+        "bf1_1px": None,
+        "boundary_f1": None,
+        "detected": None,
+        "neg_fp": neg_fp,
+        "neg_clean": 1.0 if neg_fp < 0.01 else 0.0,
+        "max_prob": float(prob_512_ref.max()),
+    }
 
 
 def average_precision(y: np.ndarray, score: np.ndarray) -> float:
@@ -406,3 +492,101 @@ def compare_methods(cand_agg: dict, ref_agg: dict) -> dict:
             "Gate_Net": bool(gate_net),
         },
     }
+
+
+def evaluate_binary_episode(
+    query_records: list[dict],
+    masks_512: dict[str, np.ndarray],
+    probs_512_ref: dict[str, np.ndarray],
+    scores_32_ref: dict[str, np.ndarray],
+) -> dict:
+    """Compute per-image and per-site metrics (including BF1@1px & BF1@2px) for binary refined masks."""
+    per_image = {}
+    by_site = defaultdict(list)
+    for rec in query_records:
+        qid = rec["id"]
+        m512 = masks_512[qid]
+        p512 = probs_512_ref[qid]
+        s32 = scores_32_ref[qid]
+        if rec["positive"] and "_gt_dil_1px" not in rec:
+            truth = rec["mask"] > 0
+            rec["_gt_b"] = truth ^ binary_erosion(truth, structure=BOX_3, border_value=1)
+            rec["_gt_dil_1px"] = binary_dilation(rec["_gt_b"], structure=DISK_1)
+            rec["_gt_dil_2px"] = binary_dilation(rec["_gt_b"], structure=DISK_2)
+        im_m = evaluate_binary_mask_512(
+            rec["mask"],
+            m512,
+            p512,
+            t_b=rec.get("_gt_b"),
+            t_dil_1px=rec.get("_gt_dil_1px"),
+            t_dil_2px=rec.get("_gt_dil_2px"),
+        )
+        im_m["id"] = qid
+        im_m["site"] = rec["site"]
+        im_m["fold"] = rec["fold"]
+        im_m["target_fraction"] = float(rec["target_fraction"])
+        per_image[qid] = im_m
+        by_site[rec["site"]].append((rec, im_m, p512, s32))
+
+    site_rows = []
+    for site, items in sorted(by_site.items()):
+        pos_items = [x for x in items if x[0]["positive"]]
+        neg_items = [x for x in items if not x[0]["positive"]]
+        row = {
+            "site": site,
+            "fold": items[0][0]["fold"],
+            "positive_images": len(pos_items),
+            "negative_images": len(neg_items),
+        }
+        if pos_items:
+            for key in ("dice", "iou", "recall", "precision", "pos_bg_fp", "bf1_1px", "boundary_f1", "detected"):
+                row[key] = float(np.mean([x[1][key] for x in pos_items]))
+            row["ap_512"] = average_precision(
+                np.concatenate([(x[0]["mask"] > 0).ravel() for x in pos_items]),
+                np.concatenate([x[2].ravel() for x in pos_items]),
+            )
+            row["ap_32"] = average_precision(
+                np.concatenate([(x[0]["y32"] >= 0.25).ravel() for x in pos_items]),
+                np.concatenate([x[3].ravel() for x in pos_items]),
+            )
+        else:
+            for key in ("dice", "iou", "recall", "precision", "pos_bg_fp", "bf1_1px", "boundary_f1", "detected", "ap_512", "ap_32"):
+                row[key] = None
+        if neg_items:
+            row["neg_fp"] = float(np.mean([x[1]["neg_fp"] for x in neg_items]))
+            row["neg_clean"] = float(np.mean([x[1]["neg_clean"] for x in neg_items]))
+            row["neg_max_prob"] = float(np.max([x[1]["max_prob"] for x in neg_items]))
+        else:
+            row["neg_fp"] = None
+            row["neg_clean"] = None
+            row["neg_max_prob"] = None
+        site_rows.append(row)
+
+    return {"per_image": per_image, "site_rows": site_rows}
+
+
+def aggregate_binary_episodes(episode_results: list[dict], episodes_per_fold: int = 10) -> dict:
+    """Aggregate binary-mask episode results (preserving bf1_1px alongside boundary_f1/BF1@2px)."""
+    agg = aggregate_episodes(episode_results, episodes_per_fold=episodes_per_fold)
+    # Add bf1_1px to site, image, strata, fold, and macro summaries
+    site_ep_bf1_1: dict[str, list[float]] = defaultdict(list)
+    img_ep_bf1_1: dict[str, list[float]] = defaultdict(list)
+    for ep_res in episode_results:
+        for sr in ep_res["site_rows"]:
+            if sr.get("bf1_1px") is not None:
+                site_ep_bf1_1[sr["site"]].append(float(sr["bf1_1px"]))
+        for qid, im in ep_res["per_image"].items():
+            if im.get("bf1_1px") is not None:
+                img_ep_bf1_1[qid].append(float(im["bf1_1px"]))
+
+    for s, vals in site_ep_bf1_1.items():
+        agg["sites"][s]["bf1_1px"] = float(np.mean(vals))
+    for qid, vals in img_ep_bf1_1.items():
+        agg["images"][qid]["bf1_1px"] = float(np.mean(vals))
+    pos_sites = [v for v in agg["sites"].values() if v["positive_images"] > 0]
+    agg["macro"]["bf1_1px"] = float(np.mean([v["bf1_1px"] for v in pos_sites]))
+    for f in range(4):
+        f_pos = [v for v in pos_sites if v["fold"] == f]
+        agg["folds"][str(f)]["bf1_1px"] = float(np.mean([v["bf1_1px"] for v in f_pos]))
+    return agg
+

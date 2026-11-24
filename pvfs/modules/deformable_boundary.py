@@ -10,14 +10,119 @@ import numpy as np
 from scipy.ndimage import binary_erosion, distance_transform_edt, label as nd_label
 
 from ..metrics import BOX_3
-from ..phase_boundary import (
-    CROSS_3,
-    _bilinear_sample_2d,
-    _order_boundary_cycles,
-    check_topology_preserved,
-    compute_luma_and_detrended_residual,
-    compute_scharr_gradient_magnitude,
-)
+
+CROSS_3 = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], dtype=bool)
+
+
+def _compute_luma(rgb: np.ndarray) -> np.ndarray:
+    """Convert RGB [3, H, W] or [H, W, 3] uint8/float image to [H, W] float32 luminance in [0, 1]."""
+    arr = np.asarray(rgb, dtype=np.float32)
+    if arr.ndim == 3:
+        if arr.shape[0] == 3 and arr.shape[-1] != 3:
+            arr = np.transpose(arr, (1, 2, 0))
+        if arr.max() > 1.5:
+            arr = arr / 255.0
+        return (0.299 * arr[..., 0] + 0.587 * arr[..., 1] + 0.114 * arr[..., 2]).astype(np.float32)
+    return (arr / 255.0 if arr.max() > 1.5 else arr.copy()).astype(np.float32)
+
+
+def compute_scharr_gradient_magnitude(luma: np.ndarray) -> np.ndarray:
+    """Compute normalized Scharr gradient magnitude ||nabla I(x)||."""
+    p = np.pad(luma.astype(np.float32), 1, mode="reflect")
+    gx = (
+        3.0 * (p[:-2, 2:] - p[:-2, :-2])
+        + 10.0 * (p[1:-1, 2:] - p[1:-1, :-2])
+        + 3.0 * (p[2:, 2:] - p[2:, :-2])
+    ) / 32.0
+    gy = (
+        3.0 * (p[2:, :-2] - p[:-2, :-2])
+        + 10.0 * (p[2:, 1:-1] - p[:-2, 1:-1])
+        + 3.0 * (p[2:, 2:] - p[:-2, 2:])
+    ) / 32.0
+    mag = np.sqrt(gx * gx + gy * gy)
+    scale = float(np.quantile(mag, 0.98))
+    if scale > 1e-5:
+        mag = np.clip(mag / scale, 0.0, 2.0)
+    return mag.astype(np.float32)
+
+
+def _bilinear_sample_2d(img: np.ndarray, xs: np.ndarray, ys: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Bilinear sample img at continuous (x_col, y_row) coordinates with integer pixel centers."""
+    h, w = img.shape
+    valid = (xs >= 0.0) & (xs <= w - 1.0) & (ys >= 0.0) & (ys <= h - 1.0)
+    xc = np.clip(xs, 0.0, w - 1.0001)
+    yc = np.clip(ys, 0.0, h - 1.0001)
+    x0 = np.floor(xc).astype(np.int32)
+    y0 = np.floor(yc).astype(np.int32)
+    x1 = np.minimum(x0 + 1, w - 1)
+    y1 = np.minimum(y0 + 1, h - 1)
+    wx = (xc - x0).astype(np.float32)
+    wy = (yc - y0).astype(np.float32)
+    val = (
+        (1.0 - wy) * ((1.0 - wx) * img[y0, x0] + wx * img[y0, x1])
+        + wy * ((1.0 - wx) * img[y1, x0] + wx * img[y1, x1])
+    )
+    return val.astype(np.float32), valid
+
+
+def check_topology_preserved(
+    m_old: np.ndarray,
+    m_new: np.ndarray,
+    *,
+    bbox: tuple[int, int, int, int] | None = None,
+    n_fg_old: int | None = None,
+    n_bg_old: int | None = None,
+) -> bool:
+    """Verify foreground (8-conn) and background/hole (4-conn) component counts are unchanged."""
+    if bbox is not None:
+        y0, y1, x0, x1 = bbox
+        sub_old = m_old[y0:y1, x0:x1]
+        sub_new = m_new[y0:y1, x0:x1]
+        if nd_label(sub_old, structure=BOX_3)[1] != nd_label(sub_new, structure=BOX_3)[1]:
+            return False
+        return nd_label(~sub_old, structure=CROSS_3)[1] == nd_label(~sub_new, structure=CROSS_3)[1]
+
+    if n_fg_old is None:
+        _, n_fg_old = nd_label(m_old, structure=BOX_3)
+    if n_bg_old is None:
+        _, n_bg_old = nd_label(~m_old, structure=CROSS_3)
+    if nd_label(m_new, structure=BOX_3)[1] != n_fg_old:
+        return False
+    return nd_label(~m_new, structure=CROSS_3)[1] == n_bg_old
+
+
+def _order_boundary_cycles(boundary_mask: np.ndarray) -> list[np.ndarray]:
+    """Trace ordered 8-connected boundary pixel loops as arrays of shape [L, 2] in (x, y) order."""
+    ys, xs = np.nonzero(boundary_mask)
+    if len(xs) == 0:
+        return []
+    coords = np.stack([xs, ys], axis=1).astype(np.int32)
+    coord_map: dict[tuple[int, int], int] = {(int(x), int(y)): i for i, (x, y) in enumerate(coords)}
+    visited = np.zeros(len(coords), dtype=bool)
+    cycles: list[np.ndarray] = []
+
+    for start_idx in range(len(coords)):
+        if visited[start_idx]:
+            continue
+        chain = [start_idx]
+        visited[start_idx] = True
+        cur = start_idx
+        while True:
+            cx, cy = int(coords[cur, 0]), int(coords[cur, 1])
+            nxt = -1
+            for dx, dy in [(1, 0), (0, 1), (-1, 0), (0, -1), (1, 1), (-1, 1), (-1, -1), (1, -1)]:
+                j = coord_map.get((cx + dx, cy + dy), -1)
+                if j >= 0 and not visited[j]:
+                    nxt = j
+                    break
+            if nxt < 0:
+                break
+            visited[nxt] = True
+            chain.append(nxt)
+            cur = nxt
+        if len(chain) >= 4:
+            cycles.append(coords[chain])
+    return cycles
 
 
 @dataclass(frozen=True)
@@ -555,7 +660,7 @@ def refine_mask_deformable_grad(
     if gt_mask_offline is None:
         if rgb_512 is None:
             raise ValueError("rgb_512 is required for deformable gradient refinement")
-        luma, _, _ = compute_luma_and_detrended_residual(rgb_512)
+        luma = _compute_luma(rgb_512)
         grad_mag = compute_scharr_gradient_magnitude(luma)
 
     _, num_fg_init, loops = build_deformable_loops(m0_b, cfg)

@@ -18,14 +18,11 @@ from torch.nn import functional as F
 
 from .data import area_target_32
 from .dinov3_backbone import SAT_MEAN, SAT_STD, prepare_dinov3_source, resolve_dinov3_weights
-from .fast_bank import select_fg_bg_indices
+from .fast_bank import _to_tokens_norm, select_fg_bg_indices
 from .io import read_json, write_json
-from .iter3_methods import _to_tokens_norm
-from .metrics import BOX_3, DISK_2, average_precision, paired_site_bootstrap
-from .modules import ThreeModulePipeline, get_b0_32_config, get_m3_pruned_config
+from .metrics import BOX_3, DISK_1, DISK_2, DISK_8, average_precision, evaluate_binary_mask_512, paired_site_bootstrap
+from .modules import ThreeModulePipeline, get_b0_32_config, get_clean_core_config
 from .modules.deformable_boundary import DeformableBoundaryConfig, refine_mask_deformable_grad
-from .phase_boundary import DISK_1, DISK_8
-from .phase_boundary_eval import evaluate_binary_mask_512
 
 # Module-level shared read-only state for Linux fork workers (zero-copy RGB lookup)
 _FORK_RGB_512_BY_ID: dict[str, np.ndarray] = {}
@@ -686,7 +683,7 @@ def run_pv663_evaluation_from_features(
     }
 
     pipe_b0 = ThreeModulePipeline(get_b0_32_config())
-    pipe_r = ThreeModulePipeline(get_m3_pruned_config())
+    pipe_r = ThreeModulePipeline(get_clean_core_config())
     def_cfg = DeformableBoundaryConfig.from_json(deform_config_json, mode="deformable_grad")
 
     ep_by_k: dict[int, list[dict[str, Any]]] = defaultdict(list)

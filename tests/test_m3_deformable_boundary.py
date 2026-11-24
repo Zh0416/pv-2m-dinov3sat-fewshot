@@ -5,12 +5,13 @@ import unittest
 
 import numpy as np
 
+from pvfs.metrics import boundary_f1_at_radius
 from pvfs.modules.deformable_boundary import (
     DeformableBoundaryConfig,
     build_deformable_loops,
+    check_topology_preserved,
     refine_mask_deformable_grad,
 )
-from pvfs.phase_boundary import boundary_f1_at_radius, check_topology_preserved
 
 
 class M3DeformableBoundaryTests(unittest.TestCase):
