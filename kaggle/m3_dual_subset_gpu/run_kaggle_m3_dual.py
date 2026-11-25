@@ -6,7 +6,7 @@ import subprocess
 import sys
 
 REPO_URL = "https://github.com/Zh0416/pv-2m-dinov3sat-fewshot.git"
-REPO_BRANCH = "m3-multires-iter1"
+REPO_BRANCH = "m3-pbdc-slim-params"
 REPO_DIR = Path("/tmp/pv-2m-dinov3sat-fewshot")
 SOURCE_DIR = Path("/tmp/dinov3-source")
 PV663_FEAT_DIR = Path("/tmp/pv663_subset_feats")

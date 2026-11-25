@@ -47,27 +47,27 @@ class PBDCConfig:
     # Local interior core prototype estimation
     local_proto_radius_px: float = 24.0
 
-    # Multi-scale half-pixel-centered step taps
+    # Multi-scale half-pixel-centered step taps (asym = midpoint of narrow & wide)
     step_tap_narrow_px: float = 1.0
-    step_tap_wide_px: float = 2.8
-    asym_tap_px: float = 1.8
+    step_tap_wide_px: float = 3.0
+    asym_tap_px: float = 2.0
 
-    # Self-lock & variational resistance weights (strictly zero positive balloon force!)
-    w_edge: float = 1.60
-    self_lock_ratio: float = 0.28
-    self_lock_floor: float = 0.055
-    w_reg_veto: float = 0.42
-    w_sem: float = 1.35
-    w_slope: float = 0.055
-    w_disp: float = 0.025
+    # Normalized variational resistance weights (edge term normalized to 1.0, zero positive balloon force)
+    w_edge: float = 1.00
+    self_lock_ratio: float = 0.25
+    self_lock_floor: float = 0.05
+    w_reg_veto: float = 0.25
+    w_sem: float = 0.85
+    w_slope: float = 0.04
+    w_disp: float = 0.02
 
     # Semantic uncertainty band [max(p_floor, out_p_min), in_p_max] & loop gain gate
-    default_p_floor: float = 0.34
-    out_p_min: float = 0.34
-    in_p_max: float = 0.72
-    k1_p_floor: float = 0.38
+    default_p_floor: float = 0.35
+    out_p_min: float = 0.35
+    in_p_max: float = 0.70
+    k1_p_floor: float = 0.40
     k1_max_outward_px: int = 4
-    min_gain_per_moved_px: float = 0.070
+    min_gain_per_moved_px: float = 0.04
 
 
 def compute_opponent_color_maps(rgb: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -139,9 +139,9 @@ def _estimate_arc_interior_prototypes(
         if int(loc.sum()) >= 16:
             loc_cols = in_cols[loc]
             mu_loc = np.median(loc_cols, axis=0).astype(np.float32)
-            mu_in = (0.80 * mu_loc + 0.20 * mu_comp).astype(np.float32)
+            mu_in = (0.75 * mu_loc + 0.25 * mu_comp).astype(np.float32)
             sig_loc = max(0.025, 1.4826 * float(np.median(np.linalg.norm(loc_cols - mu_in[None, :], axis=-1))))
-            sig_in = 0.70 * sig_loc + 0.30 * sig_comp
+            sig_in = 0.75 * sig_loc + 0.25 * sig_comp
         else:
             mu_in = mu_comp
             sig_in = sig_comp
@@ -174,7 +174,7 @@ def _precompute_arc_boundary_profile(
 
     ok_all = ok1 & ok2 & ok3 & ok4 & ok5 & ok6
     mu_in = proto["mu_in"]
-    denom = proto["sig_in"] + 0.035
+    denom = proto["sig_in"] + 0.03
 
     # 1. Multi-scale directionally coherent step jump (kills <=2px internal panel seams/ridges!)
     dc1 = c_in1 - c_out1
@@ -188,7 +188,7 @@ def _precompute_arc_boundary_profile(
     d_phi = np.maximum(0.0, phi_out - phi_in)
     w_inner = np.exp(-np.square(np.maximum(0.0, phi_in - 1.50)))
 
-    e_bnd = w_inner * np.tanh(0.55 * np.sqrt(s_coherent * d_phi))
+    e_bnd = w_inner * np.tanh(0.50 * np.sqrt(s_coherent * d_phi))
     return np.where(ok_all, e_bnd, 0.0).astype(np.float32), ok_all
 
 
@@ -365,13 +365,13 @@ def solve_pbdc_loop_dp(
         # 2. Vectorized one-sided corridor region veto & semantic transport resistance [P]
         cor_cols = color_smooth[arc.corridor_y, arc.corridor_x]
         cor_probs = prob_512[arc.corridor_y, arc.corridor_x]
-        denom = proto["sig_in"] + 0.035
+        denom = proto["sig_in"] + 0.03
         cor_phi = np.linalg.norm(cor_cols - proto["mu_in"][None, :], axis=-1) / denom  # [N_v]
 
-        add_reg_cost = np.maximum(0.0, cor_phi - 1.45)  # [N_v] >= 0: penalizes swallowing non-PV exterior
-        rem_reg_cost = np.maximum(0.0, 1.25 - cor_phi) * np.maximum(0.0, cor_probs - 0.52) * 2.5  # penalizes cutting confident PV core
+        add_reg_cost = np.maximum(0.0, cor_phi - 1.50)  # [N_v] >= 0: penalizes swallowing non-PV exterior
+        rem_reg_cost = 2.0 * np.maximum(0.0, 1.25 - cor_phi) * np.maximum(0.0, cor_probs - 0.50)  # penalizes cutting confident PV core
         add_sem_cost = np.maximum(0.0, 0.50 - cor_probs)
-        rem_sem_cost = np.maximum(0.0, cor_probs - 0.52)
+        rem_sem_cost = np.maximum(0.0, cor_probs - 0.50)
 
         delta_cor = (1.0 - arc.corridor_u_param[:, None]) * a_arr[None, :] + arc.corridor_u_param[:, None] * b_arr[None, :]  # [N_v, P]
         in_m0 = arc.corridor_in_m0[:, None]
