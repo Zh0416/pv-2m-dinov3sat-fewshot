@@ -139,9 +139,10 @@ def run_pv100_2m_subset(
         toks = {rid: to_tokens_norm(feats[rid][key], run_device) for rid in all_ids}
         caches[key] = build_pairwise_topk_cache(toks, mask_by_id, all_ids, pos_ids, grid_hw=ghw, core_purity=0.85, top_m=3)
         tokens_by_key[key] = toks
-    aff_by_id = {rid: compute_dino_affinity_weights(tokens_by_key["deep_64"][rid], tau=0.12) for rid in all_ids}
+    core_cfg = get_clean_core_config()
+    aff_by_id = {rid: compute_dino_affinity_weights(tokens_by_key["deep_64"][rid], tau=core_cfg.aff_tau) for rid in all_ids}
 
-    pipe_core = ThreeModulePipeline(get_clean_core_config())
+    pipe_core = ThreeModulePipeline(core_cfg)
     old_cfg = DeformableBoundaryConfig.from_json(deform_config_json, mode="deformable_grad")
     pbdc_cfg = PBDCConfig(enabled=True)
 

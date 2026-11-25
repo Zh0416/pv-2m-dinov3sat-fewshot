@@ -42,7 +42,7 @@ class SmallTargetRecoveryModule:
             diag["fallback_reason"] = "insufficient_fg_seeds"
             return s_sem, diag
 
-        bg_mask = p_sem <= (1.0 - cfg.seed_prob_thr)
+        bg_mask = p_sem <= 0.30
         n_bg = int(bg_mask.sum().item())
         diag["n_bg_seeds"] = n_bg
         if n_bg < 32:
