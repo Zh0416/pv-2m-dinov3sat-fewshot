@@ -32,6 +32,7 @@ class ModelConfig:
     aff_steps: int = 2
     aff_eta: float = 0.50
     aff_tau: float = 0.10
+    ablate_no_sr_gating: bool = False
 
 
 @dataclass(frozen=True)

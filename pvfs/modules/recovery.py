@@ -31,7 +31,7 @@ class SmallTargetRecoveryModule:
             "n_bg_seeds": 0,
             "fallback_reason": "none",
         }
-        if prominence < cfg.min_prominence:
+        if (not cfg.ablate_no_sr_gating) and prominence < cfg.min_prominence:
             diag["fallback_reason"] = "low_prominence"
             return s_sem, diag
 
@@ -81,7 +81,10 @@ class SmallTargetRecoveryModule:
         mid_anchor = 0.50 * (fg_anchor + bg_anchor)
 
         delta = (s_self - mid_anchor).clamp(-0.15, 0.35)
-        fg_gate = torch.sigmoid((top_fg - fg_sim_floor) / 0.04) * torch.sigmoid(((top_fg - top_bg) - 0.05) / 0.04)
+        if cfg.ablate_no_sr_gating:
+            fg_gate = torch.ones_like(top_fg)
+        else:
+            fg_gate = torch.sigmoid((top_fg - fg_sim_floor) / 0.04) * torch.sigmoid(((top_fg - top_bg) - 0.05) / 0.04)
         boost = torch.where(delta > 0.0, cfg.qsc_weight * delta * fg_gate, 0.20 * cfg.qsc_weight * delta)
         s_res = s_sem + boost
         diag["self_rescue_triggered"] = True

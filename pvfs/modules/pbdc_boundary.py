@@ -69,6 +69,11 @@ class PBDCConfig:
     k1_max_outward_px: int = 4
     min_gain_per_moved_px: float = 0.04
 
+    # Default-off internal mechanism ablation switches (all False in production v3.0)
+    ablate_undirected_grad: bool = False
+    ablate_no_uncert_lock: bool = False
+    ablate_whole_loop_fallback: bool = False
+
 
 def compute_opponent_color_maps(rgb: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     """Compute sharp and 3x3-smoothed perceptual opponent color maps [H, W, 3] in float32."""
@@ -179,6 +184,12 @@ def _precompute_arc_boundary_profile(
     # 1. Multi-scale directionally coherent step jump (kills <=2px internal panel seams/ridges!)
     dc1 = c_in1 - c_out1
     dc2 = c_in2 - c_out2
+    if cfg.ablate_undirected_grad:
+        # I3 ablation: plain undirected color jump without interior-core anchoring or asymmetry
+        g_undir = 0.5 * (np.linalg.norm(dc1, axis=-1) + np.linalg.norm(dc2, axis=-1)) / denom
+        e_bnd = np.tanh(0.50 * g_undir)
+        return np.where(ok_all, e_bnd, 0.0).astype(np.float32), ok_all
+
     coherent_dot = np.maximum(0.0, np.sum(dc1 * dc2, axis=-1))
     s_coherent = np.sqrt(coherent_dot) / denom
 
@@ -345,7 +356,10 @@ def solve_pbdc_loop_dp(
         if not np.all(pts_ok_tbl[:, grid_zero_idx]):
             continue
         e0 = float(pts_bnd_tbl[:, grid_zero_idx].sum())
-        lock_margin = cfg.self_lock_ratio * e0 + cfg.self_lock_floor * l_pts
+        if cfg.ablate_no_uncert_lock:
+            lock_margin = 0.0
+        else:
+            lock_margin = cfg.self_lock_ratio * e0 + cfg.self_lock_floor * l_pts
 
         # Vectorized evaluation across all P valid (a, b) pairs for this arc!
         ia_arr = np.array([p[0] for p in valid_pairs], dtype=np.int32)
@@ -385,7 +399,10 @@ def solve_pbdc_loop_dp(
         add_p_mean = (cor_probs[:, None] * add_m).sum(axis=0) / np.maximum(1, add_cnt)
         rem_p_mean = (cor_probs[:, None] * rem_m).sum(axis=0) / np.maximum(1, rem_cnt)
         # Strictly stay within the semantic uncertainty ribbon [eff_p_floor, cfg.in_p_max]!
-        p_band_ok = ((add_cnt == 0) | (add_p_mean >= eff_p_floor)) & ((rem_cnt == 0) | (rem_p_mean <= cfg.in_p_max))
+        if cfg.ablate_no_uncert_lock:
+            p_band_ok = np.ones(len(valid_pairs), dtype=bool)
+        else:
+            p_band_ok = ((add_cnt == 0) | (add_p_mean >= eff_p_floor)) & ((rem_cnt == 0) | (rem_p_mean <= cfg.in_p_max))
 
         reg_veto = (add_reg_cost[:, None] * add_m + rem_reg_cost[:, None] * rem_m).sum(axis=0)  # [P] >= 0
         sem_cost = (add_sem_cost[:, None] * add_m + rem_sem_cost[:, None] * rem_m).sum(axis=0)  # [P] >= 0
@@ -409,6 +426,8 @@ def _apply_loop_with_localized_fallback(
     loop: DeformableLoop,
     path: list[int],
     arc_scores: np.ndarray,
+    *,
+    allow_sector_fallback: bool = True,
 ) -> tuple[np.ndarray, list[int], bool, int]:
     """Apply loop displacement; if full loop pinches topology, keep valid blocks via 8-sector check."""
     cy0, _, cx0, _ = loop.local_bbox
@@ -434,6 +453,8 @@ def _apply_loop_with_localized_fallback(
     sub_full = _render(path)
     if _valid_topo(sub_full):
         return sub_full, path, True, 0
+    if not allow_sector_fallback:
+        return sub_cur, [0] * loop.n_cps, False, 0
 
     n_cps = loop.n_cps
     n_blocks = min(8, n_cps)
@@ -558,7 +579,13 @@ def refine_mask_pbdc(
 
         cy0, cy1, cx0, cx1 = loop.local_bbox
         sub_cur = m_cur[cy0:cy1, cx0:cx1]
-        sub_new, applied_path, ok_apply, fb_used = _apply_loop_with_localized_fallback(sub_cur, loop, path, arc_scores)
+        sub_new, applied_path, ok_apply, fb_used = _apply_loop_with_localized_fallback(
+            sub_cur,
+            loop,
+            path,
+            arc_scores,
+            allow_sector_fallback=(not cfg.ablate_whole_loop_fallback),
+        )
         loc_fallbacks += fb_used
         if not ok_apply:
             topo_reverts += 1

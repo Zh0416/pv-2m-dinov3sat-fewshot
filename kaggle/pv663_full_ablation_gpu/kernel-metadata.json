@@ -1,0 +1,19 @@
+{
+  "id": "zh0416/pv663-full-ablation-v3-gpu",
+  "title": "PV663 Full Ablation v3 GPU",
+  "code_file": "run_kaggle_pv663_ablation.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "zh0416/pv-dinov3sat-663-v1",
+    "zh0416/dinov3-sat-geovit-l-14-336"
+  ],
+  "model_sources": [],
+  "kernel_sources": [],
+  "competition_sources": []
+}
