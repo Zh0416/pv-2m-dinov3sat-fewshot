@@ -1,0 +1,1023 @@
+{
+  "schema": "pv663-stratified-subset-v1",
+  "min_support_query_distance_km": 5.1727,
+  "episodes_per_k": 6,
+  "support_records": [
+    {
+      "id": "PV08_314140_1209573.bmp",
+      "image_rel": "images/PV08_314140_1209573.bmp",
+      "mask_rel": "mask/PV08_314140_1209573_label.bmp",
+      "lat": 31.414,
+      "lon": 120.9573,
+      "positive": true,
+      "target_fraction_1024": 0.008181571960449219,
+      "target_fraction": 0.008617401123046875,
+      "site": "pv663_site_001",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_320381_1199142.bmp",
+      "image_rel": "images/PV08_320381_1199142.bmp",
+      "mask_rel": "mask/PV08_320381_1199142_label.bmp",
+      "lat": 32.0381,
+      "lon": 119.9142,
+      "positive": true,
+      "target_fraction_1024": 0.013680458068847656,
+      "target_fraction": 0.013916015625,
+      "site": "pv663_site_022",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_341059_1196725.bmp",
+      "image_rel": "images/PV08_341059_1196725.bmp",
+      "mask_rel": "mask/PV08_341059_1196725_label.bmp",
+      "lat": 34.1059,
+      "lon": 119.6725,
+      "positive": true,
+      "target_fraction_1024": 0.026000022888183594,
+      "target_fraction": 0.026371002197265625,
+      "site": "pv663_site_116",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_325211_1210822.bmp",
+      "image_rel": "images/PV08_325211_1210822.bmp",
+      "mask_rel": "mask/PV08_325211_1210822_label.bmp",
+      "lat": 32.5211,
+      "lon": 121.0822,
+      "positive": true,
+      "target_fraction_1024": 0.03362083435058594,
+      "target_fraction": 0.033962249755859375,
+      "site": "pv663_site_034",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_336027_1193920.bmp",
+      "image_rel": "images/PV08_336027_1193920.bmp",
+      "mask_rel": "mask/PV08_336027_1193920_label.bmp",
+      "lat": 33.6027,
+      "lon": 119.392,
+      "positive": true,
+      "target_fraction_1024": 0.04810810089111328,
+      "target_fraction": 0.04860687255859375,
+      "site": "pv663_site_087",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_326070_1200272.bmp",
+      "image_rel": "images/PV08_326070_1200272.bmp",
+      "mask_rel": "mask/PV08_326070_1200272_label.bmp",
+      "lat": 32.607,
+      "lon": 120.0272,
+      "positive": true,
+      "target_fraction_1024": 0.05364799499511719,
+      "target_fraction": 0.054935455322265625,
+      "site": "pv663_site_037",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_342952_1191201.bmp",
+      "image_rel": "images/PV08_342952_1191201.bmp",
+      "mask_rel": "mask/PV08_342952_1191201_label.bmp",
+      "lat": 34.2952,
+      "lon": 119.1201,
+      "positive": true,
+      "target_fraction_1024": 0.0707254409790039,
+      "target_fraction": 0.07282638549804688,
+      "site": "pv663_site_122",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_330406_1192555.bmp",
+      "image_rel": "images/PV08_330406_1192555.bmp",
+      "mask_rel": "mask/PV08_330406_1192555_label.bmp",
+      "lat": 33.0406,
+      "lon": 119.2555,
+      "positive": true,
+      "target_fraction_1024": 0.11696147918701172,
+      "target_fraction": 0.1182708740234375,
+      "site": "pv663_site_059",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_338031_1196471.bmp",
+      "image_rel": "images/PV08_338031_1196471.bmp",
+      "mask_rel": "mask/PV08_338031_1196471_label.bmp",
+      "lat": 33.8031,
+      "lon": 119.6471,
+      "positive": true,
+      "target_fraction_1024": 0.13855648040771484,
+      "target_fraction": 0.13908767700195312,
+      "site": "pv663_site_098",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_347912_1166449.bmp",
+      "image_rel": "images/PV08_347912_1166449.bmp",
+      "mask_rel": "mask/PV08_347912_1166449_label.bmp",
+      "lat": 34.7912,
+      "lon": 116.6449,
+      "positive": true,
+      "target_fraction_1024": 0.17267799377441406,
+      "target_fraction": 0.1751861572265625,
+      "site": "pv663_site_140",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_340235_1175797.bmp",
+      "image_rel": "images/PV08_340235_1175797.bmp",
+      "mask_rel": "mask/PV08_340235_1175797_label.bmp",
+      "lat": 34.0235,
+      "lon": 117.5797,
+      "positive": true,
+      "target_fraction_1024": 0.1967296600341797,
+      "target_fraction": 0.19855880737304688,
+      "site": "pv663_site_112",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_347313_1191781.bmp",
+      "image_rel": "images/PV08_347313_1191781.bmp",
+      "mask_rel": "mask/PV08_347313_1191781_label.bmp",
+      "lat": 34.7313,
+      "lon": 119.1781,
+      "positive": true,
+      "target_fraction_1024": 0.2527170181274414,
+      "target_fraction": 0.25775146484375,
+      "site": "pv663_site_139",
+      "partition": "support_pool",
+      "fold": null
+    },
+    {
+      "id": "PV08_327662_1209103.bmp",
+      "image_rel": "images/PV08_327662_1209103.bmp",
+      "mask_rel": "mask/PV08_327662_1209103_label.bmp",
+      "lat": 32.7662,
+      "lon": 120.9103,
+      "positive": true,
+      "target_fraction_1024": 0.29585742950439453,
+      "target_fraction": 0.3008232116699219,
+      "site": "pv663_site_046",
+      "partition": "support_pool",
+      "fold": null
+    }
+  ],
+  "query_records": [
+    {
+      "id": "PV08_326513_1201232.bmp",
+      "image_rel": "images/PV08_326513_1201232.bmp",
+      "mask_rel": "mask/PV08_326513_1201232_label.bmp",
+      "lat": 32.6513,
+      "lon": 120.1232,
+      "positive": true,
+      "target_fraction_1024": 0.003078460693359375,
+      "target_fraction": 0.003200531005859375,
+      "site": "pv663_site_042",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_327518_1208577.bmp",
+      "image_rel": "images/PV08_327518_1208577.bmp",
+      "mask_rel": "mask/PV08_327518_1208577_label.bmp",
+      "lat": 32.7518,
+      "lon": 120.8577,
+      "positive": true,
+      "target_fraction_1024": 0.004466056823730469,
+      "target_fraction": 0.00467681884765625,
+      "site": "pv663_site_044",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_314619_1199320.bmp",
+      "image_rel": "images/PV08_314619_1199320.bmp",
+      "mask_rel": "mask/PV08_314619_1199320_label.bmp",
+      "lat": 31.4619,
+      "lon": 119.932,
+      "positive": true,
+      "target_fraction_1024": 0.006175994873046875,
+      "target_fraction": 0.00635528564453125,
+      "site": "pv663_site_002",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_321045_1198274.bmp",
+      "image_rel": "images/PV08_321045_1198274.bmp",
+      "mask_rel": "mask/PV08_321045_1198274_label.bmp",
+      "lat": 32.1045,
+      "lon": 119.8274,
+      "positive": true,
+      "target_fraction_1024": 0.0067958831787109375,
+      "target_fraction": 0.0068511962890625,
+      "site": "pv663_site_023",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_318897_1204166.bmp",
+      "image_rel": "images/PV08_318897_1204166.bmp",
+      "mask_rel": "mask/PV08_318897_1204166_label.bmp",
+      "lat": 31.8897,
+      "lon": 120.4166,
+      "positive": true,
+      "target_fraction_1024": 0.008194923400878906,
+      "target_fraction": 0.0086517333984375,
+      "site": "pv663_site_018",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_317420_1204073.bmp",
+      "image_rel": "images/PV08_317420_1204073.bmp",
+      "mask_rel": "mask/PV08_317420_1204073_label.bmp",
+      "lat": 31.742,
+      "lon": 120.4073,
+      "positive": true,
+      "target_fraction_1024": 0.016553878784179688,
+      "target_fraction": 0.01688385009765625,
+      "site": "pv663_site_011",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_344080_1194664.bmp",
+      "image_rel": "images/PV08_344080_1194664.bmp",
+      "mask_rel": "mask/PV08_344080_1194664_label.bmp",
+      "lat": 34.408,
+      "lon": 119.4664,
+      "positive": true,
+      "target_fraction_1024": 0.018402099609375,
+      "target_fraction": 0.018657684326171875,
+      "site": "pv663_site_130",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_319333_1193859.bmp",
+      "image_rel": "images/PV08_319333_1193859.bmp",
+      "mask_rel": "mask/PV08_319333_1193859_label.bmp",
+      "lat": 31.9333,
+      "lon": 119.3859,
+      "positive": true,
+      "target_fraction_1024": 0.02330780029296875,
+      "target_fraction": 0.0235748291015625,
+      "site": "pv663_site_020",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_324768_1189203.bmp",
+      "image_rel": "images/PV08_324768_1189203.bmp",
+      "mask_rel": "mask/PV08_324768_1189203_label.bmp",
+      "lat": 32.4768,
+      "lon": 118.9203,
+      "positive": true,
+      "target_fraction_1024": 0.024438858032226562,
+      "target_fraction": 0.02558135986328125,
+      "site": "pv663_site_033",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_328877_1199747.bmp",
+      "image_rel": "images/PV08_328877_1199747.bmp",
+      "mask_rel": "mask/PV08_328877_1199747_label.bmp",
+      "lat": 32.8877,
+      "lon": 119.9747,
+      "positive": true,
+      "target_fraction_1024": 0.028530120849609375,
+      "target_fraction": 0.028766632080078125,
+      "site": "pv663_site_051",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_316757_1203293.bmp",
+      "image_rel": "images/PV08_316757_1203293.bmp",
+      "mask_rel": "mask/PV08_316757_1203293_label.bmp",
+      "lat": 31.6757,
+      "lon": 120.3293,
+      "positive": true,
+      "target_fraction_1024": 0.02923870086669922,
+      "target_fraction": 0.029972076416015625,
+      "site": "pv663_site_010",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_337369_1202220.bmp",
+      "image_rel": "images/PV08_337369_1202220.bmp",
+      "mask_rel": "mask/PV08_337369_1202220_label.bmp",
+      "lat": 33.7369,
+      "lon": 120.222,
+      "positive": true,
+      "target_fraction_1024": 0.03153800964355469,
+      "target_fraction": 0.03228759765625,
+      "site": "pv663_site_094",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_337923_1178516.bmp",
+      "image_rel": "images/PV08_337923_1178516.bmp",
+      "mask_rel": "mask/PV08_337923_1178516_label.bmp",
+      "lat": 33.7923,
+      "lon": 117.8516,
+      "positive": true,
+      "target_fraction_1024": 0.034644126892089844,
+      "target_fraction": 0.034908294677734375,
+      "site": "pv663_site_096",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_344692_1167469.bmp",
+      "image_rel": "images/PV08_344692_1167469.bmp",
+      "mask_rel": "mask/PV08_344692_1167469_label.bmp",
+      "lat": 34.4692,
+      "lon": 116.7469,
+      "positive": true,
+      "target_fraction_1024": 0.035472869873046875,
+      "target_fraction": 0.0361480712890625,
+      "site": "pv663_site_133",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_329613_1197556.bmp",
+      "image_rel": "images/PV08_329613_1197556.bmp",
+      "mask_rel": "mask/PV08_329613_1197556_label.bmp",
+      "lat": 32.9613,
+      "lon": 119.7556,
+      "positive": true,
+      "target_fraction_1024": 0.041184425354003906,
+      "target_fraction": 0.041591644287109375,
+      "site": "pv663_site_056",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_333935_1183280.bmp",
+      "image_rel": "images/PV08_333935_1183280.bmp",
+      "mask_rel": "mask/PV08_333935_1183280_label.bmp",
+      "lat": 33.3935,
+      "lon": 118.328,
+      "positive": true,
+      "target_fraction_1024": 0.04636669158935547,
+      "target_fraction": 0.046966552734375,
+      "site": "pv663_site_079",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_343851_1193151.bmp",
+      "image_rel": "images/PV08_343851_1193151.bmp",
+      "mask_rel": "mask/PV08_343851_1193151_label.bmp",
+      "lat": 34.3851,
+      "lon": 119.3151,
+      "positive": true,
+      "target_fraction_1024": 0.04664325714111328,
+      "target_fraction": 0.04730987548828125,
+      "site": "pv663_site_127",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_336185_1196567.bmp",
+      "image_rel": "images/PV08_336185_1196567.bmp",
+      "mask_rel": "mask/PV08_336185_1196567_label.bmp",
+      "lat": 33.6185,
+      "lon": 119.6567,
+      "positive": true,
+      "target_fraction_1024": 0.050124168395996094,
+      "target_fraction": 0.05042266845703125,
+      "site": "pv663_site_088",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_348180_1189265.bmp",
+      "image_rel": "images/PV08_348180_1189265.bmp",
+      "mask_rel": "mask/PV08_348180_1189265_label.bmp",
+      "lat": 34.818,
+      "lon": 118.9265,
+      "positive": true,
+      "target_fraction_1024": 0.054001808166503906,
+      "target_fraction": 0.055866241455078125,
+      "site": "pv663_site_143",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_333799_1191822.bmp",
+      "image_rel": "images/PV08_333799_1191822.bmp",
+      "mask_rel": "mask/PV08_333799_1191822_label.bmp",
+      "lat": 33.3799,
+      "lon": 119.1822,
+      "positive": true,
+      "target_fraction_1024": 0.06552505493164062,
+      "target_fraction": 0.06632232666015625,
+      "site": "pv663_site_080",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_323851_1213939.bmp",
+      "image_rel": "images/PV08_323851_1213939.bmp",
+      "mask_rel": "mask/PV08_323851_1213939_label.bmp",
+      "lat": 32.3851,
+      "lon": 121.3939,
+      "positive": true,
+      "target_fraction_1024": 0.07470703125,
+      "target_fraction": 0.07570266723632812,
+      "site": "pv663_site_032",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_319148_1217852.bmp",
+      "image_rel": "images/PV08_319148_1217852.bmp",
+      "mask_rel": "mask/PV08_319148_1217852_label.bmp",
+      "lat": 31.9148,
+      "lon": 121.7852,
+      "positive": true,
+      "target_fraction_1024": 0.08987712860107422,
+      "target_fraction": 0.09162139892578125,
+      "site": "pv663_site_019",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_328940_1194844.bmp",
+      "image_rel": "images/PV08_328940_1194844.bmp",
+      "mask_rel": "mask/PV08_328940_1194844_label.bmp",
+      "lat": 32.894,
+      "lon": 119.4844,
+      "positive": true,
+      "target_fraction_1024": 0.0973520278930664,
+      "target_fraction": 0.09785842895507812,
+      "site": "pv663_site_050",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_333526_1203354.bmp",
+      "image_rel": "images/PV08_333526_1203354.bmp",
+      "mask_rel": "mask/PV08_333526_1203354_label.bmp",
+      "lat": 33.3526,
+      "lon": 120.3354,
+      "positive": true,
+      "target_fraction_1024": 0.1002950668334961,
+      "target_fraction": 0.1011810302734375,
+      "site": "pv663_site_077",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_340747_1192732.bmp",
+      "image_rel": "images/PV08_340747_1192732.bmp",
+      "mask_rel": "mask/PV08_340747_1192732_label.bmp",
+      "lat": 34.0747,
+      "lon": 119.2732,
+      "positive": true,
+      "target_fraction_1024": 0.1089925765991211,
+      "target_fraction": 0.11051559448242188,
+      "site": "pv663_site_113",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_344460_1198584.bmp",
+      "image_rel": "images/PV08_344460_1198584.bmp",
+      "mask_rel": "mask/PV08_344460_1198584_label.bmp",
+      "lat": 34.446,
+      "lon": 119.8584,
+      "positive": true,
+      "target_fraction_1024": 0.11866569519042969,
+      "target_fraction": 0.12041854858398438,
+      "site": "pv663_site_132",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_332400_1179443.bmp",
+      "image_rel": "images/PV08_332400_1179443.bmp",
+      "mask_rel": "mask/PV08_332400_1179443_label.bmp",
+      "lat": 33.24,
+      "lon": 117.9443,
+      "positive": true,
+      "target_fraction_1024": 0.1329488754272461,
+      "target_fraction": 0.13480758666992188,
+      "site": "pv663_site_073",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_331067_1192023.bmp",
+      "image_rel": "images/PV08_331067_1192023.bmp",
+      "mask_rel": "mask/PV08_331067_1192023_label.bmp",
+      "lat": 33.1067,
+      "lon": 119.2023,
+      "positive": true,
+      "target_fraction_1024": 0.13869953155517578,
+      "target_fraction": 0.139556884765625,
+      "site": "pv663_site_061",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_326480_1209178.bmp",
+      "image_rel": "images/PV08_326480_1209178.bmp",
+      "mask_rel": "mask/PV08_326480_1209178_label.bmp",
+      "lat": 32.648,
+      "lon": 120.9178,
+      "positive": true,
+      "target_fraction_1024": 0.14618492126464844,
+      "target_fraction": 0.14798355102539062,
+      "site": "pv663_site_041",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_338323_1204612.bmp",
+      "image_rel": "images/PV08_338323_1204612.bmp",
+      "mask_rel": "mask/PV08_338323_1204612_label.bmp",
+      "lat": 33.8323,
+      "lon": 120.4612,
+      "positive": true,
+      "target_fraction_1024": 0.14853954315185547,
+      "target_fraction": 0.15056991577148438,
+      "site": "pv663_site_101",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_318725_1191092.bmp",
+      "image_rel": "images/PV08_318725_1191092.bmp",
+      "mask_rel": "mask/PV08_318725_1191092_label.bmp",
+      "lat": 31.8725,
+      "lon": 119.1092,
+      "positive": true,
+      "target_fraction_1024": 0.16257667541503906,
+      "target_fraction": 0.16364288330078125,
+      "site": "pv663_site_017",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_346901_1164613.bmp",
+      "image_rel": "images/PV08_346901_1164613.bmp",
+      "mask_rel": "mask/PV08_346901_1164613_label.bmp",
+      "lat": 34.6901,
+      "lon": 116.4613,
+      "positive": true,
+      "target_fraction_1024": 0.1717081069946289,
+      "target_fraction": 0.17376327514648438,
+      "site": "pv663_site_136",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_336703_1186230.bmp",
+      "image_rel": "images/PV08_336703_1186230.bmp",
+      "mask_rel": "mask/PV08_336703_1186230_label.bmp",
+      "lat": 33.6703,
+      "lon": 118.623,
+      "positive": true,
+      "target_fraction_1024": 0.18717384338378906,
+      "target_fraction": 0.18877792358398438,
+      "site": "pv663_site_092",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_340828_1175958.bmp",
+      "image_rel": "images/PV08_340828_1175958.bmp",
+      "mask_rel": "mask/PV08_340828_1175958_label.bmp",
+      "lat": 34.0828,
+      "lon": 117.5958,
+      "positive": true,
+      "target_fraction_1024": 0.1945810317993164,
+      "target_fraction": 0.19766998291015625,
+      "site": "pv663_site_115",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_340741_1179243.bmp",
+      "image_rel": "images/PV08_340741_1179243.bmp",
+      "mask_rel": "mask/PV08_340741_1179243_label.bmp",
+      "lat": 34.0741,
+      "lon": 117.9243,
+      "positive": true,
+      "target_fraction_1024": 0.2015838623046875,
+      "target_fraction": 0.20339584350585938,
+      "site": "pv663_site_114",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_334856_1196925.bmp",
+      "image_rel": "images/PV08_334856_1196925.bmp",
+      "mask_rel": "mask/PV08_334856_1196925_label.bmp",
+      "lat": 33.4856,
+      "lon": 119.6925,
+      "positive": true,
+      "target_fraction_1024": 0.224273681640625,
+      "target_fraction": 0.22692489624023438,
+      "site": "pv663_site_084",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_342991_1173406.bmp",
+      "image_rel": "images/PV08_342991_1173406.bmp",
+      "mask_rel": "mask/PV08_342991_1173406_label.bmp",
+      "lat": 34.2991,
+      "lon": 117.3406,
+      "positive": true,
+      "target_fraction_1024": 0.25251102447509766,
+      "target_fraction": 0.2541847229003906,
+      "site": "pv663_site_123",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_335867_1191803.bmp",
+      "image_rel": "images/PV08_335867_1191803.bmp",
+      "mask_rel": "mask/PV08_335867_1191803_label.bmp",
+      "lat": 33.5867,
+      "lon": 119.1803,
+      "positive": true,
+      "target_fraction_1024": 0.26987361907958984,
+      "target_fraction": 0.27205657958984375,
+      "site": "pv663_site_086",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_315132_1196646.bmp",
+      "image_rel": "images/PV08_315132_1196646.bmp",
+      "mask_rel": "mask/PV08_315132_1196646_label.bmp",
+      "lat": 31.5132,
+      "lon": 119.6646,
+      "positive": true,
+      "target_fraction_1024": 0.2893199920654297,
+      "target_fraction": 0.29045867919921875,
+      "site": "pv663_site_003",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_344095_1173282.bmp",
+      "image_rel": "images/PV08_344095_1173282.bmp",
+      "mask_rel": "mask/PV08_344095_1173282_label.bmp",
+      "lat": 34.4095,
+      "lon": 117.3282,
+      "positive": true,
+      "target_fraction_1024": 0.32427501678466797,
+      "target_fraction": 0.3278083801269531,
+      "site": "pv663_site_129",
+      "partition": "query_set",
+      "fold": null
+    },
+    {
+      "id": "PV08_318452_1195163.bmp",
+      "image_rel": "images/PV08_318452_1195163.bmp",
+      "mask_rel": "mask/PV08_318452_1195163_label.bmp",
+      "lat": 31.8452,
+      "lon": 119.5163,
+      "positive": true,
+      "target_fraction_1024": 0.4958209991455078,
+      "target_fraction": 0.4988288879394531,
+      "site": "pv663_site_014",
+      "partition": "query_set",
+      "fold": null
+    }
+  ],
+  "unique_support_ids": [
+    "PV08_314140_1209573.bmp",
+    "PV08_320381_1199142.bmp",
+    "PV08_341059_1196725.bmp",
+    "PV08_325211_1210822.bmp",
+    "PV08_336027_1193920.bmp",
+    "PV08_326070_1200272.bmp",
+    "PV08_342952_1191201.bmp",
+    "PV08_330406_1192555.bmp",
+    "PV08_338031_1196471.bmp",
+    "PV08_347912_1166449.bmp",
+    "PV08_340235_1175797.bmp",
+    "PV08_347313_1191781.bmp",
+    "PV08_327662_1209103.bmp"
+  ],
+  "query_ids": [
+    "PV08_326513_1201232.bmp",
+    "PV08_327518_1208577.bmp",
+    "PV08_314619_1199320.bmp",
+    "PV08_321045_1198274.bmp",
+    "PV08_318897_1204166.bmp",
+    "PV08_317420_1204073.bmp",
+    "PV08_344080_1194664.bmp",
+    "PV08_319333_1193859.bmp",
+    "PV08_324768_1189203.bmp",
+    "PV08_328877_1199747.bmp",
+    "PV08_316757_1203293.bmp",
+    "PV08_337369_1202220.bmp",
+    "PV08_337923_1178516.bmp",
+    "PV08_344692_1167469.bmp",
+    "PV08_329613_1197556.bmp",
+    "PV08_333935_1183280.bmp",
+    "PV08_343851_1193151.bmp",
+    "PV08_336185_1196567.bmp",
+    "PV08_348180_1189265.bmp",
+    "PV08_333799_1191822.bmp",
+    "PV08_323851_1213939.bmp",
+    "PV08_319148_1217852.bmp",
+    "PV08_328940_1194844.bmp",
+    "PV08_333526_1203354.bmp",
+    "PV08_340747_1192732.bmp",
+    "PV08_344460_1198584.bmp",
+    "PV08_332400_1179443.bmp",
+    "PV08_331067_1192023.bmp",
+    "PV08_326480_1209178.bmp",
+    "PV08_338323_1204612.bmp",
+    "PV08_318725_1191092.bmp",
+    "PV08_346901_1164613.bmp",
+    "PV08_336703_1186230.bmp",
+    "PV08_340828_1175958.bmp",
+    "PV08_340741_1179243.bmp",
+    "PV08_334856_1196925.bmp",
+    "PV08_342991_1173406.bmp",
+    "PV08_335867_1191803.bmp",
+    "PV08_315132_1196646.bmp",
+    "PV08_344095_1173282.bmp",
+    "PV08_318452_1195163.bmp"
+  ],
+  "episodes": [
+    {
+      "k": 1,
+      "episode": 0,
+      "support_ids": [
+        "PV08_326070_1200272.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_037"
+      ]
+    },
+    {
+      "k": 1,
+      "episode": 1,
+      "support_ids": [
+        "PV08_336027_1193920.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_087"
+      ]
+    },
+    {
+      "k": 1,
+      "episode": 2,
+      "support_ids": [
+        "PV08_320381_1199142.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_022"
+      ]
+    },
+    {
+      "k": 1,
+      "episode": 3,
+      "support_ids": [
+        "PV08_314140_1209573.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_001"
+      ]
+    },
+    {
+      "k": 1,
+      "episode": 4,
+      "support_ids": [
+        "PV08_347313_1191781.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_139"
+      ]
+    },
+    {
+      "k": 1,
+      "episode": 5,
+      "support_ids": [
+        "PV08_336027_1193920.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_087"
+      ]
+    },
+    {
+      "k": 3,
+      "episode": 0,
+      "support_ids": [
+        "PV08_341059_1196725.bmp",
+        "PV08_338031_1196471.bmp",
+        "PV08_327662_1209103.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_116",
+        "pv663_site_098",
+        "pv663_site_046"
+      ]
+    },
+    {
+      "k": 3,
+      "episode": 1,
+      "support_ids": [
+        "PV08_314140_1209573.bmp",
+        "PV08_336027_1193920.bmp",
+        "PV08_342952_1191201.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_001",
+        "pv663_site_087",
+        "pv663_site_122"
+      ]
+    },
+    {
+      "k": 3,
+      "episode": 2,
+      "support_ids": [
+        "PV08_336027_1193920.bmp",
+        "PV08_338031_1196471.bmp",
+        "PV08_347912_1166449.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_087",
+        "pv663_site_098",
+        "pv663_site_140"
+      ]
+    },
+    {
+      "k": 3,
+      "episode": 3,
+      "support_ids": [
+        "PV08_314140_1209573.bmp",
+        "PV08_326070_1200272.bmp",
+        "PV08_340235_1175797.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_001",
+        "pv663_site_037",
+        "pv663_site_112"
+      ]
+    },
+    {
+      "k": 3,
+      "episode": 4,
+      "support_ids": [
+        "PV08_314140_1209573.bmp",
+        "PV08_336027_1193920.bmp",
+        "PV08_347912_1166449.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_001",
+        "pv663_site_087",
+        "pv663_site_140"
+      ]
+    },
+    {
+      "k": 3,
+      "episode": 5,
+      "support_ids": [
+        "PV08_314140_1209573.bmp",
+        "PV08_325211_1210822.bmp",
+        "PV08_347912_1166449.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_001",
+        "pv663_site_034",
+        "pv663_site_140"
+      ]
+    },
+    {
+      "k": 5,
+      "episode": 0,
+      "support_ids": [
+        "PV08_314140_1209573.bmp",
+        "PV08_325211_1210822.bmp",
+        "PV08_338031_1196471.bmp",
+        "PV08_347912_1166449.bmp",
+        "PV08_327662_1209103.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_001",
+        "pv663_site_034",
+        "pv663_site_098",
+        "pv663_site_140",
+        "pv663_site_046"
+      ]
+    },
+    {
+      "k": 5,
+      "episode": 1,
+      "support_ids": [
+        "PV08_341059_1196725.bmp",
+        "PV08_325211_1210822.bmp",
+        "PV08_336027_1193920.bmp",
+        "PV08_326070_1200272.bmp",
+        "PV08_342952_1191201.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_116",
+        "pv663_site_034",
+        "pv663_site_087",
+        "pv663_site_037",
+        "pv663_site_122"
+      ]
+    },
+    {
+      "k": 5,
+      "episode": 2,
+      "support_ids": [
+        "PV08_325211_1210822.bmp",
+        "PV08_336027_1193920.bmp",
+        "PV08_342952_1191201.bmp",
+        "PV08_338031_1196471.bmp",
+        "PV08_340235_1175797.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_034",
+        "pv663_site_087",
+        "pv663_site_122",
+        "pv663_site_098",
+        "pv663_site_112"
+      ]
+    },
+    {
+      "k": 5,
+      "episode": 3,
+      "support_ids": [
+        "PV08_314140_1209573.bmp",
+        "PV08_325211_1210822.bmp",
+        "PV08_336027_1193920.bmp",
+        "PV08_330406_1192555.bmp",
+        "PV08_347912_1166449.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_001",
+        "pv663_site_034",
+        "pv663_site_087",
+        "pv663_site_059",
+        "pv663_site_140"
+      ]
+    },
+    {
+      "k": 5,
+      "episode": 4,
+      "support_ids": [
+        "PV08_314140_1209573.bmp",
+        "PV08_320381_1199142.bmp",
+        "PV08_336027_1193920.bmp",
+        "PV08_326070_1200272.bmp",
+        "PV08_347313_1191781.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_001",
+        "pv663_site_022",
+        "pv663_site_087",
+        "pv663_site_037",
+        "pv663_site_139"
+      ]
+    },
+    {
+      "k": 5,
+      "episode": 5,
+      "support_ids": [
+        "PV08_341059_1196725.bmp",
+        "PV08_325211_1210822.bmp",
+        "PV08_338031_1196471.bmp",
+        "PV08_347313_1191781.bmp",
+        "PV08_327662_1209103.bmp"
+      ],
+      "support_sites": [
+        "pv663_site_116",
+        "pv663_site_034",
+        "pv663_site_098",
+        "pv663_site_139",
+        "pv663_site_046"
+      ]
+    }
+  ]
+}

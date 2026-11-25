@@ -64,7 +64,7 @@ class SmallTargetRecoveryModule:
 
         top_fg = (q_tok_64 @ q_fg.T).clamp(-1.0, 1.0).topk(m_fg, dim=1).values.mean(dim=1)
         top_bg = (q_tok_64 @ q_bg.T).clamp(-1.0, 1.0).topk(m_bg, dim=1).values.mean(dim=1)
-        s_self = top_fg - 0.85 * top_bg
+        s_self = top_fg - top_bg
 
         seed_yx = torch.stack((seed_idx // 64, seed_idx % 64), dim=1)
         near_ss = ((seed_yx[:, 0:1] - seed_yx[:, 0:1].T).abs() <= 2) & ((seed_yx[:, 1:2] - seed_yx[:, 1:2].T).abs() <= 2)
@@ -72,13 +72,13 @@ class SmallTargetRecoveryModule:
         if vc_ss >= 1:
             fg_loo = (q_fg @ q_fg.T).clamp(-1.0, 1.0).masked_fill(near_ss, -2.0).topk(min(m_fg, vc_ss), dim=1).values.mean(dim=1)
             fg_bg = (q_fg @ q_bg.T).clamp(-1.0, 1.0).topk(m_bg, dim=1).values.mean(dim=1)
-            fg_anchor = float(torch.quantile(fg_loo - 0.85 * fg_bg, 0.25).item())
-            fg_sim_floor = max(0.55, 0.78 * float(torch.quantile(fg_loo, 0.20).item()))
+            fg_anchor = float(torch.quantile(fg_loo - fg_bg, 0.25).item())
+            fg_sim_floor = max(0.55, 0.80 * float(torch.quantile(fg_loo, 0.20).item()))
         else:
             fg_anchor = float(torch.quantile(s_self[seed_idx], 0.25).item())
-            fg_sim_floor = max(0.55, 0.78 * float(torch.quantile(top_fg[seed_idx], 0.20).item()))
+            fg_sim_floor = max(0.55, 0.80 * float(torch.quantile(top_fg[seed_idx], 0.20).item()))
         bg_anchor = float(torch.quantile(s_self[bg_idx], 0.95).item())
-        mid_anchor = 0.45 * fg_anchor + 0.55 * bg_anchor
+        mid_anchor = 0.50 * (fg_anchor + bg_anchor)
 
         delta = (s_self - mid_anchor).clamp(-0.15, 0.35)
         fg_gate = torch.sigmoid((top_fg - fg_sim_floor) / 0.04) * torch.sigmoid(((top_fg - top_bg) - 0.05) / 0.04)

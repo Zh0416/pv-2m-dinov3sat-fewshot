@@ -30,8 +30,8 @@ class ModelConfig:
     qsc_weight: float = 0.40
     use_affinity: bool = True
     aff_steps: int = 2
-    aff_eta: float = 0.45
-    aff_tau: float = 0.12
+    aff_eta: float = 0.50
+    aff_tau: float = 0.10
 
 
 @dataclass(frozen=True)
