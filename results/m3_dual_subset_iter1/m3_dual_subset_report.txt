@@ -1,0 +1,74 @@
+=== MODULE 3 CROSS-RESOLUTION BENCHMARK (2m PV-100scence + 0.8m PV663 Subset) ===
+Total Elapsed: 42.4 min
+
+================ PV-100scence (2m, 50 Dev Sites) (27.5 min) ================
+
+--- M3_Off ---
+  K=1: Dice=0.6859 IoU=0.5818 BF1@1=0.2183 BF1@2=0.3361 Rec=0.7063 Prec=0.7611 Sm<5R=0.6429 NegFP=0.0339
+  K=3: Dice=0.7628 IoU=0.6720 BF1@1=0.2786 BF1@2=0.4261 Rec=0.7563 Prec=0.8386 Sm<5R=0.6806 NegFP=0.0414
+  K=5: Dice=0.8285 IoU=0.7425 BF1@1=0.3578 BF1@2=0.5258 Rec=0.8415 Prec=0.8755 Sm<5R=0.7865 NegFP=0.0323
+
+--- M3_DeformGrad_Old ---
+  K=1: Dice=0.6876 IoU=0.5843 BF1@1=0.2314 BF1@2=0.3485 Rec=0.7044 Prec=0.7652 Sm<5R=0.6418 NegFP=0.0336
+  K=3: Dice=0.7752 IoU=0.6866 BF1@1=0.3271 BF1@2=0.4693 Rec=0.7915 Prec=0.8129 Sm<5R=0.7089 NegFP=0.0414
+  K=5: Dice=0.8333 IoU=0.7486 BF1@1=0.3856 BF1@2=0.5426 Rec=0.8654 Prec=0.8548 Sm<5R=0.8140 NegFP=0.0325
+
+--- M3_PBDC ---
+  K=1: Dice=0.6904 IoU=0.5880 BF1@1=0.2492 BF1@2=0.3643 Rec=0.7126 Prec=0.7615 Sm<5R=0.6465 NegFP=0.0340
+  K=3: Dice=0.7681 IoU=0.6799 BF1@1=0.3224 BF1@2=0.4624 Rec=0.7663 Prec=0.8372 Sm<5R=0.6843 NegFP=0.0414
+  K=5: Dice=0.8332 IoU=0.7497 BF1@1=0.3981 BF1@2=0.5558 Rec=0.8510 Prec=0.8736 Sm<5R=0.7915 NegFP=0.0326
+
+--- Paired Site Bootstrap Deltas ---
+[M3_PBDC_vs_M3_Off]
+  K=1: dDice=+0.0046 CI[0.0031, 0.0063] | dBF1@2=+0.0282 CI[0.0192, 0.0372] | dSm<5R=+0.0036
+  K=3: dDice=+0.0053 CI[0.0035, 0.0073] | dBF1@2=+0.0363 CI[0.0249, 0.0484] | dSm<5R=+0.0037
+  K=5: dDice=+0.0047 CI[0.0028, 0.0069] | dBF1@2=+0.0301 CI[0.0182, 0.0417] | dSm<5R=+0.0049
+[M3_DeformGrad_Old_vs_M3_Off]
+  K=1: dDice=+0.0017 CI[0.0009, 0.0027] | dBF1@2=+0.0123 CI[0.0025, 0.0265] | dSm<5R=-0.0011
+  K=3: dDice=+0.0124 CI[0.005, 0.021] | dBF1@2=+0.0432 CI[0.0179, 0.0692] | dSm<5R=+0.0284
+  K=5: dDice=+0.0048 CI[0.0005, 0.0096] | dBF1@2=+0.0168 CI[-0.0054, 0.0405] | dSm<5R=+0.0274
+[M3_PBDC_vs_M3_DeformGrad_Old]
+  K=1: dDice=+0.0028 CI[0.001, 0.0048] | dBF1@2=+0.0159 CI[0.003, 0.0276] | dSm<5R=+0.0047
+  K=3: dDice=-0.0071 CI[-0.0153, -0.0004] | dBF1@2=-0.0068 CI[-0.0325, 0.0163] | dSm<5R=-0.0247
+  K=5: dDice=-0.0001 CI[-0.0041, 0.0035] | dBF1@2=+0.0133 CI[-0.0081, 0.0331] | dSm<5R=-0.0225
+
+--- Movement & Topology Diagnostics ---
+  K=1: Old[moved=2.7% |d|=2.84px area=-186 rev=89] | PBDC[moved=27.5% |d|=1.67px area=+396 locFB=106 rev=6]
+  K=3: Old[moved=30.6% |d|=3.89px area=+2300 rev=766] | PBDC[moved=32.0% |d|=1.72px area=+626 locFB=110 rev=7]
+  K=5: Old[moved=30.1% |d|=3.42px area=+1843 rev=713] | PBDC[moved=34.9% |d|=1.76px area=+674 locFB=108 rev=5]
+
+================ PV663 (0.8m, 48 Stratified Sites) (15.0 min) ================
+
+--- M3_Off ---
+  K=1: Dice=0.5946 IoU=0.5212 BF1@1=0.2084 BF1@2=0.3165 Rec=0.7252 Prec=0.6139 Sm<5R=0.7223
+  K=3: Dice=0.7989 IoU=0.7364 BF1@1=0.3652 BF1@2=0.5377 Rec=0.8917 Prec=0.7758 Sm<5R=0.8200
+  K=5: Dice=0.8043 IoU=0.7426 BF1@1=0.3680 BF1@2=0.5414 Rec=0.8944 Prec=0.7745 Sm<5R=0.8184
+
+--- M3_DeformGrad_Old ---
+  K=1: Dice=0.5937 IoU=0.5191 BF1@1=0.2024 BF1@2=0.3079 Rec=0.7156 Prec=0.6196 Sm<5R=0.7148
+  K=3: Dice=0.7883 IoU=0.7208 BF1@1=0.3182 BF1@2=0.4753 Rec=0.8850 Prec=0.7646 Sm<5R=0.8140
+  K=5: Dice=0.7940 IoU=0.7264 BF1@1=0.3237 BF1@2=0.4812 Rec=0.8863 Prec=0.7692 Sm<5R=0.8159
+
+--- M3_PBDC ---
+  K=1: Dice=0.5957 IoU=0.5229 BF1@1=0.2316 BF1@2=0.3351 Rec=0.7302 Prec=0.6128 Sm<5R=0.7272
+  K=3: Dice=0.8009 IoU=0.7392 BF1@1=0.3961 BF1@2=0.5612 Rec=0.9002 Prec=0.7736 Sm<5R=0.8293
+  K=5: Dice=0.8062 IoU=0.7446 BF1@1=0.3950 BF1@2=0.5610 Rec=0.9039 Prec=0.7725 Sm<5R=0.8316
+
+--- Paired Site Bootstrap Deltas ---
+[M3_PBDC_vs_M3_Off]
+  K=1: dDice=+0.0011 CI[-0.0001, 0.0024] | dBF1@1=+0.0232 dBF1@2=+0.0186 CI[0.0086, 0.0285] | dSm<5R=+0.0048
+  K=3: dDice=+0.0020 CI[0.0004, 0.0037] | dBF1@1=+0.0309 dBF1@2=+0.0235 CI[0.0012, 0.0431] | dSm<5R=+0.0093
+  K=5: dDice=+0.0018 CI[-0.0, 0.0038] | dBF1@1=+0.0269 dBF1@2=+0.0196 CI[-0.0045, 0.0403] | dSm<5R=+0.0132
+[M3_DeformGrad_Old_vs_M3_Off]
+  K=1: dDice=-0.0010 CI[-0.003, 0.0006] | dBF1@1=-0.0060 dBF1@2=-0.0087 CI[-0.0237, 0.0009] | dSm<5R=-0.0076
+  K=3: dDice=-0.0106 CI[-0.0175, -0.005] | dBF1@1=-0.0470 dBF1@2=-0.0624 CI[-0.1, -0.0296] | dSm<5R=-0.0061
+  K=5: dDice=-0.0103 CI[-0.0189, -0.0035] | dBF1@1=-0.0443 dBF1@2=-0.0602 CI[-0.098, -0.0266] | dSm<5R=-0.0026
+[M3_PBDC_vs_M3_DeformGrad_Old]
+  K=1: dDice=+0.0021 CI[0.0001, 0.0043] | dBF1@1=+0.0292 dBF1@2=+0.0273 CI[0.0122, 0.0455] | dSm<5R=+0.0124
+  K=3: dDice=+0.0126 CI[0.0076, 0.0191] | dBF1@1=+0.0779 dBF1@2=+0.0859 CI[0.0609, 0.113] | dSm<5R=+0.0153
+  K=5: dDice=+0.0122 CI[0.0062, 0.0202] | dBF1@1=+0.0712 dBF1@2=+0.0798 CI[0.0533, 0.1101] | dSm<5R=+0.0158
+
+--- Movement & Topology Diagnostics ---
+  K=1: Old[moved=11.3% |d|=4.17px area=-756 rev=49] | PBDC[moved=29.1% |d|=1.67px area=+226 locFB=49 rev=0]
+  K=3: Old[moved=34.2% |d|=3.66px area=+332 rev=218] | PBDC[moved=31.4% |d|=1.72px area=+333 locFB=41 rev=2]
+  K=5: Old[moved=33.9% |d|=3.60px area=-24 rev=174] | PBDC[moved=31.1% |d|=1.76px area=+317 locFB=35 rev=6]
