@@ -10,6 +10,7 @@ from .contracts import (
     ThreeModuleEpisodeOutput,
 )
 from .deformable_boundary import DeformableBoundaryConfig, refine_mask_deformable_grad
+from .pbdc_boundary import PBDCConfig, refine_mask_pbdc
 from .pipeline import (
     ThreeModulePipeline,
     calibrate_deform_p_floor_loo,

@@ -10,6 +10,7 @@ from ..metrics import DISK_8
 from .boundary import BoundaryRefinementModule
 from .contracts import ModelConfig, ThreeModuleEpisodeOutput
 from .deformable_boundary import DeformableBoundaryConfig
+from .pbdc_boundary import PBDCConfig
 from .recovery import SmallTargetRecoveryModule
 from .semantic import SemanticLocalizationModule
 
@@ -79,7 +80,7 @@ class ThreeModulePipeline:
         self,
         cfg: ModelConfig | None = None,
         *,
-        refiner_cfg: DeformableBoundaryConfig | dict[str, Any] | None = None,
+        refiner_cfg: PBDCConfig | DeformableBoundaryConfig | dict[str, Any] | None = None,
         threshold: float = 0.50,
     ) -> None:
         self.cfg = cfg if cfg is not None else get_clean_core_config()
@@ -137,6 +138,7 @@ class ThreeModulePipeline:
                 aff_weights=aff_w,
                 q_tok_64=q_tok_64,
                 rgb_512=rgb_q,
+                k_shots=len(support_ids),
                 allow_outward=allow_outward,
                 p_floor=p_floor,
                 tau_grad_per_px=tau_grad_per_px,
