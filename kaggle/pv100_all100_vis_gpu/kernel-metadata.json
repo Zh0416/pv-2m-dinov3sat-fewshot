@@ -1,0 +1,21 @@
+{
+  "id": "zh0416/pv100-all-100-visuals-v31-gpu",
+  "title": "PV100 All 100 Visuals v31 GPU",
+  "code_file": "run_kaggle_pv100_all100.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "zh0416/pv-100scence",
+    "zh0416/dinov3-sat-geovit-l-14-336"
+  ],
+  "model_sources": [],
+  "kernel_sources": [
+    "zh0416/pv-2m-dinov3-sat-dev-cache"
+  ],
+  "competition_sources": []
+}
