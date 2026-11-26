@@ -1,0 +1,20 @@
+{
+  "id": "zh0416/pv100-2m-full-ablation-v3-gpu",
+  "title": "PV100 2m Full Ablation v3 GPU",
+  "code_file": "run_kaggle_pv100_ablation.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "zh0416/pv-100scence"
+  ],
+  "model_sources": [],
+  "kernel_sources": [
+    "zh0416/pv-2m-dinov3-sat-dev-cache"
+  ],
+  "competition_sources": []
+}
