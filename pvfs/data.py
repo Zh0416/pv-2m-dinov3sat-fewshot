@@ -79,8 +79,8 @@ def resolve_data_dirs(image_dir: Path | None = None, label_dir: Path | None = No
     raise FileNotFoundError("Could not locate PV-100scence images/ and labels/ directories")
 
 
-def read_verified_rgb(image_dir: Path, row: dict) -> np.ndarray:
-    if row.get("partition") == "test":
+def read_verified_rgb(image_dir: Path, row: dict, *, allow_sealed_test: bool = False) -> np.ndarray:
+    if (not allow_sealed_test) and row.get("partition") == "test":
         raise PermissionError("Refusing to read sealed test image")
     path = image_dir / row["id"]
     if sha256_file(path) != row["image_sha256"]:
@@ -92,8 +92,8 @@ def read_verified_rgb(image_dir: Path, row: dict) -> np.ndarray:
     return rgb
 
 
-def read_verified_mask(label_dir: Path, row: dict) -> np.ndarray:
-    if row.get("partition") == "test":
+def read_verified_mask(label_dir: Path, row: dict, *, allow_sealed_test: bool = False) -> np.ndarray:
+    if (not allow_sealed_test) and row.get("partition") == "test":
         raise PermissionError("Refusing to read sealed test label")
     path = label_dir / row["id"]
     if sha256_file(path) != row["label_sha256"]:

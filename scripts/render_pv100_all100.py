@@ -236,10 +236,10 @@ def run_pv100_all_100(
     mask_by_id: dict[str, np.ndarray] = {}
     for row in all_recs:
         rid = row["id"]
-        rgb_chw = read_verified_rgb(img_dir, row)
+        rgb_chw = read_verified_rgb(img_dir, row, allow_sealed_test=True)
         rgb_chw_by_id[rid] = rgb_chw
         rgb_hwc_by_id[rid] = np.transpose(rgb_chw, (1, 2, 0)).copy()
-        mask_by_id[rid] = read_verified_mask(lbl_dir, row)
+        mask_by_id[rid] = read_verified_mask(lbl_dir, row, allow_sealed_test=True)
 
     bundle = torch.load(dev_cache_pt, map_location="cpu", weights_only=False)
     feats = dict(bundle["features"])
