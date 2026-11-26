@@ -1,0 +1,114 @@
+=== PV-100scence (2m) FULL ABLATION REPORT (v3.0-pbdc-final) ===
+Split: 50 Dev Sites (63 pos + 16 neg) | 4 folds x 4 eps/fold | Total Elapsed: 48.7 min
+
+================ TABLE 1: MODULE-LEVEL STEPWISE ABLATION (K=1, 3, 5) ================
+
+--- K=1 ---
+  A0_B0_32_Ref        : Dice=0.6130 IoU=0.4887 BF1@1=0.1353 BF1@2=0.2103 Rec=0.7088 Prec=0.6554 Sm<5R=0.6420 NegFP=0.0564
+  A1_Plus_M1          : Dice=0.6473 IoU=0.5354 BF1@1=0.1776 BF1@2=0.2749 Rec=0.6590 Prec=0.7580 Sm<5R=0.5706 NegFP=0.0309
+  A2_Plus_M2_SR       : Dice=0.6779 IoU=0.5705 BF1@1=0.2079 BF1@2=0.3195 Rec=0.6955 Prec=0.7641 Sm<5R=0.6342 NegFP=0.0342
+  A3_Plus_M3A_Aff     : Dice=0.6844 IoU=0.5796 BF1@1=0.2166 BF1@2=0.3334 Rec=0.7025 Prec=0.7610 Sm<5R=0.6395 NegFP=0.0337
+  A4_Full_PBDC        : Dice=0.6887 IoU=0.5855 BF1@1=0.2454 BF1@2=0.3597 Rec=0.7088 Prec=0.7611 Sm<5R=0.6437 NegFP=0.0340
+  A4_Old_DeformGrad   : Dice=0.6856 IoU=0.5814 BF1@1=0.2256 BF1@2=0.3420 Rec=0.7008 Prec=0.7642 Sm<5R=0.6383 NegFP=0.0335
+
+--- K=3 ---
+  A0_B0_32_Ref        : Dice=0.6623 IoU=0.5400 BF1@1=0.1503 BF1@2=0.2353 Rec=0.6649 Prec=0.7964 Sm<5R=0.5965 NegFP=0.0322
+  A1_Plus_M1          : Dice=0.7339 IoU=0.6357 BF1@1=0.2388 BF1@2=0.3697 Rec=0.7184 Prec=0.8462 Sm<5R=0.6254 NegFP=0.0364
+  A2_Plus_M2_SR       : Dice=0.7581 IoU=0.6642 BF1@1=0.2676 BF1@2=0.4114 Rec=0.7464 Prec=0.8479 Sm<5R=0.6728 NegFP=0.0402
+  A3_Plus_M3A_Aff     : Dice=0.7616 IoU=0.6701 BF1@1=0.2755 BF1@2=0.4230 Rec=0.7524 Prec=0.8405 Sm<5R=0.6770 NegFP=0.0407
+  A4_Full_PBDC        : Dice=0.7671 IoU=0.6782 BF1@1=0.3196 BF1@2=0.4603 Rec=0.7630 Prec=0.8388 Sm<5R=0.6809 NegFP=0.0410
+  A4_Old_DeformGrad   : Dice=0.7746 IoU=0.6857 BF1@1=0.3264 BF1@2=0.4691 Rec=0.7882 Prec=0.8151 Sm<5R=0.7102 NegFP=0.0410
+
+--- K=5 ---
+  A0_B0_32_Ref        : Dice=0.7370 IoU=0.6133 BF1@1=0.1829 BF1@2=0.2831 Rec=0.7498 Prec=0.7969 Sm<5R=0.6826 NegFP=0.0205
+  A1_Plus_M1          : Dice=0.8101 IoU=0.7160 BF1@1=0.3217 BF1@2=0.4771 Rec=0.8108 Prec=0.8758 Sm<5R=0.7230 NegFP=0.0298
+  A2_Plus_M2_SR       : Dice=0.8264 IoU=0.7374 BF1@1=0.3486 BF1@2=0.5153 Rec=0.8335 Prec=0.8769 Sm<5R=0.7801 NegFP=0.0322
+  A3_Plus_M3A_Aff     : Dice=0.8283 IoU=0.7417 BF1@1=0.3560 BF1@2=0.5242 Rec=0.8382 Prec=0.8778 Sm<5R=0.7833 NegFP=0.0320
+  A4_Full_PBDC        : Dice=0.8332 IoU=0.7491 BF1@1=0.3976 BF1@2=0.5553 Rec=0.8484 Prec=0.8755 Sm<5R=0.7891 NegFP=0.0323
+  A4_Old_DeformGrad   : Dice=0.8345 IoU=0.7500 BF1@1=0.3909 BF1@2=0.5486 Rec=0.8658 Prec=0.8555 Sm<5R=0.8120 NegFP=0.0323
+
+--- Table 1 Paired Site Bootstrap Stepwise Deltas (34 Pos + 16 Neg Sites) ---
+[A1_vs_A0]
+  K=1: dDice=+0.0343 CI[0.0093, 0.0606] | dBF1@2=+0.0646 CI[0.039, 0.0899] | dSm<5R=-0.0714 | dNegFP=-0.0254
+  K=3: dDice=+0.0717 CI[0.0452, 0.0954] | dBF1@2=+0.1344 CI[0.0987, 0.1687] | dSm<5R=+0.0289 | dNegFP=+0.0042
+  K=5: dDice=+0.0731 CI[0.055, 0.0916] | dBF1@2=+0.1940 CI[0.1606, 0.2284] | dSm<5R=+0.0405 | dNegFP=+0.0093
+[A2_vs_A1]
+  K=1: dDice=+0.0306 CI[0.0233, 0.0384] | dBF1@2=+0.0446 CI[0.0349, 0.055] | dSm<5R=+0.0637 | dNegFP=+0.0032
+  K=3: dDice=+0.0242 CI[0.0159, 0.0337] | dBF1@2=+0.0417 CI[0.0302, 0.0536] | dSm<5R=+0.0474 | dNegFP=+0.0038
+  K=5: dDice=+0.0163 CI[0.01, 0.0231] | dBF1@2=+0.0381 CI[0.0252, 0.0511] | dSm<5R=+0.0570 | dNegFP=+0.0024
+[A3_vs_A2]
+  K=1: dDice=+0.0064 CI[0.0045, 0.0087] | dBF1@2=+0.0138 CI[0.0104, 0.0172] | dSm<5R=+0.0052 | dNegFP=-0.0005
+  K=3: dDice=+0.0034 CI[0.0015, 0.005] | dBF1@2=+0.0116 CI[0.0075, 0.0157] | dSm<5R=+0.0042 | dNegFP=+0.0005
+  K=5: dDice=+0.0019 CI[-0.0009, 0.004] | dBF1@2=+0.0090 CI[0.0039, 0.014] | dSm<5R=+0.0032 | dNegFP=-0.0002
+[A4_PBDC_vs_A3]
+  K=1: dDice=+0.0043 CI[0.0029, 0.0059] | dBF1@2=+0.0264 CI[0.0181, 0.0343] | dSm<5R=+0.0043 | dNegFP=+0.0003
+  K=3: dDice=+0.0055 CI[0.0036, 0.0076] | dBF1@2=+0.0373 CI[0.0256, 0.0498] | dSm<5R=+0.0039 | dNegFP=+0.0003
+  K=5: dDice=+0.0049 CI[0.0029, 0.0071] | dBF1@2=+0.0310 CI[0.0195, 0.0425] | dSm<5R=+0.0059 | dNegFP=+0.0003
+[A4_PBDC_vs_A0]
+  K=1: dDice=+0.0757 CI[0.0494, 0.104] | dBF1@2=+0.1494 CI[0.1259, 0.1732] | dSm<5R=+0.0017 | dNegFP=-0.0224
+  K=3: dDice=+0.1048 CI[0.073, 0.1341] | dBF1@2=+0.2250 CI[0.188, 0.2586] | dSm<5R=+0.0843 | dNegFP=+0.0088
+  K=5: dDice=+0.0962 CI[0.073, 0.1195] | dBF1@2=+0.2722 CI[0.2377, 0.307] | dSm<5R=+0.1065 | dNegFP=+0.0118
+[A4_Old_vs_A3]
+  K=1: dDice=+0.0012 CI[0.0006, 0.002] | dBF1@2=+0.0086 CI[0.0022, 0.0172] | dSm<5R=-0.0012 | dNegFP=-0.0002
+  K=3: dDice=+0.0130 CI[0.0057, 0.0217] | dBF1@2=+0.0461 CI[0.0221, 0.0717] | dSm<5R=+0.0332 | dNegFP=+0.0003
+  K=5: dDice=+0.0063 CI[0.0013, 0.012] | dBF1@2=+0.0243 CI[-0.0014, 0.0529] | dSm<5R=+0.0288 | dNegFP=+0.0003
+[A4_PBDC_vs_A4_Old]
+  K=1: dDice=+0.0031 CI[0.0014, 0.0049] | dBF1@2=+0.0178 CI[0.0084, 0.0271] | dSm<5R=+0.0055 | dNegFP=+0.0005
+  K=3: dDice=-0.0075 CI[-0.0155, -0.0011] | dBF1@2=-0.0088 CI[-0.0337, 0.0134] | dSm<5R=-0.0294 | dNegFP=+0.0000
+  K=5: dDice=-0.0013 CI[-0.0064, 0.0029] | dBF1@2=+0.0067 CI[-0.0197, 0.0294] | dSm<5R=-0.0229 | dNegFP=-0.0000
+
+================ TABLE 2: CORE MODULE-INTERNAL ABLATION (K=1, 3, 5) ================
+
+--- K=1 ---
+  A3_Plus_M3A_Aff       : Dice=0.6844 IoU=0.5796 BF1@1=0.2166 BF1@2=0.3334 Rec=0.7025 Prec=0.7610 Sm<5R=0.6395 NegFP=0.0337
+  I1_M1_wo_MidFusion    : Dice=0.6874 IoU=0.5841 BF1@1=0.2236 BF1@2=0.3417 Rec=0.7053 Prec=0.7671 Sm<5R=0.6469 NegFP=0.0351
+  I2_M2_wo_SR_Gating    : Dice=0.6916 IoU=0.5879 BF1@1=0.2222 BF1@2=0.3415 Rec=0.7142 Prec=0.7580 Sm<5R=0.6518 NegFP=0.0370
+  A4_Full_PBDC          : Dice=0.6887 IoU=0.5855 BF1@1=0.2454 BF1@2=0.3597 Rec=0.7088 Prec=0.7611 Sm<5R=0.6437 NegFP=0.0340
+  I3_PBDC_wo_AsymCore   : Dice=0.6856 IoU=0.5812 BF1@1=0.2218 BF1@2=0.3392 Rec=0.7048 Prec=0.7606 Sm<5R=0.6401 NegFP=0.0339
+  I4_PBDC_wo_UncertLock : Dice=0.6933 IoU=0.5916 BF1@1=0.2675 BF1@2=0.3817 Rec=0.7161 Prec=0.7611 Sm<5R=0.6517 NegFP=0.0342
+  I5_PBDC_wo_SectorFB   : Dice=0.6884 IoU=0.5851 BF1@1=0.2440 BF1@2=0.3582 Rec=0.7086 Prec=0.7610 Sm<5R=0.6437 NegFP=0.0340
+
+--- K=3 ---
+  A3_Plus_M3A_Aff       : Dice=0.7616 IoU=0.6701 BF1@1=0.2755 BF1@2=0.4230 Rec=0.7524 Prec=0.8405 Sm<5R=0.6770 NegFP=0.0407
+  I1_M1_wo_MidFusion    : Dice=0.7420 IoU=0.6519 BF1@1=0.2722 BF1@2=0.4142 Rec=0.7370 Prec=0.8289 Sm<5R=0.6753 NegFP=0.0401
+  I2_M2_wo_SR_Gating    : Dice=0.7658 IoU=0.6752 BF1@1=0.2812 BF1@2=0.4312 Rec=0.7604 Prec=0.8377 Sm<5R=0.6918 NegFP=0.0425
+  A4_Full_PBDC          : Dice=0.7671 IoU=0.6782 BF1@1=0.3196 BF1@2=0.4603 Rec=0.7630 Prec=0.8388 Sm<5R=0.6809 NegFP=0.0410
+  I3_PBDC_wo_AsymCore   : Dice=0.7635 IoU=0.6726 BF1@1=0.2854 BF1@2=0.4320 Rec=0.7561 Prec=0.8399 Sm<5R=0.6779 NegFP=0.0408
+  I4_PBDC_wo_UncertLock : Dice=0.7708 IoU=0.6835 BF1@1=0.3414 BF1@2=0.4812 Rec=0.7690 Prec=0.8384 Sm<5R=0.6848 NegFP=0.0414
+  I5_PBDC_wo_SectorFB   : Dice=0.7669 IoU=0.6780 BF1@1=0.3183 BF1@2=0.4593 Rec=0.7626 Prec=0.8389 Sm<5R=0.6809 NegFP=0.0410
+
+--- K=5 ---
+  A3_Plus_M3A_Aff       : Dice=0.8283 IoU=0.7417 BF1@1=0.3560 BF1@2=0.5242 Rec=0.8382 Prec=0.8778 Sm<5R=0.7833 NegFP=0.0320
+  I1_M1_wo_MidFusion    : Dice=0.8241 IoU=0.7385 BF1@1=0.3567 BF1@2=0.5232 Rec=0.8355 Prec=0.8771 Sm<5R=0.7755 NegFP=0.0323
+  I2_M2_wo_SR_Gating    : Dice=0.8307 IoU=0.7448 BF1@1=0.3601 BF1@2=0.5297 Rec=0.8449 Prec=0.8741 Sm<5R=0.7960 NegFP=0.0330
+  A4_Full_PBDC          : Dice=0.8332 IoU=0.7491 BF1@1=0.3976 BF1@2=0.5553 Rec=0.8484 Prec=0.8755 Sm<5R=0.7891 NegFP=0.0323
+  I3_PBDC_wo_AsymCore   : Dice=0.8297 IoU=0.7437 BF1@1=0.3659 BF1@2=0.5307 Rec=0.8418 Prec=0.8767 Sm<5R=0.7838 NegFP=0.0322
+  I4_PBDC_wo_UncertLock : Dice=0.8360 IoU=0.7533 BF1@1=0.4180 BF1@2=0.5731 Rec=0.8532 Prec=0.8753 Sm<5R=0.7934 NegFP=0.0324
+  I5_PBDC_wo_SectorFB   : Dice=0.8331 IoU=0.7489 BF1@1=0.3965 BF1@2=0.5545 Rec=0.8481 Prec=0.8756 Sm<5R=0.7889 NegFP=0.0323
+
+--- Table 2 Paired Site Bootstrap Deltas (Full vs Ablated, positive = mechanism helps) ---
+[A3_vs_I1_wo_MidFusion]
+  K=1: dDice=-0.0031 CI[-0.0127, 0.0077] | dBF1@2=-0.0084 CI[-0.0149, -0.0014] | dSm<5R=-0.0074 | dNegFP=-0.0014
+  K=3: dDice=+0.0196 CI[0.0073, 0.0336] | dBF1@2=+0.0088 CI[-0.002, 0.0193] | dSm<5R=+0.0017 | dNegFP=+0.0006
+  K=5: dDice=+0.0042 CI[-0.0026, 0.0128] | dBF1@2=+0.0010 CI[-0.0068, 0.0085] | dSm<5R=+0.0078 | dNegFP=-0.0003
+[A3_vs_I2_wo_SR_Gating]
+  K=1: dDice=-0.0073 CI[-0.0106, -0.0044] | dBF1@2=-0.0081 CI[-0.0116, -0.0051] | dSm<5R=-0.0123 | dNegFP=-0.0033
+  K=3: dDice=-0.0042 CI[-0.0065, -0.0022] | dBF1@2=-0.0082 CI[-0.0117, -0.0048] | dSm<5R=-0.0148 | dNegFP=-0.0018
+  K=5: dDice=-0.0024 CI[-0.0048, -0.0007] | dBF1@2=-0.0054 CI[-0.0109, -0.001] | dSm<5R=-0.0128 | dNegFP=-0.0010
+[A4_vs_I3_wo_AsymCore]
+  K=1: dDice=+0.0031 CI[0.0022, 0.004] | dBF1@2=+0.0205 CI[0.0154, 0.0259] | dSm<5R=+0.0037 | dNegFP=+0.0001
+  K=3: dDice=+0.0036 CI[0.0024, 0.0049] | dBF1@2=+0.0283 CI[0.0193, 0.0386] | dSm<5R=+0.0030 | dNegFP=+0.0002
+  K=5: dDice=+0.0034 CI[0.0021, 0.0048] | dBF1@2=+0.0246 CI[0.0166, 0.0329] | dSm<5R=+0.0054 | dNegFP=+0.0001
+[A4_vs_I4_wo_UncertLock]
+  K=1: dDice=-0.0047 CI[-0.0059, -0.0035] | dBF1@2=-0.0220 CI[-0.0271, -0.0173] | dSm<5R=-0.0080 | dNegFP=-0.0002
+  K=3: dDice=-0.0037 CI[-0.0049, -0.0026] | dBF1@2=-0.0208 CI[-0.0249, -0.0167] | dSm<5R=-0.0039 | dNegFP=-0.0004
+  K=5: dDice=-0.0028 CI[-0.0038, -0.0019] | dBF1@2=-0.0178 CI[-0.0223, -0.013] | dSm<5R=-0.0043 | dNegFP=-0.0001
+[A4_vs_I5_wo_SectorFB]
+  K=1: dDice=+0.0002 CI[0.0001, 0.0004] | dBF1@2=+0.0016 CI[0.0007, 0.0025] | dSm<5R=+0.0000 | dNegFP=-0.0000
+  K=3: dDice=+0.0002 CI[0.0, 0.0003] | dBF1@2=+0.0011 CI[0.0001, 0.0023] | dSm<5R=+0.0000 | dNegFP=+0.0000
+  K=5: dDice=+0.0001 CI[0.0, 0.0002] | dBF1@2=+0.0008 CI[0.0002, 0.0015] | dSm<5R=+0.0002 | dNegFP=+0.0000
+
+--- Pixel Refiner Movement & Topology Diagnostics ---
+  K=1: A4_Full_PBDC[moved=26.4% |d|=1.58px area=+400 locFB=97 rev=7] | A4_Old_DeformGrad[moved=2.8% |d|=2.74px area=-184 locFB=0 rev=89] | I3_PBDC_wo_AsymCore[moved=6.5% |d|=1.91px area=+204 locFB=22 rev=5] | I4_PBDC_wo_UncertLock[moved=63.4% |d|=1.32px area=+738 locFB=267 rev=13] | I5_PBDC_wo_SectorFB[moved=24.5% |d|=1.58px area=+388 locFB=0 rev=97]
+  K=3: A4_Full_PBDC[moved=31.9% |d|=1.66px area=+668 locFB=93 rev=5] | A4_Old_DeformGrad[moved=29.3% |d|=3.86px area=+2255 locFB=0 rev=783] | I3_PBDC_wo_AsymCore[moved=7.4% |d|=1.90px area=+238 locFB=19 rev=1] | I4_PBDC_wo_UncertLock[moved=71.7% |d|=1.35px area=+998 locFB=255 rev=12] | I5_PBDC_wo_SectorFB[moved=30.3% |d|=1.66px area=+639 locFB=0 rev=93]
+  K=5: A4_Full_PBDC[moved=34.2% |d|=1.71px area=+707 locFB=117 rev=16] | A4_Old_DeformGrad[moved=29.7% |d|=3.46px area=+1912 locFB=0 rev=713] | I3_PBDC_wo_AsymCore[moved=8.8% |d|=2.04px area=+307 locFB=31 rev=5] | I4_PBDC_wo_UncertLock[moved=73.9% |d|=1.37px area=+958 locFB=286 rev=17] | I5_PBDC_wo_SectorFB[moved=31.9% |d|=1.71px area=+668 locFB=0 rev=116]

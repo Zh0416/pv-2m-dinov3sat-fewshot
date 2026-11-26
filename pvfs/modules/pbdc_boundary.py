@@ -54,24 +54,17 @@ class PBDCConfig:
 
     # Normalized variational resistance weights (edge term normalized to 1.0, zero positive balloon force)
     w_edge: float = 1.00
-    self_lock_ratio: float = 0.25
-    self_lock_floor: float = 0.05
     w_reg_veto: float = 0.25
     w_sem: float = 0.85
     w_slope: float = 0.04
     w_disp: float = 0.02
 
-    # Semantic uncertainty band [max(p_floor, out_p_min), in_p_max] & loop gain gate
-    default_p_floor: float = 0.35
-    out_p_min: float = 0.35
-    in_p_max: float = 0.70
-    k1_p_floor: float = 0.40
+    # Shot-1 outward cap & loop gain gate
     k1_max_outward_px: int = 4
     min_gain_per_moved_px: float = 0.04
 
-    # Default-off internal mechanism ablation switches (all False in production v3.0)
+    # Default-off internal mechanism ablation switches (all False in production v3.1-pbdc-pure)
     ablate_undirected_grad: bool = False
-    ablate_no_uncert_lock: bool = False
     ablate_whole_loop_fallback: bool = False
 
 
@@ -356,10 +349,6 @@ def solve_pbdc_loop_dp(
         if not np.all(pts_ok_tbl[:, grid_zero_idx]):
             continue
         e0 = float(pts_bnd_tbl[:, grid_zero_idx].sum())
-        if cfg.ablate_no_uncert_lock:
-            lock_margin = 0.0
-        else:
-            lock_margin = cfg.self_lock_ratio * e0 + cfg.self_lock_floor * l_pts
 
         # Vectorized evaluation across all P valid (a, b) pairs for this arc!
         ia_arr = np.array([p[0] for p in valid_pairs], dtype=np.int32)
@@ -393,21 +382,10 @@ def solve_pbdc_loop_dp(
         add_m = (~in_m0) & (delta_cor > 0.0) & (sdist <= delta_cor)  # [N_v, P]
         rem_m = in_m0 & (delta_cor < 0.0) & (sdist >= delta_cor)  # [N_v, P]
 
-        add_cnt = add_m.sum(axis=0)  # [P]
-        rem_cnt = rem_m.sum(axis=0)  # [P]
-        eff_p_floor = max(p_floor, cfg.out_p_min)
-        add_p_mean = (cor_probs[:, None] * add_m).sum(axis=0) / np.maximum(1, add_cnt)
-        rem_p_mean = (cor_probs[:, None] * rem_m).sum(axis=0) / np.maximum(1, rem_cnt)
-        # Strictly stay within the semantic uncertainty ribbon [eff_p_floor, cfg.in_p_max]!
-        if cfg.ablate_no_uncert_lock:
-            p_band_ok = np.ones(len(valid_pairs), dtype=bool)
-        else:
-            p_band_ok = ((add_cnt == 0) | (add_p_mean >= eff_p_floor)) & ((rem_cnt == 0) | (rem_p_mean <= cfg.in_p_max))
-
         reg_veto = (add_reg_cost[:, None] * add_m + rem_reg_cost[:, None] * rem_m).sum(axis=0)  # [P] >= 0
         sem_cost = (add_sem_cost[:, None] * add_m + rem_sem_cost[:, None] * rem_m).sum(axis=0)  # [P] >= 0
 
-        d_edge = e_ab - e0 - lock_margin
+        d_edge = e_ab - e0
         u_vec = (
             cfg.w_edge * d_edge
             - cfg.w_reg_veto * reg_veto
@@ -415,8 +393,7 @@ def solve_pbdc_loop_dp(
             - cfg.w_slope * np.abs(b_arr - a_arr) * l_scale
             - cfg.w_disp * 0.5 * (np.abs(a_arr) + np.abs(b_arr)) * l_scale
         )
-        valid_final = ok_pairs & p_band_ok
-        score_tbl[a_i, ia_arr[valid_final], ib_arr[valid_final]] = u_vec[valid_final]
+        score_tbl[a_i, ia_arr[ok_pairs], ib_arr[ok_pairs]] = u_vec[ok_pairs]
 
     return _run_closed_or_open_dp(loop, score_tbl, shifts)
 
@@ -534,14 +511,9 @@ def refine_mask_pbdc(
     comp_labels, num_fg_init, loops = build_deformable_loops(m0_b, geom_cfg)
     _, num_bg_init = nd_label(~m0_b, structure=CROSS_3)
 
-    if k_shots <= 1:
-        allow_outward = True
-        max_out_cap = cfg.k1_max_outward_px
-        p_floor = cfg.k1_p_floor
-    else:
-        allow_outward = True
-        max_out_cap = cfg.max_shift_r
-        p_floor = float(p_floor_loo) if p_floor_loo is not None else cfg.default_p_floor
+    allow_outward = True
+    max_out_cap = cfg.k1_max_outward_px if k_shots <= 1 else cfg.max_shift_r
+    p_floor = float(p_floor_loo) if p_floor_loo is not None else 0.0
 
     m_cur = m0_b.copy()
     moved_loops = 0

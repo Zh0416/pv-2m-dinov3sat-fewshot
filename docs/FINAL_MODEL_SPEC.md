@@ -1,6 +1,6 @@
-# 最终模型结构、原理与完整数学公式（CleanCore + PBDC, v3.0）
+# 最终模型结构、原理与完整数学公式（CleanCore + PBDC, v3.1-pbdc-pure）
 
-- **版本标签**：`v3.0-pbdc-final`（分支 `clean-core-v1`）
+- **版本标签**：`v3.1-pbdc-pure`（分支 `clean-core-v1`）
 - **核心特性**：全程 **Training-Free**（零可训练参数），一套锁定参数跨分辨率同时适用于 `2m`（`PV-100scence`）与 `0.8m`（`PV663`）光伏少样本分割。
 - **符号约定**：
   - **动态计算量**（随 episode、查询图、连通域或局部弧段实时计算）：使用数学字母表示；
@@ -171,13 +171,13 @@ e_{\text{bnd}}(x, d) = w_{\text{inner}}(d) \cdot \tanh\!\left(0.50 \sqrt{s_{\tex
 $$
 
 #### (3) 归一化零正向气球力变分效用函数与闭环 DP
-对弧段 $\gamma$（含 $L_\gamma$ 个采样点），边缘净增益（含 `1.25x` 已对齐自锁）：
+对弧段 $\gamma$（含 $L_\gamma$ 个采样点），边缘净增益：
 
 $$
-\Delta E_{a,b} = E_{a,b} - 1.25\, E_0 - 0.05\, L_\gamma
+\Delta E_{a,b} = E_{a,b} - E_0
 $$
 
-严格单边区域否决惩罚与语义输运阻力（统一使用中性概率 $0.50$ 与偏离阈值 $1.50$）：
+严格单边区域否决惩罚与语义输运阻力（统一使用中性概率 $0.50$ 与偏离阈值 $1.50$，无任何正向气球力，也无需额外的硬截断不确定带或自锁阈值）：
 
 $$
 R_{\text{veto}}(a, b) = \sum_{v \in \Omega_{\text{add}}} \max(0,\; \phi_v - 1.50) \;+\; \sum_{v \in \Omega_{\text{rem}}} 2.0\,\max(0,\; 1.25 - \phi_v)\,\max(0,\; p_v - 0.50)
@@ -187,13 +187,7 @@ $$
 R_{\text{sem}}(a, b) = \sum_{v \in \Omega_{\text{add}}} \max(0,\; 0.50 - p_v) \;+\; \sum_{v \in \Omega_{\text{rem}}} \max(0,\; p_v - 0.50)
 $$
 
-语义不确定带硬约束（`K=1` 取 $p_{\text{eff}} = 0.40$、外扩上限 $4\text{ px}$；`K \ge 2` 取 $p_{\text{eff}} = \max(p_{\text{floor}}^{\text{LOO}}, 0.35)$）：
-
-$$
-\bar{p}(\Omega_{\text{add}}) \ge p_{\text{eff}}, \qquad \bar{p}(\Omega_{\text{rem}}) \le 0.70
-$$
-
-最终弧段效用函数（主项权重归一化为 `1.0`）：
+最终弧段效用函数（主项权重归一化为 `1.0`，`K=1` 外扩上限 $4\text{ px}$，`K \ge 2` 为 $6\text{ px}$）：
 
 $$
 U_\gamma(a, b) = \Delta E_{a,b} - 0.25\, R_{\text{veto}}(a, b) - 0.85\, R_{\text{sem}}(a, b) - 0.04\,|b - a|\,\frac{L_\gamma}{8} - 0.01\,(|a| + |b|)\,\frac{L_\gamma}{8}
