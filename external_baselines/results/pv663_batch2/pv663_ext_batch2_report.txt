@@ -1,0 +1,35 @@
+=== PV663 (0.8m) EXTERNAL MODEL COMPARISON — BATCH 2 (Few-Shot Fine-Tuning Models) ===
+Split: 29 support sites (34 used) / 116 query sites (510 imgs) | min_dist=5.17 km
+Episodes/K: 5 | Total Elapsed: 41.5 min
+
+--- K=1 (116 geographic sites, 510 query images x 5 eps) ---
+  UNet_ResNet50_FT        : Dice=0.5480 IoU=0.4500 BF1@1=0.1052 BF1@2=0.1623 Rec=0.5415 Prec=0.6924 Sm<5R=0.4192 (train=7.1s/ep, infer=15.4ms/img)
+  SegFormer_MiTB2_FT      : Dice=0.7069 IoU=0.6186 BF1@1=0.2152 BF1@2=0.3263 Rec=0.7535 Prec=0.7474 Sm<5R=0.7205 (train=8.4s/ep, infer=17.8ms/img)
+  DINOv3SAT_ConvHead_FT   : Dice=0.7679 IoU=0.6781 BF1@1=0.2343 BF1@2=0.3587 Rec=0.8501 Prec=0.7653 Sm<5R=0.8221 (train=0.8s/ep, infer=32.0ms/img)
+  Ours_v31_PBDC_Pure      : Dice=0.8137 IoU=0.7356 BF1@1=0.3336 BF1@2=0.4714 Rec=0.9395 Prec=0.7638 Sm<5R=0.9239 (train=0.0s/ep, infer=0.0ms/img)
+
+--- K=3 (116 geographic sites, 510 query images x 5 eps) ---
+  UNet_ResNet50_FT        : Dice=0.7136 IoU=0.6193 BF1@1=0.2137 BF1@2=0.3201 Rec=0.8209 Prec=0.7169 Sm<5R=0.7826 (train=11.3s/ep, infer=14.8ms/img)
+  SegFormer_MiTB2_FT      : Dice=0.7465 IoU=0.6651 BF1@1=0.2558 BF1@2=0.3845 Rec=0.7628 Prec=0.8046 Sm<5R=0.7536 (train=12.0s/ep, infer=17.1ms/img)
+  DINOv3SAT_ConvHead_FT   : Dice=0.8247 IoU=0.7504 BF1@1=0.2964 BF1@2=0.4436 Rec=0.8268 Prec=0.8626 Sm<5R=0.7783 (train=2.0s/ep, infer=25.9ms/img)
+  Ours_v31_PBDC_Pure      : Dice=0.8678 IoU=0.8077 BF1@1=0.4493 BF1@2=0.6217 Rec=0.9213 Prec=0.8505 Sm<5R=0.8969 (train=0.0s/ep, infer=0.0ms/img)
+
+--- K=5 (116 geographic sites, 510 query images x 5 eps) ---
+  UNet_ResNet50_FT        : Dice=0.7530 IoU=0.6556 BF1@1=0.1972 BF1@2=0.2977 Rec=0.8749 Prec=0.7136 Sm<5R=0.8247 (train=16.6s/ep, infer=14.6ms/img)
+  SegFormer_MiTB2_FT      : Dice=0.7702 IoU=0.6855 BF1@1=0.2391 BF1@2=0.3628 Rec=0.7941 Prec=0.8078 Sm<5R=0.8077 (train=17.8s/ep, infer=17.1ms/img)
+  DINOv3SAT_ConvHead_FT   : Dice=0.8413 IoU=0.7689 BF1@1=0.3285 BF1@2=0.4852 Rec=0.8725 Prec=0.8491 Sm<5R=0.8478 (train=3.4s/ep, infer=25.9ms/img)
+  Ours_v31_PBDC_Pure      : Dice=0.8705 IoU=0.8083 BF1@1=0.4463 BF1@2=0.6208 Rec=0.9232 Prec=0.8505 Sm<5R=0.9068 (train=0.0s/ep, infer=0.0ms/img)
+
+--- Paired Site Bootstrap Deltas (116 Geographic Sites, Ours vs Fine-Tuning) ---
+[Ours_vs_UNet_ResNet50_FT]
+  K=1: dDice=+0.2657 CI[0.2341, 0.2984] (116/116) | dBF1@1=+0.2284 CI[0.2079, 0.2485] | dBF1@2=+0.3092 CI[0.2823, 0.3357] | dSm<5R=+0.5048
+  K=3: dDice=+0.1542 CI[0.1323, 0.1779] (113/116) | dBF1@1=+0.2356 CI[0.2158, 0.2549] | dBF1@2=+0.3016 CI[0.2766, 0.3266] | dSm<5R=+0.1144
+  K=5: dDice=+0.1175 CI[0.0998, 0.1379] (114/116) | dBF1@1=+0.2491 CI[0.2299, 0.2676] | dBF1@2=+0.3231 CI[0.2992, 0.3465] | dSm<5R=+0.0821
+[Ours_vs_SegFormer_MiTB2_FT]
+  K=1: dDice=+0.1068 CI[0.0765, 0.1405] (87/116) | dBF1@1=+0.1184 CI[0.0937, 0.1432] | dBF1@2=+0.1451 CI[0.1117, 0.1791] | dSm<5R=+0.2034
+  K=3: dDice=+0.1213 CI[0.0912, 0.1539] (106/116) | dBF1@1=+0.1935 CI[0.1726, 0.2139] | dBF1@2=+0.2372 CI[0.2097, 0.2643] | dSm<5R=+0.1433
+  K=5: dDice=+0.1003 CI[0.0756, 0.1268] (104/116) | dBF1@1=+0.2072 CI[0.1876, 0.2266] | dBF1@2=+0.2580 CI[0.2332, 0.2831] | dSm<5R=+0.0992
+[Ours_vs_DINOv3SAT_ConvHead_FT]
+  K=1: dDice=+0.0458 CI[0.0348, 0.0576] (95/116) | dBF1@1=+0.0993 CI[0.0821, 0.1163] | dBF1@2=+0.1127 CI[0.0903, 0.1351] | dSm<5R=+0.1018
+  K=3: dDice=+0.0432 CI[0.0305, 0.0567] (98/116) | dBF1@1=+0.1528 CI[0.1317, 0.1726] | dBF1@2=+0.1781 CI[0.1533, 0.2021] | dSm<5R=+0.1187
+  K=5: dDice=+0.0292 CI[0.0216, 0.0376] (96/116) | dBF1@1=+0.1178 CI[0.1006, 0.1342] | dBF1@2=+0.1356 CI[0.115, 0.1549] | dSm<5R=+0.0590
