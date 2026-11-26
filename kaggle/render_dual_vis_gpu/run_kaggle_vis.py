@@ -38,16 +38,16 @@ def main() -> None:
         subprocess.run(["git", "clone", "--depth", "1", "-b", REPO_BRANCH, REPO_URL, str(REPO_DIR)], check=True)
 
     sys.path.insert(0, str(REPO_DIR))
-    from scripts.render_dual_res_visuals import run_08m_visuals, run_2m_visuals
+    from scripts.render_neg_and_extremes import run_08m_extremes, run_2m_neg_and_extremes
 
-    run_2m_visuals(
+    run_2m_neg_and_extremes(
         split_dir=REPO_DIR / "configs" / "locked_split",
         dev_cache_pt=find_dev_cache_pt(),
         deform_config_json=REPO_DIR / "configs" / "three_module_exp_m3_deformgrad.json",
         out_dir=OUT_DIR,
         device="cuda",
     )
-    run_08m_visuals(
+    run_08m_extremes(
         subset_json=REPO_DIR / "configs" / "pv663_subset_lock.json",
         deform_config_json=REPO_DIR / "configs" / "three_module_exp_m3_deformgrad.json",
         source_dir=Path("/tmp/dinov3-source"),
@@ -55,7 +55,7 @@ def main() -> None:
         out_dir=OUT_DIR,
         device="cuda",
     )
-    print("Dual-resolution qualitative visuals complete!", flush=True)
+    print("Pure negative + Best/Worst qualitative visuals complete!", flush=True)
 
 
 if __name__ == "__main__":
