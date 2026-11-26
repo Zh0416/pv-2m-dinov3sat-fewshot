@@ -1,0 +1,19 @@
+{
+  "id": "zh0416/pv663-ext-batch1-persam-matcher-gpu",
+  "title": "PV663 Ext Batch1 PerSAM Matcher GPU",
+  "code_file": "run_kaggle_ext_batch1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "zh0416/pv-dinov3sat-663-v1",
+    "zh0416/dinov3-sat-geovit-l-14-336"
+  ],
+  "model_sources": [],
+  "kernel_sources": [],
+  "competition_sources": []
+}
