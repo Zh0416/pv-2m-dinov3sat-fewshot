@@ -1,0 +1,28 @@
+=== PV663 (0.8m) EXTERNAL MODEL COMPARISON — BATCH 1 (Training-Free Foundation Models) ===
+Split: 29 support sites (34 used) / 116 query sites (510 imgs) | min_dist=5.17 km
+Episodes/K: 5 | Total Elapsed: 98.1 min
+
+--- K=1 (116 geographic sites, 510 query images x 5 eps) ---
+  PerSAM_F_SAM_ViTL           : Dice=0.2038 IoU=0.1717 BF1@1=0.0812 BF1@2=0.1101 Rec=0.2222 Prec=0.2367 Sm<5R=0.1203 (17.3 ms/img)
+  Matcher_DINOv3SAT_SAM_ViTL  : Dice=0.7960 IoU=0.7181 BF1@1=0.4573 BF1@2=0.5912 Rec=0.8306 Prec=0.8305 Sm<5R=0.8840 (71.0 ms/img)
+  Ours_v31_PBDC_Pure          : Dice=0.8137 IoU=0.7356 BF1@1=0.3336 BF1@2=0.4714 Rec=0.9395 Prec=0.7638 Sm<5R=0.9239 (349.7 ms/img)
+
+--- K=3 (116 geographic sites, 510 query images x 5 eps) ---
+  PerSAM_F_SAM_ViTL           : Dice=0.2224 IoU=0.1860 BF1@1=0.0873 BF1@2=0.1179 Rec=0.2762 Prec=0.2373 Sm<5R=0.1284 (17.8 ms/img)
+  Matcher_DINOv3SAT_SAM_ViTL  : Dice=0.8253 IoU=0.7509 BF1@1=0.4789 BF1@2=0.6194 Rec=0.8490 Prec=0.8459 Sm<5R=0.8852 (72.9 ms/img)
+  Ours_v31_PBDC_Pure          : Dice=0.8678 IoU=0.8077 BF1@1=0.4493 BF1@2=0.6217 Rec=0.9213 Prec=0.8505 Sm<5R=0.8969 (315.3 ms/img)
+
+--- K=5 (116 geographic sites, 510 query images x 5 eps) ---
+  PerSAM_F_SAM_ViTL           : Dice=0.2039 IoU=0.1727 BF1@1=0.0921 BF1@2=0.1234 Rec=0.2118 Prec=0.2506 Sm<5R=0.1431 (17.8 ms/img)
+  Matcher_DINOv3SAT_SAM_ViTL  : Dice=0.8183 IoU=0.7426 BF1@1=0.4772 BF1@2=0.6172 Rec=0.8389 Prec=0.8495 Sm<5R=0.8870 (73.3 ms/img)
+  Ours_v31_PBDC_Pure          : Dice=0.8705 IoU=0.8083 BF1@1=0.4463 BF1@2=0.6208 Rec=0.9232 Prec=0.8505 Sm<5R=0.9068 (317.0 ms/img)
+
+--- Paired Site Bootstrap Deltas (116 Geographic Sites, Ours vs External) ---
+[Ours_vs_PerSAM_F]
+  K=1: dDice=+0.6099 CI[0.5789, 0.6384] (115/116) | dBF1@1=+0.2524 CI[0.2332, 0.2704] | dBF1@2=+0.3613 CI[0.3365, 0.3845] | dSm<5R=+0.8036
+  K=3: dDice=+0.6455 CI[0.6092, 0.6793] (116/116) | dBF1@1=+0.3619 CI[0.3397, 0.3825] | dBF1@2=+0.5038 CI[0.4755, 0.5299] | dSm<5R=+0.7685
+  K=5: dDice=+0.6666 CI[0.6333, 0.698] (116/116) | dBF1@1=+0.3542 CI[0.3314, 0.3753] | dBF1@2=+0.4974 CI[0.4688, 0.5237] | dSm<5R=+0.7637
+[Ours_vs_Matcher_DINOv3SAT]
+  K=1: dDice=+0.0177 CI[0.0012, 0.0354] (61/116) | dBF1@1=-0.1237 CI[-0.1514, -0.0961] | dBF1@2=-0.1197 CI[-0.1499, -0.089] | dSm<5R=+0.0399
+  K=3: dDice=+0.0425 CI[0.0288, 0.0567] (90/116) | dBF1@1=-0.0297 CI[-0.0542, -0.0067] | dBF1@2=+0.0023 CI[-0.0222, 0.0256] | dSm<5R=+0.0117
+  K=5: dDice=+0.0522 CI[0.0363, 0.0687] (90/116) | dBF1@1=-0.0309 CI[-0.0554, -0.0082] | dBF1@2=+0.0036 CI[-0.0221, 0.0277] | dSm<5R=+0.0198
