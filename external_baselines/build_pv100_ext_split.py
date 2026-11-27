@@ -20,8 +20,7 @@ def build_pv100_ext_split(repo_root: Path) -> Path:
     sp = json.loads((split_dir / "split_lock.json").read_text(encoding="utf-8"))
     assign = sp["assignment"]
 
-    pos_by_site: dict[str, list[dict]] = defaultdict(list)
-    neg_records: list[dict] = []
+    by_site: dict[str, list[dict]] = defaultdict(list)
 
     for row in mf["images"]:
         rid = row["id"]
@@ -36,38 +35,53 @@ def build_pv100_ext_split(repo_root: Path) -> Path:
             "label_sha256": row["label_sha256"],
             "meters_per_pixel": list(row["meters_per_pixel"]),
         }
-        if rec["positive"]:
-            pos_by_site[rec["site"]].append(rec)
-        else:
-            neg_records.append(rec)
+        by_site[rec["site"]].append(rec)
 
-    # Sort positive sites by mean target_fraction and snake-assign to 4 folds for balanced area distribution
+    # Separate sites that contain >=1 positive image from pure-negative sites.
+    # Co-located negative images sharing a positive site stay in the SAME fold to guarantee 0 site leakage.
     pos_site_list = []
-    for s, items in sorted(pos_by_site.items()):
-        mean_tf = float(np.mean([x["target_fraction"] for x in items]))
-        items_sorted = sorted(items, key=lambda x: (x["target_fraction"], x["id"]))
-        rep = items_sorted[len(items_sorted) // 2]
-        pos_site_list.append({"site": s, "mean_tf": mean_tf, "items": items_sorted, "rep": rep})
+    pure_neg_site_list = []
+    for s, items in sorted(by_site.items()):
+        pos_items = sorted([x for x in items if x["positive"]], key=lambda x: (x["target_fraction"], x["id"]))
+        all_items_sorted = sorted(items, key=lambda x: x["id"])
+        if pos_items:
+            mean_tf = float(np.mean([x["target_fraction"] for x in pos_items]))
+            rep = pos_items[len(pos_items) // 2]
+            pos_site_list.append({"site": s, "mean_tf": mean_tf, "items": all_items_sorted, "rep": rep})
+        else:
+            pure_neg_site_list.append({"site": s, "items": all_items_sorted})
     pos_site_list.sort(key=lambda x: (x["mean_tf"], x["site"]))
+    pure_neg_site_list.sort(key=lambda x: x["site"])
 
     all_records: list[dict] = []
     pos_reps_by_fold: dict[int, list[dict]] = defaultdict(list)
     query_ids_by_fold: dict[int, list[str]] = defaultdict(list)
+    site_to_fold: dict[str, int] = {}
 
     for idx, sm in enumerate(pos_site_list):
         block = idx // 4
         fold = (idx % 4) if (block % 2 == 0) else (3 - (idx % 4))
+        site_to_fold[sm["site"]] = fold
         pos_reps_by_fold[fold].append(sm["rep"])
         for r in sm["items"]:
             all_records.append({**r, "ext_fold": fold})
             query_ids_by_fold[fold].append(r["id"])
 
-    for idx, r in enumerate(sorted(neg_records, key=lambda x: x["id"])):
+    for idx, sm in enumerate(pure_neg_site_list):
         fold = idx % 4
-        all_records.append({**r, "ext_fold": fold})
-        query_ids_by_fold[fold].append(r["id"])
+        site_to_fold[sm["site"]] = fold
+        for r in sm["items"]:
+            all_records.append({**r, "ext_fold": fold})
+            query_ids_by_fold[fold].append(r["id"])
 
     assert len(all_records) == 100
+    assert len(site_to_fold) == len(by_site)
+    # Verify every site appears in exactly 1 fold
+    for f1 in range(4):
+        s1 = {r["site"] for r in all_records if r["ext_fold"] == f1}
+        for f2 in range(f1 + 1, 4):
+            s2 = {r["site"] for r in all_records if r["ext_fold"] == f2}
+            assert len(s1 & s2) == 0, f"Site overlap between fold {f1} and {f2}: {s1 & s2}"
 
     # Lock 3 deterministic episodes per fold per K (12 episodes/K), drawing K distinct positive sites from other 3 folds
     rng = np.random.default_rng(20261127)
@@ -94,6 +108,7 @@ def build_pv100_ext_split(repo_root: Path) -> Path:
                     }
                 )
 
+    neg_sites_count = len({r["site"] for r in all_records if not r["positive"]})
     payload = {
         "schema": "pv100-ext-4fold-site-cv-lock-v2",
         "seed": 20261127,
@@ -103,9 +118,10 @@ def build_pv100_ext_split(repo_root: Path) -> Path:
             "total_images": 100,
             "pos_sites": len(pos_site_list),
             "pos_images": sum(1 for r in all_records if r["positive"]),
-            "neg_sites": len(neg_records),
-            "neg_images": len(neg_records),
-            "total_sites": len(pos_site_list) + len(neg_records),
+            "neg_sites": neg_sites_count,
+            "pure_neg_sites": len(pure_neg_site_list),
+            "neg_images": sum(1 for r in all_records if not r["positive"]),
+            "total_sites": len(by_site),
             "episodes_per_k": 4 * episodes_per_fold,
         },
         "records": sorted(all_records, key=lambda x: x["id"]),
