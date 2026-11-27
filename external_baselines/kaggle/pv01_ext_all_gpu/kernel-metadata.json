@@ -1,0 +1,19 @@
+{
+  "id": "zh0416/pv01-ext-all7-and-vis-gpu",
+  "title": "PV01 Ext All7 And Vis GPU",
+  "code_file": "run_kaggle_pv01_ext_all.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "louisdelignac/pv-segmentation-from-satellite-and-aerial-imagery",
+    "zh0416/dinov3-sat-geovit-l-14-336"
+  ],
+  "model_sources": [],
+  "kernel_sources": [],
+  "competition_sources": []
+}
