@@ -153,19 +153,23 @@ def compare_pv100_ext(cand: dict[str, Any], ref: dict[str, Any]) -> dict[str, An
     pos_sites = sorted(s for s, v in cand["sites"].items() if v["positive_images"] > 0)
     neg_sites = sorted(s for s, v in cand["sites"].items() if v["negative_images"] > 0)
     for key in ("dice", "iou", "bf1_1px", "boundary_f1", "precision", "recall"):
-        deltas = np.array([cand["sites"][s][key] - ref["sites"][s][key] for s in pos_sites], dtype=np.float64)
-        mean_d, lo, hi = paired_site_bootstrap(deltas)
+        c_map = {s: float(cand["sites"][s][key]) for s in pos_sites}
+        r_map = {s: float(ref["sites"][s][key]) for s in pos_sites}
+        b = paired_site_bootstrap(c_map, r_map)
+        deltas = np.array([c_map[s] - r_map[s] for s in pos_sites], dtype=np.float64)
         out[key] = {
-            "mean_delta": mean_d,
-            "ci95": [lo, hi],
+            "mean_delta": float(b["mean_delta"]),
+            "ci95": list(b["ci95"]),
             "improved_sites": int((deltas > 1e-9).sum()),
             "total_sites": len(pos_sites),
         }
-    neg_deltas = np.array([cand["sites"][s]["neg_fp"] - ref["sites"][s]["neg_fp"] for s in neg_sites], dtype=np.float64)
-    n_mean, n_lo, n_hi = paired_site_bootstrap(neg_deltas)
+    c_neg = {s: float(cand["sites"][s]["neg_fp"]) for s in neg_sites}
+    r_neg = {s: float(ref["sites"][s]["neg_fp"]) for s in neg_sites}
+    bn = paired_site_bootstrap(c_neg, r_neg)
+    neg_deltas = np.array([c_neg[s] - r_neg[s] for s in neg_sites], dtype=np.float64)
     out["neg_fp"] = {
-        "mean_delta": n_mean,
-        "ci95": [n_lo, n_hi],
+        "mean_delta": float(bn["mean_delta"]),
+        "ci95": list(bn["ci95"]),
         "improved_sites": int((neg_deltas < -1e-9).sum()),
         "total_sites": len(neg_sites),
     }
@@ -281,10 +285,10 @@ def _save_ext_grid(out_path: Path, header: str, scenes: list[dict[str, Any]], *,
 def format_pv100_ext_report(summary: dict[str, Any]) -> str:
     meta = summary["meta"]
     lines = [
-        "=== PV-100scence (2m) EXTERNAL MODEL COMPARISON (7 Complete Models, Site-Disjoint Re-Split) ===",
-        f"Split: {meta['support_pool_sites']} support sites ({meta['support_rep_images']} reps) / "
-        f"{meta['query_pos_sites']} pos + {meta['query_neg_sites']} neg query sites ({meta['query_total_images']} imgs)",
-        f"Episodes/K: {meta['episodes_per_k']} | Total Elapsed: {summary['elapsed_sec']/60:.1f} min",
+        "=== PV-100scence (2m) EXTERNAL MODEL COMPARISON (7 Complete Models, 4-Fold Site-Disjoint CV) ===",
+        f"Split: All {meta['total_images']} images ({meta['pos_sites']} pos sites / {meta['pos_images']} imgs + "
+        f"{meta['neg_sites']} neg sites / {meta['neg_images']} imgs) | 4 folds x {meta['episodes_per_fold']} eps/fold",
+        f"Total Elapsed: {summary['elapsed_sec']/60:.1f} min",
     ]
     order = (
         "A0_B0_32_Ref",
@@ -296,7 +300,7 @@ def format_pv100_ext_report(summary: dict[str, Any]) -> str:
         "Ours_v31_PBDC_Pure",
     )
     for k in ("1", "3", "5"):
-        lines.append(f"\n--- K={k} (39 pos + 20 neg geographic sites x {meta['episodes_per_k']} eps) ---")
+        lines.append(f"\n--- K={k} ({meta['pos_sites']} pos + {meta['neg_sites']} neg independent sites, 4-fold CV) ---")
         for mname in order:
             res = summary["methods"][mname][k]
             m = res["macro"]
@@ -307,7 +311,7 @@ def format_pv100_ext_report(summary: dict[str, Any]) -> str:
                 f"Rec={m['recall']:.4f} Prec={m['precision']:.4f} Sm<5R={sm_r:.4f} NegFP={m['neg_fp']:.4f}"
             )
 
-    lines.append("\n--- Paired Site Bootstrap Deltas (Ours vs External / Baseline) ---")
+    lines.append("\n--- Paired Site Bootstrap Deltas (Ours vs External / Baseline, 49 Pos + 20 Neg Sites) ---")
     for mname in order[:-1]:
         cname = f"Ours_vs_{mname}"
         lines.append(f"[{cname}]")
@@ -339,34 +343,30 @@ def run_pv100_ext_all(
     run_device = device if (device == "cuda" and torch.cuda.is_available()) else "cpu"
 
     sp = read_json(ext_split_json)
-    sup_recs = sp["support_records"]
-    qry_recs_raw = sp["query_records"]
-    all_recs = sup_recs + qry_recs_raw
+    all_recs = sp["records"]
     all_ids = [r["id"] for r in all_recs]
-    sup_rep_ids = sp["support_rep_ids"]
-    query_ids = [r["id"] for r in qry_recs_raw]
+    all_pos_ids = [r["id"] for r in all_recs if r["positive"]]
+    episodes_per_fold = int(sp["episodes_per_fold"])
 
     img_dir, lbl_dir = resolve_data_dirs(None, None)
     rgb_chw_by_id: dict[str, np.ndarray] = {}
     rgb_hwc_by_id: dict[str, np.ndarray] = {}
     mask_by_id: dict[str, np.ndarray] = {}
+    rec_by_id: dict[str, dict[str, Any]] = {}
     for row in all_recs:
         rid = row["id"]
         rgb_chw = read_verified_rgb(img_dir, row, allow_sealed_test=True)
         rgb_chw_by_id[rid] = rgb_chw
         rgb_hwc_by_id[rid] = np.transpose(rgb_chw, (1, 2, 0)).copy()
-        mask_by_id[rid] = read_verified_mask(lbl_dir, row, allow_sealed_test=True)
-
-    query_records = [
-        {**r, "mask": mask_by_id[r["id"]], "y32": area_target_32(mask_by_id[r["id"]])}
-        for r in qry_recs_raw
-    ]
+        mask = read_verified_mask(lbl_dir, row, allow_sealed_test=True)
+        mask_by_id[rid] = mask
+        rec_by_id[rid] = {**row, "mask": mask, "y32": area_target_32(mask)}
 
     # 1. Load cached dev DINOv3-SAT features + extract missing (~21 test) features
     bundle = torch.load(dev_cache_pt, map_location="cpu", weights_only=False)
     feats = dict(bundle["features"])
     missing_recs = [r for r in all_recs if r["id"] not in feats]
-    print(f"[PV100 Ext] Loaded {len(feats)} cached DINOv3-SAT features; extracting {len(missing_recs)} remaining...", flush=True)
+    print(f"[PV100 Ext 4-Fold] Loaded {len(feats)} cached DINOv3-SAT features; extracting {len(missing_recs)} remaining...", flush=True)
     if missing_recs:
         feats.update(_extract_missing_test_features(missing_recs, rgb_chw_by_id, source_dir=source_dir, device=run_device))
 
@@ -375,13 +375,13 @@ def run_pv100_ext_all(
     extract_sam_embeddings_to_dir(sam, rgb_hwc_by_id, all_ids, sam_embed_dir, device=run_device)
     sam_embeds = LazySamEmbedMap(sam_embed_dir, device=run_device, preload_ids=all_ids)
 
-    # 3. Build DINOv3-SAT token maps, pairwise caches, and affinity weights
+    # 3. Build DINOv3-SAT token maps, pairwise caches (all 80 pos as potential support), and affinity weights
     tokens_by_key = {
         k: {rid: to_tokens_norm(feats[rid][k], run_device) for rid in all_ids}
         for k in ("deep_32", "deep_64", "mid_64")
     }
     caches = {
-        k: build_pairwise_topk_cache(tokens_by_key[k], mask_by_id, all_ids, sup_rep_ids, grid_hw=ghw, core_purity=0.85, top_m=3)
+        k: build_pairwise_topk_cache(tokens_by_key[k], mask_by_id, all_ids, all_pos_ids, grid_hw=ghw, core_purity=0.85, top_m=3)
         for k, ghw in (("deep_32", 32), ("deep_64", 64), ("mid_64", 64))
     }
     core_cfg = get_clean_core_config()
@@ -410,7 +410,7 @@ def run_pv100_ext_all(
         "Ours_v31_PBDC_Pure",
     )
     methods_res: dict[str, dict[str, Any]] = defaultdict(dict)
-    vis_k5_ep0: dict[str, dict[str, np.ndarray]] = {}
+    vis_k5_ep0: dict[str, dict[str, np.ndarray]] = {"A0": {}, "Matcher": {}, "Ours": {}}
     vis_k5_prob_ours: dict[str, np.ndarray] = {}
 
     use_fork = (workers > 1) and (sys.platform != "win32") and ("fork" in multiprocessing.get_all_start_methods())
@@ -423,54 +423,56 @@ def run_pv100_ext_all(
         eps = ep_by_k[k]
         ep_evals: dict[str, list[dict]] = {m: [] for m in model_names}
 
-        for ep_i, ep in enumerate(eps, 1):
+        for ep_idx, ep in enumerate(eps, 1):
             sup_ids = ep["support_ids"]
-            seed_off = k * 100 + ep_i
+            q_ids = ep["query_ids"]
+            q_recs = [rec_by_id[qid] for qid in q_ids]
+            seed_off = k * 1000 + int(ep["fold"]) * 100 + int(ep["episode"])
 
             # 1. A0 (Internal Baseline)
-            out_a0 = pipe_a0.run_episode(caches, tokens_by_key, mask_by_id, aff_by_id, sup_ids, query_ids)
+            out_a0 = pipe_a0.run_episode(caches, tokens_by_key, mask_by_id, aff_by_id, sup_ids, q_ids)
             p_a0, s32_a0 = out_a0.to_legacy_outputs()
             m_a0 = out_a0.coarse_masks_512()
-            ep_evals["A0_B0_32_Ref"].append(evaluate_pv100_ext_episode(query_records, m_a0, p_a0, s32_a0))
+            ep_evals["A0_B0_32_Ref"].append(evaluate_pv100_ext_episode(q_recs, m_a0, p_a0, s32_a0))
 
             # 2. PerSAM-F
             ps_st = persam_runner.fit_episode(sam_embeds, mask_by_id, sup_ids)
             m_ps, p_ps, s32_ps = {}, {}, {}
-            for qid in query_ids:
+            for qid in q_ids:
                 m_ps[qid], p_ps[qid], s32_ps[qid] = persam_runner.infer_query(sam_embeds[qid], ps_st)
-            ep_evals["PerSAM_F_SAM_ViTL"].append(evaluate_pv100_ext_episode(query_records, m_ps, p_ps, s32_ps))
+            ep_evals["PerSAM_F_SAM_ViTL"].append(evaluate_pv100_ext_episode(q_recs, m_ps, p_ps, s32_ps))
 
             # 3. Matcher (DINOv3-SAT + SAM ViT-L)
             mt_st = matcher_runner.fit_episode(tokens_by_key["deep_64"], mask_by_id, sup_ids)
             m_mt, p_mt, s32_mt = {}, {}, {}
-            for qid in query_ids:
+            for qid in q_ids:
                 m_mt[qid], p_mt[qid], s32_mt[qid] = matcher_runner.infer_query(tokens_by_key["deep_64"][qid], sam_embeds[qid], mt_st)
-            ep_evals["Matcher_DINOv3SAT_SAM_ViTL"].append(evaluate_pv100_ext_episode(query_records, m_mt, p_mt, s32_mt))
+            ep_evals["Matcher_DINOv3SAT_SAM_ViTL"].append(evaluate_pv100_ext_episode(q_recs, m_mt, p_mt, s32_mt))
 
             # 4. DINOv3-SAT + ConvHead FT
             head = dino_ft.fit_episode(tokens_by_key, mask_by_id, sup_ids, ep_seed_offset=seed_off)
-            m_df, p_df, s32_df = dino_ft.infer_queries(head, tokens_by_key, query_ids)
-            ep_evals["DINOv3SAT_ConvHead_FT"].append(evaluate_pv100_ext_episode(query_records, m_df, p_df, s32_df))
+            m_df, p_df, s32_df = dino_ft.infer_queries(head, tokens_by_key, q_ids)
+            ep_evals["DINOv3SAT_ConvHead_FT"].append(evaluate_pv100_ext_episode(q_recs, m_df, p_df, s32_df))
             del head
 
             # 5. U-Net (ResNet50) FT
             u_mod = unet_ft.fit_episode(rgb_hwc_by_id, mask_by_id, sup_ids, ep_seed_offset=seed_off)
-            m_un, p_un, s32_un = unet_ft.infer_queries(u_mod, rgb_hwc_by_id, query_ids)
-            ep_evals["UNet_ResNet50_FT"].append(evaluate_pv100_ext_episode(query_records, m_un, p_un, s32_un))
+            m_un, p_un, s32_un = unet_ft.infer_queries(u_mod, rgb_hwc_by_id, q_ids)
+            ep_evals["UNet_ResNet50_FT"].append(evaluate_pv100_ext_episode(q_recs, m_un, p_un, s32_un))
             del u_mod
 
             # 6. SegFormer (MiT-B2) FT
             s_mod = segf_ft.fit_episode(rgb_hwc_by_id, mask_by_id, sup_ids, ep_seed_offset=seed_off)
-            m_sf, p_sf, s32_sf = segf_ft.infer_queries(s_mod, rgb_hwc_by_id, query_ids)
-            ep_evals["SegFormer_MiTB2_FT"].append(evaluate_pv100_ext_episode(query_records, m_sf, p_sf, s32_sf))
+            m_sf, p_sf, s32_sf = segf_ft.infer_queries(s_mod, rgb_hwc_by_id, q_ids)
+            ep_evals["SegFormer_MiTB2_FT"].append(evaluate_pv100_ext_episode(q_recs, m_sf, p_sf, s32_sf))
             del s_mod
 
             # 7. Ours (v3.1-PBDC-Pure)
-            out_a3 = pipe_a3.run_episode(caches, tokens_by_key, mask_by_id, aff_by_id, sup_ids, query_ids)
+            out_a3 = pipe_a3.run_episode(caches, tokens_by_key, mask_by_id, aff_by_id, sup_ids, q_ids)
             p_a3, s32_a3 = out_a3.to_legacy_outputs()
             m_a3 = out_a3.coarse_masks_512()
             _FW_K_SHOTS = k
-            tasks = [(qid, m_a3[qid], p_a3[qid].astype(np.float16)) for qid in query_ids]
+            tasks = [(qid, m_a3[qid], p_a3[qid].astype(np.float16)) for qid in q_ids]
             m_ours: dict[str, np.ndarray] = {}
             if use_fork:
                 ctx = multiprocessing.get_context("fork")
@@ -481,18 +483,22 @@ def run_pv100_ext_all(
                 for task in tasks:
                     qid, m_ref = _pbdc_worker(task)
                     m_ours[qid] = m_ref
-            ep_evals["Ours_v31_PBDC_Pure"].append(evaluate_pv100_ext_episode(query_records, m_ours, p_a3, s32_a3))
+            ep_evals["Ours_v31_PBDC_Pure"].append(evaluate_pv100_ext_episode(q_recs, m_ours, p_a3, s32_a3))
 
-            if k == 5 and ep_i == 1:
-                vis_k5_ep0 = {"A0": m_a0, "Matcher": m_mt, "Ours": m_ours}
-                vis_k5_prob_ours = p_a3
+            if k == 5 and int(ep["episode"]) == 0:
+                for qid in q_ids:
+                    vis_k5_ep0["A0"][qid] = m_a0[qid]
+                    vis_k5_ep0["Matcher"][qid] = m_mt[qid]
+                    vis_k5_ep0["Ours"][qid] = m_ours[qid]
+                    vis_k5_prob_ours[qid] = p_a3[qid]
 
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
-            print(f"[PV100 Ext K={k}] Ep {ep_i}/{len(eps)} done ({(time.perf_counter()-t_k)/60:.1f}m)", flush=True)
+            if ep_idx % 3 == 0 or ep_idx == len(eps):
+                print(f"[PV100 Ext K={k}] Ep {ep_idx}/{len(eps)} done ({(time.perf_counter()-t_k)/60:.1f}m)", flush=True)
 
         for mname in model_names:
-            methods_res[mname][str(k)] = aggregate_pv100_ext_episodes(ep_evals[mname], expected_episodes=len(eps))
+            methods_res[mname][str(k)] = aggregate_pv100_ext_episodes(ep_evals[mname], expected_episodes=episodes_per_fold)
             m = methods_res[mname][str(k)]["macro"]
             print(
                 f"  -> [K={k}] {mname:28s}: Dice={m['dice']:.4f} BF1@2={m['boundary_f1']:.4f} NegFP={m['neg_fp']:.4f}",
@@ -509,9 +515,9 @@ def run_pv100_ext_all(
     }
 
     summary = {
-        "schema": "pv100-ext-all7-v1",
+        "schema": "pv100-ext-all7-4fold-v2",
         "elapsed_sec": float(time.perf_counter() - t0),
-        "meta": {**sp["summary"], "episodes_per_k": sp["episodes_per_k"]},
+        "meta": {**sp["summary"], "episodes_per_fold": episodes_per_fold},
         "methods": dict(methods_res),
         "comparisons": comparisons,
     }
@@ -520,8 +526,8 @@ def run_pv100_ext_all(
     (output_dir / "pv100_ext_all7_report.txt").write_text(report, encoding="utf-8")
     print("\n" + report, flush=True)
 
-    # --- Render Visualizations (K=5 Ep0: A0 vs DINOv3-SAT+SAM vs Ours v3.1-PBDC-Pure) ---
-    print("[PV100 Ext] Rendering qualitative comparison panels (A0 vs DINOv3-SAT+SAM vs Ours)...", flush=True)
+    # --- Render Visualizations across ALL 100 query images (K=5 Ep0 per fold: A0 vs DINOv3-SAT+SAM vs Ours) ---
+    print("[PV100 Ext] Rendering qualitative comparison panels across all 100 images (A0 vs DINOv3-SAT+SAM vs Ours)...", flush=True)
     vis_dir = output_dir / "visuals"
     zoom_dir = vis_dir / "pos_zoom"
     sheets_dir = vis_dir / "contact_sheets"
@@ -529,21 +535,21 @@ def run_pv100_ext_all(
     sheets_dir.mkdir(parents=True, exist_ok=True)
 
     all_vis_items = []
-    for rec in query_records:
-        qid = rec["id"]
+    for rid in all_ids:
+        rec = rec_by_id[rid]
         gt = rec["mask"]
-        ms = {"A0": vis_k5_ep0["A0"][qid], "Matcher": vis_k5_ep0["Matcher"][qid], "Ours": vis_k5_ep0["Ours"][qid]}
+        ms = {"A0": vis_k5_ep0["A0"][rid], "Matcher": vis_k5_ep0["Matcher"][rid], "Ours": vis_k5_ep0["Ours"][rid]}
         item: dict[str, Any] = {
-            "id": qid,
-            "short_id": Path(qid).stem,
+            "id": rid,
+            "short_id": Path(rid).stem,
             "positive": bool(rec["positive"]),
             "target_pct": float((gt > 0).mean()) * 100.0,
-            "rgb": rgb_hwc_by_id[qid],
+            "rgb": rgb_hwc_by_id[rid],
             "gt": gt,
             "masks": ms,
         }
         if rec["positive"]:
-            item["metrics"] = {k_m: evaluate_binary_mask_512(gt, m, vis_k5_prob_ours[qid]) for k_m, m in ms.items()}
+            item["metrics"] = {k_m: evaluate_binary_mask_512(gt, m, vis_k5_prob_ours[rid]) for k_m, m in ms.items()}
             item["gain_vs_matcher"] = item["metrics"]["Ours"]["dice"] - item["metrics"]["Matcher"]["dice"]
         else:
             item["fp"] = {k_m: float((m > 0).mean()) * 100.0 for k_m, m in ms.items()}
