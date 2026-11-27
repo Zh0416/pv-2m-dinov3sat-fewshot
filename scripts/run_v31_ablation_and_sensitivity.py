@@ -169,7 +169,8 @@ def _eval_pv100_all(
 ) -> dict[str, Any]:
     t0 = time.perf_counter()
     print("[PV100 2m] Loading locked dev split & cached DINOv3-SAT features...", flush=True)
-    dev_recs = load_dev_records(split_dir)
+    _, _, dev_recs = load_dev_records(split_dir)
+    ep_lock = load_and_verify_episodes(split_dir, split_dir / "episodes_lock.json", dev_recs)
     img_dir, lbl_dir = resolve_data_dirs(None, None)
     rgb_hwc_by_id: dict[str, np.ndarray] = {}
     mask_by_id: dict[str, np.ndarray] = {}
@@ -195,7 +196,6 @@ def _eval_pv100_all(
         for k, ghw in (("deep_32", 32), ("deep_64", 64), ("mid_64", 64))
     }
 
-    ep_lock = load_and_verify_episodes(split_dir, dev_recs)
     ep_by_k: dict[int, list[dict[str, Any]]] = defaultdict(list)
     for ep in ep_lock["episodes"]:
         if int(ep["episode"]) < episodes_per_fold:
