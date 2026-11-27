@@ -1,0 +1,22 @@
+{
+  "id": "zh0416/pv-v31-ablation-and-sensitivity-gpu",
+  "title": "PV v31 Ablation And Sensitivity GPU",
+  "code_file": "run_kaggle_v31_abl_sens.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "zh0416/pv-100scence",
+    "zh0416/pv-dinov3sat-663-v1",
+    "zh0416/dinov3-sat-geovit-l-14-336"
+  ],
+  "model_sources": [],
+  "kernel_sources": [
+    "zh0416/pv-2m-dinov3-sat-dev-cache"
+  ],
+  "competition_sources": []
+}
