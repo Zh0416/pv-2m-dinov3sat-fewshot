@@ -1,0 +1,6645 @@
+{
+  "schema": "pv01-ext-all7-lock-v1",
+  "cluster_km": 0.25,
+  "min_dist_km": 0.27220649801905106,
+  "total_images": 642,
+  "support_sites": 9,
+  "support_images": 172,
+  "query_sites": 24,
+  "query_images": 470,
+  "episodes_per_k": 5,
+  "records": [
+    {
+      "id": "Brick_PV01_324942_1203839",
+      "site": "PV01_SITE_18",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.019012451171875,
+      "lat": 32.4942,
+      "lon": 120.3839
+    },
+    {
+      "id": "Brick_PV01_324942_1203842",
+      "site": "PV01_SITE_18",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.07421875,
+      "lat": 32.4942,
+      "lon": 120.3842
+    },
+    {
+      "id": "Brick_PV01_324951_1203793",
+      "site": "PV01_SITE_09",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0583953857421875,
+      "lat": 32.4951,
+      "lon": 120.3793
+    },
+    {
+      "id": "Brick_PV01_324951_1203795",
+      "site": "PV01_SITE_09",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0732269287109375,
+      "lat": 32.4951,
+      "lon": 120.3795
+    },
+    {
+      "id": "Brick_PV01_324956_1203801",
+      "site": "PV01_SITE_09",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0044097900390625,
+      "lat": 32.4956,
+      "lon": 120.3801
+    },
+    {
+      "id": "Brick_PV01_324956_1203803",
+      "site": "PV01_SITE_09",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.028228759765625,
+      "lat": 32.4956,
+      "lon": 120.3803
+    },
+    {
+      "id": "Brick_PV01_324958_1203801",
+      "site": "PV01_SITE_09",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.003173828125,
+      "lat": 32.4958,
+      "lon": 120.3801
+    },
+    {
+      "id": "Brick_PV01_324958_1203803",
+      "site": "PV01_SITE_09",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.042755126953125,
+      "lat": 32.4958,
+      "lon": 120.3803
+    },
+    {
+      "id": "Brick_PV01_324972_1203798",
+      "site": "PV01_SITE_09",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0089569091796875,
+      "lat": 32.4972,
+      "lon": 120.3798
+    },
+    {
+      "id": "Brick_PV01_324972_1203801",
+      "site": "PV01_SITE_09",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0340423583984375,
+      "lat": 32.4972,
+      "lon": 120.3801
+    },
+    {
+      "id": "Brick_PV01_324981_1203795",
+      "site": "PV01_SITE_09",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.089202880859375,
+      "lat": 32.4981,
+      "lon": 120.3795
+    },
+    {
+      "id": "Brick_PV01_325120_1203763",
+      "site": "PV01_SITE_19",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0639495849609375,
+      "lat": 32.512,
+      "lon": 120.3763
+    },
+    {
+      "id": "Brick_PV01_325122_1203763",
+      "site": "PV01_SITE_19",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0152435302734375,
+      "lat": 32.5122,
+      "lon": 120.3763
+    },
+    {
+      "id": "Brick_PV01_325122_1203834",
+      "site": "PV01_SITE_08",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.044586181640625,
+      "lat": 32.5122,
+      "lon": 120.3834
+    },
+    {
+      "id": "Brick_PV01_325122_1203837",
+      "site": "PV01_SITE_08",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1361236572265625,
+      "lat": 32.5122,
+      "lon": 120.3837
+    },
+    {
+      "id": "Brick_PV01_325122_1203840",
+      "site": "PV01_SITE_08",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0390625,
+      "lat": 32.5122,
+      "lon": 120.384
+    },
+    {
+      "id": "Brick_PV01_325122_1203842",
+      "site": "PV01_SITE_08",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0801239013671875,
+      "lat": 32.5122,
+      "lon": 120.3842
+    },
+    {
+      "id": "Brick_PV01_325122_1203845",
+      "site": "PV01_SITE_08",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0398712158203125,
+      "lat": 32.5122,
+      "lon": 120.3845
+    },
+    {
+      "id": "Brick_PV01_325122_1203848",
+      "site": "PV01_SITE_08",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.021026611328125,
+      "lat": 32.5122,
+      "lon": 120.3848
+    },
+    {
+      "id": "Brick_PV01_325122_1203850",
+      "site": "PV01_SITE_08",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.01422119140625,
+      "lat": 32.5122,
+      "lon": 120.385
+    },
+    {
+      "id": "Brick_PV01_325124_1203845",
+      "site": "PV01_SITE_08",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0045928955078125,
+      "lat": 32.5124,
+      "lon": 120.3845
+    },
+    {
+      "id": "Brick_PV01_325124_1203848",
+      "site": "PV01_SITE_08",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0565185546875,
+      "lat": 32.5124,
+      "lon": 120.3848
+    },
+    {
+      "id": "Brick_PV01_325131_1203823",
+      "site": "PV01_SITE_08",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0291748046875,
+      "lat": 32.5131,
+      "lon": 120.3823
+    },
+    {
+      "id": "Brick_PV01_325131_1203826",
+      "site": "PV01_SITE_08",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0523223876953125,
+      "lat": 32.5131,
+      "lon": 120.3826
+    },
+    {
+      "id": "Brick_PV01_325154_1203810",
+      "site": "PV01_SITE_12",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1071929931640625,
+      "lat": 32.5154,
+      "lon": 120.381
+    },
+    {
+      "id": "Brick_PV01_325154_1203812",
+      "site": "PV01_SITE_12",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0313568115234375,
+      "lat": 32.5154,
+      "lon": 120.3812
+    },
+    {
+      "id": "Brick_PV01_325159_1203813",
+      "site": "PV01_SITE_12",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0535430908203125,
+      "lat": 32.5159,
+      "lon": 120.3813
+    },
+    {
+      "id": "Brick_PV01_325159_1203815",
+      "site": "PV01_SITE_12",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0121002197265625,
+      "lat": 32.5159,
+      "lon": 120.3815
+    },
+    {
+      "id": "Brick_PV01_325173_1203750",
+      "site": "PV01_SITE_20",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0702667236328125,
+      "lat": 32.5173,
+      "lon": 120.375
+    },
+    {
+      "id": "Brick_PV01_325173_1203753",
+      "site": "PV01_SITE_20",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0186767578125,
+      "lat": 32.5173,
+      "lon": 120.3753
+    },
+    {
+      "id": "Brick_PV01_325228_1203843",
+      "site": "PV01_SITE_15",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0030517578125,
+      "lat": 32.5228,
+      "lon": 120.3843
+    },
+    {
+      "id": "Brick_PV01_325228_1203845",
+      "site": "PV01_SITE_15",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0931854248046875,
+      "lat": 32.5228,
+      "lon": 120.3845
+    },
+    {
+      "id": "Brick_PV01_325228_1203848",
+      "site": "PV01_SITE_15",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.00579833984375,
+      "lat": 32.5228,
+      "lon": 120.3848
+    },
+    {
+      "id": "Brick_PV01_325237_1203816",
+      "site": "PV01_SITE_16",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0195770263671875,
+      "lat": 32.5237,
+      "lon": 120.3816
+    },
+    {
+      "id": "Brick_PV01_325239_1203816",
+      "site": "PV01_SITE_16",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0618438720703125,
+      "lat": 32.5239,
+      "lon": 120.3816
+    },
+    {
+      "id": "Brick_PV01_325246_1203821",
+      "site": "PV01_SITE_16",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.008392333984375,
+      "lat": 32.5246,
+      "lon": 120.3821
+    },
+    {
+      "id": "Brick_PV01_325279_1203778",
+      "site": "PV01_SITE_13",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.046661376953125,
+      "lat": 32.5279,
+      "lon": 120.3778
+    },
+    {
+      "id": "Brick_PV01_325281_1203778",
+      "site": "PV01_SITE_13",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.001220703125,
+      "lat": 32.5281,
+      "lon": 120.3778
+    },
+    {
+      "id": "Brick_PV01_325288_1203848",
+      "site": "PV01_SITE_21",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.109588623046875,
+      "lat": 32.5288,
+      "lon": 120.3848
+    },
+    {
+      "id": "Brick_PV01_325290_1203775",
+      "site": "PV01_SITE_13",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0664520263671875,
+      "lat": 32.529,
+      "lon": 120.3775
+    },
+    {
+      "id": "Brick_PV01_325290_1203778",
+      "site": "PV01_SITE_13",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0460052490234375,
+      "lat": 32.529,
+      "lon": 120.3778
+    },
+    {
+      "id": "Brick_PV01_325290_1203848",
+      "site": "PV01_SITE_21",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.10028076171875,
+      "lat": 32.529,
+      "lon": 120.3848
+    },
+    {
+      "id": "Brick_PV01_325321_1205486",
+      "site": "PV01_SITE_07",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0013427734375,
+      "lat": 32.5321,
+      "lon": 120.5486
+    },
+    {
+      "id": "Brick_PV01_325321_1205489",
+      "site": "PV01_SITE_07",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1042938232421875,
+      "lat": 32.5321,
+      "lon": 120.5489
+    },
+    {
+      "id": "Brick_PV01_325327_1203764",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1580657958984375,
+      "lat": 32.5327,
+      "lon": 120.3764
+    },
+    {
+      "id": "Brick_PV01_325327_1203767",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0188140869140625,
+      "lat": 32.5327,
+      "lon": 120.3767
+    },
+    {
+      "id": "Brick_PV01_325330_1203767",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.00140380859375,
+      "lat": 32.533,
+      "lon": 120.3767
+    },
+    {
+      "id": "Brick_PV01_325334_1203789",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0613555908203125,
+      "lat": 32.5334,
+      "lon": 120.3789
+    },
+    {
+      "id": "Brick_PV01_325334_1203791",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.081573486328125,
+      "lat": 32.5334,
+      "lon": 120.3791
+    },
+    {
+      "id": "Brick_PV01_325337_1203789",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0152435302734375,
+      "lat": 32.5337,
+      "lon": 120.3789
+    },
+    {
+      "id": "Brick_PV01_325337_1203791",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0349884033203125,
+      "lat": 32.5337,
+      "lon": 120.3791
+    },
+    {
+      "id": "Brick_PV01_325346_1203791",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0030975341796875,
+      "lat": 32.5346,
+      "lon": 120.3791
+    },
+    {
+      "id": "Brick_PV01_325346_1203794",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2187347412109375,
+      "lat": 32.5346,
+      "lon": 120.3794
+    },
+    {
+      "id": "Brick_PV01_325346_1203797",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0464019775390625,
+      "lat": 32.5346,
+      "lon": 120.3797
+    },
+    {
+      "id": "Brick_PV01_325348_1203794",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0052032470703125,
+      "lat": 32.5348,
+      "lon": 120.3794
+    },
+    {
+      "id": "Brick_PV01_325348_1203797",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.01226806640625,
+      "lat": 32.5348,
+      "lon": 120.3797
+    },
+    {
+      "id": "Brick_PV01_325357_1203794",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0069427490234375,
+      "lat": 32.5357,
+      "lon": 120.3794
+    },
+    {
+      "id": "Brick_PV01_325357_1203797",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0107574462890625,
+      "lat": 32.5357,
+      "lon": 120.3797
+    },
+    {
+      "id": "Brick_PV01_325360_1203794",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0201873779296875,
+      "lat": 32.536,
+      "lon": 120.3794
+    },
+    {
+      "id": "Brick_PV01_325360_1203797",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0860443115234375,
+      "lat": 32.536,
+      "lon": 120.3797
+    },
+    {
+      "id": "Brick_PV01_325364_1203805",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0050201416015625,
+      "lat": 32.5364,
+      "lon": 120.3805
+    },
+    {
+      "id": "Brick_PV01_325364_1203808",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0948638916015625,
+      "lat": 32.5364,
+      "lon": 120.3808
+    },
+    {
+      "id": "Brick_PV01_325371_1203805",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.01483154296875,
+      "lat": 32.5371,
+      "lon": 120.3805
+    },
+    {
+      "id": "Brick_PV01_325371_1203808",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.08062744140625,
+      "lat": 32.5371,
+      "lon": 120.3808
+    },
+    {
+      "id": "Brick_PV01_325373_1203808",
+      "site": "PV01_SITE_06",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.000579833984375,
+      "lat": 32.5373,
+      "lon": 120.3808
+    },
+    {
+      "id": "Brick_PV01_325397_1203794",
+      "site": "PV01_SITE_10",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0631256103515625,
+      "lat": 32.5397,
+      "lon": 120.3794
+    },
+    {
+      "id": "Brick_PV01_325397_1203797",
+      "site": "PV01_SITE_10",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.10260009765625,
+      "lat": 32.5397,
+      "lon": 120.3797
+    },
+    {
+      "id": "Brick_PV01_325399_1203751",
+      "site": "PV01_SITE_22",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.02362060546875,
+      "lat": 32.5399,
+      "lon": 120.3751
+    },
+    {
+      "id": "Brick_PV01_325399_1203754",
+      "site": "PV01_SITE_22",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.073822021484375,
+      "lat": 32.5399,
+      "lon": 120.3754
+    },
+    {
+      "id": "Brick_PV01_325399_1203794",
+      "site": "PV01_SITE_10",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0001373291015625,
+      "lat": 32.5399,
+      "lon": 120.3794
+    },
+    {
+      "id": "Brick_PV01_325399_1203797",
+      "site": "PV01_SITE_10",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.002685546875,
+      "lat": 32.5399,
+      "lon": 120.3797
+    },
+    {
+      "id": "Brick_PV01_325415_1203775",
+      "site": "PV01_SITE_10",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0263824462890625,
+      "lat": 32.5415,
+      "lon": 120.3775
+    },
+    {
+      "id": "Brick_PV01_325415_1203778",
+      "site": "PV01_SITE_10",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.139678955078125,
+      "lat": 32.5415,
+      "lon": 120.3778
+    },
+    {
+      "id": "Brick_PV01_325415_1203781",
+      "site": "PV01_SITE_10",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.02105712890625,
+      "lat": 32.5415,
+      "lon": 120.3781
+    },
+    {
+      "id": "Brick_PV01_325424_1204675",
+      "site": "PV01_SITE_11",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0186004638671875,
+      "lat": 32.5424,
+      "lon": 120.4675
+    },
+    {
+      "id": "Brick_PV01_325424_1204680",
+      "site": "PV01_SITE_11",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0012359619140625,
+      "lat": 32.5424,
+      "lon": 120.468
+    },
+    {
+      "id": "Brick_PV01_325426_1204675",
+      "site": "PV01_SITE_11",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0277252197265625,
+      "lat": 32.5426,
+      "lon": 120.4675
+    },
+    {
+      "id": "Brick_PV01_325426_1204680",
+      "site": "PV01_SITE_11",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0450897216796875,
+      "lat": 32.5426,
+      "lon": 120.468
+    },
+    {
+      "id": "Brick_PV01_325429_1203811",
+      "site": "PV01_SITE_23",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.04412841796875,
+      "lat": 32.5429,
+      "lon": 120.3811
+    },
+    {
+      "id": "Brick_PV01_325431_1203811",
+      "site": "PV01_SITE_23",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0247344970703125,
+      "lat": 32.5431,
+      "lon": 120.3811
+    },
+    {
+      "id": "Brick_PV01_325435_1204697",
+      "site": "PV01_SITE_11",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0494384765625,
+      "lat": 32.5435,
+      "lon": 120.4697
+    },
+    {
+      "id": "Brick_PV01_325435_1204699",
+      "site": "PV01_SITE_11",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.003326416015625,
+      "lat": 32.5435,
+      "lon": 120.4699
+    },
+    {
+      "id": "Brick_PV01_325466_1203781",
+      "site": "PV01_SITE_28",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.029754638671875,
+      "lat": 32.5466,
+      "lon": 120.3781
+    },
+    {
+      "id": "Brick_PV01_325472_1204667",
+      "site": "PV01_SITE_29",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0614776611328125,
+      "lat": 32.5472,
+      "lon": 120.4667
+    },
+    {
+      "id": "Brick_PV01_325483_1204512",
+      "site": "PV01_SITE_30",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.033843994140625,
+      "lat": 32.5483,
+      "lon": 120.4512
+    },
+    {
+      "id": "Brick_PV01_325494_1203754",
+      "site": "PV01_SITE_17",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0024261474609375,
+      "lat": 32.5494,
+      "lon": 120.3754
+    },
+    {
+      "id": "Brick_PV01_325496_1203754",
+      "site": "PV01_SITE_17",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1859283447265625,
+      "lat": 32.5496,
+      "lon": 120.3754
+    },
+    {
+      "id": "Brick_PV01_325496_1203757",
+      "site": "PV01_SITE_17",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0189056396484375,
+      "lat": 32.5496,
+      "lon": 120.3757
+    },
+    {
+      "id": "Brick_PV01_325500_1203822",
+      "site": "PV01_SITE_14",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0276031494140625,
+      "lat": 32.55,
+      "lon": 120.3822
+    },
+    {
+      "id": "Brick_PV01_325500_1203825",
+      "site": "PV01_SITE_14",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3057098388671875,
+      "lat": 32.55,
+      "lon": 120.3825
+    },
+    {
+      "id": "Brick_PV01_325503_1203819",
+      "site": "PV01_SITE_14",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.00469970703125,
+      "lat": 32.5503,
+      "lon": 120.3819
+    },
+    {
+      "id": "Brick_PV01_325503_1203822",
+      "site": "PV01_SITE_14",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.110107421875,
+      "lat": 32.5503,
+      "lon": 120.3822
+    },
+    {
+      "id": "Brick_PV01_325535_1203833",
+      "site": "PV01_SITE_24",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.105194091796875,
+      "lat": 32.5535,
+      "lon": 120.3833
+    },
+    {
+      "id": "Brick_PV01_325537_1203833",
+      "site": "PV01_SITE_24",
+      "roof_type": "Brick",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0031890869140625,
+      "lat": 32.5537,
+      "lon": 120.3833
+    },
+    {
+      "id": "Brick_PV01_325555_1204580",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.081451416015625,
+      "lat": 32.5555,
+      "lon": 120.458
+    },
+    {
+      "id": "Brick_PV01_325558_1204596",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0855865478515625,
+      "lat": 32.5558,
+      "lon": 120.4596
+    },
+    {
+      "id": "Brick_PV01_325558_1204599",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.01568603515625,
+      "lat": 32.5558,
+      "lon": 120.4599
+    },
+    {
+      "id": "Brick_PV01_325559_1204597",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0975189208984375,
+      "lat": 32.5559,
+      "lon": 120.4597
+    },
+    {
+      "id": "Brick_PV01_325563_1204531",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0034332275390625,
+      "lat": 32.5563,
+      "lon": 120.4531
+    },
+    {
+      "id": "Brick_PV01_325563_1204534",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.323394775390625,
+      "lat": 32.5563,
+      "lon": 120.4534
+    },
+    {
+      "id": "Brick_PV01_325563_1204537",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.00811767578125,
+      "lat": 32.5563,
+      "lon": 120.4537
+    },
+    {
+      "id": "Brick_PV01_325565_1203822",
+      "site": "PV01_SITE_25",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0766143798828125,
+      "lat": 32.5565,
+      "lon": 120.3822
+    },
+    {
+      "id": "Brick_PV01_325565_1204534",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1869049072265625,
+      "lat": 32.5565,
+      "lon": 120.4534
+    },
+    {
+      "id": "Brick_PV01_325565_1204537",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.00152587890625,
+      "lat": 32.5565,
+      "lon": 120.4537
+    },
+    {
+      "id": "Brick_PV01_325567_1203822",
+      "site": "PV01_SITE_25",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0015411376953125,
+      "lat": 32.5567,
+      "lon": 120.3822
+    },
+    {
+      "id": "Brick_PV01_325572_1204564",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0706939697265625,
+      "lat": 32.5572,
+      "lon": 120.4564
+    },
+    {
+      "id": "Brick_PV01_325573_1204537",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.167938232421875,
+      "lat": 32.5573,
+      "lon": 120.4537
+    },
+    {
+      "id": "Brick_PV01_325574_1203752",
+      "site": "PV01_SITE_31",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0508270263671875,
+      "lat": 32.5574,
+      "lon": 120.3752
+    },
+    {
+      "id": "Brick_PV01_325574_1204561",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0207672119140625,
+      "lat": 32.5574,
+      "lon": 120.4561
+    },
+    {
+      "id": "Brick_PV01_325574_1204564",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0666046142578125,
+      "lat": 32.5574,
+      "lon": 120.4564
+    },
+    {
+      "id": "Brick_PV01_325581_1204558",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0406036376953125,
+      "lat": 32.5581,
+      "lon": 120.4558
+    },
+    {
+      "id": "Brick_PV01_325581_1204561",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0203094482421875,
+      "lat": 32.5581,
+      "lon": 120.4561
+    },
+    {
+      "id": "Brick_PV01_325583_1204528",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.001678466796875,
+      "lat": 32.5583,
+      "lon": 120.4528
+    },
+    {
+      "id": "Brick_PV01_325583_1204531",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.201690673828125,
+      "lat": 32.5583,
+      "lon": 120.4531
+    },
+    {
+      "id": "Brick_PV01_325583_1204561",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0074920654296875,
+      "lat": 32.5583,
+      "lon": 120.4561
+    },
+    {
+      "id": "Brick_PV01_325586_1204548",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1285400390625,
+      "lat": 32.5586,
+      "lon": 120.4548
+    },
+    {
+      "id": "Brick_PV01_325586_1204550",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0280303955078125,
+      "lat": 32.5586,
+      "lon": 120.455
+    },
+    {
+      "id": "Brick_PV01_325586_1204556",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0702056884765625,
+      "lat": 32.5586,
+      "lon": 120.4556
+    },
+    {
+      "id": "Brick_PV01_325588_1204556",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.07550048828125,
+      "lat": 32.5588,
+      "lon": 120.4556
+    },
+    {
+      "id": "Brick_PV01_325590_1204548",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.067779541015625,
+      "lat": 32.559,
+      "lon": 120.4548
+    },
+    {
+      "id": "Brick_PV01_325595_1204553",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0312652587890625,
+      "lat": 32.5595,
+      "lon": 120.4553
+    },
+    {
+      "id": "Brick_PV01_325595_1204556",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.04681396484375,
+      "lat": 32.5595,
+      "lon": 120.4556
+    },
+    {
+      "id": "Brick_PV01_325595_1204558",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0081787109375,
+      "lat": 32.5595,
+      "lon": 120.4558
+    },
+    {
+      "id": "Brick_PV01_325595_1204561",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.079345703125,
+      "lat": 32.5595,
+      "lon": 120.4561
+    },
+    {
+      "id": "Brick_PV01_325597_1204553",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.000152587890625,
+      "lat": 32.5597,
+      "lon": 120.4553
+    },
+    {
+      "id": "Brick_PV01_325597_1204556",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.003509521484375,
+      "lat": 32.5597,
+      "lon": 120.4556
+    },
+    {
+      "id": "Brick_PV01_325599_1204542",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1526641845703125,
+      "lat": 32.5599,
+      "lon": 120.4542
+    },
+    {
+      "id": "Brick_PV01_325599_1204545",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.155914306640625,
+      "lat": 32.5599,
+      "lon": 120.4545
+    },
+    {
+      "id": "Brick_PV01_325599_1204548",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0451202392578125,
+      "lat": 32.5599,
+      "lon": 120.4548
+    },
+    {
+      "id": "Brick_PV01_325599_1204553",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0763702392578125,
+      "lat": 32.5599,
+      "lon": 120.4553
+    },
+    {
+      "id": "Brick_PV01_325602_1203757",
+      "site": "PV01_SITE_26",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0038299560546875,
+      "lat": 32.5602,
+      "lon": 120.3757
+    },
+    {
+      "id": "Brick_PV01_325602_1203760",
+      "site": "PV01_SITE_26",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0043792724609375,
+      "lat": 32.5602,
+      "lon": 120.376
+    },
+    {
+      "id": "Brick_PV01_325602_1204545",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.00262451171875,
+      "lat": 32.5602,
+      "lon": 120.4545
+    },
+    {
+      "id": "Brick_PV01_325602_1204599",
+      "site": "PV01_SITE_27",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 4.57763671875e-05,
+      "lat": 32.5602,
+      "lon": 120.4599
+    },
+    {
+      "id": "Brick_PV01_325602_1204602",
+      "site": "PV01_SITE_27",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0643310546875,
+      "lat": 32.5602,
+      "lon": 120.4602
+    },
+    {
+      "id": "Brick_PV01_325603_1204545",
+      "site": "PV01_SITE_05",
+      "roof_type": "Brick",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.07720947265625,
+      "lat": 32.5603,
+      "lon": 120.4545
+    },
+    {
+      "id": "FlatConcrete_PV01_325119_1204074",
+      "site": "PV01_SITE_32",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.414642333984375,
+      "lat": 32.5119,
+      "lon": 120.4074
+    },
+    {
+      "id": "FlatConcrete_PV01_325120_1204226",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2312774658203125,
+      "lat": 32.512,
+      "lon": 120.4226
+    },
+    {
+      "id": "FlatConcrete_PV01_325120_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.22564697265625,
+      "lat": 32.512,
+      "lon": 120.4229
+    },
+    {
+      "id": "FlatConcrete_PV01_325120_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0242919921875,
+      "lat": 32.512,
+      "lon": 120.4232
+    },
+    {
+      "id": "FlatConcrete_PV01_325123_1204226",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5727996826171875,
+      "lat": 32.5123,
+      "lon": 120.4226
+    },
+    {
+      "id": "FlatConcrete_PV01_325123_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.71673583984375,
+      "lat": 32.5123,
+      "lon": 120.4229
+    },
+    {
+      "id": "FlatConcrete_PV01_325123_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7004852294921875,
+      "lat": 32.5123,
+      "lon": 120.4232
+    },
+    {
+      "id": "FlatConcrete_PV01_325123_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5210418701171875,
+      "lat": 32.5123,
+      "lon": 120.4235
+    },
+    {
+      "id": "FlatConcrete_PV01_325123_1204237",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.30670166015625,
+      "lat": 32.5123,
+      "lon": 120.4237
+    },
+    {
+      "id": "FlatConcrete_PV01_325123_1204240",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0108642578125,
+      "lat": 32.5123,
+      "lon": 120.424
+    },
+    {
+      "id": "FlatConcrete_PV01_325125_1204224",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0329437255859375,
+      "lat": 32.5125,
+      "lon": 120.4224
+    },
+    {
+      "id": "FlatConcrete_PV01_325125_1204226",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.078033447265625,
+      "lat": 32.5125,
+      "lon": 120.4226
+    },
+    {
+      "id": "FlatConcrete_PV01_325125_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5113525390625,
+      "lat": 32.5125,
+      "lon": 120.4229
+    },
+    {
+      "id": "FlatConcrete_PV01_325125_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.6896514892578125,
+      "lat": 32.5125,
+      "lon": 120.4232
+    },
+    {
+      "id": "FlatConcrete_PV01_325125_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.718963623046875,
+      "lat": 32.5125,
+      "lon": 120.4235
+    },
+    {
+      "id": "FlatConcrete_PV01_325125_1204237",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.62158203125,
+      "lat": 32.5125,
+      "lon": 120.4237
+    },
+    {
+      "id": "FlatConcrete_PV01_325125_1204240",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0001068115234375,
+      "lat": 32.5125,
+      "lon": 120.424
+    },
+    {
+      "id": "FlatConcrete_PV01_325125_1204243",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.193206787109375,
+      "lat": 32.5125,
+      "lon": 120.4243
+    },
+    {
+      "id": "FlatConcrete_PV01_325125_1204246",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.19525146484375,
+      "lat": 32.5125,
+      "lon": 120.4246
+    },
+    {
+      "id": "FlatConcrete_PV01_325125_1204248",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0100555419921875,
+      "lat": 32.5125,
+      "lon": 120.4248
+    },
+    {
+      "id": "FlatConcrete_PV01_325127_1204226",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.050933837890625,
+      "lat": 32.5127,
+      "lon": 120.4226
+    },
+    {
+      "id": "FlatConcrete_PV01_325127_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.72808837890625,
+      "lat": 32.5127,
+      "lon": 120.4229
+    },
+    {
+      "id": "FlatConcrete_PV01_325127_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.6316986083984375,
+      "lat": 32.5127,
+      "lon": 120.4232
+    },
+    {
+      "id": "FlatConcrete_PV01_325127_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.60284423828125,
+      "lat": 32.5127,
+      "lon": 120.4235
+    },
+    {
+      "id": "FlatConcrete_PV01_325127_1204237",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3455352783203125,
+      "lat": 32.5127,
+      "lon": 120.4237
+    },
+    {
+      "id": "FlatConcrete_PV01_325127_1204243",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.43402099609375,
+      "lat": 32.5127,
+      "lon": 120.4243
+    },
+    {
+      "id": "FlatConcrete_PV01_325127_1204246",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.8077392578125,
+      "lat": 32.5127,
+      "lon": 120.4246
+    },
+    {
+      "id": "FlatConcrete_PV01_325127_1204248",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.6931610107421875,
+      "lat": 32.5127,
+      "lon": 120.4248
+    },
+    {
+      "id": "FlatConcrete_PV01_325127_1204251",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4470062255859375,
+      "lat": 32.5127,
+      "lon": 120.4251
+    },
+    {
+      "id": "FlatConcrete_PV01_325127_1204254",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1821441650390625,
+      "lat": 32.5127,
+      "lon": 120.4254
+    },
+    {
+      "id": "FlatConcrete_PV01_325130_1204227",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1415252685546875,
+      "lat": 32.513,
+      "lon": 120.4227
+    },
+    {
+      "id": "FlatConcrete_PV01_325130_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.6174468994140625,
+      "lat": 32.513,
+      "lon": 120.4229
+    },
+    {
+      "id": "FlatConcrete_PV01_325130_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.733062744140625,
+      "lat": 32.513,
+      "lon": 120.4232
+    },
+    {
+      "id": "FlatConcrete_PV01_325130_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7300872802734375,
+      "lat": 32.513,
+      "lon": 120.4235
+    },
+    {
+      "id": "FlatConcrete_PV01_325130_1204237",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2036590576171875,
+      "lat": 32.513,
+      "lon": 120.4237
+    },
+    {
+      "id": "FlatConcrete_PV01_325130_1204240",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.026885986328125,
+      "lat": 32.513,
+      "lon": 120.424
+    },
+    {
+      "id": "FlatConcrete_PV01_325130_1204243",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.55206298828125,
+      "lat": 32.513,
+      "lon": 120.4243
+    },
+    {
+      "id": "FlatConcrete_PV01_325130_1204246",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3987884521484375,
+      "lat": 32.513,
+      "lon": 120.4246
+    },
+    {
+      "id": "FlatConcrete_PV01_325130_1204248",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3824615478515625,
+      "lat": 32.513,
+      "lon": 120.4248
+    },
+    {
+      "id": "FlatConcrete_PV01_325130_1204251",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4967803955078125,
+      "lat": 32.513,
+      "lon": 120.4251
+    },
+    {
+      "id": "FlatConcrete_PV01_325130_1204254",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1575927734375,
+      "lat": 32.513,
+      "lon": 120.4254
+    },
+    {
+      "id": "FlatConcrete_PV01_325132_1204227",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.249786376953125,
+      "lat": 32.5132,
+      "lon": 120.4227
+    },
+    {
+      "id": "FlatConcrete_PV01_325132_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5890655517578125,
+      "lat": 32.5132,
+      "lon": 120.4229
+    },
+    {
+      "id": "FlatConcrete_PV01_325132_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.472015380859375,
+      "lat": 32.5132,
+      "lon": 120.4232
+    },
+    {
+      "id": "FlatConcrete_PV01_325132_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.477386474609375,
+      "lat": 32.5132,
+      "lon": 120.4235
+    },
+    {
+      "id": "FlatConcrete_PV01_325132_1204237",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0229339599609375,
+      "lat": 32.5132,
+      "lon": 120.4237
+    },
+    {
+      "id": "FlatConcrete_PV01_325132_1204240",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.133758544921875,
+      "lat": 32.5132,
+      "lon": 120.424
+    },
+    {
+      "id": "FlatConcrete_PV01_325132_1204243",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.6270751953125,
+      "lat": 32.5132,
+      "lon": 120.4243
+    },
+    {
+      "id": "FlatConcrete_PV01_325132_1204246",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.747802734375,
+      "lat": 32.5132,
+      "lon": 120.4246
+    },
+    {
+      "id": "FlatConcrete_PV01_325132_1204248",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.8361053466796875,
+      "lat": 32.5132,
+      "lon": 120.4248
+    },
+    {
+      "id": "FlatConcrete_PV01_325132_1204251",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.6019134521484375,
+      "lat": 32.5132,
+      "lon": 120.4251
+    },
+    {
+      "id": "FlatConcrete_PV01_325132_1204254",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.004119873046875,
+      "lat": 32.5132,
+      "lon": 120.4254
+    },
+    {
+      "id": "FlatConcrete_PV01_325134_1204227",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.480743408203125,
+      "lat": 32.5134,
+      "lon": 120.4227
+    },
+    {
+      "id": "FlatConcrete_PV01_325134_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7518768310546875,
+      "lat": 32.5134,
+      "lon": 120.4229
+    },
+    {
+      "id": "FlatConcrete_PV01_325134_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7476654052734375,
+      "lat": 32.5134,
+      "lon": 120.4232
+    },
+    {
+      "id": "FlatConcrete_PV01_325134_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.517120361328125,
+      "lat": 32.5134,
+      "lon": 120.4235
+    },
+    {
+      "id": "FlatConcrete_PV01_325134_1204246",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.056884765625,
+      "lat": 32.5134,
+      "lon": 120.4246
+    },
+    {
+      "id": "FlatConcrete_PV01_325134_1204248",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.302215576171875,
+      "lat": 32.5134,
+      "lon": 120.4248
+    },
+    {
+      "id": "FlatConcrete_PV01_325134_1204251",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2448577880859375,
+      "lat": 32.5134,
+      "lon": 120.4251
+    },
+    {
+      "id": "FlatConcrete_PV01_325137_1204224",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0129547119140625,
+      "lat": 32.5137,
+      "lon": 120.4224
+    },
+    {
+      "id": "FlatConcrete_PV01_325137_1204227",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.572509765625,
+      "lat": 32.5137,
+      "lon": 120.4227
+    },
+    {
+      "id": "FlatConcrete_PV01_325137_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.661712646484375,
+      "lat": 32.5137,
+      "lon": 120.4229
+    },
+    {
+      "id": "FlatConcrete_PV01_325137_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.750518798828125,
+      "lat": 32.5137,
+      "lon": 120.4232
+    },
+    {
+      "id": "FlatConcrete_PV01_325137_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2911376953125,
+      "lat": 32.5137,
+      "lon": 120.4235
+    },
+    {
+      "id": "FlatConcrete_PV01_325139_1204237",
+      "site": "PV01_SITE_01",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0083160400390625,
+      "lat": 32.5139,
+      "lon": 120.4237
+    },
+    {
+      "id": "FlatConcrete_PV01_325185_1204156",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.049468994140625,
+      "lat": 32.5185,
+      "lon": 120.4156
+    },
+    {
+      "id": "FlatConcrete_PV01_325185_1204159",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0263214111328125,
+      "lat": 32.5185,
+      "lon": 120.4159
+    },
+    {
+      "id": "FlatConcrete_PV01_325188_1204156",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3291015625,
+      "lat": 32.5188,
+      "lon": 120.4156
+    },
+    {
+      "id": "FlatConcrete_PV01_325188_1204159",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.403594970703125,
+      "lat": 32.5188,
+      "lon": 120.4159
+    },
+    {
+      "id": "FlatConcrete_PV01_325188_1204161",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2752685546875,
+      "lat": 32.5188,
+      "lon": 120.4161
+    },
+    {
+      "id": "FlatConcrete_PV01_325188_1204164",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1589813232421875,
+      "lat": 32.5188,
+      "lon": 120.4164
+    },
+    {
+      "id": "FlatConcrete_PV01_325188_1204167",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0419769287109375,
+      "lat": 32.5188,
+      "lon": 120.4167
+    },
+    {
+      "id": "FlatConcrete_PV01_325190_1204153",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0247802734375,
+      "lat": 32.519,
+      "lon": 120.4153
+    },
+    {
+      "id": "FlatConcrete_PV01_325190_1204156",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4246368408203125,
+      "lat": 32.519,
+      "lon": 120.4156
+    },
+    {
+      "id": "FlatConcrete_PV01_325190_1204159",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4244232177734375,
+      "lat": 32.519,
+      "lon": 120.4159
+    },
+    {
+      "id": "FlatConcrete_PV01_325190_1204161",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.426177978515625,
+      "lat": 32.519,
+      "lon": 120.4161
+    },
+    {
+      "id": "FlatConcrete_PV01_325190_1204164",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.422210693359375,
+      "lat": 32.519,
+      "lon": 120.4164
+    },
+    {
+      "id": "FlatConcrete_PV01_325190_1204167",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3965911865234375,
+      "lat": 32.519,
+      "lon": 120.4167
+    },
+    {
+      "id": "FlatConcrete_PV01_325190_1204170",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.262481689453125,
+      "lat": 32.519,
+      "lon": 120.417
+    },
+    {
+      "id": "FlatConcrete_PV01_325190_1204240",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0976409912109375,
+      "lat": 32.519,
+      "lon": 120.424
+    },
+    {
+      "id": "FlatConcrete_PV01_325190_1204243",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3560943603515625,
+      "lat": 32.519,
+      "lon": 120.4243
+    },
+    {
+      "id": "FlatConcrete_PV01_325190_1204246",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1886749267578125,
+      "lat": 32.519,
+      "lon": 120.4246
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204153",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.16949462890625,
+      "lat": 32.5192,
+      "lon": 120.4153
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204156",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3931427001953125,
+      "lat": 32.5192,
+      "lon": 120.4156
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204159",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.228759765625,
+      "lat": 32.5192,
+      "lon": 120.4159
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204161",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.308258056640625,
+      "lat": 32.5192,
+      "lon": 120.4161
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204164",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2893524169921875,
+      "lat": 32.5192,
+      "lon": 120.4164
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204167",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4117279052734375,
+      "lat": 32.5192,
+      "lon": 120.4167
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204170",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2077484130859375,
+      "lat": 32.5192,
+      "lon": 120.417
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204240",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.056732177734375,
+      "lat": 32.5192,
+      "lon": 120.424
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204243",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.435516357421875,
+      "lat": 32.5192,
+      "lon": 120.4243
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204246",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.33587646484375,
+      "lat": 32.5192,
+      "lon": 120.4246
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204249",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.216827392578125,
+      "lat": 32.5192,
+      "lon": 120.4249
+    },
+    {
+      "id": "FlatConcrete_PV01_325192_1204251",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.10711669921875,
+      "lat": 32.5192,
+      "lon": 120.4251
+    },
+    {
+      "id": "FlatConcrete_PV01_325194_1204170",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.076873779296875,
+      "lat": 32.5194,
+      "lon": 120.417
+    },
+    {
+      "id": "FlatConcrete_PV01_325194_1204172",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0370330810546875,
+      "lat": 32.5194,
+      "lon": 120.4172
+    },
+    {
+      "id": "FlatConcrete_PV01_325194_1204240",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.00360107421875,
+      "lat": 32.5194,
+      "lon": 120.424
+    },
+    {
+      "id": "FlatConcrete_PV01_325194_1204243",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.311920166015625,
+      "lat": 32.5194,
+      "lon": 120.4243
+    },
+    {
+      "id": "FlatConcrete_PV01_325194_1204246",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.390472412109375,
+      "lat": 32.5194,
+      "lon": 120.4246
+    },
+    {
+      "id": "FlatConcrete_PV01_325194_1204249",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.478790283203125,
+      "lat": 32.5194,
+      "lon": 120.4249
+    },
+    {
+      "id": "FlatConcrete_PV01_325194_1204251",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.038360595703125,
+      "lat": 32.5194,
+      "lon": 120.4251
+    },
+    {
+      "id": "FlatConcrete_PV01_325195_1204153",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.31512451171875,
+      "lat": 32.5195,
+      "lon": 120.4153
+    },
+    {
+      "id": "FlatConcrete_PV01_325195_1204156",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.39605712890625,
+      "lat": 32.5195,
+      "lon": 120.4156
+    },
+    {
+      "id": "FlatConcrete_PV01_325195_1204159",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0482940673828125,
+      "lat": 32.5195,
+      "lon": 120.4159
+    },
+    {
+      "id": "FlatConcrete_PV01_325195_1204164",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0474090576171875,
+      "lat": 32.5195,
+      "lon": 120.4164
+    },
+    {
+      "id": "FlatConcrete_PV01_325195_1204167",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2052154541015625,
+      "lat": 32.5195,
+      "lon": 120.4167
+    },
+    {
+      "id": "FlatConcrete_PV01_325197_1204153",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0796966552734375,
+      "lat": 32.5197,
+      "lon": 120.4153
+    },
+    {
+      "id": "FlatConcrete_PV01_325197_1204156",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.292266845703125,
+      "lat": 32.5197,
+      "lon": 120.4156
+    },
+    {
+      "id": "FlatConcrete_PV01_325197_1204159",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1246795654296875,
+      "lat": 32.5197,
+      "lon": 120.4159
+    },
+    {
+      "id": "FlatConcrete_PV01_325197_1204161",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.07354736328125,
+      "lat": 32.5197,
+      "lon": 120.4161
+    },
+    {
+      "id": "FlatConcrete_PV01_325197_1204167",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2277374267578125,
+      "lat": 32.5197,
+      "lon": 120.4167
+    },
+    {
+      "id": "FlatConcrete_PV01_325197_1204170",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.012786865234375,
+      "lat": 32.5197,
+      "lon": 120.417
+    },
+    {
+      "id": "FlatConcrete_PV01_325197_1204172",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4835357666015625,
+      "lat": 32.5197,
+      "lon": 120.4172
+    },
+    {
+      "id": "FlatConcrete_PV01_325197_1204175",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.112945556640625,
+      "lat": 32.5197,
+      "lon": 120.4175
+    },
+    {
+      "id": "FlatConcrete_PV01_325197_1204249",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.011383056640625,
+      "lat": 32.5197,
+      "lon": 120.4249
+    },
+    {
+      "id": "FlatConcrete_PV01_325197_1204251",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0068359375,
+      "lat": 32.5197,
+      "lon": 120.4251
+    },
+    {
+      "id": "FlatConcrete_PV01_325199_1204153",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.000762939453125,
+      "lat": 32.5199,
+      "lon": 120.4153
+    },
+    {
+      "id": "FlatConcrete_PV01_325199_1204156",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4024810791015625,
+      "lat": 32.5199,
+      "lon": 120.4156
+    },
+    {
+      "id": "FlatConcrete_PV01_325199_1204159",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.372711181640625,
+      "lat": 32.5199,
+      "lon": 120.4159
+    },
+    {
+      "id": "FlatConcrete_PV01_325199_1204161",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.26483154296875,
+      "lat": 32.5199,
+      "lon": 120.4161
+    },
+    {
+      "id": "FlatConcrete_PV01_325199_1204164",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.117523193359375,
+      "lat": 32.5199,
+      "lon": 120.4164
+    },
+    {
+      "id": "FlatConcrete_PV01_325199_1204167",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1575775146484375,
+      "lat": 32.5199,
+      "lon": 120.4167
+    },
+    {
+      "id": "FlatConcrete_PV01_325199_1204170",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1585693359375,
+      "lat": 32.5199,
+      "lon": 120.417
+    },
+    {
+      "id": "FlatConcrete_PV01_325199_1204172",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4920196533203125,
+      "lat": 32.5199,
+      "lon": 120.4172
+    },
+    {
+      "id": "FlatConcrete_PV01_325199_1204175",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3100128173828125,
+      "lat": 32.5199,
+      "lon": 120.4175
+    },
+    {
+      "id": "FlatConcrete_PV01_325199_1204178",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.031890869140625,
+      "lat": 32.5199,
+      "lon": 120.4178
+    },
+    {
+      "id": "FlatConcrete_PV01_325199_1204183",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1312255859375,
+      "lat": 32.5199,
+      "lon": 120.4183
+    },
+    {
+      "id": "FlatConcrete_PV01_325201_1204151",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2852630615234375,
+      "lat": 32.5201,
+      "lon": 120.4151
+    },
+    {
+      "id": "FlatConcrete_PV01_325201_1204153",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.318878173828125,
+      "lat": 32.5201,
+      "lon": 120.4153
+    },
+    {
+      "id": "FlatConcrete_PV01_325201_1204156",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.145751953125,
+      "lat": 32.5201,
+      "lon": 120.4156
+    },
+    {
+      "id": "FlatConcrete_PV01_325201_1204159",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1141815185546875,
+      "lat": 32.5201,
+      "lon": 120.4159
+    },
+    {
+      "id": "FlatConcrete_PV01_325201_1204161",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.162628173828125,
+      "lat": 32.5201,
+      "lon": 120.4161
+    },
+    {
+      "id": "FlatConcrete_PV01_325201_1204170",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2869415283203125,
+      "lat": 32.5201,
+      "lon": 120.417
+    },
+    {
+      "id": "FlatConcrete_PV01_325201_1204172",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.33563232421875,
+      "lat": 32.5201,
+      "lon": 120.4172
+    },
+    {
+      "id": "FlatConcrete_PV01_325201_1204175",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.490234375,
+      "lat": 32.5201,
+      "lon": 120.4175
+    },
+    {
+      "id": "FlatConcrete_PV01_325201_1204178",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.48382568359375,
+      "lat": 32.5201,
+      "lon": 120.4178
+    },
+    {
+      "id": "FlatConcrete_PV01_325201_1204181",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.373077392578125,
+      "lat": 32.5201,
+      "lon": 120.4181
+    },
+    {
+      "id": "FlatConcrete_PV01_325201_1204183",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1131134033203125,
+      "lat": 32.5201,
+      "lon": 120.4183
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204148",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0022125244140625,
+      "lat": 32.5204,
+      "lon": 120.4148
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204151",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.46466064453125,
+      "lat": 32.5204,
+      "lon": 120.4151
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204153",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5561370849609375,
+      "lat": 32.5204,
+      "lon": 120.4153
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204156",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0832061767578125,
+      "lat": 32.5204,
+      "lon": 120.4156
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204159",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0726776123046875,
+      "lat": 32.5204,
+      "lon": 120.4159
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204161",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.133270263671875,
+      "lat": 32.5204,
+      "lon": 120.4161
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204164",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0307769775390625,
+      "lat": 32.5204,
+      "lon": 120.4164
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204167",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0365142822265625,
+      "lat": 32.5204,
+      "lon": 120.4167
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204170",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0908660888671875,
+      "lat": 32.5204,
+      "lon": 120.417
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204172",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0927734375,
+      "lat": 32.5204,
+      "lon": 120.4172
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204175",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2135772705078125,
+      "lat": 32.5204,
+      "lon": 120.4175
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204178",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3753814697265625,
+      "lat": 32.5204,
+      "lon": 120.4178
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204181",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5110015869140625,
+      "lat": 32.5204,
+      "lon": 120.4181
+    },
+    {
+      "id": "FlatConcrete_PV01_325204_1204183",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0404815673828125,
+      "lat": 32.5204,
+      "lon": 120.4183
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204148",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0539703369140625,
+      "lat": 32.5206,
+      "lon": 120.4148
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204151",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3821868896484375,
+      "lat": 32.5206,
+      "lon": 120.4151
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204153",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5071258544921875,
+      "lat": 32.5206,
+      "lon": 120.4153
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204156",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.15631103515625,
+      "lat": 32.5206,
+      "lon": 120.4156
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204159",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0184173583984375,
+      "lat": 32.5206,
+      "lon": 120.4159
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204167",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3617706298828125,
+      "lat": 32.5206,
+      "lon": 120.4167
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204170",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3865203857421875,
+      "lat": 32.5206,
+      "lon": 120.417
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204172",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2142181396484375,
+      "lat": 32.5206,
+      "lon": 120.4172
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204175",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0978240966796875,
+      "lat": 32.5206,
+      "lon": 120.4175
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204178",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1179656982421875,
+      "lat": 32.5206,
+      "lon": 120.4178
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204181",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.286865234375,
+      "lat": 32.5206,
+      "lon": 120.4181
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204186",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1077423095703125,
+      "lat": 32.5206,
+      "lon": 120.4186
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204189",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2140045166015625,
+      "lat": 32.5206,
+      "lon": 120.4189
+    },
+    {
+      "id": "FlatConcrete_PV01_325206_1204191",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0250244140625,
+      "lat": 32.5206,
+      "lon": 120.4191
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204153",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0500335693359375,
+      "lat": 32.5208,
+      "lon": 120.4153
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204156",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.22100830078125,
+      "lat": 32.5208,
+      "lon": 120.4156
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204159",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3446044921875,
+      "lat": 32.5208,
+      "lon": 120.4159
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204161",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.190948486328125,
+      "lat": 32.5208,
+      "lon": 120.4161
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204164",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0475921630859375,
+      "lat": 32.5208,
+      "lon": 120.4164
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204167",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.38104248046875,
+      "lat": 32.5208,
+      "lon": 120.4167
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204170",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4043426513671875,
+      "lat": 32.5208,
+      "lon": 120.417
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204172",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.43609619140625,
+      "lat": 32.5208,
+      "lon": 120.4172
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204175",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4253997802734375,
+      "lat": 32.5208,
+      "lon": 120.4175
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204178",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2969818115234375,
+      "lat": 32.5208,
+      "lon": 120.4178
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204181",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2425079345703125,
+      "lat": 32.5208,
+      "lon": 120.4181
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204186",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.042816162109375,
+      "lat": 32.5208,
+      "lon": 120.4186
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204189",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.234344482421875,
+      "lat": 32.5208,
+      "lon": 120.4189
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204191",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5019378662109375,
+      "lat": 32.5208,
+      "lon": 120.4191
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204194",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.174896240234375,
+      "lat": 32.5208,
+      "lon": 120.4194
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204197",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0540008544921875,
+      "lat": 32.5208,
+      "lon": 120.4197
+    },
+    {
+      "id": "FlatConcrete_PV01_325208_1204200",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.04156494140625,
+      "lat": 32.5208,
+      "lon": 120.42
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204167",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0651702880859375,
+      "lat": 32.5211,
+      "lon": 120.4167
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204170",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4586181640625,
+      "lat": 32.5211,
+      "lon": 120.417
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204172",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4525146484375,
+      "lat": 32.5211,
+      "lon": 120.4172
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204175",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.427886962890625,
+      "lat": 32.5211,
+      "lon": 120.4175
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204178",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.47393798828125,
+      "lat": 32.5211,
+      "lon": 120.4178
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204181",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.056182861328125,
+      "lat": 32.5211,
+      "lon": 120.4181
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204186",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.40509033203125,
+      "lat": 32.5211,
+      "lon": 120.4186
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204189",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3292694091796875,
+      "lat": 32.5211,
+      "lon": 120.4189
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204191",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2017974853515625,
+      "lat": 32.5211,
+      "lon": 120.4191
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204197",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1618804931640625,
+      "lat": 32.5211,
+      "lon": 120.4197
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204200",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4491119384765625,
+      "lat": 32.5211,
+      "lon": 120.42
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204202",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4459686279296875,
+      "lat": 32.5211,
+      "lon": 120.4202
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204205",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2918548583984375,
+      "lat": 32.5211,
+      "lon": 120.4205
+    },
+    {
+      "id": "FlatConcrete_PV01_325211_1204208",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0009765625,
+      "lat": 32.5211,
+      "lon": 120.4208
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204170",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0160980224609375,
+      "lat": 32.5213,
+      "lon": 120.417
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204172",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1458740234375,
+      "lat": 32.5213,
+      "lon": 120.4172
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204175",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1139984130859375,
+      "lat": 32.5213,
+      "lon": 120.4175
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204178",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2426910400390625,
+      "lat": 32.5213,
+      "lon": 120.4178
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204183",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2037811279296875,
+      "lat": 32.5213,
+      "lon": 120.4183
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204186",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4034576416015625,
+      "lat": 32.5213,
+      "lon": 120.4186
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204189",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3278961181640625,
+      "lat": 32.5213,
+      "lon": 120.4189
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204191",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2960357666015625,
+      "lat": 32.5213,
+      "lon": 120.4191
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204197",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.392303466796875,
+      "lat": 32.5213,
+      "lon": 120.4197
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204200",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4659881591796875,
+      "lat": 32.5213,
+      "lon": 120.42
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204202",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.282440185546875,
+      "lat": 32.5213,
+      "lon": 120.4202
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204205",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2716217041015625,
+      "lat": 32.5213,
+      "lon": 120.4205
+    },
+    {
+      "id": "FlatConcrete_PV01_325213_1204208",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0001220703125,
+      "lat": 32.5213,
+      "lon": 120.4208
+    },
+    {
+      "id": "FlatConcrete_PV01_325215_1204181",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.065521240234375,
+      "lat": 32.5215,
+      "lon": 120.4181
+    },
+    {
+      "id": "FlatConcrete_PV01_325215_1204183",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.464874267578125,
+      "lat": 32.5215,
+      "lon": 120.4183
+    },
+    {
+      "id": "FlatConcrete_PV01_325215_1204186",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2685394287109375,
+      "lat": 32.5215,
+      "lon": 120.4186
+    },
+    {
+      "id": "FlatConcrete_PV01_325215_1204189",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.320343017578125,
+      "lat": 32.5215,
+      "lon": 120.4189
+    },
+    {
+      "id": "FlatConcrete_PV01_325215_1204191",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.231781005859375,
+      "lat": 32.5215,
+      "lon": 120.4191
+    },
+    {
+      "id": "FlatConcrete_PV01_325215_1204194",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.087188720703125,
+      "lat": 32.5215,
+      "lon": 120.4194
+    },
+    {
+      "id": "FlatConcrete_PV01_325215_1204197",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.337646484375,
+      "lat": 32.5215,
+      "lon": 120.4197
+    },
+    {
+      "id": "FlatConcrete_PV01_325215_1204200",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0676727294921875,
+      "lat": 32.5215,
+      "lon": 120.42
+    },
+    {
+      "id": "FlatConcrete_PV01_325215_1204202",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.131622314453125,
+      "lat": 32.5215,
+      "lon": 120.4202
+    },
+    {
+      "id": "FlatConcrete_PV01_325215_1204205",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3974609375,
+      "lat": 32.5215,
+      "lon": 120.4205
+    },
+    {
+      "id": "FlatConcrete_PV01_325217_1204194",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1573486328125,
+      "lat": 32.5217,
+      "lon": 120.4194
+    },
+    {
+      "id": "FlatConcrete_PV01_325217_1204197",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2722320556640625,
+      "lat": 32.5217,
+      "lon": 120.4197
+    },
+    {
+      "id": "FlatConcrete_PV01_325217_1204200",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.430145263671875,
+      "lat": 32.5217,
+      "lon": 120.42
+    },
+    {
+      "id": "FlatConcrete_PV01_325217_1204202",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.277618408203125,
+      "lat": 32.5217,
+      "lon": 120.4202
+    },
+    {
+      "id": "FlatConcrete_PV01_325217_1204205",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.014984130859375,
+      "lat": 32.5217,
+      "lon": 120.4205
+    },
+    {
+      "id": "FlatConcrete_PV01_325218_1204183",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1942291259765625,
+      "lat": 32.5218,
+      "lon": 120.4183
+    },
+    {
+      "id": "FlatConcrete_PV01_325218_1204186",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.287506103515625,
+      "lat": 32.5218,
+      "lon": 120.4186
+    },
+    {
+      "id": "FlatConcrete_PV01_325218_1204189",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4443359375,
+      "lat": 32.5218,
+      "lon": 120.4189
+    },
+    {
+      "id": "FlatConcrete_PV01_325218_1204191",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0830535888671875,
+      "lat": 32.5218,
+      "lon": 120.4191
+    },
+    {
+      "id": "FlatConcrete_PV01_325220_1204181",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.005950927734375,
+      "lat": 32.522,
+      "lon": 120.4181
+    },
+    {
+      "id": "FlatConcrete_PV01_325220_1204183",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.6255035400390625,
+      "lat": 32.522,
+      "lon": 120.4183
+    },
+    {
+      "id": "FlatConcrete_PV01_325220_1204186",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.665496826171875,
+      "lat": 32.522,
+      "lon": 120.4186
+    },
+    {
+      "id": "FlatConcrete_PV01_325220_1204189",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3811187744140625,
+      "lat": 32.522,
+      "lon": 120.4189
+    },
+    {
+      "id": "FlatConcrete_PV01_325220_1204194",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.24212646484375,
+      "lat": 32.522,
+      "lon": 120.4194
+    },
+    {
+      "id": "FlatConcrete_PV01_325220_1204197",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3737640380859375,
+      "lat": 32.522,
+      "lon": 120.4197
+    },
+    {
+      "id": "FlatConcrete_PV01_325220_1204200",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1575775146484375,
+      "lat": 32.522,
+      "lon": 120.42
+    },
+    {
+      "id": "FlatConcrete_PV01_325220_1204202",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2664337158203125,
+      "lat": 32.522,
+      "lon": 120.4202
+    },
+    {
+      "id": "FlatConcrete_PV01_325221_1204203",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3173980712890625,
+      "lat": 32.5221,
+      "lon": 120.4203
+    },
+    {
+      "id": "FlatConcrete_PV01_325222_1204181",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0296478271484375,
+      "lat": 32.5222,
+      "lon": 120.4181
+    },
+    {
+      "id": "FlatConcrete_PV01_325222_1204183",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.33441162109375,
+      "lat": 32.5222,
+      "lon": 120.4183
+    },
+    {
+      "id": "FlatConcrete_PV01_325222_1204186",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5495452880859375,
+      "lat": 32.5222,
+      "lon": 120.4186
+    },
+    {
+      "id": "FlatConcrete_PV01_325222_1204189",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.227630615234375,
+      "lat": 32.5222,
+      "lon": 120.4189
+    },
+    {
+      "id": "FlatConcrete_PV01_325222_1204194",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3639984130859375,
+      "lat": 32.5222,
+      "lon": 120.4194
+    },
+    {
+      "id": "FlatConcrete_PV01_325222_1204197",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.463165283203125,
+      "lat": 32.5222,
+      "lon": 120.4197
+    },
+    {
+      "id": "FlatConcrete_PV01_325222_1204200",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4272003173828125,
+      "lat": 32.5222,
+      "lon": 120.42
+    },
+    {
+      "id": "FlatConcrete_PV01_325222_1204202",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.171356201171875,
+      "lat": 32.5222,
+      "lon": 120.4202
+    },
+    {
+      "id": "FlatConcrete_PV01_325224_1204192",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2070465087890625,
+      "lat": 32.5224,
+      "lon": 120.4192
+    },
+    {
+      "id": "FlatConcrete_PV01_325224_1204194",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.51434326171875,
+      "lat": 32.5224,
+      "lon": 120.4194
+    },
+    {
+      "id": "FlatConcrete_PV01_325224_1204197",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3094482421875,
+      "lat": 32.5224,
+      "lon": 120.4197
+    },
+    {
+      "id": "FlatConcrete_PV01_325224_1204200",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.170989990234375,
+      "lat": 32.5224,
+      "lon": 120.42
+    },
+    {
+      "id": "FlatConcrete_PV01_325224_1204202",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1048736572265625,
+      "lat": 32.5224,
+      "lon": 120.4202
+    },
+    {
+      "id": "FlatConcrete_PV01_325227_1204192",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1183929443359375,
+      "lat": 32.5227,
+      "lon": 120.4192
+    },
+    {
+      "id": "FlatConcrete_PV01_325227_1204194",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4175262451171875,
+      "lat": 32.5227,
+      "lon": 120.4194
+    },
+    {
+      "id": "FlatConcrete_PV01_325227_1204197",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5915069580078125,
+      "lat": 32.5227,
+      "lon": 120.4197
+    },
+    {
+      "id": "FlatConcrete_PV01_325227_1204200",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5254058837890625,
+      "lat": 32.5227,
+      "lon": 120.42
+    },
+    {
+      "id": "FlatConcrete_PV01_325229_1204197",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 3.0517578125e-05,
+      "lat": 32.5229,
+      "lon": 120.4197
+    },
+    {
+      "id": "FlatConcrete_PV01_325229_1204200",
+      "site": "PV01_SITE_00",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0554656982421875,
+      "lat": 32.5229,
+      "lon": 120.42
+    },
+    {
+      "id": "FlatConcrete_PV01_325314_1205503",
+      "site": "PV01_SITE_07",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.02777099609375,
+      "lat": 32.5314,
+      "lon": 120.5503
+    },
+    {
+      "id": "FlatConcrete_PV01_325314_1205505",
+      "site": "PV01_SITE_07",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.3956756591796875,
+      "lat": 32.5314,
+      "lon": 120.5505
+    },
+    {
+      "id": "FlatConcrete_PV01_325314_1205508",
+      "site": "PV01_SITE_07",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1662445068359375,
+      "lat": 32.5314,
+      "lon": 120.5508
+    },
+    {
+      "id": "FlatConcrete_PV01_325314_1205511",
+      "site": "PV01_SITE_07",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0925445556640625,
+      "lat": 32.5314,
+      "lon": 120.5511
+    },
+    {
+      "id": "FlatConcrete_PV01_325316_1205478",
+      "site": "PV01_SITE_07",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.3645477294921875,
+      "lat": 32.5316,
+      "lon": 120.5478
+    },
+    {
+      "id": "FlatConcrete_PV01_325316_1205508",
+      "site": "PV01_SITE_07",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.028228759765625,
+      "lat": 32.5316,
+      "lon": 120.5508
+    },
+    {
+      "id": "FlatConcrete_PV01_325316_1205511",
+      "site": "PV01_SITE_07",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0247802734375,
+      "lat": 32.5316,
+      "lon": 120.5511
+    },
+    {
+      "id": "FlatConcrete_PV01_325317_1205369",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.006500244140625,
+      "lat": 32.5317,
+      "lon": 120.5369
+    },
+    {
+      "id": "FlatConcrete_PV01_325317_1205372",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0103302001953125,
+      "lat": 32.5317,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325317_1205375",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.001800537109375,
+      "lat": 32.5317,
+      "lon": 120.5375
+    },
+    {
+      "id": "FlatConcrete_PV01_325319_1205369",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1779937744140625,
+      "lat": 32.5319,
+      "lon": 120.5369
+    },
+    {
+      "id": "FlatConcrete_PV01_325319_1205372",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.57135009765625,
+      "lat": 32.5319,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325319_1205375",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5589447021484375,
+      "lat": 32.5319,
+      "lon": 120.5375
+    },
+    {
+      "id": "FlatConcrete_PV01_325319_1205377",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5254364013671875,
+      "lat": 32.5319,
+      "lon": 120.5377
+    },
+    {
+      "id": "FlatConcrete_PV01_325319_1205380",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5667266845703125,
+      "lat": 32.5319,
+      "lon": 120.538
+    },
+    {
+      "id": "FlatConcrete_PV01_325319_1205383",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.200836181640625,
+      "lat": 32.5319,
+      "lon": 120.5383
+    },
+    {
+      "id": "FlatConcrete_PV01_325319_1205478",
+      "site": "PV01_SITE_07",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.3675689697265625,
+      "lat": 32.5319,
+      "lon": 120.5478
+    },
+    {
+      "id": "FlatConcrete_PV01_325319_1205508",
+      "site": "PV01_SITE_07",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1336669921875,
+      "lat": 32.5319,
+      "lon": 120.5508
+    },
+    {
+      "id": "FlatConcrete_PV01_325319_1205511",
+      "site": "PV01_SITE_07",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.076019287109375,
+      "lat": 32.5319,
+      "lon": 120.5511
+    },
+    {
+      "id": "FlatConcrete_PV01_325321_1205377",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.3929901123046875,
+      "lat": 32.5321,
+      "lon": 120.5377
+    },
+    {
+      "id": "FlatConcrete_PV01_325321_1205380",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.408233642578125,
+      "lat": 32.5321,
+      "lon": 120.538
+    },
+    {
+      "id": "FlatConcrete_PV01_325321_1205383",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1385650634765625,
+      "lat": 32.5321,
+      "lon": 120.5383
+    },
+    {
+      "id": "FlatConcrete_PV01_325321_1205478",
+      "site": "PV01_SITE_07",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.3277587890625,
+      "lat": 32.5321,
+      "lon": 120.5478
+    },
+    {
+      "id": "FlatConcrete_PV01_325322_1205369",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1269683837890625,
+      "lat": 32.5322,
+      "lon": 120.5369
+    },
+    {
+      "id": "FlatConcrete_PV01_325322_1205372",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.3972320556640625,
+      "lat": 32.5322,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325322_1205375",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.3864288330078125,
+      "lat": 32.5322,
+      "lon": 120.5375
+    },
+    {
+      "id": "FlatConcrete_PV01_325324_1205369",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1917877197265625,
+      "lat": 32.5324,
+      "lon": 120.5369
+    },
+    {
+      "id": "FlatConcrete_PV01_325324_1205372",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5658416748046875,
+      "lat": 32.5324,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325324_1205375",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.559173583984375,
+      "lat": 32.5324,
+      "lon": 120.5375
+    },
+    {
+      "id": "FlatConcrete_PV01_325324_1205377",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5642242431640625,
+      "lat": 32.5324,
+      "lon": 120.5377
+    },
+    {
+      "id": "FlatConcrete_PV01_325324_1205380",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5792388916015625,
+      "lat": 32.5324,
+      "lon": 120.538
+    },
+    {
+      "id": "FlatConcrete_PV01_325324_1205383",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.190155029296875,
+      "lat": 32.5324,
+      "lon": 120.5383
+    },
+    {
+      "id": "FlatConcrete_PV01_325325_1205372",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5482940673828125,
+      "lat": 32.5325,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325325_1205380",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5411529541015625,
+      "lat": 32.5325,
+      "lon": 120.538
+    },
+    {
+      "id": "FlatConcrete_PV01_325326_1205369",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.20135498046875,
+      "lat": 32.5326,
+      "lon": 120.5369
+    },
+    {
+      "id": "FlatConcrete_PV01_325326_1205372",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5592193603515625,
+      "lat": 32.5326,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325326_1205375",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5087890625,
+      "lat": 32.5326,
+      "lon": 120.5375
+    },
+    {
+      "id": "FlatConcrete_PV01_325326_1205377",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.518157958984375,
+      "lat": 32.5326,
+      "lon": 120.5377
+    },
+    {
+      "id": "FlatConcrete_PV01_325326_1205380",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5259857177734375,
+      "lat": 32.5326,
+      "lon": 120.538
+    },
+    {
+      "id": "FlatConcrete_PV01_325326_1205383",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1595001220703125,
+      "lat": 32.5326,
+      "lon": 120.5383
+    },
+    {
+      "id": "FlatConcrete_PV01_325328_1205369",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.241729736328125,
+      "lat": 32.5328,
+      "lon": 120.5369
+    },
+    {
+      "id": "FlatConcrete_PV01_325328_1205372",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.6572418212890625,
+      "lat": 32.5328,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325328_1205375",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.597625732421875,
+      "lat": 32.5328,
+      "lon": 120.5375
+    },
+    {
+      "id": "FlatConcrete_PV01_325328_1205377",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.6493377685546875,
+      "lat": 32.5328,
+      "lon": 120.5377
+    },
+    {
+      "id": "FlatConcrete_PV01_325328_1205380",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.6546783447265625,
+      "lat": 32.5328,
+      "lon": 120.538
+    },
+    {
+      "id": "FlatConcrete_PV01_325328_1205383",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.195526123046875,
+      "lat": 32.5328,
+      "lon": 120.5383
+    },
+    {
+      "id": "FlatConcrete_PV01_325331_1205369",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.213653564453125,
+      "lat": 32.5331,
+      "lon": 120.5369
+    },
+    {
+      "id": "FlatConcrete_PV01_325331_1205372",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5781707763671875,
+      "lat": 32.5331,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325331_1205375",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.531524658203125,
+      "lat": 32.5331,
+      "lon": 120.5375
+    },
+    {
+      "id": "FlatConcrete_PV01_325331_1205377",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.593475341796875,
+      "lat": 32.5331,
+      "lon": 120.5377
+    },
+    {
+      "id": "FlatConcrete_PV01_325331_1205380",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.6053924560546875,
+      "lat": 32.5331,
+      "lon": 120.538
+    },
+    {
+      "id": "FlatConcrete_PV01_325331_1205383",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1671600341796875,
+      "lat": 32.5331,
+      "lon": 120.5383
+    },
+    {
+      "id": "FlatConcrete_PV01_325332_1205345",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.221649169921875,
+      "lat": 32.5332,
+      "lon": 120.5345
+    },
+    {
+      "id": "FlatConcrete_PV01_325332_1205378",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.555328369140625,
+      "lat": 32.5332,
+      "lon": 120.5378
+    },
+    {
+      "id": "FlatConcrete_PV01_325333_1205369",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.2294158935546875,
+      "lat": 32.5333,
+      "lon": 120.5369
+    },
+    {
+      "id": "FlatConcrete_PV01_325333_1205372",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5877227783203125,
+      "lat": 32.5333,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325333_1205375",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.51763916015625,
+      "lat": 32.5333,
+      "lon": 120.5375
+    },
+    {
+      "id": "FlatConcrete_PV01_325333_1205377",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5795135498046875,
+      "lat": 32.5333,
+      "lon": 120.5377
+    },
+    {
+      "id": "FlatConcrete_PV01_325333_1205380",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5809173583984375,
+      "lat": 32.5333,
+      "lon": 120.538
+    },
+    {
+      "id": "FlatConcrete_PV01_325333_1205383",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1527557373046875,
+      "lat": 32.5333,
+      "lon": 120.5383
+    },
+    {
+      "id": "FlatConcrete_PV01_325335_1205369",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.2174224853515625,
+      "lat": 32.5335,
+      "lon": 120.5369
+    },
+    {
+      "id": "FlatConcrete_PV01_325335_1205372",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5529632568359375,
+      "lat": 32.5335,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325335_1205375",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.505767822265625,
+      "lat": 32.5335,
+      "lon": 120.5375
+    },
+    {
+      "id": "FlatConcrete_PV01_325335_1205377",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.582977294921875,
+      "lat": 32.5335,
+      "lon": 120.5377
+    },
+    {
+      "id": "FlatConcrete_PV01_325335_1205380",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.59307861328125,
+      "lat": 32.5335,
+      "lon": 120.538
+    },
+    {
+      "id": "FlatConcrete_PV01_325335_1205383",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1460418701171875,
+      "lat": 32.5335,
+      "lon": 120.5383
+    },
+    {
+      "id": "FlatConcrete_PV01_325338_1205369",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.197601318359375,
+      "lat": 32.5338,
+      "lon": 120.5369
+    },
+    {
+      "id": "FlatConcrete_PV01_325338_1205372",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.587890625,
+      "lat": 32.5338,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325338_1205375",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5264739990234375,
+      "lat": 32.5338,
+      "lon": 120.5375
+    },
+    {
+      "id": "FlatConcrete_PV01_325338_1205377",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.570556640625,
+      "lat": 32.5338,
+      "lon": 120.5377
+    },
+    {
+      "id": "FlatConcrete_PV01_325338_1205380",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.561614990234375,
+      "lat": 32.5338,
+      "lon": 120.538
+    },
+    {
+      "id": "FlatConcrete_PV01_325338_1205383",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.12591552734375,
+      "lat": 32.5338,
+      "lon": 120.5383
+    },
+    {
+      "id": "FlatConcrete_PV01_325354_1205353",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.008758544921875,
+      "lat": 32.5354,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325354_1205356",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.000335693359375,
+      "lat": 32.5354,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325356_1205353",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4772796630859375,
+      "lat": 32.5356,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325356_1205356",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.657867431640625,
+      "lat": 32.5356,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325356_1205358",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.652252197265625,
+      "lat": 32.5356,
+      "lon": 120.5358
+    },
+    {
+      "id": "FlatConcrete_PV01_325356_1205361",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.644866943359375,
+      "lat": 32.5356,
+      "lon": 120.5361
+    },
+    {
+      "id": "FlatConcrete_PV01_325356_1205364",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.605804443359375,
+      "lat": 32.5356,
+      "lon": 120.5364
+    },
+    {
+      "id": "FlatConcrete_PV01_325356_1205367",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4116058349609375,
+      "lat": 32.5356,
+      "lon": 120.5367
+    },
+    {
+      "id": "FlatConcrete_PV01_325358_1205361",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.279541015625,
+      "lat": 32.5358,
+      "lon": 120.5361
+    },
+    {
+      "id": "FlatConcrete_PV01_325358_1205364",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.318450927734375,
+      "lat": 32.5358,
+      "lon": 120.5364
+    },
+    {
+      "id": "FlatConcrete_PV01_325358_1205367",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.2114105224609375,
+      "lat": 32.5358,
+      "lon": 120.5367
+    },
+    {
+      "id": "FlatConcrete_PV01_325359_1205353",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.173583984375,
+      "lat": 32.5359,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325359_1205356",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.2441253662109375,
+      "lat": 32.5359,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325359_1205358",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.22381591796875,
+      "lat": 32.5359,
+      "lon": 120.5358
+    },
+    {
+      "id": "FlatConcrete_PV01_325361_1205353",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4334716796875,
+      "lat": 32.5361,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325361_1205356",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5198211669921875,
+      "lat": 32.5361,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325361_1205359",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.457794189453125,
+      "lat": 32.5361,
+      "lon": 120.5359
+    },
+    {
+      "id": "FlatConcrete_PV01_325361_1205361",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4976043701171875,
+      "lat": 32.5361,
+      "lon": 120.5361
+    },
+    {
+      "id": "FlatConcrete_PV01_325361_1205364",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5613861083984375,
+      "lat": 32.5361,
+      "lon": 120.5364
+    },
+    {
+      "id": "FlatConcrete_PV01_325361_1205367",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.3258514404296875,
+      "lat": 32.5361,
+      "lon": 120.5367
+    },
+    {
+      "id": "FlatConcrete_PV01_325363_1205353",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4808349609375,
+      "lat": 32.5363,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325363_1205356",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5353546142578125,
+      "lat": 32.5363,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325363_1205359",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.455474853515625,
+      "lat": 32.5363,
+      "lon": 120.5359
+    },
+    {
+      "id": "FlatConcrete_PV01_325363_1205361",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.510040283203125,
+      "lat": 32.5363,
+      "lon": 120.5361
+    },
+    {
+      "id": "FlatConcrete_PV01_325363_1205364",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.533050537109375,
+      "lat": 32.5363,
+      "lon": 120.5364
+    },
+    {
+      "id": "FlatConcrete_PV01_325363_1205367",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.358917236328125,
+      "lat": 32.5363,
+      "lon": 120.5367
+    },
+    {
+      "id": "FlatConcrete_PV01_325365_1205353",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4011077880859375,
+      "lat": 32.5365,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325365_1205356",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4774627685546875,
+      "lat": 32.5365,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325365_1205359",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4480743408203125,
+      "lat": 32.5365,
+      "lon": 120.5359
+    },
+    {
+      "id": "FlatConcrete_PV01_325365_1205361",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5060882568359375,
+      "lat": 32.5365,
+      "lon": 120.5361
+    },
+    {
+      "id": "FlatConcrete_PV01_325365_1205364",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5029449462890625,
+      "lat": 32.5365,
+      "lon": 120.5364
+    },
+    {
+      "id": "FlatConcrete_PV01_325365_1205367",
+      "site": "PV01_SITE_02",
+      "roof_type": "FlatConcrete",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.3276519775390625,
+      "lat": 32.5365,
+      "lon": 120.5367
+    },
+    {
+      "id": "FlatConcrete_PV01_325407_1205351",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.193634033203125,
+      "lat": 32.5407,
+      "lon": 120.5351
+    },
+    {
+      "id": "FlatConcrete_PV01_325409_1205351",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4584503173828125,
+      "lat": 32.5409,
+      "lon": 120.5351
+    },
+    {
+      "id": "FlatConcrete_PV01_325412_1205351",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.63787841796875,
+      "lat": 32.5412,
+      "lon": 120.5351
+    },
+    {
+      "id": "FlatConcrete_PV01_325412_1205353",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.856719970703125,
+      "lat": 32.5412,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325412_1205356",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.636322021484375,
+      "lat": 32.5412,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325412_1205359",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5776519775390625,
+      "lat": 32.5412,
+      "lon": 120.5359
+    },
+    {
+      "id": "FlatConcrete_PV01_325412_1205362",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.230438232421875,
+      "lat": 32.5412,
+      "lon": 120.5362
+    },
+    {
+      "id": "FlatConcrete_PV01_325412_1205364",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.536529541015625,
+      "lat": 32.5412,
+      "lon": 120.5364
+    },
+    {
+      "id": "FlatConcrete_PV01_325412_1205367",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5156707763671875,
+      "lat": 32.5412,
+      "lon": 120.5367
+    },
+    {
+      "id": "FlatConcrete_PV01_325412_1205370",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5311279296875,
+      "lat": 32.5412,
+      "lon": 120.537
+    },
+    {
+      "id": "FlatConcrete_PV01_325412_1205372",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.432403564453125,
+      "lat": 32.5412,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325414_1205351",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.671661376953125,
+      "lat": 32.5414,
+      "lon": 120.5351
+    },
+    {
+      "id": "FlatConcrete_PV01_325414_1205353",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.93206787109375,
+      "lat": 32.5414,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325414_1205356",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.8827667236328125,
+      "lat": 32.5414,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325414_1205359",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.756561279296875,
+      "lat": 32.5414,
+      "lon": 120.5359
+    },
+    {
+      "id": "FlatConcrete_PV01_325414_1205362",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.279266357421875,
+      "lat": 32.5414,
+      "lon": 120.5362
+    },
+    {
+      "id": "FlatConcrete_PV01_325414_1205364",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.67071533203125,
+      "lat": 32.5414,
+      "lon": 120.5364
+    },
+    {
+      "id": "FlatConcrete_PV01_325414_1205367",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5834503173828125,
+      "lat": 32.5414,
+      "lon": 120.5367
+    },
+    {
+      "id": "FlatConcrete_PV01_325414_1205370",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.674102783203125,
+      "lat": 32.5414,
+      "lon": 120.537
+    },
+    {
+      "id": "FlatConcrete_PV01_325414_1205372",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5641937255859375,
+      "lat": 32.5414,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325416_1205351",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5303497314453125,
+      "lat": 32.5416,
+      "lon": 120.5351
+    },
+    {
+      "id": "FlatConcrete_PV01_325416_1205353",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.71466064453125,
+      "lat": 32.5416,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325416_1205356",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7032470703125,
+      "lat": 32.5416,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325416_1205359",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.601165771484375,
+      "lat": 32.5416,
+      "lon": 120.5359
+    },
+    {
+      "id": "FlatConcrete_PV01_325416_1205362",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2958221435546875,
+      "lat": 32.5416,
+      "lon": 120.5362
+    },
+    {
+      "id": "FlatConcrete_PV01_325416_1205364",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.686859130859375,
+      "lat": 32.5416,
+      "lon": 120.5364
+    },
+    {
+      "id": "FlatConcrete_PV01_325416_1205367",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5937652587890625,
+      "lat": 32.5416,
+      "lon": 120.5367
+    },
+    {
+      "id": "FlatConcrete_PV01_325416_1205370",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.68890380859375,
+      "lat": 32.5416,
+      "lon": 120.537
+    },
+    {
+      "id": "FlatConcrete_PV01_325416_1205372",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4078369140625,
+      "lat": 32.5416,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325418_1205367",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.015960693359375,
+      "lat": 32.5418,
+      "lon": 120.5367
+    },
+    {
+      "id": "FlatConcrete_PV01_325418_1205370",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0389862060546875,
+      "lat": 32.5418,
+      "lon": 120.537
+    },
+    {
+      "id": "FlatConcrete_PV01_325418_1205372",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.040557861328125,
+      "lat": 32.5418,
+      "lon": 120.5372
+    },
+    {
+      "id": "FlatConcrete_PV01_325419_1205351",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5714263916015625,
+      "lat": 32.5419,
+      "lon": 120.5351
+    },
+    {
+      "id": "FlatConcrete_PV01_325419_1205353",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7273101806640625,
+      "lat": 32.5419,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325419_1205356",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.701812744140625,
+      "lat": 32.5419,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325419_1205359",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.568572998046875,
+      "lat": 32.5419,
+      "lon": 120.5359
+    },
+    {
+      "id": "FlatConcrete_PV01_325419_1205364",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.002410888671875,
+      "lat": 32.5419,
+      "lon": 120.5364
+    },
+    {
+      "id": "FlatConcrete_PV01_325421_1205351",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.6047210693359375,
+      "lat": 32.5421,
+      "lon": 120.5351
+    },
+    {
+      "id": "FlatConcrete_PV01_325421_1205353",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7381134033203125,
+      "lat": 32.5421,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325421_1205356",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7526702880859375,
+      "lat": 32.5421,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325421_1205359",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5759124755859375,
+      "lat": 32.5421,
+      "lon": 120.5359
+    },
+    {
+      "id": "FlatConcrete_PV01_325423_1205351",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.506103515625,
+      "lat": 32.5423,
+      "lon": 120.5351
+    },
+    {
+      "id": "FlatConcrete_PV01_325423_1205353",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.625091552734375,
+      "lat": 32.5423,
+      "lon": 120.5353
+    },
+    {
+      "id": "FlatConcrete_PV01_325423_1205356",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7083587646484375,
+      "lat": 32.5423,
+      "lon": 120.5356
+    },
+    {
+      "id": "FlatConcrete_PV01_325423_1205359",
+      "site": "PV01_SITE_03",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5446319580078125,
+      "lat": 32.5423,
+      "lon": 120.5359
+    },
+    {
+      "id": "FlatConcrete_PV01_325572_1204537",
+      "site": "PV01_SITE_05",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1237945556640625,
+      "lat": 32.5572,
+      "lon": 120.4537
+    },
+    {
+      "id": "FlatConcrete_PV01_325572_1204539",
+      "site": "PV01_SITE_05",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2333221435546875,
+      "lat": 32.5572,
+      "lon": 120.4539
+    },
+    {
+      "id": "FlatConcrete_PV01_325572_1204542",
+      "site": "PV01_SITE_05",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2080230712890625,
+      "lat": 32.5572,
+      "lon": 120.4542
+    },
+    {
+      "id": "FlatConcrete_PV01_325572_1204545",
+      "site": "PV01_SITE_05",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.205596923828125,
+      "lat": 32.5572,
+      "lon": 120.4545
+    },
+    {
+      "id": "FlatConcrete_PV01_325572_1204547",
+      "site": "PV01_SITE_05",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0291748046875,
+      "lat": 32.5572,
+      "lon": 120.4547
+    },
+    {
+      "id": "FlatConcrete_PV01_325574_1204537",
+      "site": "PV01_SITE_05",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0215911865234375,
+      "lat": 32.5574,
+      "lon": 120.4537
+    },
+    {
+      "id": "FlatConcrete_PV01_325574_1204539",
+      "site": "PV01_SITE_05",
+      "roof_type": "FlatConcrete",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0107879638671875,
+      "lat": 32.5574,
+      "lon": 120.4539
+    },
+    {
+      "id": "SteelTile_PV01_325139_1204224",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.222991943359375,
+      "lat": 32.5139,
+      "lon": 120.4224
+    },
+    {
+      "id": "SteelTile_PV01_325139_1204227",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.9376373291015625,
+      "lat": 32.5139,
+      "lon": 120.4227
+    },
+    {
+      "id": "SteelTile_PV01_325139_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.837158203125,
+      "lat": 32.5139,
+      "lon": 120.4229
+    },
+    {
+      "id": "SteelTile_PV01_325139_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.6815643310546875,
+      "lat": 32.5139,
+      "lon": 120.4232
+    },
+    {
+      "id": "SteelTile_PV01_325139_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0539093017578125,
+      "lat": 32.5139,
+      "lon": 120.4235
+    },
+    {
+      "id": "SteelTile_PV01_325141_1204224",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.163421630859375,
+      "lat": 32.5141,
+      "lon": 120.4224
+    },
+    {
+      "id": "SteelTile_PV01_325141_1204227",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.30938720703125,
+      "lat": 32.5141,
+      "lon": 120.4227
+    },
+    {
+      "id": "SteelTile_PV01_325141_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.4974517822265625,
+      "lat": 32.5141,
+      "lon": 120.4229
+    },
+    {
+      "id": "SteelTile_PV01_325141_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5987701416015625,
+      "lat": 32.5141,
+      "lon": 120.4232
+    },
+    {
+      "id": "SteelTile_PV01_325141_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0004730224609375,
+      "lat": 32.5141,
+      "lon": 120.4235
+    },
+    {
+      "id": "SteelTile_PV01_325141_1204237",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.78985595703125,
+      "lat": 32.5141,
+      "lon": 120.4237
+    },
+    {
+      "id": "SteelTile_PV01_325141_1204240",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.6706695556640625,
+      "lat": 32.5141,
+      "lon": 120.424
+    },
+    {
+      "id": "SteelTile_PV01_325141_1204243",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.388946533203125,
+      "lat": 32.5141,
+      "lon": 120.4243
+    },
+    {
+      "id": "SteelTile_PV01_325141_1204246",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1053466796875,
+      "lat": 32.5141,
+      "lon": 120.4246
+    },
+    {
+      "id": "SteelTile_PV01_325143_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.1878509521484375,
+      "lat": 32.5143,
+      "lon": 120.4235
+    },
+    {
+      "id": "SteelTile_PV01_325143_1204237",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3982086181640625,
+      "lat": 32.5143,
+      "lon": 120.4237
+    },
+    {
+      "id": "SteelTile_PV01_325143_1204240",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7085723876953125,
+      "lat": 32.5143,
+      "lon": 120.424
+    },
+    {
+      "id": "SteelTile_PV01_325143_1204243",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.915283203125,
+      "lat": 32.5143,
+      "lon": 120.4243
+    },
+    {
+      "id": "SteelTile_PV01_325143_1204246",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.8720245361328125,
+      "lat": 32.5143,
+      "lon": 120.4246
+    },
+    {
+      "id": "SteelTile_PV01_325143_1204248",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0023040771484375,
+      "lat": 32.5143,
+      "lon": 120.4248
+    },
+    {
+      "id": "SteelTile_PV01_325144_1204224",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.6539459228515625,
+      "lat": 32.5144,
+      "lon": 120.4224
+    },
+    {
+      "id": "SteelTile_PV01_325144_1204227",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.89300537109375,
+      "lat": 32.5144,
+      "lon": 120.4227
+    },
+    {
+      "id": "SteelTile_PV01_325144_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.69061279296875,
+      "lat": 32.5144,
+      "lon": 120.4229
+    },
+    {
+      "id": "SteelTile_PV01_325144_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.457489013671875,
+      "lat": 32.5144,
+      "lon": 120.4232
+    },
+    {
+      "id": "SteelTile_PV01_325146_1204224",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.3396759033203125,
+      "lat": 32.5146,
+      "lon": 120.4224
+    },
+    {
+      "id": "SteelTile_PV01_325146_1204227",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5867462158203125,
+      "lat": 32.5146,
+      "lon": 120.4227
+    },
+    {
+      "id": "SteelTile_PV01_325146_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.84771728515625,
+      "lat": 32.5146,
+      "lon": 120.4229
+    },
+    {
+      "id": "SteelTile_PV01_325146_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.862884521484375,
+      "lat": 32.5146,
+      "lon": 120.4232
+    },
+    {
+      "id": "SteelTile_PV01_325146_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.8709564208984375,
+      "lat": 32.5146,
+      "lon": 120.4235
+    },
+    {
+      "id": "SteelTile_PV01_325146_1204237",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7978668212890625,
+      "lat": 32.5146,
+      "lon": 120.4237
+    },
+    {
+      "id": "SteelTile_PV01_325146_1204240",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.5378875732421875,
+      "lat": 32.5146,
+      "lon": 120.424
+    },
+    {
+      "id": "SteelTile_PV01_325146_1204243",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.335845947265625,
+      "lat": 32.5146,
+      "lon": 120.4243
+    },
+    {
+      "id": "SteelTile_PV01_325146_1204246",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2490692138671875,
+      "lat": 32.5146,
+      "lon": 120.4246
+    },
+    {
+      "id": "SteelTile_PV01_325148_1204229",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0176544189453125,
+      "lat": 32.5148,
+      "lon": 120.4229
+    },
+    {
+      "id": "SteelTile_PV01_325148_1204232",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2431488037109375,
+      "lat": 32.5148,
+      "lon": 120.4232
+    },
+    {
+      "id": "SteelTile_PV01_325148_1204235",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.494873046875,
+      "lat": 32.5148,
+      "lon": 120.4235
+    },
+    {
+      "id": "SteelTile_PV01_325148_1204237",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.7502593994140625,
+      "lat": 32.5148,
+      "lon": 120.4237
+    },
+    {
+      "id": "SteelTile_PV01_325148_1204240",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.880218505859375,
+      "lat": 32.5148,
+      "lon": 120.424
+    },
+    {
+      "id": "SteelTile_PV01_325148_1204243",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.851531982421875,
+      "lat": 32.5148,
+      "lon": 120.4243
+    },
+    {
+      "id": "SteelTile_PV01_325148_1204246",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.250946044921875,
+      "lat": 32.5148,
+      "lon": 120.4246
+    },
+    {
+      "id": "SteelTile_PV01_325150_1204240",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.135406494140625,
+      "lat": 32.515,
+      "lon": 120.424
+    },
+    {
+      "id": "SteelTile_PV01_325150_1204243",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.417510986328125,
+      "lat": 32.515,
+      "lon": 120.4243
+    },
+    {
+      "id": "SteelTile_PV01_325150_1204246",
+      "site": "PV01_SITE_01",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.02423095703125,
+      "lat": 32.515,
+      "lon": 120.4246
+    },
+    {
+      "id": "SteelTile_PV01_325206_1204230",
+      "site": "PV01_SITE_00",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0311431884765625,
+      "lat": 32.5206,
+      "lon": 120.423
+    },
+    {
+      "id": "SteelTile_PV01_325206_1204232",
+      "site": "PV01_SITE_00",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.0022735595703125,
+      "lat": 32.5206,
+      "lon": 120.4232
+    },
+    {
+      "id": "SteelTile_PV01_325208_1204230",
+      "site": "PV01_SITE_00",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.055908203125,
+      "lat": 32.5208,
+      "lon": 120.423
+    },
+    {
+      "id": "SteelTile_PV01_325208_1204232",
+      "site": "PV01_SITE_00",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.2744903564453125,
+      "lat": 32.5208,
+      "lon": 120.4232
+    },
+    {
+      "id": "SteelTile_PV01_325208_1204235",
+      "site": "PV01_SITE_00",
+      "roof_type": "SteelTile",
+      "partition": "query_set",
+      "positive": true,
+      "target_fraction": 0.093170166015625,
+      "lat": 32.5208,
+      "lon": 120.4235
+    },
+    {
+      "id": "SteelTile_PV01_325355_1205525",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0217437744140625,
+      "lat": 32.5355,
+      "lon": 120.5525
+    },
+    {
+      "id": "SteelTile_PV01_325355_1205527",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0161590576171875,
+      "lat": 32.5355,
+      "lon": 120.5527
+    },
+    {
+      "id": "SteelTile_PV01_325355_1205530",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.00457763671875,
+      "lat": 32.5355,
+      "lon": 120.553
+    },
+    {
+      "id": "SteelTile_PV01_325358_1205525",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.84552001953125,
+      "lat": 32.5358,
+      "lon": 120.5525
+    },
+    {
+      "id": "SteelTile_PV01_325358_1205527",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.7668304443359375,
+      "lat": 32.5358,
+      "lon": 120.5527
+    },
+    {
+      "id": "SteelTile_PV01_325358_1205530",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8763275146484375,
+      "lat": 32.5358,
+      "lon": 120.553
+    },
+    {
+      "id": "SteelTile_PV01_325358_1205533",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4230804443359375,
+      "lat": 32.5358,
+      "lon": 120.5533
+    },
+    {
+      "id": "SteelTile_PV01_325360_1205525",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8627777099609375,
+      "lat": 32.536,
+      "lon": 120.5525
+    },
+    {
+      "id": "SteelTile_PV01_325360_1205527",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.772308349609375,
+      "lat": 32.536,
+      "lon": 120.5527
+    },
+    {
+      "id": "SteelTile_PV01_325360_1205530",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.88433837890625,
+      "lat": 32.536,
+      "lon": 120.553
+    },
+    {
+      "id": "SteelTile_PV01_325360_1205533",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.433349609375,
+      "lat": 32.536,
+      "lon": 120.5533
+    },
+    {
+      "id": "SteelTile_PV01_325362_1205525",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8782958984375,
+      "lat": 32.5362,
+      "lon": 120.5525
+    },
+    {
+      "id": "SteelTile_PV01_325362_1205527",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.754669189453125,
+      "lat": 32.5362,
+      "lon": 120.5527
+    },
+    {
+      "id": "SteelTile_PV01_325362_1205530",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.870758056640625,
+      "lat": 32.5362,
+      "lon": 120.553
+    },
+    {
+      "id": "SteelTile_PV01_325362_1205533",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.435821533203125,
+      "lat": 32.5362,
+      "lon": 120.5533
+    },
+    {
+      "id": "SteelTile_PV01_325365_1205522",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0146026611328125,
+      "lat": 32.5365,
+      "lon": 120.5522
+    },
+    {
+      "id": "SteelTile_PV01_325365_1205525",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8661651611328125,
+      "lat": 32.5365,
+      "lon": 120.5525
+    },
+    {
+      "id": "SteelTile_PV01_325365_1205527",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.7546539306640625,
+      "lat": 32.5365,
+      "lon": 120.5527
+    },
+    {
+      "id": "SteelTile_PV01_325365_1205530",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8646392822265625,
+      "lat": 32.5365,
+      "lon": 120.553
+    },
+    {
+      "id": "SteelTile_PV01_325365_1205533",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4240570068359375,
+      "lat": 32.5365,
+      "lon": 120.5533
+    },
+    {
+      "id": "SteelTile_PV01_325367_1205522",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0333099365234375,
+      "lat": 32.5367,
+      "lon": 120.5522
+    },
+    {
+      "id": "SteelTile_PV01_325367_1205525",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8454742431640625,
+      "lat": 32.5367,
+      "lon": 120.5525
+    },
+    {
+      "id": "SteelTile_PV01_325367_1205528",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.7617950439453125,
+      "lat": 32.5367,
+      "lon": 120.5528
+    },
+    {
+      "id": "SteelTile_PV01_325367_1205530",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8834228515625,
+      "lat": 32.5367,
+      "lon": 120.553
+    },
+    {
+      "id": "SteelTile_PV01_325367_1205533",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4026641845703125,
+      "lat": 32.5367,
+      "lon": 120.5533
+    },
+    {
+      "id": "SteelTile_PV01_325369_1205522",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0579833984375,
+      "lat": 32.5369,
+      "lon": 120.5522
+    },
+    {
+      "id": "SteelTile_PV01_325369_1205525",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8522186279296875,
+      "lat": 32.5369,
+      "lon": 120.5525
+    },
+    {
+      "id": "SteelTile_PV01_325369_1205528",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.7637481689453125,
+      "lat": 32.5369,
+      "lon": 120.5528
+    },
+    {
+      "id": "SteelTile_PV01_325369_1205530",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8463592529296875,
+      "lat": 32.5369,
+      "lon": 120.553
+    },
+    {
+      "id": "SteelTile_PV01_325369_1205533",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.3748779296875,
+      "lat": 32.5369,
+      "lon": 120.5533
+    },
+    {
+      "id": "SteelTile_PV01_325372_1205522",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.0831298828125,
+      "lat": 32.5372,
+      "lon": 120.5522
+    },
+    {
+      "id": "SteelTile_PV01_325372_1205525",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8744354248046875,
+      "lat": 32.5372,
+      "lon": 120.5525
+    },
+    {
+      "id": "SteelTile_PV01_325372_1205528",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.773284912109375,
+      "lat": 32.5372,
+      "lon": 120.5528
+    },
+    {
+      "id": "SteelTile_PV01_325372_1205530",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8772430419921875,
+      "lat": 32.5372,
+      "lon": 120.553
+    },
+    {
+      "id": "SteelTile_PV01_325372_1205533",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.3602294921875,
+      "lat": 32.5372,
+      "lon": 120.5533
+    },
+    {
+      "id": "SteelTile_PV01_325374_1205522",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.1000518798828125,
+      "lat": 32.5374,
+      "lon": 120.5522
+    },
+    {
+      "id": "SteelTile_PV01_325374_1205525",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.8623504638671875,
+      "lat": 32.5374,
+      "lon": 120.5525
+    },
+    {
+      "id": "SteelTile_PV01_325374_1205528",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.7650299072265625,
+      "lat": 32.5374,
+      "lon": 120.5528
+    },
+    {
+      "id": "SteelTile_PV01_325374_1205530",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.87890625,
+      "lat": 32.5374,
+      "lon": 120.553
+    },
+    {
+      "id": "SteelTile_PV01_325374_1205533",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.33538818359375,
+      "lat": 32.5374,
+      "lon": 120.5533
+    },
+    {
+      "id": "SteelTile_PV01_325376_1205522",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.067535400390625,
+      "lat": 32.5376,
+      "lon": 120.5522
+    },
+    {
+      "id": "SteelTile_PV01_325376_1205525",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5315093994140625,
+      "lat": 32.5376,
+      "lon": 120.5525
+    },
+    {
+      "id": "SteelTile_PV01_325376_1205528",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.4880828857421875,
+      "lat": 32.5376,
+      "lon": 120.5528
+    },
+    {
+      "id": "SteelTile_PV01_325376_1205530",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.5889129638671875,
+      "lat": 32.5376,
+      "lon": 120.553
+    },
+    {
+      "id": "SteelTile_PV01_325376_1205533",
+      "site": "PV01_SITE_04",
+      "roof_type": "SteelTile",
+      "partition": "support_pool",
+      "positive": true,
+      "target_fraction": 0.221282958984375,
+      "lat": 32.5376,
+      "lon": 120.5533
+    }
+  ],
+  "episodes": [
+    {
+      "k": 1,
+      "episode": 0,
+      "support_ids": [
+        "FlatConcrete_PV01_325361_1205361"
+      ],
+      "support_sites": [
+        "PV01_SITE_02"
+      ]
+    },
+    {
+      "k": 1,
+      "episode": 1,
+      "support_ids": [
+        "Brick_PV01_325279_1203778"
+      ],
+      "support_sites": [
+        "PV01_SITE_13"
+      ]
+    },
+    {
+      "k": 1,
+      "episode": 2,
+      "support_ids": [
+        "Brick_PV01_325228_1203848"
+      ],
+      "support_sites": [
+        "PV01_SITE_15"
+      ]
+    },
+    {
+      "k": 1,
+      "episode": 3,
+      "support_ids": [
+        "Brick_PV01_325173_1203750"
+      ],
+      "support_sites": [
+        "PV01_SITE_20"
+      ]
+    },
+    {
+      "k": 1,
+      "episode": 4,
+      "support_ids": [
+        "FlatConcrete_PV01_325361_1205361"
+      ],
+      "support_sites": [
+        "PV01_SITE_02"
+      ]
+    },
+    {
+      "k": 3,
+      "episode": 0,
+      "support_ids": [
+        "Brick_PV01_325228_1203848",
+        "Brick_PV01_325279_1203778",
+        "Brick_PV01_325535_1203833"
+      ],
+      "support_sites": [
+        "PV01_SITE_15",
+        "PV01_SITE_13",
+        "PV01_SITE_24"
+      ]
+    },
+    {
+      "k": 3,
+      "episode": 1,
+      "support_ids": [
+        "Brick_PV01_325173_1203750",
+        "Brick_PV01_325483_1204512",
+        "Brick_PV01_325535_1203833"
+      ],
+      "support_sites": [
+        "PV01_SITE_20",
+        "PV01_SITE_30",
+        "PV01_SITE_24"
+      ]
+    },
+    {
+      "k": 3,
+      "episode": 2,
+      "support_ids": [
+        "Brick_PV01_325279_1203778",
+        "Brick_PV01_325483_1204512",
+        "Brick_PV01_325535_1203833"
+      ],
+      "support_sites": [
+        "PV01_SITE_13",
+        "PV01_SITE_30",
+        "PV01_SITE_24"
+      ]
+    },
+    {
+      "k": 3,
+      "episode": 3,
+      "support_ids": [
+        "Brick_PV01_325173_1203750",
+        "Brick_PV01_325228_1203848",
+        "Brick_PV01_325321_1205489"
+      ],
+      "support_sites": [
+        "PV01_SITE_20",
+        "PV01_SITE_15",
+        "PV01_SITE_07"
+      ]
+    },
+    {
+      "k": 3,
+      "episode": 4,
+      "support_ids": [
+        "Brick_PV01_325173_1203750",
+        "Brick_PV01_325535_1203833",
+        "FlatConcrete_PV01_325361_1205361"
+      ],
+      "support_sites": [
+        "PV01_SITE_20",
+        "PV01_SITE_24",
+        "PV01_SITE_02"
+      ]
+    },
+    {
+      "k": 5,
+      "episode": 0,
+      "support_ids": [
+        "Brick_PV01_325173_1203750",
+        "Brick_PV01_325228_1203848",
+        "Brick_PV01_325279_1203778",
+        "Brick_PV01_325483_1204512",
+        "Brick_PV01_325535_1203833"
+      ],
+      "support_sites": [
+        "PV01_SITE_20",
+        "PV01_SITE_15",
+        "PV01_SITE_13",
+        "PV01_SITE_30",
+        "PV01_SITE_24"
+      ]
+    },
+    {
+      "k": 5,
+      "episode": 1,
+      "support_ids": [
+        "Brick_PV01_325173_1203750",
+        "Brick_PV01_325228_1203848",
+        "Brick_PV01_325483_1204512",
+        "Brick_PV01_325535_1203833",
+        "FlatConcrete_PV01_325361_1205361"
+      ],
+      "support_sites": [
+        "PV01_SITE_20",
+        "PV01_SITE_15",
+        "PV01_SITE_30",
+        "PV01_SITE_24",
+        "PV01_SITE_02"
+      ]
+    },
+    {
+      "k": 5,
+      "episode": 2,
+      "support_ids": [
+        "Brick_PV01_324972_1203801",
+        "Brick_PV01_325173_1203750",
+        "Brick_PV01_325279_1203778",
+        "Brick_PV01_325321_1205489",
+        "SteelTile_PV01_325362_1205527"
+      ],
+      "support_sites": [
+        "PV01_SITE_09",
+        "PV01_SITE_20",
+        "PV01_SITE_13",
+        "PV01_SITE_07",
+        "PV01_SITE_04"
+      ]
+    },
+    {
+      "k": 5,
+      "episode": 3,
+      "support_ids": [
+        "Brick_PV01_324972_1203801",
+        "Brick_PV01_325279_1203778",
+        "Brick_PV01_325483_1204512",
+        "Brick_PV01_325535_1203833",
+        "FlatConcrete_PV01_325361_1205361"
+      ],
+      "support_sites": [
+        "PV01_SITE_09",
+        "PV01_SITE_13",
+        "PV01_SITE_30",
+        "PV01_SITE_24",
+        "PV01_SITE_02"
+      ]
+    },
+    {
+      "k": 5,
+      "episode": 4,
+      "support_ids": [
+        "Brick_PV01_324972_1203801",
+        "Brick_PV01_325279_1203778",
+        "Brick_PV01_325321_1205489",
+        "Brick_PV01_325535_1203833",
+        "FlatConcrete_PV01_325361_1205361"
+      ],
+      "support_sites": [
+        "PV01_SITE_09",
+        "PV01_SITE_13",
+        "PV01_SITE_07",
+        "PV01_SITE_24",
+        "PV01_SITE_02"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+=== PV01 (0.1m UAV Rooftop) EXTERNAL MODEL COMPARISON (7 Complete Models) ===
+Split: 9 support sites (172 imgs, 9 used) / 24 query sites (470 imgs) | min_dist=0.27 km
+Episodes/K: 5 | Total Elapsed: 111.9 min
+
+--- K=1 (24 geo sites, 470 query imgs x 5 eps) ---
+  A0_B0_32_Ref                : Dice=0.3276 IoU=0.2499 BF1@1=0.0377 BF1@2=0.0595 Rec=0.5827 Prec=0.3411 Sm<5R=0.5579
+  PerSAM_F_SAM_ViTL           : Dice=0.2805 IoU=0.2254 BF1@1=0.1170 BF1@2=0.1608 Rec=0.4301 Prec=0.3371 Sm<5R=0.3126
+  UNet_ResNet50_FT            : Dice=0.2100 IoU=0.1519 BF1@1=0.0235 BF1@2=0.0388 Rec=0.2274 Prec=0.3015 Sm<5R=0.1419
+  SegFormer_MiTB2_FT          : Dice=0.5032 IoU=0.4233 BF1@1=0.1366 BF1@2=0.2077 Rec=0.6286 Prec=0.5602 Sm<5R=0.4616
+  DINOv3SAT_ConvHead_FT       : Dice=0.4336 IoU=0.3513 BF1@1=0.1144 BF1@2=0.1744 Rec=0.7019 Prec=0.4312 Sm<5R=0.6473
+  Matcher_DINOv3SAT_SAM_ViTL  : Dice=0.4920 IoU=0.4122 BF1@1=0.2384 BF1@2=0.3271 Rec=0.6469 Prec=0.5329 Sm<5R=0.6248
+  Ours_v31_PBDC_Pure          : Dice=0.4120 IoU=0.3530 BF1@1=0.1327 BF1@2=0.1897 Rec=0.5104 Prec=0.4491 Sm<5R=0.4837
+
+--- K=3 (24 geo sites, 470 query imgs x 5 eps) ---
+  A0_B0_32_Ref                : Dice=0.7284 IoU=0.6374 BF1@1=0.1598 BF1@2=0.2529 Rec=0.8273 Prec=0.7184 Sm<5R=0.7003
+  PerSAM_F_SAM_ViTL           : Dice=0.4322 IoU=0.3685 BF1@1=0.1960 BF1@2=0.2740 Rec=0.4662 Prec=0.5576 Sm<5R=0.3343
+  UNet_ResNet50_FT            : Dice=0.7265 IoU=0.6427 BF1@1=0.2139 BF1@2=0.3189 Rec=0.7878 Prec=0.7251 Sm<5R=0.6027
+  SegFormer_MiTB2_FT          : Dice=0.7111 IoU=0.6361 BF1@1=0.2146 BF1@2=0.3232 Rec=0.7130 Prec=0.7712 Sm<5R=0.5233
+  DINOv3SAT_ConvHead_FT       : Dice=0.6933 IoU=0.6153 BF1@1=0.1937 BF1@2=0.2958 Rec=0.7426 Prec=0.7183 Sm<5R=0.6208
+  Matcher_DINOv3SAT_SAM_ViTL  : Dice=0.6513 IoU=0.5630 BF1@1=0.3214 BF1@2=0.4406 Rec=0.8035 Prec=0.6713 Sm<5R=0.7823
+  Ours_v31_PBDC_Pure          : Dice=0.7576 IoU=0.6857 BF1@1=0.2853 BF1@2=0.4239 Rec=0.8298 Prec=0.7752 Sm<5R=0.7235
+
+--- K=5 (24 geo sites, 470 query imgs x 5 eps) ---
+  A0_B0_32_Ref                : Dice=0.7200 IoU=0.6258 BF1@1=0.1553 BF1@2=0.2399 Rec=0.8757 Prec=0.6718 Sm<5R=0.7399
+  PerSAM_F_SAM_ViTL           : Dice=0.3785 IoU=0.3127 BF1@1=0.1552 BF1@2=0.2186 Rec=0.4781 Prec=0.4649 Sm<5R=0.3335
+  UNet_ResNet50_FT            : Dice=0.7800 IoU=0.7033 BF1@1=0.2165 BF1@2=0.3402 Rec=0.8298 Prec=0.7691 Sm<5R=0.6577
+  SegFormer_MiTB2_FT          : Dice=0.7586 IoU=0.6931 BF1@1=0.2596 BF1@2=0.3931 Rec=0.7496 Prec=0.8116 Sm<5R=0.5308
+  DINOv3SAT_ConvHead_FT       : Dice=0.7302 IoU=0.6634 BF1@1=0.2126 BF1@2=0.3178 Rec=0.7104 Prec=0.7890 Sm<5R=0.5375
+  Matcher_DINOv3SAT_SAM_ViTL  : Dice=0.6422 IoU=0.5597 BF1@1=0.3251 BF1@2=0.4476 Rec=0.7519 Prec=0.6925 Sm<5R=0.6997
+  Ours_v31_PBDC_Pure          : Dice=0.7899 IoU=0.7227 BF1@1=0.3152 BF1@2=0.4564 Rec=0.8360 Prec=0.7997 Sm<5R=0.7164
+
+--- K=5 Per-Rooftop-Material Breakdown (Image Macro Dice / BF1@2) ---
+  Brick          (n=113): A0=0.6636/0.2220 | PerSAM=0.3701/0.2164 | UNet=0.7465/0.3256 | SegFormer=0.7561/0.3972 | DINOv3SAT=0.6968/0.2995 | Matcher=0.6257/0.4474 | Ours=0.7597/0.4094
+  FlatConcrete   (n=309): A0=0.7534/0.2248 | PerSAM=0.3096/0.1725 | UNet=0.7518/0.3537 | SegFormer=0.5485/0.2382 | DINOv3SAT=0.7752/0.3439 | Matcher=0.6787/0.4249 | Ours=0.8144/0.4589
+  SteelTile      (n= 48): A0=0.8436/0.2164 | PerSAM=0.5798/0.2020 | UNet=0.8490/0.2666 | SegFormer=0.6880/0.2003 | DINOv3SAT=0.8337/0.2908 | Matcher=0.8015/0.3563 | Ours=0.7739/0.3827
+
+--- Paired Site Bootstrap Deltas (24 Geo Sites, Ours vs External / Baseline) ---
+[Ours_vs_A0_B0_32_Ref]
+  K=1: dDice=+0.0844 CI[0.0371, 0.1258] (19/24) | dBF1@2=+0.1302 CI[0.1075, 0.1553] | dSm<5R=-0.0742
+  K=3: dDice=+0.0292 CI[0.0094, 0.0495] (18/24) | dBF1@2=+0.1710 CI[0.1373, 0.2092] | dSm<5R=+0.0232
+  K=5: dDice=+0.0700 CI[0.0379, 0.0993] (22/24) | dBF1@2=+0.2164 CI[0.1713, 0.268] | dSm<5R=-0.0235
+[Ours_vs_PerSAM_F_SAM_ViTL]
+  K=1: dDice=+0.1315 CI[0.0847, 0.1799] (22/24) | dBF1@2=+0.0289 CI[-0.0089, 0.0682] | dSm<5R=+0.1711
+  K=3: dDice=+0.3254 CI[0.251, 0.4017] (23/24) | dBF1@2=+0.1498 CI[0.0637, 0.2357] | dSm<5R=+0.3892
+  K=5: dDice=+0.4115 CI[0.3498, 0.473] (24/24) | dBF1@2=+0.2378 CI[0.1624, 0.3149] | dSm<5R=+0.3829
+[Ours_vs_UNet_ResNet50_FT]
+  K=1: dDice=+0.2020 CI[0.1636, 0.2405] (23/24) | dBF1@2=+0.1509 CI[0.1221, 0.1813] | dSm<5R=+0.3418
+  K=3: dDice=+0.0310 CI[0.0004, 0.0637] (17/24) | dBF1@2=+0.1050 CI[0.0596, 0.1513] | dSm<5R=+0.1209
+  K=5: dDice=+0.0099 CI[-0.0364, 0.0529] (17/24) | dBF1@2=+0.1162 CI[0.0635, 0.173] | dSm<5R=+0.0587
+[Ours_vs_SegFormer_MiTB2_FT]
+  K=1: dDice=-0.0912 CI[-0.1231, -0.0603] (3/24) | dBF1@2=-0.0180 CI[-0.0404, 0.0048] | dSm<5R=+0.0221
+  K=3: dDice=+0.0464 CI[0.0102, 0.0842] (16/24) | dBF1@2=+0.1007 CI[0.0534, 0.1496] | dSm<5R=+0.2002
+  K=5: dDice=+0.0313 CI[-0.0216, 0.0857] (13/24) | dBF1@2=+0.0633 CI[-0.0008, 0.1298] | dSm<5R=+0.1856
+[Ours_vs_DINOv3SAT_ConvHead_FT]
+  K=1: dDice=-0.0217 CI[-0.0669, 0.0207] (8/24) | dBF1@2=+0.0153 CI[-0.0198, 0.0519] | dSm<5R=-0.1636
+  K=3: dDice=+0.0642 CI[0.0294, 0.1034] (19/24) | dBF1@2=+0.1281 CI[0.0739, 0.183] | dSm<5R=+0.1027
+  K=5: dDice=+0.0597 CI[0.0141, 0.1089] (18/24) | dBF1@2=+0.1385 CI[0.0652, 0.2084] | dSm<5R=+0.1789
+[Ours_vs_Matcher_DINOv3SAT_SAM_ViTL]
+  K=1: dDice=-0.0800 CI[-0.1315, -0.0281] (5/24) | dBF1@2=-0.1374 CI[-0.1918, -0.0847] | dSm<5R=-0.1411
+  K=3: dDice=+0.1063 CI[0.0595, 0.1506] (20/24) | dBF1@2=-0.0167 CI[-0.0854, 0.05] | dSm<5R=-0.0588
+  K=5: dDice=+0.1478 CI[0.0955, 0.1983] (20/24) | dBF1@2=+0.0088 CI[-0.0659, 0.081] | dSm<5R=+0.0167
