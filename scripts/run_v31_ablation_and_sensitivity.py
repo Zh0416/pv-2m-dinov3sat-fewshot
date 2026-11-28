@@ -206,12 +206,12 @@ def _eval_pv100_all(
     pipe_default = ThreeModulePipeline(core_cfg, refiner_cfg=None)
     pbdc_specs = _pbdc_v31_ablation_specs()
 
-    # Part 1: v3.1 Aligned Internal Ablation (K=1, 3, 5)
+    # Part 1: v3.1 Aligned Internal Ablation (K=1, 3: A3 + A4_v31; K=5: A3 + A4_v31 + I3/I4/I5)
     abl_methods: dict[str, dict[str, Any]] = defaultdict(dict)
-    k5_a3_cache: list[tuple[list[dict[str, Any]], dict[str, np.ndarray], dict[str, np.ndarray], dict[str, np.ndarray]]] = []
     for k in (1, 3, 5):
         eps = ep_by_k[k]
         ev_map: dict[str, list[dict]] = defaultdict(list)
+        k_specs = pbdc_specs if k == 5 else [pbdc_specs[0]]
         for ep in eps:
             q_ids = ep["query_ids"]
             q_recs = [rec_by_id[q] for q in q_ids]
@@ -219,47 +219,62 @@ def _eval_pv100_all(
             p_a3, s32_a3 = out_a3.to_legacy_outputs()
             m_a3 = out_a3.coarse_masks_512()
             ev_map["A3_Plus_M3A_Aff"].append(evaluate_binary_episode(q_recs, m_a3, p_a3, s32_a3))
-            if k == 5:
-                k5_a3_cache.append((q_recs, m_a3, p_a3, s32_a3))
-            refined = _run_pbdc_batch(q_ids, m_a3, p_a3, pbdc_specs, rgb_hwc_by_id, k, workers)
-            for name, _ in pbdc_specs:
+            refined = _run_pbdc_batch(q_ids, m_a3, p_a3, k_specs, rgb_hwc_by_id, k, workers)
+            for name, _ in k_specs:
                 ev_map[name].append(evaluate_binary_episode(q_recs, refined[name], p_a3, s32_a3))
         for mname, evs in ev_map.items():
-            abl_methods[mname][str(k)] = aggregate_binary_episodes(evs, expected_episodes=episodes_per_fold)
+            abl_methods[mname][str(k)] = aggregate_binary_episodes(evs, episodes_per_fold=episodes_per_fold)
         print(f"[PV100 2m] v3.1 Ablation K={k} done ({(time.perf_counter()-t0)/60:.1f}m)", flush=True)
 
-    abl_comp = {
-        f"v31_vs_{ref}": {
-            str(k): compare_methods(abl_methods["A4_v31_PBDC_Pure"][str(k)], abl_methods[ref][str(k)])
+    abl_comp: dict[str, dict[str, Any]] = {
+        "v31_vs_A3_Plus_M3A_Aff": {
+            str(k): compare_methods(abl_methods["A4_v31_PBDC_Pure"][str(k)], abl_methods["A3_Plus_M3A_Aff"][str(k)])
             for k in (1, 3, 5)
         }
-        for ref in ("A3_Plus_M3A_Aff", "I3_v31_wo_AsymCore", "I4_v31_wo_SemPull", "I5_v31_wo_SectorFB")
     }
+    for ref in ("I3_v31_wo_AsymCore", "I4_v31_wo_SemPull", "I5_v31_wo_SectorFB"):
+        abl_comp[f"v31_vs_{ref}"] = {
+            "5": compare_methods(abl_methods["A4_v31_PBDC_Pure"]["5"], abl_methods[ref]["5"])
+        }
 
-    # Part 2: 6-Parameter Sensitivity Sweep (K=5)
+    # Part 2: 6-Parameter Sensitivity Sweep (K=5, 2 eps/fold = all 50 sites covered twice)
     sens_res: dict[str, list[dict[str, Any]]] = {}
     pbdc_default_spec = [("v31", PBDCConfig(enabled=True))]
-    eps5 = ep_by_k[5]
+    sens_ep_per_fold = 2
+    eps5_sens = [ep for ep in ep_by_k[5] if int(ep["episode"]) < sens_ep_per_fold]
+
+    k5_sens_a3: list[tuple[list[dict[str, Any]], dict[str, np.ndarray], dict[str, np.ndarray], dict[str, np.ndarray]]] = []
+    ev_def_sens = []
+    for ep in eps5_sens:
+        q_ids = ep["query_ids"]
+        q_recs = [rec_by_id[q] for q in q_ids]
+        out_a3 = pipe_default.run_episode(caches, tokens_by_key, mask_by_id, aff_default, ep["support_ids"], q_ids)
+        p_a3, s32_a3 = out_a3.to_legacy_outputs()
+        m_a3 = out_a3.coarse_masks_512()
+        k5_sens_a3.append((q_recs, m_a3, p_a3, s32_a3))
+        ref_def = _run_pbdc_batch(q_ids, m_a3, p_a3, pbdc_default_spec, rgb_hwc_by_id, 5, workers)["v31"]
+        ev_def_sens.append(evaluate_binary_episode(q_recs, ref_def, p_a3, s32_a3))
+    def_macro_sens = aggregate_binary_episodes(ev_def_sens, episodes_per_fold=sens_ep_per_fold)["macro"]
 
     for spec in SENSITIVITY_SPECS:
         key = spec["key"]
         rows: list[dict[str, Any]] = []
         if spec["kind"] == "pbdc":
-            sweep_specs = [(str(v), _make_pbdc_cfg(key, v)) for v in spec["values"]]
+            non_def = [v for v in spec["values"] if v != spec["default"]]
+            sweep_specs = [(str(v), _make_pbdc_cfg(key, v)) for v in non_def]
             ev_by_v: dict[str, list[dict]] = defaultdict(list)
-            for q_recs, m_a3, p_a3, s32_a3 in k5_a3_cache:
+            for q_recs, m_a3, p_a3, s32_a3 in k5_sens_a3:
                 q_ids = [r["id"] for r in q_recs]
                 refined = _run_pbdc_batch(q_ids, m_a3, p_a3, sweep_specs, rgb_hwc_by_id, 5, workers)
                 for sv, _ in sweep_specs:
                     ev_by_v[sv].append(evaluate_binary_episode(q_recs, refined[sv], p_a3, s32_a3))
             for v in spec["values"]:
-                agg = aggregate_binary_episodes(ev_by_v[str(v)], expected_episodes=episodes_per_fold)
-                m = agg["macro"]
+                m = def_macro_sens if v == spec["default"] else aggregate_binary_episodes(ev_by_v[str(v)], episodes_per_fold=sens_ep_per_fold)["macro"]
                 rows.append({"value": v, "dice": m["dice"], "iou": m["iou"], "bf1_1px": m["bf1_1px"], "bf1_2px": m["boundary_f1"], "neg_fp": m["neg_fp"]})
         else:
             for v in spec["values"]:
                 if v == spec["default"]:
-                    m = abl_methods["A4_v31_PBDC_Pure"]["5"]["macro"]
+                    m = def_macro_sens
                     rows.append({"value": v, "dice": m["dice"], "iou": m["iou"], "bf1_1px": m["bf1_1px"], "bf1_2px": m["boundary_f1"], "neg_fp": m["neg_fp"]})
                     continue
                 if spec["kind"] == "aff":
@@ -270,7 +285,7 @@ def _eval_pv100_all(
                     aff_v = aff_default
                 pipe_v = ThreeModulePipeline(cfg_v, refiner_cfg=None)
                 evs = []
-                for ep in eps5:
+                for ep in eps5_sens:
                     q_ids = ep["query_ids"]
                     q_recs = [rec_by_id[q] for q in q_ids]
                     out_v = pipe_v.run_episode(caches, tokens_by_key, mask_by_id, aff_v, ep["support_ids"], q_ids)
@@ -278,7 +293,7 @@ def _eval_pv100_all(
                     m_v = out_v.coarse_masks_512()
                     ref_v = _run_pbdc_batch(q_ids, m_v, p_v, pbdc_default_spec, rgb_hwc_by_id, 5, workers)["v31"]
                     evs.append(evaluate_binary_episode(q_recs, ref_v, p_v, s32_v))
-                agg = aggregate_binary_episodes(evs, expected_episodes=episodes_per_fold)
+                agg = aggregate_binary_episodes(evs, episodes_per_fold=sens_ep_per_fold)
                 m = agg["macro"]
                 rows.append({"value": v, "dice": m["dice"], "iou": m["iou"], "bf1_1px": m["bf1_1px"], "bf1_2px": m["boundary_f1"], "neg_fp": m["neg_fp"]})
         sens_res[key] = rows
@@ -335,57 +350,70 @@ def _eval_pv663_all(
     pipe_default = ThreeModulePipeline(core_cfg, refiner_cfg=None)
     pbdc_specs = _pbdc_v31_ablation_specs()
 
-    # Part 1: v3.1 Aligned Internal Ablation (K=1, 3, 5)
+    # Part 1: v3.1 Aligned Internal Ablation (K=1 full 5 eps: A3 + A4_v31; K=5 3 eps: A3 + A4_v31 + I3/I4/I5)
     abl_methods: dict[str, dict[str, Any]] = defaultdict(dict)
-    k5_a3_cache: list[tuple[dict[str, np.ndarray], dict[str, np.ndarray], dict[str, np.ndarray]]] = []
-    for k in (1, 3, 5):
-        eps = ep_by_k[k]
+    k5_sens_a3: tuple[dict[str, np.ndarray], dict[str, np.ndarray], dict[str, np.ndarray]] | None = None
+    k5_sens_def_ev: dict[str, Any] | None = None
+
+    for k, k_eps_limit, k_specs in (
+        (1, episodes_per_k, [pbdc_specs[0]]),
+        (5, 3, pbdc_specs),
+    ):
+        eps = ep_by_k[k][:k_eps_limit]
         ev_map: dict[str, list[dict]] = defaultdict(list)
-        for ep in eps:
+        for ep_i, ep in enumerate(eps):
             out_a3 = pipe_default.run_episode(caches, tokens_by_key, mask_512_by_id, aff_default, ep["support_ids"], query_ids)
             p_a3, s32_a3 = out_a3.to_legacy_outputs()
             m_a3 = out_a3.coarse_masks_512()
             ev_map["A3_Plus_M3A_Aff"].append(evaluate_pv663_episode(query_records, m_a3, p_a3, s32_a3))
-            if k == 5:
-                k5_a3_cache.append((m_a3, p_a3, s32_a3))
-            refined = _run_pbdc_batch(query_ids, m_a3, p_a3, pbdc_specs, rgb_512_by_id, k, workers)
-            for name, _ in pbdc_specs:
-                ev_map[name].append(evaluate_pv663_episode(query_records, refined[name], p_a3, s32_a3))
+            refined = _run_pbdc_batch(query_ids, m_a3, p_a3, k_specs, rgb_512_by_id, k, workers)
+            for name, _ in k_specs:
+                ev_item = evaluate_pv663_episode(query_records, refined[name], p_a3, s32_a3)
+                ev_map[name].append(ev_item)
+                if k == 5 and ep_i == 0 and name == "A4_v31_PBDC_Pure":
+                    k5_sens_a3 = (m_a3, p_a3, s32_a3)
+                    k5_sens_def_ev = ev_item
         for mname, evs in ev_map.items():
             abl_methods[mname][str(k)] = aggregate_pv663_episodes(evs, expected_episodes=len(eps))
-        print(f"[PV663 0.8m] v3.1 Ablation K={k} done ({(time.perf_counter()-t0)/60:.1f}m)", flush=True)
+        print(f"[PV663 0.8m] v3.1 Ablation K={k} ({len(eps)} eps) done ({(time.perf_counter()-t0)/60:.1f}m)", flush=True)
 
-    abl_comp = {
-        f"v31_vs_{ref}": {
-            str(k): compare_pv663_methods(abl_methods["A4_v31_PBDC_Pure"][str(k)], abl_methods[ref][str(k)])
-            for k in (1, 3, 5)
+    abl_comp: dict[str, dict[str, Any]] = {
+        "v31_vs_A3_Plus_M3A_Aff": {
+            str(k): compare_pv663_methods(abl_methods["A4_v31_PBDC_Pure"][str(k)], abl_methods["A3_Plus_M3A_Aff"][str(k)])
+            for k in (1, 5)
         }
-        for ref in ("A3_Plus_M3A_Aff", "I3_v31_wo_AsymCore", "I4_v31_wo_SemPull", "I5_v31_wo_SectorFB")
     }
+    for ref in ("I3_v31_wo_AsymCore", "I4_v31_wo_SemPull", "I5_v31_wo_SectorFB"):
+        abl_comp[f"v31_vs_{ref}"] = {
+            "5": compare_pv663_methods(abl_methods["A4_v31_PBDC_Pure"]["5"], abl_methods[ref]["5"])
+        }
 
-    # Part 2: 6-Parameter Sensitivity Sweep (K=5, full 5 eps x 510 imgs)
+    # Part 2: 6-Parameter Sensitivity Sweep (K=5, Ep0 covering ALL 116 geo sites & 510 query imgs)
+    assert k5_sens_a3 is not None and k5_sens_def_ev is not None
+    def_macro_sens = aggregate_pv663_episodes([k5_sens_def_ev], expected_episodes=1)["macro"]
     sens_res: dict[str, list[dict[str, Any]]] = {}
     pbdc_default_spec = [("v31", PBDCConfig(enabled=True))]
-    eps5 = ep_by_k[5]
+    ep5_0 = ep_by_k[5][0]
 
     for spec in SENSITIVITY_SPECS:
         key = spec["key"]
         rows: list[dict[str, Any]] = []
         if spec["kind"] == "pbdc":
-            sweep_specs = [(str(v), _make_pbdc_cfg(key, v)) for v in spec["values"]]
-            ev_by_v: dict[str, list[dict]] = defaultdict(list)
-            for m_a3, p_a3, s32_a3 in k5_a3_cache:
-                refined = _run_pbdc_batch(query_ids, m_a3, p_a3, sweep_specs, rgb_512_by_id, 5, workers)
-                for sv, _ in sweep_specs:
-                    ev_by_v[sv].append(evaluate_pv663_episode(query_records, refined[sv], p_a3, s32_a3))
+            non_def = [v for v in spec["values"] if v != spec["default"]]
+            sweep_specs = [(str(v), _make_pbdc_cfg(key, v)) for v in non_def]
+            m_a3, p_a3, s32_a3 = k5_sens_a3
+            refined = _run_pbdc_batch(query_ids, m_a3, p_a3, sweep_specs, rgb_512_by_id, 5, workers)
             for v in spec["values"]:
-                agg = aggregate_pv663_episodes(ev_by_v[str(v)], expected_episodes=len(eps5))
-                m = agg["macro"]
+                if v == spec["default"]:
+                    m = def_macro_sens
+                else:
+                    ev_v = evaluate_pv663_episode(query_records, refined[str(v)], p_a3, s32_a3)
+                    m = aggregate_pv663_episodes([ev_v], expected_episodes=1)["macro"]
                 rows.append({"value": v, "dice": m["dice"], "iou": m["iou"], "bf1_1px": m["bf1_1px"], "bf1_2px": m["boundary_f1"]})
         else:
             for v in spec["values"]:
                 if v == spec["default"]:
-                    m = abl_methods["A4_v31_PBDC_Pure"]["5"]["macro"]
+                    m = def_macro_sens
                     rows.append({"value": v, "dice": m["dice"], "iou": m["iou"], "bf1_1px": m["bf1_1px"], "bf1_2px": m["boundary_f1"]})
                     continue
                 if spec["kind"] == "aff":
@@ -395,15 +423,12 @@ def _eval_pv663_all(
                     cfg_v = replace(core_cfg, **{key: float(v)})
                     aff_v = aff_default
                 pipe_v = ThreeModulePipeline(cfg_v, refiner_cfg=None)
-                evs = []
-                for ep in eps5:
-                    out_v = pipe_v.run_episode(caches, tokens_by_key, mask_512_by_id, aff_v, ep["support_ids"], query_ids)
-                    p_v, s32_v = out_v.to_legacy_outputs()
-                    m_v = out_v.coarse_masks_512()
-                    ref_v = _run_pbdc_batch(query_ids, m_v, p_v, pbdc_default_spec, rgb_512_by_id, 5, workers)["v31"]
-                    evs.append(evaluate_pv663_episode(query_records, ref_v, p_v, s32_v))
-                agg = aggregate_pv663_episodes(evs, expected_episodes=len(eps5))
-                m = agg["macro"]
+                out_v = pipe_v.run_episode(caches, tokens_by_key, mask_512_by_id, aff_v, ep5_0["support_ids"], query_ids)
+                p_v, s32_v = out_v.to_legacy_outputs()
+                m_v = out_v.coarse_masks_512()
+                ref_v = _run_pbdc_batch(query_ids, m_v, p_v, pbdc_default_spec, rgb_512_by_id, 5, workers)["v31"]
+                ev_v = evaluate_pv663_episode(query_records, ref_v, p_v, s32_v)
+                m = aggregate_pv663_episodes([ev_v], expected_episodes=1)["macro"]
                 rows.append({"value": v, "dice": m["dice"], "iou": m["iou"], "bf1_1px": m["bf1_1px"], "bf1_2px": m["boundary_f1"]})
         sens_res[key] = rows
         print(f"[PV663 0.8m] Sensitivity {key} done ({(time.perf_counter()-t0)/60:.1f}m)", flush=True)
@@ -463,8 +488,15 @@ def format_report(summary: dict[str, Any]) -> str:
         ds = summary[ds_key]
         lines.append(f"\n================ {ds_label}: v3.1 INTERNAL ABLATION ================")
         for k in ("1", "3", "5"):
+            present = [
+                mname
+                for mname in ("A3_Plus_M3A_Aff", "A4_v31_PBDC_Pure", "I3_v31_wo_AsymCore", "I4_v31_wo_SemPull", "I5_v31_wo_SectorFB")
+                if k in ds["ablation"]["methods"].get(mname, {})
+            ]
+            if not present:
+                continue
             lines.append(f"--- K={k} ---")
-            for mname in ("A3_Plus_M3A_Aff", "A4_v31_PBDC_Pure", "I3_v31_wo_AsymCore", "I4_v31_wo_SemPull", "I5_v31_wo_SectorFB"):
+            for mname in present:
                 m = ds["ablation"]["methods"][mname][k]["macro"]
                 neg_s = f" NegFP={m['neg_fp']:.4f}" if "neg_fp" in m else ""
                 lines.append(
@@ -475,11 +507,14 @@ def format_report(summary: dict[str, Any]) -> str:
         lines.append("--- Paired Site Bootstrap Deltas (A4_v31 vs Ablated, positive = mechanism helps) ---")
         for cname, cdict in ds["ablation"]["comparisons"].items():
             lines.append(f"[{cname}]")
-            for k in ("1", "3", "5"):
+            for k in sorted(cdict.keys(), key=int):
                 c = cdict[k]
+                bf1_1_s = ""
+                if "bf1_1px" in c:
+                    bf1_1_s = f"dBF1@1={c['bf1_1px']['mean_delta']:+.4f} CI{[round(x,4) for x in c['bf1_1px']['ci95']]} | "
                 lines.append(
                     f"  K={k}: dDice={c['dice']['mean_delta']:+.4f} CI{[round(x,4) for x in c['dice']['ci95']]} | "
-                    f"dBF1@1={c['bf1_1px']['mean_delta']:+.4f} CI{[round(x,4) for x in c['bf1_1px']['ci95']]} | "
+                    f"{bf1_1_s}"
                     f"dBF1@2={c['boundary_f1']['mean_delta']:+.4f} CI{[round(x,4) for x in c['boundary_f1']['ci95']]}"
                 )
 
